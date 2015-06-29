@@ -1,0 +1,9 @@
+{
+    "name": "moontunes",
+    "version": "0.0.0",
+    "mappings": {
+        "montage": "./node_modules/montage/"
+    },
+	"bundle": ["ui/main.reel"],
+	"shared": 4
+}
