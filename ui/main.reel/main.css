@@ -1,18 +1,19 @@
 html {
     position: absolute;
-    top: 0;
+    top:  0;
     left: 0;
     bottom: 0;
     right: 0;
     background: black;
-    background-repeat: no-repeat;
+    /*background-repeat: no-repeat;*/
     background-position: center center;
-    background-size: auto 100%;
-    background-image: url(../../assets/image/moontunes-bg.jpg);
+    /*background-size: auto 100%;*/
+    background-image: url(../../assets/image/floor-texture.jpg);
 }
 .Main {
     position: absolute;
     -webkit-transform-style: preserve-3d;
+            transform-style: preserve-3d;
     top: 0;
     left: 0;
     bottom: 0;
@@ -21,69 +22,130 @@ html {
 }
 .flow-Ribbon {
     position: absolute;
-    top: 0;
+    top:  20%;
     left: 0;
-    bottom: -108.2%;
+    bottom: 0;
     right: 0;
 }
 .panel {
-    width: 384px;
-    height: 503px;
+    width:  375px;
+    height: 600px;
     margin-left: -192px;
     margin-top: -230px;
     background-repeat: no-repeat;
     background-position: center center;
     -webkit-transform: translate3d(0, 0, 0);
+            transform: translate3d(0, 0, 0);
     -webkit-transform-style: preserve-3d;
-    background-color: rgba(255,255,255,.4);
+            transform-style: preserve-3d;
+    /*background-color: rgba(255,255,255,.4);*/
 }
-.panel:before {
+/*.panel:before {
     content: "";
     position: absolute;
     width: 0;
     height: 0;
     -webkit-transform: translate3d(172px, 372px, -312px) rotateX(21deg);
+            transform: translate3d(172px, 372px, -312px) rotateX(21deg);
     -webkit-backface-visibility: hidden;
+            backface-visibility: hidden;
     border-radius: 1px;
     box-shadow: 0 0 160px 160px rgba(0,0,0,.4);
-}
+}*/
+
+/* background matte */
+
 .Main:after {
     content: "";
     position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
+    top:    0;
+    left:   0;
+    right:  0;
     bottom: 0;
-    background-image: url(../../assets/image/moontunes-overlay.png);
+    background-image: radial-gradient(rgba(0,0,0,0) 20%, rgba(0,0,0,1) 90%);
+    z-index: -1;
+    /*background-image: url(../../assets/image/moontunes-overlay.png);*/
     background-repeat: no-repeat;
     background-position: center center;
-    background-size: auto 100%;
+    background-size: 100% 140%;
     pointer-events: none;
 }
-#logo {
-    position: absolute;
-    top: 5%; 
-    left: 5%;
-    width: 253px;
-    height: 47px;
-    background: red;
-    z-index: 2;
-    background: url(../../assets/image/moontunes-logo.png);
-}
+
 .flow-Ribbon > div:before {
     content: "";
     position: absolute;
-    background-image: url(../../assets/image/moontunes-moon.jpg);
+    background-image: url(../../assets/image/basketball.png);
     background-repeat: no-repeat;
-    border-radius: 500px;
-    top: 50%;
+    background-size: cover;
+    background-position: center center;
+    border-radius: 50%;
+    width:  900px;
+    height: 900px;
+    top:  50%;
     left: 50%;
-    width: 812px;
-    margin-left: -406px;
-    height: 812px;
-    margin-top: -406px;
+
+    margin-left: -450px;
+
+    margin-top: -350px;
     -webkit-transform: translate3d(0, 92px, 600px) scale3d(2.2, 2.2, 2.2);
-    background-color: #86A4A9;
-    -webkit-box-shadow: inset 0 0 40px 8px #86A4A9, 0 0 40px 8px #86A4A9, 0 0 100px 20px #86A4A9;
+            transform: translate3d(0, 92px, 600px) scale3d(2.2, 2.2, 2.2);
+    background-color: rgba(0,0,0,1);
+    box-shadow: inset 0 0 6px 9px rgba(0,0,0,1), inset 0 0 110px 110px rgba(0,0,0,0.7), 0 0 40px 8px rgba(0,0,0,.5), 0 0 100px 20px rgba(0,0,0,.5);
     pointer-events: none;
+    /*outline: 1px solid red;*/
+}
+
+.teamHeader {
+    text-align: center;
+    z-index: 2;
+    color: rgb(255,204,51);
+    /*background-color: rgba(0,0,0,.75);*/
+    padding: 30px;
+    text-align: center;
+    font-size: 70px;
+    line-height: 1em;
+    font-weight: bold;
+    text-transform: uppercase;
+    -webkit-text-stroke: 1px rgb(4,82,156);
+    text-shadow:
+        0px 0px 0px rgb(4,82,156),
+        -0.5px 0.5px 0px rgb(4,82,156),
+        -1px 1px 0px rgb(4,82,156),
+        -1.5px 1.5px 0px rgb(4,82,156),
+        -2px 2px 0px rgb(4,82,156),
+        -2.5px 2.5px 0px rgb(4,82,156);
+    /*border-bottom: 3px solid rgb(255,204,51);
+    box-shadow: 0 2px 2px rgba(0,0,0,.5);*/
+}
+
+.teamHeader-wrapper {
+    position: relative;
+    display: inline-block;
+    padding-left: 110px;
+    text-align: left;
+}
+
+.teamLocation {
+  font-size: 33px;
+  letter-spacing: 13px;
+  line-height: 1em;
+}
+
+.teamMascot {
+  /*text-transform: uppercase;*/
+}
+
+#logo {
+    position: absolute;
+    top:    3%;
+    left: 50%;
+    width: 60%;
+    max-width: 700px;
+    transform: translateX(-50%);
+    padding-bottom: 17%;
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    z-index: 2;
+    background-image: url(../../assets/image/championship_logo.png);
 }

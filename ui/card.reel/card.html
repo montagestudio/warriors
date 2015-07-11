@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" type="text/css" href="card.css">
+    <script type="text/montage-serialization">
+        {
+            "owner": {
+                "properties": {
+                    "element": {"#": "card"},
+                    "playerImage": {"#": "playerImage"}
+                },
+                "listeners": [
+                    {
+                        "type": "action",
+                        "listener": {"@": "owner"},
+                        "capture": false
+                    }
+                ]
+            },
+
+            "toggleSubstitution": {
+                "prototype": "montage/ui/substitution.reel",
+                "properties": {
+                    "element": { "#": "toggleSubstitution" }
+                },
+                "bindings": {
+                  "switchValue": {"<-": "@owner._cardView"}
+                }
+            },
+
+            "playerName": {
+                "prototype": "montage/ui/text.reel",
+                "properties": {
+                    "element": {"#": "playerName"}
+                },
+                "bindings": {
+                  "value": {"<-": "@owner.data.name"}
+                }
+            },
+
+            "playerNameBack": {
+                "prototype": "montage/ui/text.reel",
+                "properties": {
+                    "element": {"#": "playerNameBack"}
+                },
+                "bindings": {
+                  "value": {"<-": "@owner.data.name"}
+                }
+            },
+
+            "playerNumber": {
+              "prototype": "montage/ui/text.reel",
+              "properties": {
+                  "element": {"#": "playerNumber"}
+              },
+              "bindings": {
+                  "value": {"<-": "@owner.data.number"}
+              }
+            },
+
+            "playerNumberBack": {
+              "prototype": "montage/ui/text.reel",
+              "properties": {
+                  "element": {"#": "playerNumberBack"}
+              },
+              "bindings": {
+                  "value": {"<-": "@owner.data.number"}
+              }
+            },
+
+            "playerPosition": {
+              "prototype": "montage/ui/text.reel",
+              "properties": {
+                  "element": {"#": "playerPosition"}
+              },
+              "bindings": {
+                  "value": {"<-": "@owner.data.position"}
+              }
+            },
+
+            "playerImage": {
+                "prototype": "montage/ui/component",
+                "properties": {
+                    "element": { "#": "playerImage"},
+                    "hasTemplate": false
+                }
+            },
+
+            "cardFrontView": {
+                "prototype": "montage/ui/component",
+                "properties": {
+                    "element": { "#": "cardFrontView"},
+                    "hasTemplate": false,
+                    "buildInCssClass": "transition-build-in",
+                    "buildInTransitionCssClass": "transition",
+                    "buildOutCssClass": "transition-build-out"
+                }
+            },
+
+            "cardBackView": {
+                "prototype": "montage/ui/component",
+                "properties": {
+                    "element": { "#": "cardBackView"},
+                    "hasTemplate": false,
+                    "buildInCssClass": "transition-build-in",
+                    "buildInTransitionCssClass": "transition",
+                    "buildOutCssClass": "transition-build-out"
+                }
+            },
+
+            "infoButton": {
+                "prototype": "montage/ui/button.reel",
+                "properties": {
+                    "element": {"#": "infoButton"}
+                }
+            },
+
+            "backButton": {
+                "prototype": "montage/ui/button.reel",
+                "properties": {
+                    "element": {"#": "backButton"}
+                }
+            }
+        }
+    </script>
+</head>
+<body>
+    <div data-montage-id="card" class="card">
+        <div data-montage-id="toggleSubstitution">
+            <div data-arg="cardFront">
+                <div data-montage-id="cardFrontView" class="cardFront">
+                    <button data-montage-id="infoButton" class="infoButton">info</button>
+                    <div class="playerInfo">
+                        <div data-montage-id="playerNumber" class="playerNumber"></div>
+                        <div data-montage-id="playerName" class="playerName"></div>
+                        <div data-montage-id="playerPosition" class="playerPosition"></div>
+                        <div data-montage-id="teamName" class="teamName">Golden State Warriors</div>
+                    </div>
+                    <div data-montage-id="playerImage" class="playerImage"></div>
+                </div>
+            </div>
+            <div data-arg="cardBack">
+                <div data-montage-id="cardBackView" class="cardBack">
+                    <button data-montage-id="backButton" class="backButton">front</button>
+                    <div data-montage-id="playerNumberBack" class="playerNumberBack"></div>
+                    <div data-montage-id="playerNameBack" class="playerNameBack"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+
+

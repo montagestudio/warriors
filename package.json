@@ -1,9 +1,11 @@
 {
-    "name": "moontunes",
-    "version": "0.0.0",
-    "mappings": {
-        "montage": "./node_modules/montage/"
-    },
-	"bundle": ["ui/main.reel"],
-	"shared": 4
+  "name": "moontunes",
+  "version": "0.0.0",
+  "dependencies" : {
+    "montage": "git@github.com:rayshan/montage.git#feature-succession"
+  },
+  "bundle": [
+    "ui/main.reel"
+  ],
+  "shared": 4
 }

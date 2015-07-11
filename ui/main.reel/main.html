@@ -2,12 +2,13 @@
 <html>
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>MoonTunes</title>
+    <title>Golden State Warriors</title>
 
     <link rel="stylesheet" type="text/css" href="main.css">
+    <link href='http://fonts.googleapis.com/css?family=Arvo:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
 
     <script type="text/montage-serialization">
-    {       
+    {
         "owner": {
             "properties": {
                 "element": {"#": "main"},
@@ -18,74 +19,39 @@
             "prototype": "montage/ui/flow.reel",
             "properties": {
                 "element": {"#": "flow"},
-                "objects": [
-                    "assets/image/posters/0.jpg",
-                    "assets/image/posters/1.jpg",
-                    "assets/image/posters/2.jpg",
-                    "assets/image/posters/3.jpg",
-                    "assets/image/posters/4.jpg",
-                    "assets/image/posters/5.jpg",
-                    "assets/image/posters/6.jpg",
-                    "assets/image/posters/7.jpg",
-                    "assets/image/posters/8.jpg",
-                    "assets/image/posters/9.jpg",
-                    "assets/image/posters/10.jpg",
-                    "assets/image/posters/11.jpg",
-                    "assets/image/posters/12.jpg",
-                    "assets/image/posters/13.jpg",
-                    "assets/image/posters/14.jpg",
-                    "assets/image/posters/15.jpg",
-                    "assets/image/posters/16.jpg",
-                    "assets/image/posters/17.jpg",
-                    "assets/image/posters/18.jpg",
-                    "assets/image/posters/19.jpg",
-                    "assets/image/posters/20.jpg",
-                    "assets/image/posters/21.jpg",
-                    "assets/image/posters/22.jpg",
-                    "assets/image/posters/23.jpg",
-                    "assets/image/posters/24.jpg",
-                    "assets/image/posters/25.jpg",
-                    "assets/image/posters/26.jpg",
-                    "assets/image/posters/27.jpg",
-                    "assets/image/posters/28.jpg",
-                    "assets/image/posters/29.jpg",
-                    "assets/image/posters/30.jpg",
-                    "assets/image/posters/31.jpg",
-                    "assets/image/posters/32.jpg",
-                    "assets/image/posters/33.jpg",
-                    "assets/image/posters/34.jpg",
-                    "assets/image/posters/35.jpg",
-                    "assets/image/posters/36.jpg",
-                    "assets/image/posters/37.jpg",
-                    "assets/image/posters/38.jpg",
-                    "assets/image/posters/39.jpg",
-                    "assets/image/posters/40.jpg",
-                    "assets/image/posters/41.jpg",
-                    "assets/image/posters/42.jpg",
-                    "assets/image/posters/43.jpg",
-                    "assets/image/posters/44.jpg",
-                    "assets/image/posters/45.jpg"
-                    ],
+                "content": [
+                            {"image": "assets/image/posters/0.jpg", "name": "Leandro Barbosa", "number": 19, "position": "Guard"},
+                            {"image": "assets/image/posters/1.jpg", "name": "Harrison Barnes", "number": 40, "position": "Forward"},
+                            {"image": "assets/image/posters/2.jpg", "name": "Andrew Bogut", "number": 12, "position": "Center"},
+                            {"image": "assets/image/posters/3.jpg", "name": "Stephen Curry", "number": 30, "position": "Guard"},
+                            {"image": "assets/image/posters/4.jpg", "name": "Festus Ezeli", "number": 31, "position": "Center"},
+                            {"image": "assets/image/posters/5.jpg", "name": "Draymond Green", "number": 23, "position": "Forward"},
+                            {"image": "assets/image/posters/6.jpg", "name": "Justin Holiday", "number": 7, "position": "Guard"},
+                            {"image": "assets/image/posters/7.jpg", "name": "Andre Iguodala", "number": 9, "position": "Guard / Forward"},
+                            {"image": "assets/image/posters/8.jpg", "name": "David Lee", "number": 10, "position": "Forward / Center"},
+                            {"image": "assets/image/posters/9.jpg", "name": "Shaun Livingston", "number": 34, "position": "Guard"},
+                            {"image": "assets/image/posters/10.jpg", "name": "James Michael McAdoo", "number": 20, "position": "Forward"},
+                            {"image": "assets/image/posters/11.jpg", "name": "Brandon Rush", "number": 4, "position": "Guard / Forward"},
+                            {"image": "assets/image/posters/12.jpg", "name": "Marreese Speights", "number": 5, "position": "Center / Forward"},
+                            {"image": "assets/image/posters/13.jpg", "name": "Klay Thompson", "number": 11, "position": "Guard"}
+                        ],
                 "isSelectionEnabled": false,
                 "cameraFov": 110,
-                "cameraPosition": [0, 0, 1900],
+                "cameraPosition": [0, 0, 1600],
                 "stride": 1,
                 "cameraTargetPoint": [0, 0, 0],
                 "boundingBoxSize": [344, 464, 0],
                 "linearScrollingVector": [-120, 0, 0]
             }
         },
-        "panel": {
-            "prototype": "../image.reel",
+
+        "card": {
+            "prototype": "../card.reel",
             "properties": {
-                "element": {"#": "panel"}
+                "element": {"#": "card"}
             },
             "bindings": {
-                "src": {
-                    "boundObject": {"@": "flow"},
-                    "boundObjectPropertyPath": "objectAtCurrentIteration",
-                    "oneway": true
-                }
+                "data": {"<-": "@flow:iteration.object"}
             }
         }
     }
@@ -93,10 +59,18 @@
 </head>
 <body>
     <div data-montage-id="main" class="Main">
-        <div data-montage-id="flow" class="flow-Ribbon">
-            <div data-montage-id="panel" class="panel"></div>
+        <div class="teamHeader">
+            <div id="logo"></div>
+            <!-- <div class="teamHeader-wrapper"> -->
+
+                <!-- <div class="teamLocation">Golden State</div>
+                <div class="teamMascot">Warriors</div> -->
+            <!-- </div> -->
         </div>
-        <div id="logo"></div>
+
+        <div data-montage-id="flow" class="flow-Ribbon">
+            <div data-montage-id="card" class="panel"></div>
+        </div>
     </div>
 </body>
 </html>
