@@ -9,10 +9,24 @@
   height: 700px;
 }
 
+.card * {
+    -webkit-user-select: none;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.card button {
+
+}
+
 .playerImage {
   display: block;
   position: absolute;
   top: 50%;
+  -webkit-transform: translateY(-50%);
   transform: translateY(-50%);
   width:  100%;
   height: 100%;
@@ -31,7 +45,9 @@
   right: 0;
   bottom: 0;
   z-index: 1;
+  -webkit-transform: skew(-10deg) rotate(-10deg);
   transform: skew(-10deg) rotate(-10deg);
+  -webkit-transform-origin: bottom left;
   transform-origin: bottom left;
   background: rgba(255,204,51,.95);
 }
@@ -87,6 +103,7 @@
     -1.5px 1.5px 0px black,
     -2px 2px 0px black,
     -2.5px 2.5px 0px black;*/
+  -webkit-transform: skew(10deg) rotate(10deg) translateY(-75px);
   transform: skew(10deg) rotate(10deg) translateY(-75px);
 }
 
@@ -99,6 +116,7 @@
   left: 50%;
   width:  80px;
   height: 80px;
+  -webkit-transform: translate(-50%,-50%);
   transform: translate(-50%,-50%);
   background: rgba(4,82,156, .75);
   border-radius: 50%
@@ -123,6 +141,7 @@
     background-position: center center;
     background-repeat: no-repeat;
     opacity: .1;
+    -webkit-transform: rotate3d(50,50,0,50deg) scale(1.5);
     transform: rotate3d(50,50,0,50deg) scale(1.5);
     z-index: -1;
 }
