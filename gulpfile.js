@@ -13,10 +13,10 @@ gulp.task('serve', ['css'], function() {
 
 gulp.task('css', function () {
     return gulp.src(['ui/**/*.css', '/assets/style/*.css'])
-        .pipe(prefix({
-            browsers: ['last 2 versions'],
-            cascade: false
-        }))
+        // .pipe(prefix({
+        //     browsers: ['last 2 versions'],
+        //     cascade: false
+        // }))
         .pipe(gulp.dest('ui'))
         .pipe(reload({stream:true}));
 });

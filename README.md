@@ -3,7 +3,9 @@ Warriors
 
 This is the Montage app template.
 
-run 'npm install' to grab the dependencies
+run `npm install` to grab the dependencies
+
+run `gulp` to run server / css injection / auto-reload
 
 Layout
 ------
