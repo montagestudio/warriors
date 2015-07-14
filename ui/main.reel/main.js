@@ -3,7 +3,8 @@
     @requires montage
     @requires montage/ui/component
 */
-var Component = require("montage/ui/component").Component;
+var Component = require("montage/ui/component").Component,
+PressComposer = require("montage/composer/press-composer").PressComposer;
 
 /**
     Description TODO
@@ -11,6 +12,26 @@ var Component = require("montage/ui/component").Component;
     @extends module:ui/component.Component
 */
 exports.Main = Component.specialize( /** @lends module:"ui/main.reel".Main# */ {
+
+    enterDocument: {
+        value: function Main(firstTime) {
+            if (firstTime) {
+               this._pressComposer = new PressComposer();
+               this._pressComposer.lazyLoad = true;
+               this.addComposerForElement(this._pressComposer, this.flowRibbon.element);
+            }
+
+            this._pressComposer.addEventListener("press", this);
+            this._pressComposer.addEventListener("pressStart", this);
+            this._pressComposer.addEventListener("pressCancel", this);
+        }
+    },
+
+    handlePress: {
+        value: function(event) {
+            console.log(event.targetElement);
+        }
+    },
 
     flowRibbon: {
         serializable: true,
@@ -35,6 +56,18 @@ exports.Main = Component.specialize( /** @lends module:"ui/main.reel".Main# */ {
                 vector[0] * scale,
                 vector[1] * scale
             ];
+        }
+    },
+
+    didTranslateStart: {
+        value: function () {
+            console.log("start");
+        }
+    },
+
+    didTranslateEnd: {
+        value: function () {
+            console.log("end");
         }
     },
 

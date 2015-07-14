@@ -9,6 +9,12 @@
   height: 700px;
 }
 
+/* card front / back transition */
+
+.transition-build-in    { opacity: 0; }
+.transition-build-out   { opacity: 0; }
+.transition             { transition: opacity .8s; }
+
 .card * {
     -webkit-user-select: none;
     cursor: pointer;
@@ -16,10 +22,6 @@
     -moz-user-select: none;
     -ms-user-select: none;
     user-select: none;
-}
-
-.card button {
-
 }
 
 .playerImage {
@@ -156,16 +158,4 @@
 .playerNameBack {
     font-size: 32px;
     line-height: 1em;
-}
-
-.transition-build-in {
-    opacity: 0;
-}
-
-.transition-build-out {
-    opacity: 0;
-}
-
-.transition {
-    transition: opacity .8s;
 }

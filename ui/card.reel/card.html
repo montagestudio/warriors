@@ -8,14 +8,7 @@
                 "properties": {
                     "element": {"#": "card"},
                     "playerImage": {"#": "playerImage"}
-                },
-                "listeners": [
-                    {
-                        "type": "action",
-                        "listener": {"@": "owner"},
-                        "capture": false
-                    }
-                ]
+                }
             },
 
             "toggleSubstitution": {
@@ -106,20 +99,6 @@
                     "buildInTransitionCssClass": "transition",
                     "buildOutCssClass": "transition-build-out"
                 }
-            },
-
-            "infoButton": {
-                "prototype": "montage/ui/button.reel",
-                "properties": {
-                    "element": {"#": "infoButton"}
-                }
-            },
-
-            "backButton": {
-                "prototype": "montage/ui/button.reel",
-                "properties": {
-                    "element": {"#": "backButton"}
-                }
             }
         }
     </script>
@@ -129,7 +108,7 @@
         <div data-montage-id="toggleSubstitution">
             <div data-arg="cardFront">
                 <div data-montage-id="cardFrontView" class="cardFront">
-                    <button data-montage-id="infoButton" class="infoButton"></button>
+                    <!-- <button data-montage-id="infoButton" class="infoButton"></button> -->
                     <div class="playerInfo">
                         <div data-montage-id="playerNumber" class="playerNumber"></div>
                         <div data-montage-id="playerName" class="playerName"></div>
@@ -141,9 +120,13 @@
             </div>
             <div data-arg="cardBack">
                 <div data-montage-id="cardBackView" class="cardBack">
-                    <button data-montage-id="backButton" class="backButton"></button>
+                    <!-- <button data-montage-id="backButton" class="backButton"></button> -->
                     <div data-montage-id="playerNumberBack" class="playerNumberBack"></div>
                     <div data-montage-id="playerNameBack" class="playerNameBack"></div>
+                    <div data-montage-id="playerHeight" class="playerHeight">6'3</div>
+                    <div data-montage-id="playerWeight" class="playerWeight">195</div>
+                    <div data-montage-id="playerBirth" class="playerBirth">03/16/82</div>
+                    <div data-montage-id="playerSummary" class="playerSummary">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laudantium facilis earum cumque, doloremque pariatur quibusdam et recusandae saepe quia adipisci itaque explicabo animi obcaecati distinctio fuga. Velit possimus debitis, veniam.</div>
                 </div>
             </div>
         </div>

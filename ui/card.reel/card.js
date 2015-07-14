@@ -13,9 +13,28 @@ var Card = exports.Card = Component.specialize( {
     //     }
     // },
 
+    enterDocument: {
+        value: function() {
+            this.element.addEventListener('click', this, false);
+        }
+    },
+
+    handleClick: {
+        value: function() {
+            if(this._cardView == "cardFront") {
+                this.showBack();
+            } else {
+                this.showFront();
+            }
+            console.log("click");
+        }
+    },
+
     draw: {
         value: function() {
-            this.playerImage.style.backgroundImage = "url(" + this.data.image + ")";
+            if (this.data) {
+                this.playerImage.style.backgroundImage = "url(" + this.data.image + ")";
+            }
         }
     },
 
@@ -30,18 +49,6 @@ var Card = exports.Card = Component.specialize( {
     showBack: {
         value: function() {
             this._cardView = "cardBack";
-        }
-    },
-
-    handleInfoButtonAction: {
-        value: function() {
-            this.showBack();
-        }
-    },
-
-    handleBackButtonAction: {
-        value: function() {
-            this.showFront();
         }
     }
 });
