@@ -21,10 +21,10 @@ var Card = exports.Card = Component.specialize( {
 
     handleClick: {
         value: function() {
-            if(this._cardView == "cardFront") {
-                this.showBack();
-            } else {
+            if(this.classList.contains("show-details")) {
                 this.showFront();
+            } else {
+                this.showBack();
             }
             console.log("click");
         }
@@ -40,15 +40,18 @@ var Card = exports.Card = Component.specialize( {
 
     _cardView: {value: "cardFront"},
 
-    showFront: {
+    showBack: {
         value: function() {
-            this._cardView = "cardFront";
+            this.classList.add("show-details");
+            this.classList.remove("hide-details");
         }
     },
 
-    showBack: {
+    showFront: {
         value: function() {
-            this._cardView = "cardBack";
+            this.classList.add("hide-details");
+            this.classList.remove("show-details");
+            console.log("showBack");
         }
     }
 });

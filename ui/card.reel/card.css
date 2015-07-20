@@ -2,7 +2,7 @@
   box-sizing: border-box;
   position: relative;
   display: inline-block;
-  background: rgb(255,204,51);
+  background: #000;
   border: 8px solid rgba(4,82,156,1);
   overflow: hidden;
   width:  500px;
@@ -11,9 +11,9 @@
 
 /* card front / back transition */
 
-.transition-build-in    { opacity: 0; }
+/*.transition-build-in    { opacity: 0; }
 .transition-build-out   { opacity: 0; }
-.transition             { transition: opacity .8s; }
+.transition             { transition: opacity .8s; }*/
 
 .card * {
     -webkit-user-select: none;
@@ -36,6 +36,12 @@
   background-position: 50% 50%;
   background-repeat: no-repeat;
   z-index: -1;
+  transition: all .4s ease-in-out;
+}
+
+.playerInfo,
+.playerDetails {
+    transition: transform .3s ease-in-out .1s;
 }
 
 .playerInfo {
@@ -62,8 +68,9 @@
   left: 0;
   width: 100%;
   top:   100%;
-  height: 100px;
+  height: 470px;
   background: rgba(4,82,156,.75);
+  transition: height .3s ease-in-out;
 }
 
 .playerName {
@@ -124,7 +131,44 @@
   border-radius: 50%
 }
 
-.cardBack {
+.playerDetails {
+    z-index: 1;
+    position: absolute;
+    bottom: -280px;
+    left:   20px;
+    right:  20px;
+    color: #FFF;
+    text-align: center;
+
+}
+
+.playerSpecs {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+    font-size: 18px;
+    line-height: 1.4em;
+}
+
+.playerSpecs > div {
+    flex: 1;
+}
+
+.playerSpecs p {
+    padding: 5px;
+    margin: 0;
+    margin: 5px 10px 0px 10px;
+    border-top: 1px solid rgb(255,204,51);
+}
+
+.playerSummary {
+    box-sizing: border-box;
+    padding: 20px;
+    border: 1px solid rgb(255,204,51);
+    font-size: 14px;
+}
+
+/*.cardBack {
   position: absolute;
   height: 100%;
   width: 100%;
@@ -146,9 +190,9 @@
     -webkit-transform: rotate3d(50,50,0,50deg) scale(1.5);
     transform: rotate3d(50,50,0,50deg) scale(1.5);
     z-index: -1;
-}
+}*/
 
-.playerNumberBack {
+/*.playerNumberBack {
     margin-top: 20px;
     font-size: 50px;
     margin-bottom: 20px;
@@ -158,4 +202,59 @@
 .playerNameBack {
     font-size: 32px;
     line-height: 1em;
+}*/
+
+
+
+.show-details .playerDetails {
+    transform: translateY(-385px);
 }
+
+/* show-detail transition */
+
+.show-details .playerImage {
+    -webkit-filter: blur(5px) contrast(200%) grayscale(1);;
+            filter: blur(5px) contrast(200%) grayscale(1);;
+}
+
+.show-details .playerInfo {
+    transform: translateY(-385px) skew(-10deg) rotate(-10deg);
+}
+
+.show-details .playerNumber {
+    -webkit-animation: numberTransitionUp .4s ease-in-out;
+            animation: numberTransitionUp .4s ease-in-out;
+}
+
+.hide-details .playerNumber {
+    -webkit-animation: numberTransitionDown .35s ease-in-out .1s;
+            animation: numberTransitionDown .35s ease-in-out .1s;
+}
+
+@-webkit-keyframes numberTransitionUp {
+    0%   {-webkit-transform: skew(10deg) rotate(10deg) translateY(-75px); transform: skew(10deg) rotate(10deg) translateY(-75px);}
+    50%  {-webkit-transform: skew(10deg) rotate(10deg) translateY(-120px);transform: skew(10deg) rotate(10deg) translateY(-120px);}
+    100% {-webkit-transform: skew(10deg) rotate(10deg) translateY(-75px); transform: skew(10deg) rotate(10deg) translateY(-75px);}
+}
+
+@keyframes numberTransitionUp {
+    0%   {-webkit-transform: skew(10deg) rotate(10deg) translateY(-75px); transform: skew(10deg) rotate(10deg) translateY(-75px);}
+    50%  {-webkit-transform: skew(10deg) rotate(10deg) translateY(-120px);transform: skew(10deg) rotate(10deg) translateY(-120px);}
+    100% {-webkit-transform: skew(10deg) rotate(10deg) translateY(-75px); transform: skew(10deg) rotate(10deg) translateY(-75px);}
+}
+
+@-webkit-keyframes numberTransitionDown {
+    0%   {-webkit-transform: skew(10deg) rotate(10deg) translateY(-75px); transform: skew(10deg) rotate(10deg) translateY(-75px);}
+    50%  {-webkit-transform: skew(10deg) rotate(10deg) translateY(-40px);transform: skew(10deg) rotate(10deg) translateY(-40px);}
+    100% {-webkit-transform: skew(10deg) rotate(10deg) translateY(-75px); transform: skew(10deg) rotate(10deg) translateY(-75px);}
+}
+
+@keyframes numberTransitionDown {
+    0%   {-webkit-transform: skew(10deg) rotate(10deg) translateY(-75px); transform: skew(10deg) rotate(10deg) translateY(-75px);}
+    50%  {-webkit-transform: skew(10deg) rotate(10deg) translateY(-120px);transform: skew(10deg) rotate(10deg) translateY(-120px);}
+    100% {-webkit-transform: skew(10deg) rotate(10deg) translateY(-75px); transform: skew(10deg) rotate(10deg) translateY(-75px);}
+}
+
+
+
+
