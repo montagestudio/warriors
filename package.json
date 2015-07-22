@@ -2,7 +2,7 @@
   "name": "moontunes",
   "version": "0.0.0",
   "dependencies": {
-    "montage": "git@github.com:rayshan/montage.git#feature-succession"
+    "montage": "^0.15.0"
   },
   "bundle": [
     "ui/main.reel"

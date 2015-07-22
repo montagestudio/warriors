@@ -34,8 +34,8 @@
     -webkit-backface-visibility: hidden;
             backface-visibility: hidden;
     border-radius: 1px;
-    box-shadow: 0 -100px 100px 160px rgba(0,0,0,.3),
-                0 50px 100px 160px rgba(0,0,0,.3);
+    box-shadow: 0 -100px 100px 160px rgba(0,0,0,.5),
+                0 50px 100px 160px rgba(0,0,0,.5);
     z-index: 2;
 }
 
