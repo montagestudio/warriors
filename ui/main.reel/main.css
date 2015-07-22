@@ -42,6 +42,8 @@ html {
     background-size: 100% 140%;
 }
 
+/* court markings */
+
 .Main:before {
     content: "";
     position: absolute;
@@ -64,38 +66,9 @@ html {
     -webkit-flex: 3;
         -ms-flex: 3;
             flex: 3;
-
 }
 
-.panel {
-    width:  375px;
-    height: 600px;
-    margin-left: -192px;
-    margin-top: -300px;
-    background-repeat: no-repeat;
-    background-position: center center;
-    -webkit-transform: translate3d(0, 0, 0);
-            transform: translate3d(0, 0, 0);
-    -webkit-transform-style: preserve-3d;
-            transform-style: preserve-3d;
-}
-
-/*shadow*/
-
-/*.panel:before {
-    content: "";
-    position: absolute;
-    width: 0;
-    height: 0;
-    -webkit-transform: translate3d(172px, 372px, -312px) rotateX(21deg);
-            transform: translate3d(172px, 372px, -312px) rotateX(21deg);
-    -webkit-backface-visibility: hidden;
-            backface-visibility: hidden;
-    border-radius: 1px;
-    box-shadow: 0 0 160px 160px rgba(0,0,0,.4);
-}*/
-
-
+/* basketball */
 
 .flow-Ribbon > div:before {
     content: "";
@@ -114,6 +87,7 @@ html {
     background-color: rgba(0,0,0,1);
     box-shadow: inset 0 0 6px 9px rgba(0,0,0,1), inset 0 0 110px 110px rgba(0,0,0,0.7), 0 0 40px 8px rgba(0,0,0,.5), 0 0 100px 20px rgba(0,0,0,.5);
     pointer-events: none;
+    z-index: -2;
 }
 
 .teamHeader {

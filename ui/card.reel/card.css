@@ -1,19 +1,17 @@
 .card {
-  box-sizing: border-box;
-  position: relative;
-  display: inline-block;
-  background: #000;
-  border: 8px solid rgba(4,82,156,1);
-  overflow: hidden;
-  width:  500px;
-  height: 700px;
+    box-sizing: border-box;
+    width:  375px;
+    height: 600px;
+    margin-left: -192px;
+    margin-top: -300px;
+    background-repeat: no-repeat;
+    background-position: center center;
+    -webkit-transform: translate3d(0, 0, 0);
+            transform: translate3d(0, 0, 0);
+    -webkit-transform-style: preserve-3d;
+            transform-style: preserve-3d;
+            border: 8px solid rgba(4,82,156,1);
 }
-
-/* card front / back transition */
-
-/*.transition-build-in    { opacity: 0; }
-.transition-build-out   { opacity: 0; }
-.transition             { transition: opacity .8s; }*/
 
 .card * {
     -webkit-user-select: none;
@@ -24,122 +22,147 @@
     user-select: none;
 }
 
-.playerImage {
-  display: block;
-  position: absolute;
-  top: 50%;
-  -webkit-transform: translateY(-50%);
-  transform: translateY(-50%);
-  width:  100%;
-  height: 100%;
-  background-size: cover;
-  background-position: 50% 50%;
-  background-repeat: no-repeat;
-  z-index: -1;
-  transition: all .4s ease-in-out;
+/* panel shadow */
+
+.card:before {
+    content: "";
+    position: absolute;
+    width: 0;
+    height: 0;
+    -webkit-transform: translate3d(172px, 372px, -200px) rotateX(2deg);
+            transform: translate3d(172px, 372px, -200px) rotateX(2deg);
+    -webkit-backface-visibility: hidden;
+            backface-visibility: hidden;
+    border-radius: 1px;
+    box-shadow: 0 -100px 100px 160px rgba(0,0,0,.3),
+                0 50px 100px 160px rgba(0,0,0,.3);
+    z-index: 2;
 }
 
-.playerInfo,
-.playerDetails {
-    transition: transform .3s ease-in-out .1s;
+/* controls the overflow */
+
+.cardOverflow {
+    position: absolute;
+    width:  100%;
+    height: 100%;
+    overflow: hidden;
+    background: #000;
+    -webkit-transform-style: preserve-3d;
+            transform-style: preserve-3d;
+}
+
+/* wraps all of the content */
+
+.playerInfoWrapper {
+    position: absolute;
+    width:  100%;
+    height: 100%;
+    transform: translateY(-100%);
 }
 
 .playerInfo {
-  box-sizing: border-box;
-  position: absolute;
-  padding: 13px;
-  padding-right: 20px;
-  left:     0;
-  right:    0;
-  bottom:   0;
-  z-index: 1;
-  -webkit-transform: skew(-10deg) rotate(-10deg);
-  transform: skew(-10deg) rotate(-10deg);
-  -webkit-transform-origin: bottom left;
-  transform-origin: bottom left;
-  background: rgba(255,204,51,.95);
+    box-sizing: border-box;
+    position: absolute;
+    width: 100%;
+    bottom: 0;
+    transform: translateY(100%);
+    z-index: 1;
 }
 
-/* background behind team name */
-.playerInfo:after {
-  content: '';
-  position: absolute;
-  z-index: -1;
-  left: 0;
-  width: 100%;
-  top:   100%;
-  height: 470px;
-  background: rgba(4,82,156,.75);
-  transition: height .3s ease-in-out;
+.playerImage {
+    display: block;
+    position: absolute;
+    top: 50%;
+    -webkit-transform: translateY(-50%);
+            transform: translateY(-50%);
+    width:  100%;
+    height: 100%;
+    background-size: cover;
+    background-position: 50% 50%;
+    background-repeat: no-repeat;
+    z-index: -1;
+    transition: all .4s ease-in-out;
+}
+
+.angledTextWrapper {
+    -webkit-transform: skew(-10deg) rotate(-10deg);
+            transform: skew(-10deg) rotate(-10deg);
+    -webkit-transform-origin: bottom left;
+            transform-origin: bottom left;
+    background: rgba(255,204,51,.95);
+    padding: 13px;
+    padding-right: 20px;
+    margin-top: 40px;
+    margin-bottom: 20px;
 }
 
 .playerName {
-  font-weight: bold;
-  font-size: 36px;
-  line-height: 1em;
-  margin-bottom: 10px;
-  /*-webkit-text-stroke: 1px rgba(0,0,0,.5);*/
-  /*text-shadow:
-    0px 0px 0px black,
-    -0.5px 0.5px 0px black,
-    -1px 1px 0px black,
-    -1.5px 1.5px 0px black,
-    -2px 2px 0px black,
-    -2.5px 2.5px 0px black;*/
+    font-weight: bold;
+    font-size: 36px;
+    line-height: 1em;
+    margin-bottom: 10px;
 }
 
 .teamName {
-  position: absolute;
-  bottom: -25px;
-  right:   20px;
-  text-align: right;
-  color: #FFF;
+    position: absolute;
+    bottom: -25px;
+    right:   20px;
+    text-align: right;
+    color: #FFF;
 }
 
 .playerNumber {
-  z-index: 1;
-  position: absolute;
-  font-size: 40px;
-  font-weight: bold;
-  color: #FFF;
-  width:  80px;
-  text-align: center;
-  /*-webkit-text-stroke: 1px rgba(0,0,0,.75);
-  text-shadow:
-    0px 0px 0px black,
-    -0.5px 0.5px 0px black,
-    -1px 1px 0px black,
-    -1.5px 1.5px 0px black,
-    -2px 2px 0px black,
-    -2.5px 2.5px 0px black;*/
-  -webkit-transform: skew(10deg) rotate(10deg) translateY(-75px);
-  transform: skew(10deg) rotate(10deg) translateY(-75px);
+    z-index: 1;
+    position: relative;
+    margin: 15px;
+    margin-bottom: -15px;
+    font-size: 40px;
+    font-weight: bold;
+    color: #FFF;
+    width:  80px;
+    height: 80px;
+    line-height: 80px;
+    text-align: center;
 }
 
 /* playerNumber BG */
+
 .playerNumber:after {
-  content: '';
-  position: absolute;
-  z-index: -1;
-  top:  50%;
-  left: 50%;
-  width:  80px;
-  height: 80px;
-  -webkit-transform: translate(-50%,-50%);
-  transform: translate(-50%,-50%);
-  background: rgba(4,82,156, .75);
-  border-radius: 50%
+    content: '';
+    position: absolute;
+    z-index: -1;
+    top:  50%;
+    left: 50%;
+    width:  80px;
+    height: 80px;
+    -webkit-transform: translate(-50%,-50%);
+    transform: translate(-50%,-50%);
+    background: rgba(4,82,156, .75);
+    border-radius: 50%;
 }
 
 .playerDetails {
-    z-index: 1;
     position: absolute;
-    bottom: -280px;
-    left:   20px;
-    right:  20px;
     color: #FFF;
     text-align: center;
+}
 
+/* background behind team name */
+
+.playerDetails:after {
+    content: '';
+    position: absolute;
+    z-index: -1;
+    left: 0;
+    width: 100%;
+    top: -27px;
+    /*bottom:   -40px;*/
+    height: 450px;
+    background: rgba(4,82,156,.75);
+    -webkit-transform: skew(-10deg) rotate(-10deg);
+            transform: skew(-10deg) rotate(-10deg);
+    -webkit-transform-origin: bottom left;
+            transform-origin: bottom left;
 }
 
 .playerSpecs {
@@ -163,51 +186,18 @@
 
 .playerSummary {
     box-sizing: border-box;
+    margin: 0 10px;
     padding: 20px;
     border: 1px solid rgb(255,204,51);
     font-size: 14px;
 }
 
-/*.cardBack {
-  position: absolute;
-  height: 100%;
-  width: 100%;
-  text-align: center;
-}
-
-.cardBack:after {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    height: 100%;
-    width: 100%;
-    background-image: url('../../assets/image/Golden_State_Warriors_logo.svg');
-    background-size: 100%;
-    background-position: center center;
-    background-repeat: no-repeat;
-    opacity: .1;
-    -webkit-transform: rotate3d(50,50,0,50deg) scale(1.5);
-    transform: rotate3d(50,50,0,50deg) scale(1.5);
-    z-index: -1;
-}*/
-
-/*.playerNumberBack {
-    margin-top: 20px;
-    font-size: 50px;
-    margin-bottom: 20px;
-    line-height: 1em;
-}
-
-.playerNameBack {
-    font-size: 32px;
-    line-height: 1em;
-}*/
-
-
-
-.show-details .playerDetails {
-    transform: translateY(-385px);
+.playerHeight span:first-child:after { content: "'"; }
+.playerHeight span:last-child:after  { content: '"'; }
+.playerWeight p:after  {
+    display: inline-block;
+    margin-left: 2px;
+    content: 'lbs';
 }
 
 /* show-detail transition */
@@ -217,11 +207,21 @@
             filter: blur(5px) contrast(200%) grayscale(1);;
 }
 
-.show-details .playerInfo {
-    transform: translateY(-385px) skew(-10deg) rotate(-10deg);
+.playerInfoWrapper,
+.playerInfo {
+    transition: transform .3s ease-in-out;
+    transform: translateY(0);
 }
 
-.show-details .playerNumber {
+.show-details .playerInfoWrapper {
+    transform: translateY(-100%);
+}
+
+.show-details .playerInfo {
+    transform: translateY(100%);
+}
+
+/*.show-details .playerNumber {
     -webkit-animation: numberTransitionUp .4s ease-in-out;
             animation: numberTransitionUp .4s ease-in-out;
 }
@@ -232,28 +232,28 @@
 }
 
 @-webkit-keyframes numberTransitionUp {
-    0%   {-webkit-transform: skew(10deg) rotate(10deg) translateY(-75px); transform: skew(10deg) rotate(10deg) translateY(-75px);}
-    50%  {-webkit-transform: skew(10deg) rotate(10deg) translateY(-120px);transform: skew(10deg) rotate(10deg) translateY(-120px);}
-    100% {-webkit-transform: skew(10deg) rotate(10deg) translateY(-75px); transform: skew(10deg) rotate(10deg) translateY(-75px);}
+    0%   {-webkit-transform: translateY(-75px); transform: translateY(-75px);}
+    50%  {-webkit-transform: translateY(-120px);transform: translateY(-120px);}
+    100% {-webkit-transform: translateY(-75px); transform: translateY(-75px);}
 }
 
 @keyframes numberTransitionUp {
-    0%   {-webkit-transform: skew(10deg) rotate(10deg) translateY(-75px); transform: skew(10deg) rotate(10deg) translateY(-75px);}
-    50%  {-webkit-transform: skew(10deg) rotate(10deg) translateY(-120px);transform: skew(10deg) rotate(10deg) translateY(-120px);}
-    100% {-webkit-transform: skew(10deg) rotate(10deg) translateY(-75px); transform: skew(10deg) rotate(10deg) translateY(-75px);}
+    0%   {-webkit-transform: translateY(-75px); transform: translateY(-75px);}
+    50%  {-webkit-transform: translateY(-120px);transform: translateY(-120px);}
+    100% {-webkit-transform: translateY(-75px); transform: translateY(-75px);}
 }
 
 @-webkit-keyframes numberTransitionDown {
-    0%   {-webkit-transform: skew(10deg) rotate(10deg) translateY(-75px); transform: skew(10deg) rotate(10deg) translateY(-75px);}
-    50%  {-webkit-transform: skew(10deg) rotate(10deg) translateY(-40px);transform: skew(10deg) rotate(10deg) translateY(-40px);}
-    100% {-webkit-transform: skew(10deg) rotate(10deg) translateY(-75px); transform: skew(10deg) rotate(10deg) translateY(-75px);}
+    0%   {-webkit-transform: translateY(-75px); transform: translateY(-75px);}
+    50%  {-webkit-transform: translateY(-40px);transform: translateY(-40px);}
+    100% {-webkit-transform: translateY(-75px); transform: translateY(-75px);}
 }
 
 @keyframes numberTransitionDown {
-    0%   {-webkit-transform: skew(10deg) rotate(10deg) translateY(-75px); transform: skew(10deg) rotate(10deg) translateY(-75px);}
-    50%  {-webkit-transform: skew(10deg) rotate(10deg) translateY(-120px);transform: skew(10deg) rotate(10deg) translateY(-120px);}
-    100% {-webkit-transform: skew(10deg) rotate(10deg) translateY(-75px); transform: skew(10deg) rotate(10deg) translateY(-75px);}
-}
+    0%   {-webkit-transform: translateY(-75px); transform: translateY(-75px);}
+    50%  {-webkit-transform: translateY(-120px);transform: translateY(-120px);}
+    100% {-webkit-transform: translateY(-75px); transform: translateY(-75px);}
+}*/
 
 
 

@@ -62,11 +62,7 @@ exports.Main = Component.specialize( /** @lends module:"ui/main.reel".Main# */ {
                 i,
                 self = this;
 
-            // if (window.innerWidth > window.innerHeight) {
                 halfPageWidth = 1300;
-                // this.flowRibbon.cameraPosition = [0, -500, 1700];
-                // this.flowRibbon.cameraTargetPoint = [0, 500, 0];
-                // this.flowRibbon.cameraFov = 110;
                 for (i = -1; i <= 9; i++) {
                     angle = Math.PI - i * Math.PI / 8;
                     point = this.scaleVector(this.pointInCircleAt(angle), halfPageWidth);
@@ -79,12 +75,9 @@ exports.Main = Component.specialize( /** @lends module:"ui/main.reel".Main# */ {
                             "previousDensity": .9,
                             "nextDensity": .9,
                             "rotateY": Math.PI/2 - angle,
-                            // "rotateX": pagesKnots[i] == null ? -.3 : pagesKnots[i].rotateX - .5,
                             "opacity": 1 - Math.abs(i-4)*.2
                         }
                     );
-                    // debugger;
-                    // console.log(pagesKnots[i+1].rotateY);
                 }
 
                 this.flowRibbon.paths = [
@@ -99,39 +92,7 @@ exports.Main = Component.specialize( /** @lends module:"ui/main.reel".Main# */ {
                         }
                     }
                 ];
-            // } else {
-            //     halfPageWidth = 1290;
-            //     // this.flowRibbon.cameraPosition = [0, 25, 1625];
-            //     // this.flowRibbon.cameraTargetPoint = [0, 25, 0];
-            //     // this.flowRibbon.cameraFov = 140;
-            //     for (i = -1; i <= 9; i++) {
-            //         angle = Math.PI - i * Math.PI / 8;
-            //         point = this.scaleVector(this.pointInCircleAt(angle), halfPageWidth);
-            //         tangent = this.scaleVector(this.tangentInCircleAt(angle), halfPageWidth * bezierHandlerLength);
-            //         pagesKnots.push(
-            //             {
-            //                 "knotPosition": [point[0], -460, point[1]],
-            //                 "previousHandlerPosition": [point[0] + tangent[0], -460, point[1] + tangent[1]],
-            //                 "nextHandlerPosition": [point[0] - tangent[0], -460, point[1] - tangent[1]],
-            //                 "previousDensity": 1.15,
-            //                 "nextDensity": 1.15,
-            //                 "rotateY": Math.PI/2 - angle,
-            //                 "opacity": 1 - Math.abs(i-4)*.15
-            //             }
-            //         );
-            //     }
-            //     this.flowRibbon.paths = [
-            //         {
-            //             "knots": pagesKnots,
-            //             "headOffset": 5.75,
-            //             "tailOffset": 5.75,
-            //             "units": {
-            //                 "rotateY": "rad",
-            //                 "opacity": ""
-            //             }
-            //         }
-            //     ];
-            // }
+
         }
     },
 
