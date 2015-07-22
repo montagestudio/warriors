@@ -13,23 +13,13 @@ PressComposer = require("montage/composer/press-composer").PressComposer;
 */
 exports.Main = Component.specialize( /** @lends module:"ui/main.reel".Main# */ {
 
-    enterDocument: {
-        value: function Main(firstTime) {
-            if (firstTime) {
-               this._pressComposer = new PressComposer();
-               this._pressComposer.lazyLoad = true;
-               this.addComposerForElement(this._pressComposer, this.flowRibbon.element);
-            }
-
-            this._pressComposer.addEventListener("press", this);
-            this._pressComposer.addEventListener("pressStart", this);
-            this._pressComposer.addEventListener("pressCancel", this);
-        }
+    currentIndex: {
+        value: 0
     },
 
-    handlePress: {
-        value: function(event) {
-            console.log(event.targetElement);
+    didTranslateEnd: {
+        value: function () {
+            this.currentIndex = this.flowRibbon.scroll;
         }
     },
 
@@ -59,18 +49,6 @@ exports.Main = Component.specialize( /** @lends module:"ui/main.reel".Main# */ {
         }
     },
 
-    didTranslateStart: {
-        value: function () {
-            console.log("start");
-        }
-    },
-
-    didTranslateEnd: {
-        value: function () {
-            console.log("end");
-        }
-    },
-
     setPaths: {
         enumerable: false,
         value: function () {
@@ -86,8 +64,8 @@ exports.Main = Component.specialize( /** @lends module:"ui/main.reel".Main# */ {
 
             // if (window.innerWidth > window.innerHeight) {
                 halfPageWidth = 1300;
-                // this.flowRibbon.cameraPosition = [0, 0, 1900];
-                // this.flowRibbon.cameraTargetPoint = [0, 0, 0];
+                // this.flowRibbon.cameraPosition = [0, -500, 1700];
+                // this.flowRibbon.cameraTargetPoint = [0, 500, 0];
                 // this.flowRibbon.cameraFov = 110;
                 for (i = -1; i <= 9; i++) {
                     angle = Math.PI - i * Math.PI / 8;
@@ -98,21 +76,26 @@ exports.Main = Component.specialize( /** @lends module:"ui/main.reel".Main# */ {
                             "knotPosition": [point[0], 0, point[1]],
                             "previousHandlerPosition": [point[0] + tangent[0], 0, point[1] + tangent[1]],
                             "nextHandlerPosition": [point[0] - tangent[0], 0, point[1] - tangent[1]],
-                            "previousDensity": 1.15,
-                            "nextDensity": 1.15,
+                            "previousDensity": .9,
+                            "nextDensity": .9,
                             "rotateY": Math.PI/2 - angle,
+                            // "rotateX": pagesKnots[i] == null ? -.3 : pagesKnots[i].rotateX - .5,
                             "opacity": 1 - Math.abs(i-4)*.2
                         }
                     );
+                    // debugger;
+                    // console.log(pagesKnots[i+1].rotateY);
                 }
+
                 this.flowRibbon.paths = [
                     {
                         "knots": pagesKnots,
-                        "headOffset": 5.75,
-                        "tailOffset": 5.75,
+                        "headOffset": 4.5,
+                        "tailOffset": 4.5,
                         "units": {
                             "rotateY": "rad",
-                            "opacity": ""
+                            "opacity": "",
+                            "rotateX": "rad"
                         }
                     }
                 ];

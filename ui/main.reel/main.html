@@ -35,14 +35,14 @@
                             {"image": "assets/image/posters/12.jpg", "name": "Marreese Speights", "number": 5, "position": "Center / Forward"},
                             {"image": "assets/image/posters/13.jpg", "name": "Klay Thompson", "number": 11, "position": "Guard"}
                         ],
-                "cameraFov": 90,
-                "cameraPosition": [0, 0, 1700],
+                "cameraFov": 100,
+                "cameraPosition": [0, 0, 1600],
                 "stride": 1,
                 "hasSelectedIndexScrolling": true,
-                "isSelectionEnabled": false,
+                "isSelectionEnabled": true,
                 "cameraTargetPoint": [0, 0, 0],
                 "boundingBoxSize": [344, 464, 0],
-                "linearScrollingVector": [-120, 0, 0],
+                "linearScrollingVector": [-200, 0, 0],
                 "delegate": {"@": "owner"}
             }
         },
@@ -53,7 +53,9 @@
                 "element": {"#": "card"}
             },
             "bindings": {
-                "data": {"<-": "@flow:iteration.object"}
+                "data": {"<-": "@flow:iteration.object"},
+                "flowContent": {"<-": "@flow.content"},
+                "currentIndex": {"<-": "@owner.currentIndex"}
             }
         }
     }

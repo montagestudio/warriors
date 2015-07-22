@@ -11,16 +11,6 @@
                 }
             },
 
-            "toggleSubstitution": {
-                "prototype": "montage/ui/substitution.reel",
-                "properties": {
-                    "element": { "#": "toggleSubstitution" }
-                },
-                "bindings": {
-                  "switchValue": {"<-": "@owner._cardView"}
-                }
-            },
-
             "playerName": {
                 "prototype": "montage/ui/text.reel",
                 "properties": {
@@ -31,30 +21,10 @@
                 }
             },
 
-            "playerNameBack": {
-                "prototype": "montage/ui/text.reel",
-                "properties": {
-                    "element": {"#": "playerNameBack"}
-                },
-                "bindings": {
-                  "value": {"<-": "@owner.data.name"}
-                }
-            },
-
             "playerNumber": {
               "prototype": "montage/ui/text.reel",
               "properties": {
                   "element": {"#": "playerNumber"}
-              },
-              "bindings": {
-                  "value": {"<-": "@owner.data.number"}
-              }
-            },
-
-            "playerNumberBack": {
-              "prototype": "montage/ui/text.reel",
-              "properties": {
-                  "element": {"#": "playerNumberBack"}
               },
               "bindings": {
                   "value": {"<-": "@owner.data.number"}
@@ -77,64 +47,27 @@
                     "element": { "#": "playerImage"},
                     "hasTemplate": false
                 }
-            },
-
-            "cardFrontView": {
-                "prototype": "montage/ui/component",
-                "properties": {
-                    "element": { "#": "cardFrontView"},
-                    "hasTemplate": false,
-                    "buildInCssClass": "transition-build-in",
-                    "buildInTransitionCssClass": "transition",
-                    "buildOutCssClass": "transition-build-out"
-                }
-            },
-
-            "cardBackView": {
-                "prototype": "montage/ui/component",
-                "properties": {
-                    "element": { "#": "cardBackView"},
-                    "hasTemplate": false,
-                    "buildInCssClass": "transition-build-in",
-                    "buildInTransitionCssClass": "transition",
-                    "buildOutCssClass": "transition-build-out"
-                }
             }
         }
     </script>
 </head>
 <body>
     <div data-montage-id="card" class="card">
-        <div data-montage-id="toggleSubstitution">
-            <div data-arg="cardFront">
-                <div data-montage-id="cardFrontView" class="cardFront">
-                    <!-- <button data-montage-id="infoButton" class="infoButton"></button> -->
-                    <div class="playerInfo">
-                        <div data-montage-id="playerNumber" class="playerNumber"></div>
-                        <div data-montage-id="playerName" class="playerName"></div>
-                        <div data-montage-id="playerPosition" class="playerPosition"></div>
-                        <div data-montage-id="teamName" class="teamName">Golden State Warriors</div>
-                    </div>
-                    <div class="playerDetails">
-                        <div class="playerSpecs">
-                            <div class="playerHeight">Height<p data-montage-id="playerHeight">6'3"</p></div>
-                            <div class="playerWeight">Weight<p data-montage-id="playerWeight">195 lbs</p></div>
-                            <div class="playerBirth">Born<p data-montage-id="playerBirth">03/16/82</p></div>
-                        </div>
-                        <div data-montage-id="playerSummary" class="playerSummary">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laudantium facilis earum cumque, doloremque pariatur quibusdam et recusandae saepe quia adipisci itaque explicabo animi obcaecati distinctio fuga. Velit possimus debitis, veniam.</div>
-                    </div>
-                    <div data-montage-id="playerImage" class="playerImage"></div>
-                </div>
-            </div>
-            <div data-arg="cardBack">
-                <div data-montage-id="cardBackView" class="cardBack">
-                    <!-- <button data-montage-id="backButton" class="backButton"></button> -->
-                    <div data-montage-id="playerNumberBack" class="playerNumberBack"></div>
-                    <div data-montage-id="playerNameBack" class="playerNameBack"></div>
-
-                </div>
-            </div>
+        <div class="playerInfo">
+            <div data-montage-id="playerNumber" class="playerNumber"></div>
+            <div data-montage-id="playerName" class="playerName"></div>
+            <div data-montage-id="playerPosition" class="playerPosition"></div>
+            <div data-montage-id="teamName" class="teamName">Golden State Warriors</div>
         </div>
+        <div class="playerDetails">
+            <div class="playerSpecs">
+                <div class="playerHeight">Height<p data-montage-id="playerHeight">6'3"</p></div>
+                <div class="playerWeight">Weight<p data-montage-id="playerWeight">195 lbs</p></div>
+                <div class="playerBirth">Born<p data-montage-id="playerBirth">03/16/82</p></div>
+            </div>
+            <div data-montage-id="playerSummary" class="playerSummary">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laudantium facilis earum cumque, doloremque pariatur quibusdam et recusandae saepe quia adipisci itaque explicabo animi obcaecati distinctio fuga. Velit possimus debitis, veniam.</div>
+        </div>
+        <div data-montage-id="playerImage" class="playerImage"></div>
     </div>
 </body>
 </html>
