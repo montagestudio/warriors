@@ -2,7 +2,7 @@
   "name": "warriors",
   "version": "0.0.0",
   "dependencies": {
-    "montage": "^0.15.0"
+    "montage": "montagejs/montage#master"
   },
   "bundle": [
     "ui/main.reel"
