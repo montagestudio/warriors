@@ -1,0 +1,142 @@
+[
+    {
+        "image": "assets/image/posters/0.jpg",
+        "name": "Leandro Barbosa",
+        "number": 19, "position":
+        "Guard", "heightInFeet": "6",
+        "heightInInches": "4",
+        "weight": "194",
+        "birthdate": "11/28/82",
+        "summary": "this is the space where a fun fact would go for each player"
+    },{
+        "image": "assets/image/posters/1.jpg",
+        "name": "Harrison Barnes",
+        "number": 40,
+        "position": "Forward",
+        "heightInFeet": "6",
+        "heightInInches": "8",
+        "weight": "225",
+        "birthdate": "5/30/92",
+        "summary": "this is the space where a fun fact would go for each player"
+    },{
+        "image": "assets/image/posters/2.jpg",
+        "name": "Andrew Bogut",
+        "number": 12,
+        "position": "Center",
+        "heightInFeet": "7",
+        "heightInInches": "0",
+        "weight": "260",
+        "birthdate": "11/28/84",
+        "summary": "this is the space where a fun fact would go for each player"
+    },{
+        "image": "assets/image/posters/3.jpg",
+        "name": "Stephen Curry",
+        "number": 30,
+        "position": "Guard",
+        "heightInFeet": "6",
+        "heightInInches": "3",
+        "weight": "190",
+        "birthdate": "3/14/88",
+        "summary": "this is the space where a fun fact would go for each player"
+    },{
+        "image": "assets/image/posters/4.jpg",
+        "name": "Festus Ezeli",
+        "number": 31,
+        "position": "Center",
+        "heightInFeet": "6",
+        "heightInInches": "11",
+        "weight": "265",
+        "birthdate": "10/21/89",
+        "summary": "this is the space where a fun fact would go for each player"
+    },{
+        "image": "assets/image/posters/5.jpg",
+        "name": "Draymond Green",
+        "number": 23,
+        "position": "Forward",
+        "heightInFeet": "6",
+        "heightInInches": "7",
+        "weight": "230",
+        "birthdate": "3/4/90",
+        "summary": "this is the space where a fun fact would go for each player"
+    },{
+        "image": "assets/image/posters/6.jpg",
+        "name": "Justin Holiday",
+        "number": 7,
+        "position": "Guard",
+        "heightInFeet": "6",
+        "heightInInches": "3",
+        "weight": "195",
+        "birthdate": "4/15/80",
+        "summary": "this is the space where a fun fact would go for each player"
+    },{
+        "image": "assets/image/posters/7.jpg",
+        "name": "Andre Iguodala",
+        "number": 9,
+        "position": "Guard / Forward",
+        "heightInFeet": "6",
+        "heightInInches": "6",
+        "weight": "215",
+        "birthdate": "1/28/84",
+        "summary": "this is the space where a fun fact would go for each player"
+    },{
+        "image": "assets/image/posters/8.jpg",
+        "name": "David Lee",
+        "number": 10,
+        "position": "Forward / Center",
+        "heightInFeet": "6",
+        "heightInInches": "9",
+        "weight": "245",
+        "birthdate": "4/29/83",
+        "summary": "this is the space where a fun fact would go for each player"
+    },{
+        "image": "assets/image/posters/9.jpg",
+        "name": "Shaun Livingston",
+        "number": 34,
+        "position": "Guard",
+        "heightInFeet": "6",
+        "heightInInches": "7",
+        "weight": "192",
+        "birthdate": "9/11/85",
+        "summary": "this is the space where a fun fact would go for each player"
+    },{
+        "image": "assets/image/posters/10.jpg",
+        "name": "James Michael McAdoo",
+        "number": 20,
+        "position": "Forward",
+        "heightInFeet": "6",
+        "heightInInches": "9",
+        "weight": "230",
+        "birthdate": "1/4/93",
+        "summary": "this is the space where a fun fact would go for each player"
+    },{
+        "image": "assets/image/posters/11.jpg",
+        "name": "Brandon Rush",
+        "number": 4,
+        "position": "Guard / Forward",
+        "heightInFeet": "6",
+        "heightInInches": "6",
+        "weight": "220",
+        "birthdate": "7/7/85",
+        "summary": "this is the space where a fun fact would go for each player"
+    },{
+        "image": "assets/image/posters/12.jpg",
+        "name": "Marreese Speights",
+        "number": 5,
+        "position": "Center / Forward",
+        "heightInFeet": "6",
+        "heightInInches": "10",
+        "weight": "255",
+        "birthdate": "8/4/87",
+        "summary": "this is the space where a fun fact would go for each player"
+    },{
+        "image": "assets/image/posters/13.jpg",
+        "name": "Klay Thompson",
+        "number": 11,
+        "position": "Guard",
+        "heightInFeet": "6",
+        "heightInInches": "7",
+        "weight": "215",
+        "birthdate": "2/8/90",
+        "summary": "this is the space where a fun fact would go for each player"
+    }
+]

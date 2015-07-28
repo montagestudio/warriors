@@ -4,7 +4,8 @@
     @requires montage/ui/component
 */
 var Component = require("montage/ui/component").Component,
-PressComposer = require("montage/composer/press-composer").PressComposer;
+PressComposer = require("montage/composer/press-composer").PressComposer,
+teamData = require("../../assets/data.json");
 
 /**
     Description TODO
@@ -101,9 +102,12 @@ exports.Main = Component.specialize( /** @lends module:"ui/main.reel".Main# */ {
             var self = this;
 
             this.setPaths();
-            window.addEventListener("resize", function () {
-                self.setPaths();
-            }, false);
+
+            this.flowRibbon.content = teamData;
+
+            // handle resize function this.setPaths
+
+            window.addEventListener("resize", this, false);
         }
     }
 
