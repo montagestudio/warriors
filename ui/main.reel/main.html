@@ -13,8 +13,16 @@
             "properties": {
                 "element": {"#": "main"},
                 "flowRibbon": {"@": "flow"}
-            }
+            },
+            "listeners": [
+                {
+                    "type": "action",
+                    "listener": {"@": "owner"},
+                    "capture": false
+                }
+            ]
         },
+
         "flow": {
             "prototype": "montage/ui/flow.reel",
             "properties": {
@@ -42,13 +50,51 @@
                 "currentIndex": {"<-": "@owner.currentIndex"},
                 "currentItem": {"<-": "@flow.selection.one()"}
             }
+        },
+
+        "pageSubstitution": {
+            "prototype": "montage/ui/substitution.reel",
+            "properties": {
+                "element": { "#": "pageSubstitution" }
+            },
+            "bindings": {
+                "switchValue": { "<-": "@owner.application.navigationController.currentView" }
+            }
+        },
+
+        "page1": {
+            "prototype": "montage/ui/button.reel",
+            "properties": {
+                "element": {"#": "page1"}
+            }
+        },
+
+        "page2": {
+            "prototype": "montage/ui/button.reel",
+            "properties": {
+                "element": {"#": "page2"}
+            }
+        },
+
+        "page3": {
+            "prototype": "montage/ui/button.reel",
+            "properties": {
+                "element": {"#": "page3"}
+            }
+        },
+
+        "page4": {
+            "prototype": "montage/ui/button.reel",
+            "properties": {
+                "element": {"#": "page4"}
+            }
         }
     }
     </script>
 </head>
 <body>
     <div data-montage-id="main" class="Main">
-        <div class="intro">
+        <!-- <div class="intro">
             <div class="congrats"></div>
             <div class="intro-footer">
                 <p>from your friends at</p>
@@ -56,14 +102,43 @@
                     <img src="../../assets/image/montage-logo.png" alt="">
                 </a>
             </div>
-        </div>
+        </div> -->
         <div class="teamHeader">
             <div class="logo"></div>
+            <nav>
+                <ul>
+                    <button data-montage-id="page1">Page 1</button>
+                    <button data-montage-id="page2">Page 2</button>
+                    <button data-montage-id="page3">Page 3</button>
+                    <button data-montage-id="page4">Page 4</button>
+                </ul>
+            </nav>
         </div>
 
-        <div data-montage-id="flow" class="flow-Ribbon">
-            <div data-montage-id="card"></div>
+        <div data-montage-id="pageSubstitution" class="content">
+
+            <div data-arg="page1">
+                <div data-montage-id="flow" class="flow-Ribbon">
+                    <div data-montage-id="card"></div>
+                </div>
+            </div>
+
+            <div data-arg="page2" class="page">
+                page 2
+            </div>
+
+            <div data-arg="page3" class="page">
+                page 3
+            </div>
+
+            <div data-arg="page4" class="page">
+                page 4
+            </div>
         </div>
+
+
+
+
     </div>
 </body>
 </html>

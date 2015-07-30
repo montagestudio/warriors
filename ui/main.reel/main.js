@@ -5,7 +5,8 @@
 */
 var Component = require("montage/ui/component").Component,
 PressComposer = require("montage/composer/press-composer").PressComposer,
-teamData = require("../../assets/data.json");
+teamData = require("../../assets/data.json"),
+NavigationController = require("core/navigation-controller").NavigationController;
 
 /**
     Description TODO
@@ -13,6 +14,15 @@ teamData = require("../../assets/data.json");
     @extends module:ui/component.Component
 */
 exports.Main = Component.specialize( /** @lends module:"ui/main.reel".Main# */ {
+
+    enterDocument: {
+        value: function Main(firstTime) {
+            if(firstTime) {
+
+                this.application.navigationController = NavigationController;
+            }
+        }
+    },
 
     currentIndex: {
         value: 0
@@ -108,6 +118,34 @@ exports.Main = Component.specialize( /** @lends module:"ui/main.reel".Main# */ {
             // handle resize function this.setPaths
 
             window.addEventListener("resize", this, false);
+        }
+    },
+
+    handlePage1Action: {
+        value: function () {
+            console.log("page1");
+            this.application.navigationController.selectView('page1');
+        }
+    },
+
+    handlePage2Action: {
+        value: function () {
+            console.log("page2");
+            this.application.navigationController.selectView('page2');
+        }
+    },
+
+    handlePage3Action: {
+        value: function () {
+            console.log("page3");
+            this.application.navigationController.selectView('page3');
+        }
+    },
+
+    handlePage4Action: {
+        value: function () {
+            console.log("page4");
+            this.application.navigationController.selectView('page4');
         }
     }
 

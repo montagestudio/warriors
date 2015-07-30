@@ -110,14 +110,31 @@ html {
     background-size: cover;
     opacity: .75;
     /*background-size: 100% 100%;*/
-
 }
 
-.flow-Ribbon {
+.content {
     position: relative;
-    -webkit-flex: 3;
-        -ms-flex: 3;
-            flex: 3;
+        -webkit-flex: 3;
+            -ms-flex: 3;
+                flex: 3;
+}
+
+nav {
+    position: absolute;
+    z-index: 10;
+}
+
+.page {
+    position: absolute;
+    top:    0;
+    bottom: 0;
+    left:   0;
+    right:  0;
+    padding: 20px;
+    text-align: center;
+    color: #FFF;
+    font-size: 24px;
+    background: rgba(0,0,0,.5);
 }
 
 /* basketball */
@@ -150,7 +167,7 @@ html {
     position: relative;
     text-align: center;
     color: rgb(255,204,51);
-
+    max-height: 320px;
     padding: 40px 20px;
 }
 
