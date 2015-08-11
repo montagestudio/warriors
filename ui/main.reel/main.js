@@ -137,8 +137,18 @@ exports.Main = Component.specialize(/** @lends module:"ui/main.reel".Main# */ {
 
     handlePage3Action: {
         value: function () {
-            console.log("page3");
-            this.application.navigationController.selectView('page3');
+            //console.log("page3");
+            //this.application.navigationController.selectView('page3');
+            var images = {
+                localId: [],
+                serverId: []
+            };
+            wx.chooseImage({
+                success: function (res) {
+                    images.localId = res.localIds;
+                    alert('已选择 ' + res.localIds.length + ' 张图片');
+                }
+            });
         }
     },
 
