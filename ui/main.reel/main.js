@@ -1,23 +1,23 @@
 /**
-    @module "ui/main.reel"
-    @requires montage
-    @requires montage/ui/component
-*/
+ @module "ui/main.reel"
+ @requires montage
+ @requires montage/ui/component
+ */
 var Component = require("montage/ui/component").Component,
-PressComposer = require("montage/composer/press-composer").PressComposer,
-teamData = require("../../assets/data.json"),
-NavigationController = require("core/navigation-controller").NavigationController;
+    PressComposer = require("montage/composer/press-composer").PressComposer,
+    teamData = require("../../assets/data.json"),
+    NavigationController = require("core/navigation-controller").NavigationController;
 
 /**
-    Description TODO
-    @class module:"ui/main.reel".Main
-    @extends module:ui/component.Component
-*/
-exports.Main = Component.specialize( /** @lends module:"ui/main.reel".Main# */ {
+ Description TODO
+ @class module:"ui/main.reel".Main
+ @extends module:ui/component.Component
+ */
+exports.Main = Component.specialize(/** @lends module:"ui/main.reel".Main# */ {
 
     enterDocument: {
         value: function Main(firstTime) {
-            if(firstTime) {
+            if (firstTime) {
 
                 this.application.navigationController = NavigationController;
             }
@@ -73,36 +73,36 @@ exports.Main = Component.specialize( /** @lends module:"ui/main.reel".Main# */ {
                 i,
                 self = this;
 
-                halfPageWidth = 1300;
-                for (i = -1; i <= 9; i++) {
-                    angle = Math.PI - i * Math.PI / 8;
-                    point = this.scaleVector(this.pointInCircleAt(angle), halfPageWidth);
-                    tangent = this.scaleVector(this.tangentInCircleAt(angle), halfPageWidth * bezierHandlerLength);
-                    pagesKnots.push(
-                        {
-                            "knotPosition": [point[0], 0, point[1]],
-                            "previousHandlerPosition": [point[0] + tangent[0], 0, point[1] + tangent[1]],
-                            "nextHandlerPosition": [point[0] - tangent[0], 0, point[1] - tangent[1]],
-                            "previousDensity": .9,
-                            "nextDensity": .9,
-                            "rotateY": Math.PI/2 - angle,
-                            "opacity": 1 - Math.abs(i-4)*.2
-                        }
-                    );
-                }
-
-                this.flowRibbon.paths = [
+            halfPageWidth = 1300;
+            for (i = -1; i <= 9; i++) {
+                angle = Math.PI - i * Math.PI / 8;
+                point = this.scaleVector(this.pointInCircleAt(angle), halfPageWidth);
+                tangent = this.scaleVector(this.tangentInCircleAt(angle), halfPageWidth * bezierHandlerLength);
+                pagesKnots.push(
                     {
-                        "knots": pagesKnots,
-                        "headOffset": 4.5,
-                        "tailOffset": 4.5,
-                        "units": {
-                            "rotateY": "rad",
-                            "opacity": "",
-                            "rotateX": "rad"
-                        }
+                        "knotPosition": [point[0], 0, point[1]],
+                        "previousHandlerPosition": [point[0] + tangent[0], 0, point[1] + tangent[1]],
+                        "nextHandlerPosition": [point[0] - tangent[0], 0, point[1] - tangent[1]],
+                        "previousDensity": .9,
+                        "nextDensity": .9,
+                        "rotateY": Math.PI / 2 - angle,
+                        "opacity": 1 - Math.abs(i - 4) * .2
                     }
-                ];
+                );
+            }
+
+            this.flowRibbon.paths = [
+                {
+                    "knots": pagesKnots,
+                    "headOffset": 4.5,
+                    "tailOffset": 4.5,
+                    "units": {
+                        "rotateY": "rad",
+                        "opacity": "",
+                        "rotateX": "rad"
+                    }
+                }
+            ];
 
         }
     },
@@ -144,8 +144,52 @@ exports.Main = Component.specialize( /** @lends module:"ui/main.reel".Main# */ {
 
     handlePage4Action: {
         value: function () {
-            console.log("page4");
-            this.application.navigationController.selectView('page4');
+            //console.log("page4");
+            //this.application.navigationController.selectView('page4');
+
+            wx.checkJsApi({
+                jsApiList: [
+                    'getNetworkType',
+                    'checkJsApi',
+                    'onMenuShareTimeline',
+                    'onMenuShareAppMessage',
+                    'onMenuShareQQ',
+                    'onMenuShareWeibo',
+                    'hideMenuItems',
+                    'showMenuItems',
+                    'hideAllNonBaseMenuItem',
+                    'showAllNonBaseMenuItem',
+                    'translateVoice',
+                    'startRecord',
+                    'stopRecord',
+                    'onRecordEnd',
+                    'playVoice',
+                    'pauseVoice',
+                    'stopVoice',
+                    'uploadVoice',
+                    'downloadVoice',
+                    'chooseImage',
+                    'previewImage',
+                    'uploadImage',
+                    'downloadImage',
+                    'getNetworkType',
+                    'openLocation',
+                    'getLocation',
+                    'hideOptionMenu',
+                    'showOptionMenu',
+                    'closeWindow',
+                    'scanQRCode',
+                    'chooseWXPay',
+                    'openProductSpecificView',
+                    'addCard',
+                    'chooseCard',
+                    'openCard'
+                ],
+                success: function (res) {
+                    alert(JSON.stringify(res));
+                }
+            });
+
         }
     }
 
