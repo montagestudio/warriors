@@ -146,49 +146,24 @@ exports.Main = Component.specialize(/** @lends module:"ui/main.reel".Main# */ {
         value: function () {
             //console.log("page4");
             //this.application.navigationController.selectView('page4');
-
-            wx.checkJsApi({
-                jsApiList: [
-                    'getNetworkType',
-                    'checkJsApi',
-                    'onMenuShareTimeline',
-                    'onMenuShareAppMessage',
-                    'onMenuShareQQ',
-                    'onMenuShareWeibo',
-                    'hideMenuItems',
-                    'showMenuItems',
-                    'hideAllNonBaseMenuItem',
-                    'showAllNonBaseMenuItem',
-                    'translateVoice',
-                    'startRecord',
-                    'stopRecord',
-                    'onRecordEnd',
-                    'playVoice',
-                    'pauseVoice',
-                    'stopVoice',
-                    'uploadVoice',
-                    'downloadVoice',
-                    'chooseImage',
-                    'previewImage',
-                    'uploadImage',
-                    'downloadImage',
-                    'getNetworkType',
-                    'openLocation',
-                    'getLocation',
-                    'hideOptionMenu',
-                    'showOptionMenu',
-                    'closeWindow',
-                    'scanQRCode',
-                    'chooseWXPay',
-                    'openProductSpecificView',
-                    'addCard',
-                    'chooseCard',
-                    'openCard'
-                ],
+            wx.onMenuShareTimeline({
+                title: 'Warriors favorite Stars voting!',
+                link: 'http://lx179.com/wechat/warriors/',
+                imgUrl: 'http://lx179.com/wechat/warriors/assets/image/posters/1.jpg',
+                trigger: function (res) {
+                    alert('User click share to friend cycle');
+                },
                 success: function (res) {
+                    alert('Share successfully');
+                },
+                cancel: function (res) {
+                    alert('Share Canceled');
+                },
+                fail: function (res) {
                     alert(JSON.stringify(res));
                 }
             });
+            alert('Start listen share friend event');
 
         }
     }
