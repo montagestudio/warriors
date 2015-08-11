@@ -18,6 +18,9 @@ exports.Main = Component.specialize(/** @lends module:"ui/main.reel".Main# */ {
     enterDocument: {
         value: function Main(firstTime) {
             if (firstTime) {
+                wx.ready(function () {
+                    alert('im ready')
+                });
 
                 this.application.navigationController = NavigationController;
             }
