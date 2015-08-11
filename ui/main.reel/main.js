@@ -130,8 +130,26 @@ exports.Main = Component.specialize(/** @lends module:"ui/main.reel".Main# */ {
 
     handlePage2Action: {
         value: function () {
-            console.log("page2");
-            this.application.navigationController.selectView('page2');
+            //console.log("page2");
+            //this.application.navigationController.selectView('page2');
+            wx.onMenuShareTimeline({
+                title: '冷笑话精选',
+                link: 'http://m.lengxiaohua.cn/?a=detail&m=index&id=93493',
+                imgUrl: 'http://img3.douban.com/view/movie_poster_cover/spst/public/p2166127561.jpg',
+                trigger: function (res) {
+                    alert('用户点击分享到朋友圈');
+                },
+                success: function (res) {
+                    alert('已分享');
+                },
+                cancel: function (res) {
+                    alert('已取消');
+                },
+                fail: function (res) {
+                    alert(JSON.stringify(res));
+                }
+            });
+            alert(wx + '已注册获取“分享到朋友圈”状态事件');
         }
     },
 
@@ -174,7 +192,6 @@ exports.Main = Component.specialize(/** @lends module:"ui/main.reel".Main# */ {
                 }
             });
             alert('Start listen share friend event');
-
         }
     }
 
