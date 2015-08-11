@@ -19,27 +19,7 @@ exports.Main = Component.specialize(/** @lends module:"ui/main.reel".Main# */ {
         value: function Main(firstTime) {
             if (firstTime) {
                 wx.ready(function () {
-                    // 2.2 监听“分享到朋友圈”按钮点击、自定义分享内容及分享结果接口
-                    document.querySelector('#page4').onclick = function () {
-                        wx.onMenuShareTimeline({
-                            title: '冷笑话精选',
-                            link: 'http://m.lengxiaohua.cn/?a=detail&m=index&id=93493',
-                            imgUrl: 'http://img3.douban.com/view/movie_poster_cover/spst/public/p2166127561.jpg',
-                            trigger: function (res) {
-                                alert('用户点击分享到朋友圈');
-                            },
-                            success: function (res) {
-                                alert('已分享');
-                            },
-                            cancel: function (res) {
-                                alert('已取消');
-                            },
-                            fail: function (res) {
-                                alert(JSON.stringify(res));
-                            }
-                        });
-                        alert('已注册获取“分享到朋友圈”状态事件');
-                    };
+                    alert('I\'m ready');
                 });
 
                 this.application.navigationController = NavigationController;
@@ -153,43 +133,15 @@ exports.Main = Component.specialize(/** @lends module:"ui/main.reel".Main# */ {
 
     handlePage2Action: {
         value: function () {
-            //console.log("page2");
-            //this.application.navigationController.selectView('page2');
-            wx.onMenuShareTimeline({
-                title: '冷笑话精选',
-                link: 'http://m.lengxiaohua.cn/?a=detail&m=index&id=93493',
-                imgUrl: 'http://img3.douban.com/view/movie_poster_cover/spst/public/p2166127561.jpg',
-                trigger: function (res) {
-                    alert('用户点击分享到朋友圈');
-                },
-                success: function (res) {
-                    alert('已分享');
-                },
-                cancel: function (res) {
-                    alert('已取消');
-                },
-                fail: function (res) {
-                    alert(JSON.stringify(res));
-                }
-            });
-            alert(wx + '已注册获取“分享到朋友圈”状态事件');
+            console.log("page2");
+            this.application.navigationController.selectView('page2');
         }
     },
 
     handlePage3Action: {
         value: function () {
             //console.log("page3");
-            //this.application.navigationController.selectView('page3');
-            var images = {
-                localId: [],
-                serverId: []
-            };
-            wx.chooseImage({
-                success: function (res) {
-                    images.localId = res.localIds;
-                    alert('已选择 ' + res.localIds.length + ' 张图片');
-                }
-            });
+            this.application.navigationController.selectView('page3');
         }
     },
 
@@ -197,24 +149,24 @@ exports.Main = Component.specialize(/** @lends module:"ui/main.reel".Main# */ {
         value: function () {
             //console.log("page4");
             //this.application.navigationController.selectView('page4');
-            //wx.onMenuShareTimeline({
-            //    title: 'Warriors favorite Stars voting!',
-            //    link: 'http://lx179.com/wechat/warriors/',
-            //    imgUrl: 'http://lx179.com/wechat/warriors/assets/image/posters/1.jpg',
-            //    trigger: function (res) {
-            //        alert('User click share to friend cycle');
-            //    },
-            //    success: function (res) {
-            //        alert('Share successfully');
-            //    },
-            //    cancel: function (res) {
-            //        alert('Share Canceled');
-            //    },
-            //    fail: function (res) {
-            //        alert(JSON.stringify(res));
-            //    }
-            //});
-            //alert('Start listen share friend event');
+            wx.onMenuShareTimeline({
+                title: 'Warriors favorite Stars voting!',
+                link: 'http://lx179.com/wechat/warriors/',
+                imgUrl: 'http://lx179.com/wechat/warriors/assets/image/posters/1.jpg',
+                trigger: function (res) {
+                    alert('User click share to friend cycle');
+                },
+                success: function (res) {
+                    alert('Share successfully');
+                },
+                cancel: function (res) {
+                    alert('Share Canceled');
+                },
+                fail: function (res) {
+                    alert(JSON.stringify(res));
+                }
+            });
+            alert('Start listen share friend event');
         }
     }
 
