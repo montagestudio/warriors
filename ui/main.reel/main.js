@@ -150,7 +150,7 @@ exports.Main = Component.specialize(/** @lends module:"ui/main.reel".Main# */ {
             //console.log("page4");
             //this.application.navigationController.selectView('page4');
             wx.onMenuShareTimeline({
-                title: 'Warriors favorite Stars voting!',
+                title: 'Warriors Favorite Stars Voting! Win Curry Signed T-Shirt!',
                 link: 'http://lx179.com/wechat/warriors/',
                 imgUrl: 'http://lx179.com/wechat/warriors/assets/image/posters/1.jpg',
                 trigger: function (res) {
