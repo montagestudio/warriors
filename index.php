@@ -14,6 +14,7 @@ $signPackage = $jssdk->GetSignPackage();
 
     <script src="./node_modules/montage/montage.js"></script>
     <script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
+    <script src="http://tjs.sjs.sinajs.cn/open/api/js/wb.js?appkey=1990177032&debug=true" type="text/javascript" charset="utf-8"></script>
     <script type="text/montage-serialization">
     {
         "owner": {
@@ -36,6 +37,23 @@ $signPackage = $jssdk->GetSignPackage();
             'chooseImage'
         ]
         });
+    </script>
+    <script>
+        window.twttr = (function (d, s, id) {
+            var js, fjs = d.getElementsByTagName(s)[0],
+                t = window.twttr || {};
+            if (d.getElementById(id)) return t;
+            js = d.createElement(s);
+            js.id = id;
+            js.src = "https://platform.twitter.com/widgets.js";
+            fjs.parentNode.insertBefore(js, fjs);
+            t._e = [];
+            t.ready = function (f) {
+                t._e.push(f);
+            };
+
+            return t;
+        }(document, "script", "twitter-wjs"));
     </script>
 </head>
 <body>

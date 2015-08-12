@@ -22,6 +22,30 @@ exports.Main = Component.specialize(/** @lends module:"ui/main.reel".Main# */ {
                     alert('I\'m ready');
                 });
 
+                //sina WeiBo
+                WB2.anyWhere(function(W){
+                    W.widget.publish({
+                        'id' : 'share_to_weibo',
+                        'default_text' : '预置方案　& \r\n我可以换行.',
+                        'callback' : function(o) {
+                            alert('aaaa')
+                        }
+                    });
+                });
+
+                //Twitter
+                twttr.ready(
+                    function (twttr) {
+                        twttr.widgets.createShareButton(
+                            'http://lx179.com/wechat/warriors/',
+                            document.getElementById('share_to_twitter'),
+                            {
+                                text: 'Warriors Favorite Stars Voting! Win Curry Signed T-Shirt!',
+                                count: 'none'
+                            }
+                        )
+                    }
+                );
                 this.application.navigationController = NavigationController;
             }
         }
