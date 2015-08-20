@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <link rel="stylesheet" type="text/css" href="question-result.css">
+    <script type="text/montage-serialization">
+    {
+        "owner": {
+            "properties": {
+                "element": {"#": "owner"}
+            }
+        },
+
+        "resultQuestion": {
+            "prototype": "montage/ui/text.reel",
+            "properties": {
+                "element": { "#": "resultQuestion" },
+                "value": "This is the previous question"
+            }
+        },
+
+        "topResults": {
+            "prototype": "montage/ui/repetition.reel",
+            "properties": {
+                "element": { "#": "topResults" },
+                "value": "This is the previous question"
+            },
+            "bindings": {
+                "content": { "<-": "@owner.data" }
+            }
+        },
+
+        "resultName": {
+            "prototype": "montage/ui/text.reel",
+            "properties": {
+                "element": { "#": "resultName" }
+            },
+            "bindings": {
+                "value": { "<-": "@topResults:iteration.object.name" }
+            }
+        },
+
+        "resultPlace": {
+            "prototype": "montage/ui/text.reel",
+            "properties": {
+                "element": { "#": "resultPlace" }
+            },
+            "bindings": {
+                "value": { "<-": "@topResults:iteration.object.place" }
+            }
+        },
+
+        "resultPercentage": {
+            "prototype": "montage/ui/text.reel",
+            "properties": {
+                "element": { "#": "resultPercentage" }
+            },
+            "bindings": {
+                "value": { "<-": "@topResults:iteration.object.percentage" }
+            }
+        }
+
+
+    }
+    </script>
+</head>
+<body>
+    <div data-montage-id="owner" class="QuestionResult">
+        <div class="question">
+            <span data-montage-id="resultQuestion" class="resultQuestion"></span>
+        </div>
+        <div class="results-wrapper mainContent">
+            <div class="results">
+
+                <h1>Results</h1>
+
+                <div class="results-content">
+
+                    <h3>Your Pick</h3>
+                    <div class="result userChoice">
+                        <div class="result-data">
+                            <span class="result-place">3rd</span>
+                            <span class="result-percentage">15%</span>
+                        </div>
+                        <div class="result-name">
+                            <h2>Stephen Curry</h2>
+                        </div>
+                    </div>
+
+                    <h3>Top Choices</h3>
+
+                    <ul data-montage-id="topResults" class="topResults">
+                        <li class='result'>
+                            <div class="result-data">
+                                <span data-montage-id="resultPlace" class="result-place"></span>
+                                <span data-montage-id="resultPercentage" class="result-percentage"></span>
+                            </div>
+                            <div class="result-name">
+                                <h2 data-montage-id="resultName"></h2>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="cta-buttons">
+                <button>share</button>
+                <button>vote again</button>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

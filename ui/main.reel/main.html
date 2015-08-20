@@ -2,6 +2,7 @@
 <html>
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
     <title>Golden State Warriors</title>
 
     <link rel="stylesheet" type="text/css" href="main.css">
@@ -72,11 +73,10 @@
             }
         },
 
-        "resultQuestion": {
-            "prototype": "montage/ui/text.reel",
+        "questionResult": {
+            "prototype": "ui/question-result.reel",
             "properties": {
-                "element": { "#": "resultQuestion" },
-                "value": "This is the previous question"
+                "element": { "#": "questionResult" }
             }
         }
 
@@ -106,66 +106,10 @@
                 </div>
             </div>
 
-            <div data-arg="results" class="view">
-                <div class="question">
-                    <span data-montage-id="resultQuestion" class="resultQuestion"></span>
-                </div>
-                <div class="results-wrapper mainContent">
-                    <div class="results">
-
-                        <h1>Results</h1>
-                        <div class="results-content">
-
-                            <h3>Your Pick</h3>
-                            <div class="result userChoice">
-                                <div class="result-data">
-                                    <span class="result-place">3rd</span>
-                                    <span class="result-percentage">15%</span>
-                                </div>
-                                <div class="result-name">
-                                    <h2>Stephen Curry</h2>
-                                </div>
-                            </div>
-
-                            <h3>Top Choices</h3>
-                            <ul>
-                                <li class='result'>
-                                    <div class="result-data">
-                                        <span class="result-place">1st</span>
-                                        <span class="result-percentage">25%</span>
-                                    </div>
-                                    <div class="result-name">
-                                        <h2>Leandro Barbosa</h2>
-                                    </div>
-                                </li>
-                                <li class='result'>
-                                    <div class="result-data">
-                                        <span class="result-place">2nd</span>
-                                        <span class="result-percentage">20%</span>
-                                    </div>
-                                    <div class="result-name">
-                                        <h2>Harrison Barnes</h2>
-                                    </div>
-                                </li>
-                                <li class='result'>
-                                    <div class="result-data">
-                                        <span class="result-place">4th</span>
-                                        <span class="result-percentage">5%</span>
-                                    </div>
-                                    <div class="result-name">
-                                        <h2>Andrew Bogut</h2>
-                                    </div>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="cta-buttons">
-                        <button>share</button>
-                        <button>vote again</button>
-                    </div>
-                </div>
-
+            <div data-arg="results">
+                <div data-montage-id="questionResult" class="view"></div>
             </div>
+
         </div>
     </div>
 </body>

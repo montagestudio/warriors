@@ -93,8 +93,8 @@ exports.Main = Component.specialize( /** @lends module:"ui/main.reel".Main# */ {
                             "knotPosition": [point[0], 0, point[1]],
                             "previousHandlerPosition": [point[0] + tangent[0], 0, point[1] + tangent[1]],
                             "nextHandlerPosition": [point[0] - tangent[0], 0, point[1] - tangent[1]],
-                            "previousDensity": .9,
-                            "nextDensity": .9,
+                            "previousDensity": 1.1,
+                            "nextDensity": 1.1,
                             "rotateY": Math.PI/2 - angle,
                             "opacity": 1 - Math.abs(i-4)*.2
                         }
@@ -104,8 +104,8 @@ exports.Main = Component.specialize( /** @lends module:"ui/main.reel".Main# */ {
                 this.flowRibbon.paths = [
                     {
                         "knots": pagesKnots,
-                        "headOffset": 4.5,
-                        "tailOffset": 4.5,
+                        "headOffset": 5.5,
+                        "tailOffset": 5.5,
                         "units": {
                             "rotateY": "rad",
                             "opacity": "",
