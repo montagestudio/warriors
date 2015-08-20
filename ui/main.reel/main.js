@@ -18,7 +18,6 @@ exports.Main = Component.specialize( /** @lends module:"ui/main.reel".Main# */ {
     enterDocument: {
         value: function Main(firstTime) {
             if(firstTime) {
-
                 this.application.navigationController = NavigationController;
             }
         }
@@ -28,15 +27,26 @@ exports.Main = Component.specialize( /** @lends module:"ui/main.reel".Main# */ {
         value: 0
     },
 
-    didTranslateEnd: {
-        value: function () {
-            this.currentIndex = this.flowRibbon.scroll;
-        }
+    transitionStarted: {
+        value: false
     },
 
     flowRibbon: {
         serializable: true,
         value: null
+    },
+
+    flowDidTranslateEnd: {
+        value: function () {
+            this.currentIndex = this.flowRibbon.scroll;
+            this.transitionStarted = false;
+        }
+    },
+
+    flowDidTranslateStart: {
+        value: function () {
+            this.transitionStarted = true;
+        }
     },
 
     pointInCircleAt: { // returns a point in a unit radius circle with center at origin for a given angle
@@ -118,34 +128,6 @@ exports.Main = Component.specialize( /** @lends module:"ui/main.reel".Main# */ {
             // handle resize function this.setPaths
 
             window.addEventListener("resize", this, false);
-        }
-    },
-
-    handlePage1Action: {
-        value: function () {
-            console.log("page1");
-            this.application.navigationController.selectView('page1');
-        }
-    },
-
-    handlePage2Action: {
-        value: function () {
-            console.log("page2");
-            this.application.navigationController.selectView('page2');
-        }
-    },
-
-    handlePage3Action: {
-        value: function () {
-            console.log("page3");
-            this.application.navigationController.selectView('page3');
-        }
-    },
-
-    handlePage4Action: {
-        value: function () {
-            console.log("page4");
-            this.application.navigationController.selectView('page4');
         }
     }
 

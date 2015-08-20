@@ -42,6 +42,8 @@ var Card = exports.Card = Component.specialize( {
             // set flag in bindings to check
             // check scope in FRB for binding
 
+            console.log(this.activeCard);
+
             if (this.data == this.flowContent[this.currentIndex]) {
                 if (this.classList.contains("show-details")) {
                     this.hideDetails();
@@ -63,6 +65,13 @@ var Card = exports.Card = Component.specialize( {
         value: function () {
             this.classList.add("hide-details");
             this.classList.remove("show-details");
+        }
+    },
+
+    handleSelectItemAction: {
+        value: function () {
+            console.log('click');
+            this.application.navigationController.selectView('results');
         }
     }
 });

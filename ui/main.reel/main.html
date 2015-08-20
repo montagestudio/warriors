@@ -27,14 +27,14 @@
             "prototype": "montage/ui/flow.reel",
             "properties": {
                 "element": {"#": "flow"},
-                "cameraFov": 100,
-                "cameraPosition": [0, 0, 1600],
+                "cameraFov": 50,
+                "cameraPosition": [0, 0, 2100],
                 "stride": 1,
                 "hasSelectedIndexScrolling": true,
                 "isSelectionEnabled": true,
                 "cameraTargetPoint": [0, 0, 0],
-                "boundingBoxSize": [344, 464, 0],
-                "linearScrollingVector": [-150, 0, 0],
+                "boundingBoxSize": [800, 800, 0],
+                "linearScrollingVector": [-200, 0, 0],
                 "delegate": {"@": "owner"}
             }
         },
@@ -48,7 +48,17 @@
                 "data": {"<-": "@flow:iteration.object"},
                 "flowContent": {"<-": "@flow.content"},
                 "currentIndex": {"<-": "@owner.currentIndex"},
-                "currentItem": {"<-": "@flow.selection.one()"}
+                "currentItem": {"<-": "@flow.selection.one()"},
+                "transition": {"<-": "!@owner.transitionStarted"},
+                "activeCard": {"<-": "@flow.contentController.content[currentIndex] == data"}
+            }
+        },
+
+        "question": {
+            "prototype": "montage/ui/text.reel",
+            "properties": {
+                "element": {"#": "question"},
+                "value": "Pick your favorite Warriors player"
             }
         },
 
@@ -60,85 +70,84 @@
             "bindings": {
                 "switchValue": { "<-": "@owner.application.navigationController.currentView" }
             }
-        },
-
-        "page1": {
-            "prototype": "montage/ui/button.reel",
-            "properties": {
-                "element": {"#": "page1"}
-            }
-        },
-
-        "page2": {
-            "prototype": "montage/ui/button.reel",
-            "properties": {
-                "element": {"#": "page2"}
-            }
-        },
-
-        "page3": {
-            "prototype": "montage/ui/button.reel",
-            "properties": {
-                "element": {"#": "page3"}
-            }
-        },
-
-        "page4": {
-            "prototype": "montage/ui/button.reel",
-            "properties": {
-                "element": {"#": "page4"}
-            }
         }
+
     }
     </script>
 </head>
 <body>
     <div data-montage-id="main" class="Main">
-        <!-- <div class="intro">
-            <div class="congrats"></div>
-            <div class="intro-footer">
-                <p>from your friends at</p>
-                <a href="http://montagestudio.com" target="_blank" class="montageLogo">
-                    <img src="../../assets/image/montage-logo.png" alt="">
-                </a>
-            </div>
-        </div> -->
         <div class="teamHeader">
             <div class="logo"></div>
-            <nav>
-                <ul>
-                    <button data-montage-id="page1">Page 1</button>
-                    <button data-montage-id="page2">Page 2</button>
-                    <button data-montage-id="page3">Page 3</button>
-                    <button data-montage-id="page4">Page 4</button>
-                </ul>
-            </nav>
         </div>
-
         <div data-montage-id="pageSubstitution" class="content">
 
-            <div data-arg="page1">
-                <div data-montage-id="flow" class="flow-Ribbon">
-                    <div data-montage-id="card"></div>
+            <div data-arg="voting" class="view">
+                <div class="question">
+                    <span data-montage-id="question"></span>
+                </div>
+
+                <div class="flow-container">
+                    <div data-montage-id="flow" class="flow-Ribbon">
+                        <div data-montage-id="card"></div>
+                    </div>
                 </div>
             </div>
 
-            <div data-arg="page2" class="page">
-                page 2
-            </div>
+            <div data-arg="results" class="view">
+                <div class="question">
+                    <span>This is the question</span>
+                </div>
+                <div class="results">
 
-            <div data-arg="page3" class="page">
-                page 3
-            </div>
+                    <h1>Results</h1>
+                    <div class="results-content">
 
-            <div data-arg="page4" class="page">
-                page 4
+                        <h3>Your Pick</h3>
+                        <div class="result userChoice">
+                            <div class="result-data">
+                                <span class="result-place">3rd</span>
+                                <span class="result-percentage">15%</span>
+                            </div>
+                            <div class="result-name">
+                                <h2>Stephen Curry</h2>
+                            </div>
+                        </div>
+
+                        <h3>Top Choices</h3>
+                        <ul>
+                            <li class='result'>
+                                <div class="result-data">
+                                    <span class="result-place">1st</span>
+                                    <span class="result-percentage">25%</span>
+                                </div>
+                                <div class="result-name">
+                                    <h2>Leandro Barbosa</h2>
+                                </div>
+                            </li>
+                            <li class='result'>
+                                <div class="result-data">
+                                    <span class="result-place">2nd</span>
+                                    <span class="result-percentage">20%</span>
+                                </div>
+                                <div class="result-name">
+                                    <h2>Harrison Barnes</h2>
+                                </div>
+                            </li>
+                            <li class='result'>
+                                <div class="result-data">
+                                    <span class="result-place">4th</span>
+                                    <span class="result-percentage">5%</span>
+                                </div>
+                                <div class="result-name">
+                                    <h2>Andrew Bogut</h2>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
             </div>
         </div>
-
-
-
-
     </div>
 </body>
 </html>

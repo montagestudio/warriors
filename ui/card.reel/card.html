@@ -8,7 +8,17 @@
                 "properties": {
                     "element": {"#": "card"},
                     "playerImage": {"#": "playerImage"}
-                }
+                },
+                "bindings": {
+                    "classList.has('is-selected')" : { "<-" : "@owner.activeCard && @owner.transition"}
+                },
+                "listeners": [
+                    {
+                        "type": "action",
+                        "listener": {"@": "owner"},
+                        "capture": false
+                    }
+                ]
             },
 
             "playerName": {
@@ -22,63 +32,63 @@
             },
 
             "playerNumber": {
-              "prototype": "montage/ui/text.reel",
-              "properties": {
-                  "element": {"#": "playerNumber"}
-              },
-              "bindings": {
-                  "value": {"<-": "@owner.data.number"}
-              }
+                "prototype": "montage/ui/text.reel",
+                "properties": {
+                    "element": {"#": "playerNumber"}
+                },
+                "bindings": {
+                    "value": {"<-": "@owner.data.number"}
+                }
             },
 
             "playerPosition": {
-              "prototype": "montage/ui/text.reel",
-              "properties": {
-                  "element": {"#": "playerPosition"}
-              },
-              "bindings": {
-                  "value": {"<-": "@owner.data.position"}
-              }
+                "prototype": "montage/ui/text.reel",
+                "properties": {
+                    "element": {"#": "playerPosition"}
+                },
+                "bindings": {
+                    "value": {"<-": "@owner.data.position"}
+                }
             },
 
             "playerHeightInFeet": {
-              "prototype": "montage/ui/text.reel",
-              "properties": {
-                  "element": {"#": "playerHeightInFeet"}
-              },
-              "bindings": {
-                  "value": {"<-": "@owner.data.heightInFeet"}
-              }
+                "prototype": "montage/ui/text.reel",
+                "properties": {
+                    "element": {"#": "playerHeightInFeet"}
+                },
+                "bindings": {
+                    "value": {"<-": "@owner.data.heightInFeet"}
+                }
             },
 
             "playerHeightInInches": {
-              "prototype": "montage/ui/text.reel",
-              "properties": {
-                  "element": {"#": "playerHeightInInches"}
-              },
-              "bindings": {
-                  "value": {"<-": "@owner.data.heightInInches"}
-              }
+                "prototype": "montage/ui/text.reel",
+                "properties": {
+                    "element": {"#": "playerHeightInInches"}
+                },
+                "bindings": {
+                    "value": {"<-": "@owner.data.heightInInches"}
+                }
             },
 
             "playerWeight": {
-              "prototype": "montage/ui/text.reel",
-              "properties": {
-                  "element": {"#": "playerWeight"}
-              },
-              "bindings": {
-                  "value": {"<-": "@owner.data.weight"}
-              }
+                "prototype": "montage/ui/text.reel",
+                "properties": {
+                    "element": {"#": "playerWeight"}
+                },
+                "bindings": {
+                    "value": {"<-": "@owner.data.weight"}
+                }
             },
 
             "playerSummary": {
-              "prototype": "montage/ui/text.reel",
-              "properties": {
-                  "element": {"#": "playerSummary"}
-              },
-              "bindings": {
-                  "value": {"<-": "@owner.data.summary"}
-              }
+                "prototype": "montage/ui/text.reel",
+                "properties": {
+                    "element": {"#": "playerSummary"}
+                },
+                "bindings": {
+                    "value": {"<-": "@owner.data.summary"}
+                }
             },
 
             "playerBirthdate": {
@@ -89,9 +99,14 @@
               "bindings": {
                   "value": {"<-": "@owner.data.birthdate"}
               }
+            },
+
+            "selectItem": {
+                "prototype": "montage/ui/button.reel",
+                "properties": {
+                    "element": {"#": "selectItem"}
+                }
             }
-
-
         }
     </script>
 </head>
@@ -117,6 +132,9 @@
                 </div>
             </div>
             <div data-montage-id="playerImage" class="playerImage"></div>
+        </div>
+        <div class="voting">
+            <button data-montage-id="selectItem" class="selectItem">Select Player</button>
         </div>
     </div>
 </body>

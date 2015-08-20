@@ -1,7 +1,7 @@
-var VIEWS = ["page1", "page2", "page3", "page4"];
+var VIEWS = ["voting", "results"];
 
 exports.NavigationController = {
-    currentView: "page1",
+    currentView: "voting",
 
     selectView: function(view){
         if (VIEWS.indexOf(view) > -1) {

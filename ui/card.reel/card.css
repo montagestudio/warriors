@@ -3,7 +3,7 @@
     width:  375px;
     height: 600px;
     margin-left: -192px;
-    margin-top: -300px;
+    margin-top: -335px;
     background-repeat: no-repeat;
     background-position: center center;
     -webkit-transform: translate3d(0, 0, 0);
@@ -221,39 +221,41 @@
     transform: translateY(100%);
 }
 
-/*.show-details .playerNumber {
-    -webkit-animation: numberTransitionUp .4s ease-in-out;
-            animation: numberTransitionUp .4s ease-in-out;
+.voting {
+    text-align: center;
+    position: absolute;
+    bottom: -80px;
+    left:  -8px;
+    right: -8px;
+    visibility: hidden;
+    transform: translateY(-20px) scale(.95);
+    z-index: -1;
+    opacity: 0;
+    transition: all .15s ease-out;
 }
 
-.hide-details .playerNumber {
-    -webkit-animation: numberTransitionDown .35s ease-in-out .1s;
-            animation: numberTransitionDown .35s ease-in-out .1s;
+.is-selected .voting {
+    visibility: visible;
+    opacity: 1;
+    transform: translateY(0px) scale(1);
 }
 
-@-webkit-keyframes numberTransitionUp {
-    0%   {-webkit-transform: translateY(-75px); transform: translateY(-75px);}
-    50%  {-webkit-transform: translateY(-120px);transform: translateY(-120px);}
-    100% {-webkit-transform: translateY(-75px); transform: translateY(-75px);}
+.selectItem {
+    width: 100%;
+    background: rgb(4,82,156);
+    outline: none;
+    border: none;
+    font-size: 2em;
+    color: #FFF;
+    padding: .5em 1em;
+    cursor: pointer;
+    border-radius: 4px;
 }
 
-@keyframes numberTransitionUp {
-    0%   {-webkit-transform: translateY(-75px); transform: translateY(-75px);}
-    50%  {-webkit-transform: translateY(-120px);transform: translateY(-120px);}
-    100% {-webkit-transform: translateY(-75px); transform: translateY(-75px);}
+.selectItem:hover,
+.selectItem:active {
+    background-color: rgb(0,75,150);
 }
-
-@-webkit-keyframes numberTransitionDown {
-    0%   {-webkit-transform: translateY(-75px); transform: translateY(-75px);}
-    50%  {-webkit-transform: translateY(-40px);transform: translateY(-40px);}
-    100% {-webkit-transform: translateY(-75px); transform: translateY(-75px);}
-}
-
-@keyframes numberTransitionDown {
-    0%   {-webkit-transform: translateY(-75px); transform: translateY(-75px);}
-    50%  {-webkit-transform: translateY(-120px);transform: translateY(-120px);}
-    100% {-webkit-transform: translateY(-75px); transform: translateY(-75px);}
-}*/
 
 
 
