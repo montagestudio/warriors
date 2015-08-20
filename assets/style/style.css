@@ -32,3 +32,11 @@ body:after {
     line-height: 50px;
     margin-top: -25px;
 }
+
+button {
+    border: none;
+    outline: none;
+    -webkit-appearance: none;
+    border-radius: 0;
+    cursor: pointer;
+}

@@ -3,7 +3,7 @@
     width:  375px;
     height: 600px;
     margin-left: -192px;
-    margin-top: -335px;
+    margin-top: -340px;
     background-repeat: no-repeat;
     background-position: center center;
     -webkit-transform: translate3d(0, 0, 0);
@@ -224,20 +224,21 @@
 .voting {
     text-align: center;
     position: absolute;
-    bottom: -80px;
+    bottom: -110px;
     left:  -8px;
     right: -8px;
     visibility: hidden;
-    transform: translateY(-20px) scale(.95);
+    transform: rotateX(-70deg) scale(.95);
+    transform-origin: 50% 0;
     z-index: -1;
     opacity: 0;
-    transition: all .15s ease-out;
+    transition: all .3s cubic-bezier(0.48, 0.22, 0.26, 1.43);
 }
 
 .is-selected .voting {
     visibility: visible;
     opacity: 1;
-    transform: translateY(0px) scale(1);
+    transform: rotateX(0deg) scale(1);
 }
 
 .selectItem {
@@ -247,7 +248,7 @@
     border: none;
     font-size: 2em;
     color: #FFF;
-    padding: .5em 1em;
+    padding: 1em 1em;
     cursor: pointer;
     border-radius: 4px;
 }

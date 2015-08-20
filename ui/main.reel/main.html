@@ -70,6 +70,14 @@
             "bindings": {
                 "switchValue": { "<-": "@owner.application.navigationController.currentView" }
             }
+        },
+
+        "resultQuestion": {
+            "prototype": "montage/ui/text.reel",
+            "properties": {
+                "element": { "#": "resultQuestion" },
+                "value": "This is the previous question"
+            }
         }
 
     }
@@ -77,9 +85,11 @@
 </head>
 <body>
     <div data-montage-id="main" class="Main">
+
         <div class="teamHeader">
             <div class="logo"></div>
         </div>
+
         <div data-montage-id="pageSubstitution" class="content">
 
             <div data-arg="voting" class="view">
@@ -87,65 +97,74 @@
                     <span data-montage-id="question"></span>
                 </div>
 
-                <div class="flow-container">
-                    <div data-montage-id="flow" class="flow-Ribbon">
-                        <div data-montage-id="card"></div>
+                <div class="mainContent">
+                    <div class="flow-container">
+                        <div data-montage-id="flow" class="flow-Ribbon">
+                            <div data-montage-id="card"></div>
+                        </div>
                     </div>
                 </div>
             </div>
 
             <div data-arg="results" class="view">
                 <div class="question">
-                    <span>This is the question</span>
+                    <span data-montage-id="resultQuestion" class="resultQuestion"></span>
                 </div>
-                <div class="results">
+                <div class="results-wrapper mainContent">
+                    <div class="results">
 
-                    <h1>Results</h1>
-                    <div class="results-content">
+                        <h1>Results</h1>
+                        <div class="results-content">
 
-                        <h3>Your Pick</h3>
-                        <div class="result userChoice">
-                            <div class="result-data">
-                                <span class="result-place">3rd</span>
-                                <span class="result-percentage">15%</span>
+                            <h3>Your Pick</h3>
+                            <div class="result userChoice">
+                                <div class="result-data">
+                                    <span class="result-place">3rd</span>
+                                    <span class="result-percentage">15%</span>
+                                </div>
+                                <div class="result-name">
+                                    <h2>Stephen Curry</h2>
+                                </div>
                             </div>
-                            <div class="result-name">
-                                <h2>Stephen Curry</h2>
-                            </div>
+
+                            <h3>Top Choices</h3>
+                            <ul>
+                                <li class='result'>
+                                    <div class="result-data">
+                                        <span class="result-place">1st</span>
+                                        <span class="result-percentage">25%</span>
+                                    </div>
+                                    <div class="result-name">
+                                        <h2>Leandro Barbosa</h2>
+                                    </div>
+                                </li>
+                                <li class='result'>
+                                    <div class="result-data">
+                                        <span class="result-place">2nd</span>
+                                        <span class="result-percentage">20%</span>
+                                    </div>
+                                    <div class="result-name">
+                                        <h2>Harrison Barnes</h2>
+                                    </div>
+                                </li>
+                                <li class='result'>
+                                    <div class="result-data">
+                                        <span class="result-place">4th</span>
+                                        <span class="result-percentage">5%</span>
+                                    </div>
+                                    <div class="result-name">
+                                        <h2>Andrew Bogut</h2>
+                                    </div>
+                                </li>
+                            </ul>
                         </div>
-
-                        <h3>Top Choices</h3>
-                        <ul>
-                            <li class='result'>
-                                <div class="result-data">
-                                    <span class="result-place">1st</span>
-                                    <span class="result-percentage">25%</span>
-                                </div>
-                                <div class="result-name">
-                                    <h2>Leandro Barbosa</h2>
-                                </div>
-                            </li>
-                            <li class='result'>
-                                <div class="result-data">
-                                    <span class="result-place">2nd</span>
-                                    <span class="result-percentage">20%</span>
-                                </div>
-                                <div class="result-name">
-                                    <h2>Harrison Barnes</h2>
-                                </div>
-                            </li>
-                            <li class='result'>
-                                <div class="result-data">
-                                    <span class="result-place">4th</span>
-                                    <span class="result-percentage">5%</span>
-                                </div>
-                                <div class="result-name">
-                                    <h2>Andrew Bogut</h2>
-                                </div>
-                            </li>
-                        </ul>
+                    </div>
+                    <div class="cta-buttons">
+                        <button>share</button>
+                        <button>vote again</button>
                     </div>
                 </div>
+
             </div>
         </div>
     </div>
