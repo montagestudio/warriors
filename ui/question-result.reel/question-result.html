@@ -8,14 +8,21 @@
         "owner": {
             "properties": {
                 "element": {"#": "owner"}
-            }
+            },
+            "listeners": [
+                {
+                    "type": "action",
+                    "listener": {"@": "owner"},
+                    "capture": false
+                }
+            ]
         },
 
         "resultQuestion": {
             "prototype": "montage/ui/text.reel",
             "properties": {
                 "element": { "#": "resultQuestion" },
-                "value": "This is the previous question"
+                "value": "Pick your favorite Warriors player"
             }
         },
 
@@ -57,6 +64,20 @@
             },
             "bindings": {
                 "value": { "<-": "@topResults:iteration.object.percentage" }
+            }
+        },
+
+        "voteAgain": {
+            "prototype": "montage/ui/button.reel",
+            "properties": {
+                "element": { "#": "voteAgain" }
+            }
+        },
+
+        "share": {
+            "prototype": "montage/ui/button.reel",
+            "properties": {
+                "element": { "#": "share" }
             }
         }
 
@@ -104,8 +125,8 @@
             </div>
 
             <div class="cta-buttons">
-                <button>share</button>
-                <button>vote again</button>
+                <button data-montage-id="share" class="share">share</button>
+                <button data-montage-id="voteAgain" class="voteAgain">vote again</button>
             </div>
         </div>
     </div>

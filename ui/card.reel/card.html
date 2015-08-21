@@ -7,7 +7,9 @@
             "owner": {
                 "properties": {
                     "element": {"#": "card"},
-                    "playerImage": {"#": "playerImage"}
+                    "playerImage": {"#": "playerImage"},
+                    "selectItem": {"#": "selectItem"}
+
                 },
                 "bindings": {
                     "classList.has('is-selected')" : { "<-" : "@owner.activeCard && @owner.transition"}

@@ -57,7 +57,8 @@
     position: absolute;
     width:  100%;
     height: 100%;
-    transform: translateY(-100%);
+    -webkit-transform: translateY(-100%);
+            transform: translateY(-100%);
 }
 
 .playerInfo {
@@ -65,7 +66,8 @@
     position: absolute;
     width: 100%;
     bottom: 0;
-    transform: translateY(100%);
+    -webkit-transform: translateY(100%);
+            transform: translateY(100%);
     z-index: 1;
 }
 
@@ -166,15 +168,21 @@
 }
 
 .playerSpecs {
+    display: -webkit-flex;
+    display: -ms-flexbox;
     display: flex;
-    justify-content: space-between;
+    -webkit-justify-content: space-between;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
     margin-bottom: 20px;
     font-size: 18px;
     line-height: 1.4em;
 }
 
 .playerSpecs > div {
-    flex: 1;
+    -webkit-flex: 1;
+        -ms-flex: 1;
+            flex: 1;
 }
 
 .playerSpecs p {
@@ -209,16 +217,20 @@
 
 .playerInfoWrapper,
 .playerInfo {
+    transition: -webkit-transform .3s ease-in-out;
     transition: transform .3s ease-in-out;
-    transform: translateY(0);
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
 }
 
 .show-details .playerInfoWrapper {
-    transform: translateY(-100%);
+    -webkit-transform: translateY(-100%);
+            transform: translateY(-100%);
 }
 
 .show-details .playerInfo {
-    transform: translateY(100%);
+    -webkit-transform: translateY(100%);
+            transform: translateY(100%);
 }
 
 .voting {
@@ -228,8 +240,10 @@
     left:  -8px;
     right: -8px;
     visibility: hidden;
-    transform: rotateX(-70deg) scale(.95);
-    transform-origin: 50% 0;
+    -webkit-transform: rotateX(-70deg) scale(.95);
+            transform: rotateX(-70deg) scale(.95);
+    -webkit-transform-origin: 50% 0;
+            transform-origin: 50% 0;
     z-index: -1;
     opacity: 0;
     transition: all .3s cubic-bezier(0.48, 0.22, 0.26, 1.43);
@@ -238,7 +252,8 @@
 .is-selected .voting {
     visibility: visible;
     opacity: 1;
-    transform: rotateX(0deg) scale(1);
+    -webkit-transform: rotateX(0deg) scale(1);
+            transform: rotateX(0deg) scale(1);
 }
 
 .selectItem {

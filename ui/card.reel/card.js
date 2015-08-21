@@ -33,18 +33,16 @@ var Card = exports.Card = Component.specialize( {
     },
 
     handleClick: {
-        value: function () {
+        value: function (e) {
 
-            // check to see if clicked object matches object at currentIndex
+            // check to see if clicked object matches object at currentIndex and isn't a click of the selectItem button
             // check popcorn for selected / active state when in middle
             // selected state as used in popcorn doesn't work because as soon as you click it is "selected"
 
             // set flag in bindings to check
             // check scope in FRB for binding
 
-            console.log(this.activeCard);
-
-            if (this.data == this.flowContent[this.currentIndex]) {
+            if (this.data == this.flowContent[this.currentIndex] && e.target !== this.selectItem) {
                 if (this.classList.contains("show-details")) {
                     this.hideDetails();
                 } else {
@@ -70,8 +68,8 @@ var Card = exports.Card = Component.specialize( {
 
     handleSelectItemAction: {
         value: function () {
-            console.log('click');
             this.application.navigationController.selectView('results');
+            this.data.votes++;
         }
     }
 });

@@ -20,6 +20,7 @@ exports.QuestionResult = Component.specialize(/** @lends QuestionResult# */ {
 
     templateDidLoad: {
         value: function () {
+            console.log("results");
             this.data = [
                 {
                     name: "Leandro Barbosa",
@@ -36,6 +37,20 @@ exports.QuestionResult = Component.specialize(/** @lends QuestionResult# */ {
                 }
             ];
         }
+    },
+
+    handleVoteAgainAction: {
+        value: function () {
+            this.application.navigationController.selectView('voting');
+        }
+    },
+
+    willDraw: {
+        value: function () {
+            console.log(this.itemData);
+        }
     }
+
+
 
 });

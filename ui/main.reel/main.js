@@ -40,6 +40,7 @@ exports.Main = Component.specialize( /** @lends module:"ui/main.reel".Main# */ {
         value: function () {
             this.currentIndex = this.flowRibbon.scroll;
             this.transitionStarted = false;
+            console.log(this.flowRibbon._isTransitioningScroll);
         }
     },
 
