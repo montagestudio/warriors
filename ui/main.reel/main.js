@@ -14,6 +14,7 @@ var Component = require("montage/ui/component").Component,
     BackendService = require("core/backend-service").BackendService,
     Application = require("montage/core/application").application,
     configuration = require('core/configuration').configuration;
+    MontageWechat = require("core/montage-wechat").MontageWechat;
 
 /**
  Description TODO
@@ -79,7 +80,6 @@ exports.Main = Component.specialize(/** @lends module:"ui/main.reel".Main# */ {
         }
     },
 
-    // $fix - should be reworked to not use timeout
 
     handleRestartQuizAction: {
         value: function () {
@@ -98,7 +98,16 @@ exports.Main = Component.specialize(/** @lends module:"ui/main.reel".Main# */ {
         }
     },
 
-    // $fix - should be reworked to not use timeout
+    enterDocument: {
+        value: function Main(firstTime) {
+            if (firstTime) {
+                this._montageWeChat = new MontageWechat(this);
+                this._montageWeChat.registerShareToMoment('Warriors Favorite Stars Voting! Win Curry Signed T-Shirt!',
+                    'http://lx179.com/wechat/warriors/',
+                    'http://lx179.com/wechat/warriors/assets/image/posters/1.jpg');
+            }
+        }
+    },
 
     handleBrowsePlayersAction: {
         value: function () {
