@@ -67,6 +67,36 @@
             }
         },
 
+        "selectedName": {
+            "prototype": "montage/ui/text.reel",
+            "properties": {
+                "element": { "#": "selectedName" }
+            },
+            "bindings": {
+                "value": { "<-": "@owner.currentVote.name" }
+            }
+        },
+
+        "selectedPlace": {
+            "prototype": "montage/ui/text.reel",
+            "properties": {
+                "element": { "#": "selectedPlace" }
+            },
+            "bindings": {
+                "value": { "<-": "@topResults:iteration.object.place " }
+            }
+        },
+
+        "selectedPercent": {
+            "prototype": "montage/ui/text.reel",
+            "properties": {
+                "element": { "#": "selectedPercent" }
+            },
+            "bindings": {
+                "value": { "<-": "@owner.currentVote.percent" }
+            }
+        },
+
         "voteAgain": {
             "prototype": "montage/ui/button.reel",
             "properties": {
@@ -100,11 +130,11 @@
                     <h3>Your Pick</h3>
                     <div class="result userChoice">
                         <div class="result-data">
-                            <span class="result-place">1st</span>
-                            <span class="result-percentage">16.5%</span>
+                            <span data-montage-id="selectedPlace" class="result-place">1st</span>
+                            <span data-montage-id="selectedPercent" class="result-percentage">16.5%</span>
                         </div>
                         <div class="result-name">
-                            <h2>Stephen Curry</h2>
+                            <h2 data-montage-id="selectedName">Stephen Curry</h2>
                         </div>
                     </div>
 

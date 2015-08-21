@@ -70,6 +70,8 @@ var Card = exports.Card = Component.specialize( {
         value: function () {
             this.application.navigationController.selectView('results');
             this.data.votes++;
+            this.application.currentVote = this.data;
+            this.application.currentVote.percent = this.data.percent;
         }
     }
 });

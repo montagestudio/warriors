@@ -27,8 +27,15 @@ exports.QuestionResult = Component.specialize(/** @lends QuestionResult# */ {
         }
     },
 
+    currentVote: {
+        value: null
+    },
+
     willDraw: {
         value: function () {
+
+            this.currentVote = this.application.currentVote;
+
             this.resultsData = this.itemData.sort(function(a,b){
                 return b.votes - a.votes;
             });

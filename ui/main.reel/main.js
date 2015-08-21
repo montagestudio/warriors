@@ -7,6 +7,7 @@ var Component = require("montage/ui/component").Component,
 PressComposer = require("montage/composer/press-composer").PressComposer,
 teamData = require("../../assets/data.json"),
 NavigationController = require("core/navigation-controller").NavigationController;
+CurrentVote = require("core/current-vote").CurrentVote;
 
 /**
     Description TODO
@@ -19,6 +20,7 @@ exports.Main = Component.specialize( /** @lends module:"ui/main.reel".Main# */ {
         value: function Main(firstTime) {
             if(firstTime) {
                 this.application.navigationController = NavigationController;
+                this.application.currentVote = CurrentVote;
             }
         }
     },
