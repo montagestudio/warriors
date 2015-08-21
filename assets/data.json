@@ -8,7 +8,7 @@
         "weight": "194",
         "birthdate": "11/28/82",
         "summary": "this is the space where a fun fact would go for each player",
-        "votes": 0
+        "votes": 10
     },{
         "image": "assets/image/posters/1.jpg",
         "name": "Harrison Barnes",
@@ -19,7 +19,7 @@
         "weight": "225",
         "birthdate": "5/30/92",
         "summary": "this is the space where a fun fact would go for each player",
-        "votes": 0
+        "votes": 8
     },{
         "image": "assets/image/posters/2.jpg",
         "name": "Andrew Bogut",
@@ -30,7 +30,7 @@
         "weight": "260",
         "birthdate": "11/28/84",
         "summary": "this is the space where a fun fact would go for each player",
-        "votes": 0
+        "votes": 9
     },{
         "image": "assets/image/posters/3.jpg",
         "name": "Stephen Curry",
@@ -41,7 +41,7 @@
         "weight": "190",
         "birthdate": "3/14/88",
         "summary": "this is the space where a fun fact would go for each player",
-        "votes": 0
+        "votes": 32
     },{
         "image": "assets/image/posters/4.jpg",
         "name": "Festus Ezeli",
@@ -52,7 +52,7 @@
         "weight": "265",
         "birthdate": "10/21/89",
         "summary": "this is the space where a fun fact would go for each player",
-        "votes": 0
+        "votes": 16
     },{
         "image": "assets/image/posters/5.jpg",
         "name": "Draymond Green",
@@ -63,7 +63,7 @@
         "weight": "230",
         "birthdate": "3/4/90",
         "summary": "this is the space where a fun fact would go for each player",
-        "votes": 0
+        "votes": 19
     },{
         "image": "assets/image/posters/6.jpg",
         "name": "Justin Holiday",
@@ -74,7 +74,7 @@
         "weight": "195",
         "birthdate": "4/15/80",
         "summary": "this is the space where a fun fact would go for each player",
-        "votes": 0
+        "votes": 10
     },{
         "image": "assets/image/posters/7.jpg",
         "name": "Andre Iguodala",
@@ -85,7 +85,7 @@
         "weight": "215",
         "birthdate": "1/28/84",
         "summary": "this is the space where a fun fact would go for each player",
-        "votes": 0
+        "votes": 5
     },{
         "image": "assets/image/posters/8.jpg",
         "name": "David Lee",
@@ -96,7 +96,7 @@
         "weight": "245",
         "birthdate": "4/29/83",
         "summary": "this is the space where a fun fact would go for each player",
-        "votes": 0
+        "votes": 6
     },{
         "image": "assets/image/posters/9.jpg",
         "name": "Shaun Livingston",
@@ -107,7 +107,7 @@
         "weight": "192",
         "birthdate": "9/11/85",
         "summary": "this is the space where a fun fact would go for each player",
-        "votes": 0
+        "votes": 2
     },{
         "image": "assets/image/posters/10.jpg",
         "name": "James Michael McAdoo",
@@ -118,7 +118,7 @@
         "weight": "230",
         "birthdate": "1/4/93",
         "summary": "this is the space where a fun fact would go for each player",
-        "votes": 0
+        "votes": 21
     },{
         "image": "assets/image/posters/11.jpg",
         "name": "Brandon Rush",
@@ -129,7 +129,7 @@
         "weight": "220",
         "birthdate": "7/7/85",
         "summary": "this is the space where a fun fact would go for each player",
-        "votes": 0
+        "votes": 15
     },{
         "image": "assets/image/posters/12.jpg",
         "name": "Marreese Speights",
@@ -140,7 +140,7 @@
         "weight": "255",
         "birthdate": "8/4/87",
         "summary": "this is the space where a fun fact would go for each player",
-        "votes": 0
+        "votes": 12
     },{
         "image": "assets/image/posters/13.jpg",
         "name": "Klay Thompson",
@@ -151,6 +151,6 @@
         "weight": "215",
         "birthdate": "2/8/90",
         "summary": "this is the space where a fun fact would go for each player",
-        "votes": 0
+        "votes": 9
     }
 ]

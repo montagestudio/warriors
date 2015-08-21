@@ -14,28 +14,32 @@ exports.QuestionResult = Component.specialize(/** @lends QuestionResult# */ {
         }
     },
 
-    data: {
+    resultsData: {
         value: null,
+    },
+
+    totalVotes: {
+        value: 200
     },
 
     templateDidLoad: {
         value: function () {
-            console.log("results");
-            this.data = [
-                {
-                    name: "Leandro Barbosa",
-                    place: "1st",
-                    percentage: "25%"
-                },{
-                    name: "Harrison Barnes",
-                    place: "2nd",
-                    percentage: "15%"
-                },{
-                    name: "James Michael McAdoo",
-                    place: "4th",
-                    percentage: "5%"
-                }
-            ];
+        }
+    },
+
+    willDraw: {
+        value: function () {
+            this.resultsData = this.itemData.sort(function(a,b){
+                return b.votes - a.votes;
+            });
+            this.resultsData = this.resultsData.slice(0,3);
+
+            var extensions = ["st","nd","rd"];
+
+            for(i = 0; i < this.resultsData.length; i++) {
+                this.resultsData[i].percentage = (this.resultsData[i].votes / this.totalVotes) * 100 + "%";
+                this.resultsData[i].place = i + 1 + extensions[i];
+            }
         }
     },
 
@@ -44,12 +48,6 @@ exports.QuestionResult = Component.specialize(/** @lends QuestionResult# */ {
             this.application.navigationController.selectView('voting');
         }
     },
-
-    willDraw: {
-        value: function () {
-            console.log(this.itemData);
-        }
-    }
 
 
 
