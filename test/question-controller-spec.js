@@ -12,10 +12,11 @@ describe('test/question-controller-spec', function() {
                 var newQuestion,
                     questionsMock = ['FOO', 'BAR'],
                     questionController = new QuestionController();
+                questionController._currentIndex = 0;
                 questionController._questions = questionsMock;
 
                 runs(function() {
-                    questionController.getNext(0)
+                    questionController.getNext()
                         .then(function(question) {
                             newQuestion = question;
                         })
@@ -39,10 +40,11 @@ describe('test/question-controller-spec', function() {
                     var rejected,
                         questionsMock = ['FOO', 'BAR'],
                         questionController = new QuestionController();
+                    questionController._currentIndex = 1;
                     questionController._questions = questionsMock;
 
                     runs(function() {
-                        questionController.getNext(1)
+                        questionController.getNext()
                             .then(function() {
                                 rejected = false;
                             }, function() {
@@ -70,6 +72,7 @@ describe('test/question-controller-spec', function() {
                 var newQuestion,
                     questionsMock = ['FOO', 'BAR'],
                     questionController = new QuestionController();
+                console.log(questionController);
                 questionController._questions = questionsMock;
 
                 runs(function() {

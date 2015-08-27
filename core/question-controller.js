@@ -10,15 +10,22 @@ var Montage = require("montage/core/core").Montage,
  */
 exports.QuestionController = Montage.specialize(/** @lends QuestionController# */ {
 
-    // pull in data from external questions.json file
     _questions: {
-        value: questions
+        value: null
     },
 
     _currentIndex: {
         value: null
     },
 
+    constructor: {
+        value: function() {
+            this._questions = questions;
+            this._currentIndex = -1;
+        }
+    },
+
+/*
     getNext: {
         value: function() {
 
@@ -39,6 +46,15 @@ exports.QuestionController = Montage.specialize(/** @lends QuestionController# *
                 // return first question
                 return this._questions[0];
             }
+        }
+    },
+*/
+
+    getNext: {
+        value: function() {
+            var self = this;
+            return new Promise(function(resolve, reject) {
+            });
         }
     }
 
