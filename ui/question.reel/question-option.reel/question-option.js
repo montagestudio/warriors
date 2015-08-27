@@ -68,9 +68,7 @@ var QuestionOption = exports.QuestionOption = Component.specialize( {
 
     handleSelectItemAction: {
         value: function () {
-            // this needs to trigger something on question
-            // this.parentComponent.goToNextQuestion();
-            console.log(this.parentComponent.parentComponent.parentComponent.parentComponent.goToNextQuestion());
+            this.parentComponent.parentComponent.parentComponent.parentComponent.goToNextQuestion();
         }
     }
 });

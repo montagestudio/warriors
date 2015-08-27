@@ -35,8 +35,7 @@ exports.Question = Component.specialize(/** @lends Question# */ {
 
     goToNextQuestion: {
         value: function () {
-            console.log(this.data);
-            console.log("go to next question: " + this.application.QuestionController.getNext(this.data));
+            this.application.QuestionController.getNext();
         }
     },
 

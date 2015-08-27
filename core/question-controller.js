@@ -28,23 +28,20 @@ exports.QuestionController = Montage.specialize(/** @lends QuestionController# *
 /*
     getNext: {
         value: function() {
-
             // check to see if there is a current question if not return first question
-            if(current) {
+            if(!this._currentIndex && this._currentIndex !== 0) {
+                this._currentIndex = 0;
+                return this._questions[this._currentIndex];
 
-                // check to see if current is last question if so go to the end
-                if (currentIndex > this._questions.length) {
-                    console.log("go to the end");
+            // check to see if current is last question if so go to the end
+            } else {
+                this._currentIndex++;
+                if(this._currentIndex >= this._questions.length) {
+                    console.log("that was the last question");
                 } else {
-                    // get index of current question and add 1 to move to next question
-                    var currentIndex = this._questions.indexOf(current) + 1;
-                    // return next question
-                    return this._questions[currentIndex];
+                    return this._questions[this._currentIndex];
                 }
 
-            } else {
-                // return first question
-                return this._questions[0];
             }
         }
     },

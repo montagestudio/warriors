@@ -32,7 +32,6 @@ exports.QuestionOptions = Component.specialize(/** @lends QuestionOptions# */ {
         value: function () {
             this.currentIndex = this.flowRibbon.scroll;
             this.transitionStarted = false;
-            console.log(this.flowRibbon._isTransitioningScroll);
         }
     },
 
