@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <link rel="stylesheet" type="text/css" href="question-options.css">
+    <script type="text/montage-serialization">
+    {
+        "owner": {
+            "properties": {
+                "element": {"#": "owner"},
+                "flowRibbon": {"@": "flow"}
+            }
+        },
+
+        "flow": {
+            "prototype": "montage/ui/flow.reel",
+            "properties": {
+                "element": {"#": "flow"},
+                "cameraFov": 50,
+                "cameraPosition": [0, 0, 2100],
+                "stride": 1,
+                "hasSelectedIndexScrolling": true,
+                "isSelectionEnabled": true,
+                "cameraTargetPoint": [0, 0, 0],
+                "boundingBoxSize": [800, 800, 0],
+                "linearScrollingVector": [-200, 0, 0],
+                "delegate": {"@": "owner"}
+            }
+        },
+
+        "option": {
+            "prototype": "../question-option.reel",
+            "properties": {
+                "element": {"#": "option"}
+            },
+            "bindings": {
+                "data": {"<-": "@flow:iteration.object"},
+                "flowContent": {"<-": "@flow.content"},
+                "currentIndex": {"<-": "@owner.currentIndex"},
+                "currentItem": {"<-": "@flow.selection.one()"},
+                "transition": {"<-": "!@owner.transitionStarted"},
+                "activeCard": {"<-": "@flow.contentController.content[currentIndex] == data"}
+            }
+        }
+    }
+    </script>
+</head>
+<body>
+    <div data-montage-id="owner" class="QuestionOptions flow-container">
+        <div data-montage-id="flow" class="flow-Ribbon">
+            <div data-montage-id="option"></div>
+        </div>
+    </div>
+</body>
+</html>

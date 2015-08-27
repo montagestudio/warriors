@@ -1,4 +1,4 @@
-.card {
+.questionOption {
     box-sizing: border-box;
     width:  375px;
     height: 600px;
@@ -13,7 +13,7 @@
             border: 8px solid rgba(4,82,156,1);
 }
 
-.card * {
+.questionOption * {
     -webkit-user-select: none;
     cursor: pointer;
     -webkit-user-select: none;
@@ -24,7 +24,7 @@
 
 /* panel shadow */
 
-.card:before {
+.questionOption:before {
     content: "";
     position: absolute;
     width: 0;

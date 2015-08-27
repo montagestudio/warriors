@@ -1,6 +1,6 @@
 var Component = require("montage/ui/component").Component;
 
-var Card = exports.Card = Component.specialize( {
+var QuestionOption = exports.QuestionOption = Component.specialize( {
 
     prepareForActivationEvents: {
         value: function () {
@@ -68,10 +68,9 @@ var Card = exports.Card = Component.specialize( {
 
     handleSelectItemAction: {
         value: function () {
-            this.application.navigationController.selectView('results');
-            this.data.votes++;
-            this.application.currentVote = this.data;
-            this.application.currentVote.percent = this.data.percent;
+            // this needs to trigger something on question
+            // this.parentComponent.goToNextQuestion();
+            console.log(this.parentComponent.parentComponent.parentComponent.parentComponent.goToNextQuestion());
         }
     }
 });

@@ -12,8 +12,7 @@
     {
         "owner": {
             "properties": {
-                "element": {"#": "main"},
-                "flowRibbon": {"@": "flow"}
+                "element": {"#": "main"}
             },
             "listeners": [
                 {
@@ -22,45 +21,6 @@
                     "capture": false
                 }
             ]
-        },
-
-        "flow": {
-            "prototype": "montage/ui/flow.reel",
-            "properties": {
-                "element": {"#": "flow"},
-                "cameraFov": 50,
-                "cameraPosition": [0, 0, 2100],
-                "stride": 1,
-                "hasSelectedIndexScrolling": true,
-                "isSelectionEnabled": true,
-                "cameraTargetPoint": [0, 0, 0],
-                "boundingBoxSize": [800, 800, 0],
-                "linearScrollingVector": [-200, 0, 0],
-                "delegate": {"@": "owner"}
-            }
-        },
-
-        "card": {
-            "prototype": "../card.reel",
-            "properties": {
-                "element": {"#": "card"}
-            },
-            "bindings": {
-                "data": {"<-": "@flow:iteration.object"},
-                "flowContent": {"<-": "@flow.content"},
-                "currentIndex": {"<-": "@owner.currentIndex"},
-                "currentItem": {"<-": "@flow.selection.one()"},
-                "transition": {"<-": "!@owner.transitionStarted"},
-                "activeCard": {"<-": "@flow.contentController.content[currentIndex] == data"}
-            }
-        },
-
-        "question": {
-            "prototype": "montage/ui/text.reel",
-            "properties": {
-                "element": {"#": "question"},
-                "value": "Pick your favorite Warriors player"
-            }
         },
 
         "pageSubstitution": {
@@ -73,13 +33,10 @@
             }
         },
 
-        "questionResult": {
-            "prototype": "ui/question-result.reel",
+        "question": {
+            "prototype": "ui/question.reel",
             "properties": {
-                "element": { "#": "questionResult" }
-            },
-            "bindings": {
-                "itemData": {"<-": "@flow.content"}
+                "element": { "#": "question"}
             }
         }
 
@@ -89,28 +46,22 @@
 <body>
     <div data-montage-id="main" class="Main">
 
-        <div class="teamHeader">
-            <div class="logo"></div>
+        <div class="header">
+            this is the header
         </div>
 
         <div data-montage-id="pageSubstitution" class="content">
 
-            <div data-arg="voting" class="view">
-                <div class="question">
-                    <span data-montage-id="question"></span>
-                </div>
-
-                <div class="mainContent">
-                    <div class="flow-container">
-                        <div data-montage-id="flow" class="flow-Ribbon">
-                            <div data-montage-id="card"></div>
-                        </div>
-                    </div>
-                </div>
+            <div data-arg="intro">
+                this is the intro
             </div>
 
-            <div data-arg="results">
-                <div data-montage-id="questionResult" class="view"></div>
+            <div data-arg="quiz" class="view">
+                <div data-montage-id="question"></div>
+            </div>
+
+            <div data-arg="results" class="view">
+                this is the results
             </div>
 
         </div>

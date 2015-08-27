@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <link rel="stylesheet" type="text/css" href="question.css">
+    <script type="text/montage-serialization">
+    {
+        "owner": {
+            "properties": {
+                "element": {"#": "owner"}
+            }
+        },
+
+        "query": {
+            "prototype": "montage/ui/text.reel",
+            "properties": {
+                "element": {"#": "query"}
+            },
+            "bindings": {
+                "value": { "<-": "@owner.data.title"}
+            }
+        },
+
+        "questionOptions": {
+            "prototype": "./question-options.reel",
+            "properties": {
+                "element": {"#": "questionOptions"}
+            },
+            "bindings": {
+                "data": { "<-": "@owner.data.options"}
+            }
+        }
+    }
+    </script>
+</head>
+<body>
+    <div data-montage-id="owner" class="Question">
+        <div class="query">
+            <span data-montage-id="query"></span>
+        </div>
+        <div data-montage-id="questionOptions" class="questionOptions"></div>
+    </div>
+</body>
+</html>
