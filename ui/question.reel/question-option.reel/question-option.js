@@ -68,7 +68,7 @@ var QuestionOption = exports.QuestionOption = Component.specialize( {
 
     handleSelectItemAction: {
         value: function () {
-            this.parentComponent.parentComponent.parentComponent.parentComponent.goToNextQuestion();
+            this.dispatchEventNamed("nextQuestion", true, true);
         }
     }
 });

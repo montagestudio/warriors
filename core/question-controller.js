@@ -27,6 +27,7 @@ exports.QuestionController = Montage.specialize(/** @lends QuestionController# *
 
     getNext: {
         value: function() {
+
             var question, atLastQuestion;
 
             this._currentIndex++;
@@ -47,7 +48,6 @@ exports.QuestionController = Montage.specialize(/** @lends QuestionController# *
             });
         }
     }
-
 });
 
 

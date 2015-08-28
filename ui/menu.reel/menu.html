@@ -7,14 +7,62 @@
     {
         "owner": {
             "properties": {
-                "element": {"#": "owner"}
+                "element": {"#": "owner"},
+                "menuItems": {"@": "menuItems"}
+            },
+            "listeners": [
+                {
+                    "type": "action",
+                    "listener": {"@": "owner"},
+                    "capture": false
+                }
+            ],
+            "bindings": {
+                "classList.has('is-open')": { "<-": "@owner.isMenuOpen" }
+            }
+        },
+
+        "menuItems": {
+            "prototype": "montage/ui/repetition.reel",
+            "properties": {
+                "element": { "#": "menuItems" }
+            },
+            "bindings": {
+                "content": { "<-": "@owner.data" }
+            }
+        },
+
+        "menuItem": {
+            "prototype": "./menu-item.reel",
+            "properties": {
+                "element": { "#": "menuItem" }
+            },
+            "bindings": {
+                "data": { "<-": "@menuItems:iteration" },
+                "classList.has('is-current')": { "<-": "@menuItems:iteration.index == 2" },
+                "classList.has('is-wrong')": { "<-": "@menuItems:iteration.index == 0" },
+                "classList.has('is-correct')": { "<-": "@menuItems:iteration.index == 1" }
+            }
+        },
+
+        "menuToggle": {
+            "prototype": "montage/ui/button.reel",
+            "properties": {
+                "element": { "#": "menuToggle" }
             }
         }
+
     }
     </script>
 </head>
 <body>
     <div data-montage-id="owner" class="Menu">
+        <button data-montage-id="menuToggle" class="menuToggle"></button>
+        <h1>Questions</h1>
+        <ul data-montage-id="menuItems" class="menuItems">
+            <li data-montage-id="menuItem"></li>
+        </ul>
     </div>
 </body>
 </html>
+

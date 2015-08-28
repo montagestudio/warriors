@@ -1,7 +1,10 @@
 /**
  * @module ui/menu.reel
  */
-var Component = require("montage/ui/component").Component;
+var Component = require("montage/ui/component").Component,
+questions = require("../../assets/questions.json");
+
+// $question: should I be loading the questions again here? Doesn't seem so.
 
 /**
  * @class Menu
@@ -11,6 +14,30 @@ exports.Menu = Component.specialize(/** @lends Menu# */ {
     constructor: {
         value: function Menu() {
             this.super();
+        }
+    },
+
+    data: {
+        value: null
+    },
+
+    templateDidLoad: {
+        value: function () {
+            this.data = questions;
+        }
+    },
+
+    isMenuOpen: {
+        value: false
+    },
+
+    handleMenuToggleAction: {
+        value: function () {
+            if(this.isMenuOpen) {
+                this.isMenuOpen = false;
+            } else {
+                this.isMenuOpen = true;
+            }
         }
     }
 });

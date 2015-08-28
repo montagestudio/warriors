@@ -38,6 +38,27 @@
             "properties": {
                 "element": { "#": "question"}
             }
+        },
+
+        "menu": {
+            "prototype": "ui/menu.reel",
+            "properties": {
+                "element": { "#": "menu"}
+            }
+        },
+
+        "timer": {
+            "prototype": "ui/timer.reel",
+            "properties": {
+                "element": { "#": "timer" }
+            }
+        },
+
+        "startQuiz": {
+            "prototype": "montage/ui/button.reel",
+            "properties": {
+                "element": { "#": "startQuiz" }
+            }
         }
 
     }
@@ -47,16 +68,27 @@
     <div data-montage-id="main" class="Main">
 
         <div class="header">
-            this is the header
+            Warriors Quiz
         </div>
+        <div data-montage-id="menu"></div>
 
         <div data-montage-id="pageSubstitution" class="content">
 
+
+
             <div data-arg="intro">
-                this is the intro
+                <div class="intro">
+                    <div class="logo"></div>
+                    <div>How Well do you know the 2015 NBA Champions?</div>
+                    <div>You have 1 minute to find out!</div>
+                    <button data-montage-id="startQuiz" class="btn">start quiz</button>
+                </div>
+
             </div>
 
             <div data-arg="quiz" class="view">
+
+                <div data-montage-id="timer"></div>
                 <div data-montage-id="question"></div>
             </div>
 

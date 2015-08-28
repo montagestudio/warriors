@@ -19,23 +19,15 @@ exports.Main = Component.specialize( /** @lends module:"ui/main.reel".Main# */ {
         value: function Main(firstTime) {
             if(firstTime) {
                 this.application.navigationController = NavigationController;
-                this.application.QuestionController = QuestionController;
+                this.application.QuestionController = new QuestionController();
             }
         }
+    },
+
+    handleStartQuizAction: {
+        value: function () {
+            this.application.navigationController.selectView('quiz');
+        }
     }
-
-    // templateDidLoad: {
-    //     value: function () {
-    //         var self = this;
-
-    //         this.setPaths();
-
-    //         this.flowRibbon.content = teamData;
-
-    //         // handle resize function this.setPaths
-
-    //         window.addEventListener("resize", this, false);
-    //     }
-    // }
 
 });

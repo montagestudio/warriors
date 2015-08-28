@@ -35,15 +35,30 @@ exports.Question = Component.specialize(/** @lends Question# */ {
 
     goToNextQuestion: {
         value: function () {
-            this.application.QuestionController.getNext();
+            var self = this;
+            this.application.QuestionController.getNext().then(function(value) {
+                self.data = value;
+            });
         }
     },
 
-    // loading current question
+    enterDocument: {
+        value: function (firstTime) {
+            if (firstTime) {
+                this.addEventListener("nextQuestion", this, false)
+            }
+        }
+    },
+
+    handleNextQuestion: {
+        value: function () {
+            this.goToNextQuestion();
+        }
+    },
 
     templateDidLoad: {
         value: function () {
-            this.data = this.application.QuestionController.getNext();
+            this.goToNextQuestion();
         }
     }
 });

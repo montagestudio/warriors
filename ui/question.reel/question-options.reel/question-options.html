@@ -25,6 +25,9 @@
                 "boundingBoxSize": [800, 800, 0],
                 "linearScrollingVector": [-200, 0, 0],
                 "delegate": {"@": "owner"}
+            },
+            "bindings": {
+                "content": {"<-": "@owner.data"}
             }
         },
 
@@ -39,16 +42,19 @@
                 "currentIndex": {"<-": "@owner.currentIndex"},
                 "currentItem": {"<-": "@flow.selection.one()"},
                 "transition": {"<-": "!@owner.transitionStarted"},
-                "activeCard": {"<-": "@flow.contentController.content[currentIndex] == data"}
+                "activeCard": {"<-": "@flow.contentController.content[currentIndex] == data"},
+                "classList.has('is-correct')": { "<-": "@flow:iteration.index == 1" }
             }
         }
     }
     </script>
 </head>
 <body>
-    <div data-montage-id="owner" class="QuestionOptions flow-container">
+    <div data-montage-id="owner" class="QuestionOptions">
+        <div class="flow-container">
         <div data-montage-id="flow" class="flow-Ribbon">
             <div data-montage-id="option"></div>
+        </div>
         </div>
     </div>
 </body>

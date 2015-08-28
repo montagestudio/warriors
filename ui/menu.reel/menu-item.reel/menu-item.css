@@ -1,0 +1,39 @@
+.MenuItem {
+
+}
+
+.menuItem {
+    font-size: 1.3em;
+    padding: 1em 2em;
+    list-style: none;
+    display: flex;
+}
+
+.menuItem.is-current {
+    background: rgba(255,255,255,.1);
+}
+
+.menuItem-icon {
+    display: inline-block;
+    text-align: center;
+    line-height: 30px;
+    border: 2px solid #FFF;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+}
+
+.is-wrong .menuItem-icon {
+    background: #BB2626;
+}
+
+.is-correct .menuItem-icon {
+    background: #00D300;
+}
+
+.menuItem-title {
+    flex: 1;
+    margin-left: 1.5em;
+    align-self: center;
+    line-height: 1.4;
+}

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <link rel="stylesheet" type="text/css" href="menu-item.css">
+    <script type="text/montage-serialization">
+    {
+        "owner": {
+            "properties": {
+                "element": {"#": "owner"}
+            }
+        },
+
+        "menuItem": {
+            "prototype": "montage/ui/text.reel",
+            "properties": {
+                "element": { "#": "menuItem" }
+            },
+            "bindings": {
+                "value": { "<-": "@owner.data.object.title" }
+            }
+        },
+
+        "menuItemIndex": {
+            "prototype": "montage/ui/text.reel",
+            "properties": {
+                "element": { "#": "menuItemIndex" }
+            },
+            "bindings": {
+                "value": { "<-": "@owner.data.index + 1" }
+            }
+        }
+    }
+    </script>
+</head>
+<body>
+    <div data-montage-id="owner" class="menuItem">
+        <span data-montage-id="menuItemIndex" class="menuItem-icon"></span>
+        <span data-montage-id="menuItem" class="menuItem-title"></span>
+    </div>
+</body>
+</html>

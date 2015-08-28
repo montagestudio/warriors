@@ -1,5 +1,8 @@
 .QuestionOptions {
-
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    margin: 2em;
 }
 
 /****************
@@ -10,13 +13,21 @@ FLOW
 
 .flow-container {
     position: relative;
-    -webkit-flex: 7;
+    /*-webkit-flex: 7;
         -ms-flex: 7;
-            flex: 7;
-    max-height: 700px;
-    margin-bottom: 1em;
+            flex: 7;*/
+    max-height: 860px;
+    flex: 1;
+    display: flex;
     /*outline: 1px solid rgba(255,255,255,.2);*/
 }
+
+/*.flowCenter {
+    flex: 1;
+    max-height: 800px;
+    position: relative;
+}*/
+
 
 /* basketball */
 

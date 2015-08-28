@@ -112,12 +112,7 @@ exports.QuestionOptions = Component.specialize(/** @lends QuestionOptions# */ {
     templateDidLoad: {
         value: function () {
 
-            var self = this;
-
             this.setPaths();
-
-            // adding current Question options to flow
-            this.flowRibbon.content = this.data;
 
             // handle resize function this.setPaths
 
