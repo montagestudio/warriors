@@ -25,43 +25,17 @@ exports.QuestionController = Montage.specialize(/** @lends QuestionController# *
         }
     },
 
-/*
     getNext: {
         value: function() {
-            // check to see if there is a current question if not return first question
-            if(!this._currentIndex && this._currentIndex !== 0) {
-                this._currentIndex = 0;
-                return this._questions[this._currentIndex];
-
-            // check to see if current is last question if so go to the end
-            } else {
-                this._currentIndex++;
-                if(this._currentIndex >= this._questions.length) {
-                    console.log("that was the last question");
-                } else {
-                    return this._questions[this._currentIndex];
-                }
-
-            }
-        }
-    },
-*/
-
-    getNext: {
-        value: function() {
-            // var self = this;
             var question, atLastQuestion;
 
-            if(!this._currentIndex && this._currentIndex !== 0) {
-                this._currentIndex = 0;
-                question = this._questions[this._currentIndex];
+            this._currentIndex++;
+
+            if (this._currentIndex >= this._questions.length) {
+                this._currentIndex--;
+                atLastQuestion = true;
             } else {
-                this._currentIndex++;
-                if (this._currentIndex >= this._questions.length) {
-                    atLastQuestion = true;
-                } else {
-                    question = this._questions[this._currentIndex];
-                }
+                question = this._questions[this._currentIndex];
             }
 
             return new Promise(function(resolve, reject) {
