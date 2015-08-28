@@ -49,10 +49,36 @@ exports.QuestionController = Montage.specialize(/** @lends QuestionController# *
 
     getNext: {
         value: function() {
-            var self = this;
+            // var self = this;
+            var question, atLastQuestion;
+
+            if(!this._currentIndex && this._currentIndex !== 0) {
+                this._currentIndex = 0;
+                question = this._questions[this._currentIndex];
+            } else {
+                this._currentIndex++;
+                if (this._currentIndex >= this._questions.length) {
+                    atLastQuestion = true;
+                } else {
+                    question = this._questions[this._currentIndex];
+                }
+            }
+
             return new Promise(function(resolve, reject) {
+                if (atLastQuestion) {
+                    reject();
+                } else {
+                    resolve(question);
+                }
             });
         }
     }
 
 });
+
+
+
+
+
+
+
