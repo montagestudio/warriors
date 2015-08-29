@@ -5,20 +5,18 @@ describe('test/question-controller-spec', function() {
     beforeEach(function() {
         done = false;
     });
-    describe('When getting next question', function() {
-
-        describe('with a current question', function() {
-            it('should return next question', function() {
-                var newQuestion,
-                    questionsMock = ['FOO', 'BAR'],
+    describe('When getting a question', function() {
+        describe('with an existing index', function() {
+            it('should return corresponding question', function() {
+                var questionsMock = ['FOO', 'BAR'],
+                    question,
                     questionController = new QuestionController();
-                questionController._currentIndex = 0;
                 questionController._questions = questionsMock;
 
                 runs(function() {
-                    questionController.getNext()
-                        .then(function(question) {
-                            newQuestion = question;
+                    questionController.getQuestion(0)
+                        .then(function(_question) {
+                            question = _question;
                         })
                         .finally(function() {
                             done = true;
@@ -30,55 +28,25 @@ describe('test/question-controller-spec', function() {
                 });
 
                 runs(function() {
-                    expect(newQuestion).toBeDefined();
-                    expect(newQuestion).toEqual('BAR');
-                });
-            });
-
-            describe('already at last question', function() {
-                it('should reject promise', function() {
-                    var rejected,
-                        questionsMock = ['FOO', 'BAR'],
-                        questionController = new QuestionController();
-                    questionController._currentIndex = 1;
-                    questionController._questions = questionsMock;
-
-                    runs(function() {
-                        questionController.getNext()
-                            .then(function() {
-                                rejected = false;
-                            }, function() {
-                                rejected = true;
-                            })
-                            .finally(function() {
-                                done = true;
-                            });
-                    });
-
-                    waitsFor(function() {
-                        return done;
-                    });
-
-                    runs(function() {
-                        expect(rejected).toBeDefined();
-                        expect(rejected).toBe(true);
-                    });
+                    expect(question).toBeDefined();
+                    expect(question).toEqual('FOO');
                 });
             });
         });
 
-        describe('with no current question', function() {
-            it('should return first question', function() {
-                var newQuestion,
-                    questionsMock = ['FOO', 'BAR'],
+        describe('with a non-existing index', function() {
+            it('should reject promise', function() {
+                var questionsMock = ['FOO', 'BAR'],
+                    rejected,
                     questionController = new QuestionController();
-                console.log(questionController);
                 questionController._questions = questionsMock;
 
                 runs(function() {
-                    questionController.getNext()
-                        .then(function(question) {
-                            newQuestion = question;
+                    questionController.getQuestion(2)
+                        .then(function() {
+                            rejected = false;
+                        }, function() {
+                            rejected = true;
                         })
                         .finally(function() {
                             done = true;
@@ -90,10 +58,10 @@ describe('test/question-controller-spec', function() {
                 });
 
                 runs(function() {
-                    expect(newQuestion).toBeDefined();
-                    expect(newQuestion).toEqual('FOO');
+                    expect(rejected).toBeDefined();
+                    expect(rejected).toBe(true);
                 });
-            })
+            });
         })
-    })
+    });
 });

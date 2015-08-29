@@ -14,29 +14,22 @@ exports.QuestionController = Montage.specialize(/** @lends QuestionController# *
         value: null
     },
 
-    _currentIndex: {
-        value: null
-    },
-
     constructor: {
         value: function() {
             this._questions = questions;
-            this._currentIndex = -1;
         }
     },
 
-    getNext: {
-        value: function() {
+    getQuestion: {
+        value: function(index) {
 
             var question, atLastQuestion;
 
-            this._currentIndex++;
 
-            if (this._currentIndex >= this._questions.length) {
-                this._currentIndex--;
+            if (index >= this._questions.length) {
                 atLastQuestion = true;
             } else {
-                question = this._questions[this._currentIndex];
+                question = this._questions[index];
             }
 
             return new Promise(function(resolve, reject) {
