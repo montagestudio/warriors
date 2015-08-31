@@ -35,11 +35,18 @@ exports.QuizController = Montage.specialize(/** @lends QuizController# */ {
 
     getNextQuestion: {
         value: function() {
+            this._currentQuestionIndex++;
+            return this._questionController.getQuestion(this._currentQuestionIndex);
         }
     },
 
     answer: {
         value: function(answer) {
+            if (answer == this._currentQuestion.answer) {
+                return true;
+            } else {
+                return false;
+            }
         }
     }
 });

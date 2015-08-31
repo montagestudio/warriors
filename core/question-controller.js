@@ -25,7 +25,6 @@ exports.QuestionController = Montage.specialize(/** @lends QuestionController# *
 
             var question, atLastQuestion;
 
-
             if (index >= this._questions.length) {
                 atLastQuestion = true;
             } else {

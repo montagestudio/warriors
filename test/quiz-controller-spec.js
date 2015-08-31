@@ -21,7 +21,7 @@ describe('test/quiz-controller-spec', function() {
                     passedIndex = index;
                     return Promise.resolve('BAR');
                 };
-                quizController._currentIndex = 0;
+                quizController._currentQuestionIndex = 0;
 
                 runs(function() {
                     quizController.getNextQuestion()
@@ -52,7 +52,7 @@ describe('test/quiz-controller-spec', function() {
                     questionControllerMock.getQuestion = function() {
                         return Promise.reject();
                     };
-                    quizController._currentIndex = 0;
+                    quizController._currentQuestionIndex = 0;
 
                     runs(function() {
                         quizController.getNextQuestion()
