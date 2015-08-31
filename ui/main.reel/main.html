@@ -37,6 +37,9 @@
             "prototype": "ui/question.reel",
             "properties": {
                 "element": { "#": "question"}
+            },
+            "bindings": {
+                "question": {"<-": "@owner.application.QuizController._currentQuestion"}
             }
         },
 
@@ -44,6 +47,9 @@
             "prototype": "ui/menu.reel",
             "properties": {
                 "element": { "#": "menu"}
+            },
+            "bindings": {
+                "questions": {"<-": "@owner.application.QuizController._questions"}
             }
         },
 
@@ -51,6 +57,9 @@
             "prototype": "ui/timer.reel",
             "properties": {
                 "element": { "#": "timer" }
+            },
+            "bindings": {
+                "questionIndex": {"<-": "@owner.application.QuizController._currentQuestionIndex"}
             }
         },
 
@@ -73,8 +82,6 @@
         <div data-montage-id="menu"></div>
 
         <div data-montage-id="pageSubstitution" class="content">
-
-
 
             <div data-arg="intro">
                 <div class="intro">

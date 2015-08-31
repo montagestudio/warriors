@@ -28,6 +28,7 @@ exports.QuizController = Montage.specialize(/** @lends QuizController# */ {
     constructor: {
         value: function(questionController, answerController) {
             this._questionController = questionController;
+            this._questions = questionController._questions;
             this._answerController = answerController;
             this._currentQuestionIndex = -1;
         }
@@ -36,7 +37,12 @@ exports.QuizController = Montage.specialize(/** @lends QuizController# */ {
     getNextQuestion: {
         value: function() {
             this._currentQuestionIndex++;
-            return this._questionController.getQuestion(this._currentQuestionIndex);
+            var self = this;
+            return this._questionController.getQuestion(this._currentQuestionIndex)
+            .then(function(question){
+                self._currentQuestion = question;
+                return question;
+            });
         }
     },
 
