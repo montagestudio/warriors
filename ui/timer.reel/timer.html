@@ -9,6 +9,16 @@
             "properties": {
                 "element": {"#": "owner"}
             }
+        },
+
+        "currentQuestionIndex": {
+            "prototype": "montage/ui/text.reel",
+            "properties": {
+                "element": { "#": "currentQuestionIndex" }
+            },
+            "bindings": {
+                "value": { "<-": "@owner.questionIndex + 1" }
+            }
         }
     }
     </script>
@@ -17,7 +27,7 @@
     <div data-montage-id="owner" class="Timer">
         <div class="time">:90</div>
         <div class="questionNumber">
-            <div class="currentQuestionIndex">1</div>
+            <div data-montage-id="currentQuestionIndex" class="currentQuestionIndex">1</div>
             <div>of</div>
             <div class="totalQuestions">10</div>
         </div>

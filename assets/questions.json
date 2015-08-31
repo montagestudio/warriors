@@ -75,16 +75,16 @@
                 "summary": "this is the space where a fun fact would go for each player",
                 "votes": 19
             },{
-                "image": "assets/image/posters/8.jpg",
-                "name": "David Lee",
-                "number": 10,
-                "position": "Forward / Center",
+                "image": "assets/image/posters/12.jpg",
+                "name": "Marreese Speights",
+                "number": 5,
+                "position": "Center / Forward",
                 "heightInFeet": "6",
-                "heightInInches": "9",
-                "weight": "245",
-                "birthdate": "4/29/83",
+                "heightInInches": "10",
+                "weight": "255",
+                "birthdate": "8/4/87",
                 "summary": "this is the space where a fun fact would go for each player",
-                "votes": 6
+                "votes": 12
             }
         ],
         "answer": 2

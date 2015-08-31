@@ -36,9 +36,15 @@ exports.Question = Component.specialize(/** @lends Question# */ {
     goToNextQuestion: {
         value: function () {
             var self = this;
-            this.application.QuestionController.getNext().then(function(value) {
-                self.data = value;
-            });
+            this.application.QuizController.getNextQuestion()
+            .then(
+                function(value) {
+                    self.data = value;
+                })
+            .catch(
+                function(reason){
+                    console.log("you are at the last question");
+                });
         }
     },
 
@@ -58,7 +64,7 @@ exports.Question = Component.specialize(/** @lends Question# */ {
 
     templateDidLoad: {
         value: function () {
-            this.goToNextQuestion();
+
         }
     }
 });

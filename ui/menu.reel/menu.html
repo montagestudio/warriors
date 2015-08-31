@@ -28,7 +28,7 @@
                 "element": { "#": "menuItems" }
             },
             "bindings": {
-                "content": { "<-": "@owner.data" }
+                "content": { "<-": "@owner.questions" }
             }
         },
 
@@ -39,7 +39,8 @@
             },
             "bindings": {
                 "data": { "<-": "@menuItems:iteration" },
-                "classList.has('is-current')": { "<-": "@menuItems:iteration.index == 2" },
+                "classList.has('is-current')": { "<-": "@menuItems:iteration.index == @owner.application.QuizController._currentQuestionIndex" },
+
                 "classList.has('is-wrong')": { "<-": "@menuItems:iteration.index == 0" },
                 "classList.has('is-correct')": { "<-": "@menuItems:iteration.index == 1" }
             }
