@@ -19,6 +19,16 @@
             "bindings": {
                 "value": { "<-": "@owner.questionIndex + 1" }
             }
+        },
+
+        "totalQuestions": {
+            "prototype": "montage/ui/text.reel",
+            "properties": {
+                "element": { "#": "totalQuestions" }
+            },
+            "bindings": {
+                "value": { "<-": "@owner.questions.length" }
+            }
         }
     }
     </script>
@@ -27,9 +37,9 @@
     <div data-montage-id="owner" class="Timer">
         <div class="time">:90</div>
         <div class="questionNumber">
-            <div data-montage-id="currentQuestionIndex" class="currentQuestionIndex">1</div>
+            <div data-montage-id="currentQuestionIndex" class="currentQuestionIndex"></div>
             <div>of</div>
-            <div class="totalQuestions">10</div>
+            <div data-montage-id="totalQuestions" class="totalQuestions"></div>
         </div>
     </div>
 </body>
