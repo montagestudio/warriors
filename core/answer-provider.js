@@ -10,7 +10,13 @@ var Montage = require("montage/core/core").Montage,
 exports.AnswerProvider = Montage.specialize(/** @lends AnswerProvider# */ {
 
     _answers: {
-        value: []
+        value: null
+    },
+
+    constructor: {
+        value: function() {
+            this._answers = [];
+        }
     },
 
     save: {
