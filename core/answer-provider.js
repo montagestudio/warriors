@@ -21,11 +21,7 @@ exports.AnswerProvider = Montage.specialize(/** @lends AnswerProvider# */ {
 
     save: {
         value: function(index, answer, isCorrect) {
-            var answerData = {
-                index: index,
-                answer: answer,
-                isCorrect: isCorrect
-            };
+            var answerData = new Answer(null, index, answer, isCorrect);
             this._answers.push(answerData);
         }
     }

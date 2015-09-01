@@ -39,7 +39,7 @@
             },
             "bindings": {
                 "data": { "<-": "@menuItems:iteration" },
-                "classList.has('is-current')": { "<-": "@menuItems:iteration.index == @owner.application.QuizController._currentQuestionIndex" },
+                "classList.has('is-current')": { "<-": "@menuItems:iteration.index == @owner.application.quizController._currentQuestionIndex" },
 
                 "classList.has('is-wrong')": { "<-": "@menuItems:iteration.index == 0" },
                 "classList.has('is-correct')": { "<-": "@menuItems:iteration.index == 1" }

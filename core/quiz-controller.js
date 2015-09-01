@@ -9,7 +9,7 @@ var Montage = require("montage/core/core").Montage,
  */
 exports.QuizController = Montage.specialize(/** @lends QuizController# */ {
 
-    _questionProvider: {
+    _quizProvider: {
         value: null
     },
 
@@ -32,8 +32,8 @@ exports.QuizController = Montage.specialize(/** @lends QuizController# */ {
     },
 
     init: {
-        value: function(questionProvider, answerProvider) {
-            this._questionProvider = questionProvider;
+        value: function(quizProvider, answerProvider) {
+            this._quizProvider = quizProvider;
             this._answerProvider = answerProvider;
         }
     },
@@ -42,7 +42,7 @@ exports.QuizController = Montage.specialize(/** @lends QuizController# */ {
         value: function() {
             this._currentQuestionIndex++;
             var self = this;
-            self._currentQuestion = this._questionProvider.getQuestion(this._currentQuestionIndex);
+            self._currentQuestion = this._quizProvider.getQuestion(this._currentQuestionIndex);
             return self._currentQuestion;
         }
     },

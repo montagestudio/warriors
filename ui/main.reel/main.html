@@ -12,7 +12,8 @@
     {
         "owner": {
             "properties": {
-                "element": {"#": "main"}
+                "element": {"#": "main"},
+                "view": {"@": "pageSubstitution"}
             },
             "listeners": [
                 {
@@ -26,10 +27,8 @@
         "pageSubstitution": {
             "prototype": "montage/ui/substitution.reel",
             "properties": {
-                "element": { "#": "pageSubstitution" }
-            },
-            "bindings": {
-                "switchValue": { "<-": "@owner.application.navigationController.currentView" }
+                "element": { "#": "pageSubstitution" },
+                "switchValue": "intro"
             }
         },
 
@@ -39,7 +38,7 @@
                 "element": { "#": "question"}
             },
             "bindings": {
-                "question": {"<-": "@owner.application.QuizController._currentQuestion"}
+                "question": {"<-": "@owner.application.quizController._currentQuestion"}
             }
         },
 
@@ -49,7 +48,7 @@
                 "element": { "#": "menu"}
             },
             "bindings": {
-                "questions": {"<-": "@owner.application.QuizController._questions"}
+                "questions": {"<-": "@owner.application.quizController._quizProvider._quiz.questions"}
             }
         },
 
@@ -59,7 +58,7 @@
                 "element": { "#": "timer" }
             },
             "bindings": {
-                "questionIndex": {"<-": "@owner.application.QuizController._currentQuestionIndex"}
+                "questionIndex": {"<-": "@owner.application.quizController._currentQuestionIndex"}
             }
         },
 
