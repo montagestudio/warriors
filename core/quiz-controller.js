@@ -9,11 +9,11 @@ var Montage = require("montage/core/core").Montage,
  */
 exports.QuizController = Montage.specialize(/** @lends QuizController# */ {
 
-    _questionController: {
+    _questionProvider: {
         value: null
     },
 
-    _answerController: {
+    _answerProvider: {
         value: null
     },
 
@@ -26,11 +26,15 @@ exports.QuizController = Montage.specialize(/** @lends QuizController# */ {
     },
 
     constructor: {
-        value: function(questionController, answerController) {
-            this._questionController = questionController;
-            // this._questions = questionController._questions;
-            this._answerController = answerController;
+        value: function() {
             this._currentQuestionIndex = -1;
+        }
+    },
+
+    init: {
+        value: function(questionProvider, answerProvider) {
+            this._questionProvider = questionProvider;
+            this._answerProvider = answerProvider;
         }
     },
 
@@ -38,23 +42,16 @@ exports.QuizController = Montage.specialize(/** @lends QuizController# */ {
         value: function() {
             this._currentQuestionIndex++;
             var self = this;
-            return this._questionController.getQuestion(this._currentQuestionIndex)
-            .then(function(question){
-                self._currentQuestion = question;
-                return question;
-            });
+            self._currentQuestion = this._questionProvider.getQuestion(this._currentQuestionIndex);
+            return self._currentQuestion;
         }
     },
 
     answer: {
         value: function(answer) {
-            if (answer == this._currentQuestion.answer) {
-                this._answerController.recordAnswer(this._currentQuestionIndex, answer, true);
-                return true
-            } else {
-                this._answerController.recordAnswer(this._currentQuestionIndex, answer, false);
-                return false
-            }
+            var isCorrect = answer === this._currentQuestion.answer;
+            this._answerProvider.save(this._currentQuestionIndex, answer, isCorrect);
+            return isCorrect;
         }
     }
 });

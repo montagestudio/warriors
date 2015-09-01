@@ -2,7 +2,7 @@
  * @module ui/menu.reel
  */
 var Component = require("montage/ui/component").Component,
-questions = require("../../assets/questions.json");
+questions = require("../../assets/quiz.json");
 
 // $question: should I be loading the questions again here? Doesn't seem so.
 

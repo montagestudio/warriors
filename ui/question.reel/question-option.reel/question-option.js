@@ -42,7 +42,7 @@ var QuestionOption = exports.QuestionOption = Component.specialize( {
             // set flag in bindings to check
             // check scope in FRB for binding
 
-            if (this.data == this.flowContent[this.currentIndex] && e.target !== this.selectItem) {
+            if (this.flowContent && this.data == this.flowContent[this.currentIndex] && e.target !== this.selectItem) {
                 if (this.classList.contains("show-details")) {
                     this.hideDetails();
                 } else {

@@ -6,7 +6,7 @@
 var Component = require("montage/ui/component").Component,
 PressComposer = require("montage/composer/press-composer").PressComposer,
 QuizController = require("core/quiz-controller").QuizController,
-QuestionController = require("core/question-controller").QuestionController,
+QuizProvider = require("core/quiz-provider").QuizProvider,
 NavigationController = require("core/navigation-controller").NavigationController;
 
 /**
@@ -20,8 +20,9 @@ exports.Main = Component.specialize( /** @lends module:"ui/main.reel".Main# */ {
         value: function Main(firstTime) {
             if(firstTime) {
                 this.application.navigationController = NavigationController;
-                this.application.QuestionController = new QuestionController();
-                this.application.QuizController = new QuizController(this.application.QuestionController);
+                var quizProvider = new QuizProvider();
+                this.application.QuizController = new QuizController();
+                this.application.QuizController.init(quizProvider);
             }
         }
     },
