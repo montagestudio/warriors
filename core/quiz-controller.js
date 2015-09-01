@@ -48,13 +48,13 @@ exports.QuizController = Montage.specialize(/** @lends QuizController# */ {
 
     answer: {
         value: function(answer) {
-            this._answerController.recordAnswer(this._currentQuestionIndex, answer, function(answer) {
-                if (answer == this._currentQuestion.answer) {
-                    return true;
-                } else {
-                    return false;
-                }
-            });
+            if (answer == this._currentQuestion.answer) {
+                this._answerController.recordAnswer(this._currentQuestionIndex, answer, true);
+                return true
+            } else {
+                this._answerController.recordAnswer(this._currentQuestionIndex, answer, false);
+                return false
+            }
         }
     }
 });
