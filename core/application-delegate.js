@@ -14,6 +14,8 @@ exports.ApplicationDelegate = Montage.specialize({
             app.quizController = new QuizController();
             app.quizController.init(quizProvider, answerProvider);
 
+            app.currentView = "intro";
+
         }
     }
 });

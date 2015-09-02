@@ -39,7 +39,8 @@
     z-index: 2;
 }*/
 
-.is-correct.questionOption:after {
+.is-correct.questionOption:after,
+.is-wrong.questionOption:after {
     content:'';
     text-align: center;
     color: #FFF;
@@ -48,13 +49,20 @@
     position: absolute;
     height: 160px;
     width:  160px;
-    background: #00D300;
     top: 50%;
     left: 50%;
     border: 10px solid #FFF;
     transform: translate(-50%,-50%);
     border-radius: 50%;
     z-index: 5;
+}
+
+.is-correct.questionOption:after {
+    background: #00D300;
+}
+
+.is-wrong.questionOption:after {
+    background: red;
 }
 
 /* controls the overflow */

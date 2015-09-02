@@ -42,8 +42,7 @@
                 "currentIndex": {"<-": "@owner.currentIndex"},
                 "currentItem": {"<-": "@flow.selection.one()"},
                 "transition": {"<-": "!@owner.transitionStarted"},
-                "activeCard": {"<-": "@flow.contentController.content[currentIndex] == data"},
-                "classList.has('is-correct')": { "<-": "@flow:iteration.index == 1" }
+                "activeCard": {"<-": "@flow.contentController.content[currentIndex] == data"}
             }
         }
     }

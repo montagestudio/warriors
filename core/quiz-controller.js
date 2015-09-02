@@ -49,7 +49,8 @@ exports.QuizController = Montage.specialize(/** @lends QuizController# */ {
 
     answer: {
         value: function(answer) {
-            var isCorrect = answer === this._currentQuestion.answer;
+            var answerIndex = this._currentQuestion.options.indexOf(answer);
+            var isCorrect = answerIndex === this._currentQuestion.answer;
             this._answerProvider.save(this._currentQuestionIndex, answer, isCorrect);
             return isCorrect;
         }

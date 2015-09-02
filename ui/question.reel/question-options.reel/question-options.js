@@ -15,6 +15,18 @@ exports.QuestionOptions = Component.specialize(/** @lends QuestionOptions# */ {
         }
     },
 
+    enterDocument: {
+        value: function () {
+            this.addEventListener("submitAnswer", this, false);
+        }
+    },
+
+    handleSubmitAnswer: {
+        value: function () {
+            console.log("question options submit Answer");
+        }
+    },
+
     currentIndex: {
         value: 0
     },

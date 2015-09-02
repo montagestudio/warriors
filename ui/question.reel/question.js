@@ -47,14 +47,15 @@ exports.Question = Component.specialize(/** @lends Question# */ {
     enterDocument: {
         value: function (firstTime) {
             if (firstTime) {
-                this.addEventListener("nextQuestion", this, false)
+                this.addEventListener("submitAnswer", this, false);
             }
         }
     },
 
-    handleNextQuestion: {
+    handleSubmitAnswer: {
         value: function () {
             this.goToNextQuestion();
+            // this.classList.add("transition");
         }
     },
 

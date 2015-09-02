@@ -1,0 +1,121 @@
+.Results {
+    margin: 0 auto;
+    width: 500px;
+}
+
+.results h1 {
+    font-size: 3em;
+}
+
+.results h2 {
+    font-size: 2em;
+}
+
+.results-title {
+    text-align: center;
+    line-height: 1;
+    margin: 0;
+    margin-bottom: 1em;
+}
+
+.results-container {
+    margin-bottom: 2em;
+    padding: 4em 2em;
+}
+
+.result-details {
+    position: relative;
+    border: 10px solid yellow;
+    background-image: url('../../assets/image/basketball-floor-texture.jpg');
+    background-size: 100%;
+}
+
+.result-details:after {
+    position: absolute;
+    content: '';
+    top:    0;
+    bottom: 0;
+    left:   0;
+    right:  0;
+
+    z-index: -1;
+}
+
+.result-data {
+    display: flex;
+}
+
+.result-data-container {}
+
+.result-data-container + .result-data-container {
+    margin-top: 3em;
+}
+
+.result-data > div {
+    flex: 1;
+    text-align: center;
+}
+
+.data-unit {
+    position: relative;
+    line-height: 1;
+}
+
+.data-unit:after {
+    position: absolute;
+    content: attr(data-unit);
+    top: .6em;
+    font-size: .3em;
+}
+
+/* total percent */
+
+.percentCorrect {
+    position: relative;
+    text-align: center;
+    font-weight: 700;
+    font-size: 10em;
+    line-height: 1;
+    margin-bottom: 32px;
+    color: rgb(4,82,156);
+}
+
+.percentCorrect:after {
+    position: absolute;
+    top: .3em;
+    content: '%';
+    font-size: .3em;
+}
+
+/* result sizes */
+
+.result-large,
+.result-small {
+    font-weight: 700;
+}
+
+.result-large {
+    font-size: 4em;
+    line-height: 1;
+}
+
+.result-small {
+    font-size: 2em;
+    line-height: 1;
+}
+
+/* sharing */
+
+.share {
+    background: #FFF;
+    padding: 2em;
+}
+
+.share-buttons {
+    display: flex;
+}
+
+.share-buttons button {
+    flex: 1;
+    margin: 0 1em;
+}
