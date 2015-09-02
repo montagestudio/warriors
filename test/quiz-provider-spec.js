@@ -21,7 +21,7 @@ describe('test/quiz-provider-spec', function() {
             var quizMock = Quiz.load(mockData),
                 title,
                 quizProvider = new QuizProvider();
-            quizProvider._quiz = quizMock;
+            quizProvider.quiz = quizMock;
 
             title = quizProvider.getTitle();
 
@@ -36,7 +36,7 @@ describe('test/quiz-provider-spec', function() {
                 var quizMock = Quiz.load(mockData),
                     question,
                     quizProvider = new QuizProvider();
-                quizProvider._quiz = quizMock;
+                quizProvider.quiz = quizMock;
 
                 question = quizProvider.getQuestion(0);
 
@@ -50,7 +50,7 @@ describe('test/quiz-provider-spec', function() {
                 var quizMock = Quiz.load(mockData),
                     question,
                     quizProvider = new QuizProvider();
-                quizProvider._quiz = quizMock;
+                quizProvider.quiz = quizMock;
 
                 question = quizProvider.getQuestion(2);
 

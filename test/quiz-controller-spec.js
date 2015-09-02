@@ -26,7 +26,7 @@ describe('test/quiz-controller-spec', function() {
                     return 'BAR';
                 };
                 quizController.init(questionProviderMock, answerProviderMock);
-                quizController._currentQuestionIndex = 0;
+                quizController.currentQuestionIndex = 0;
 
                 newQuestion = quizController.getNextQuestion();
 
@@ -44,7 +44,7 @@ describe('test/quiz-controller-spec', function() {
                         return null;
                     };
                     quizController.init(questionProviderMock, answerProviderMock);
-                    quizController._currentQuestionIndex = 0;
+                    quizController.currentQuestionIndex = 0;
 
                     newQuestion = quizController.getNextQuestion();
 
@@ -94,7 +94,7 @@ describe('test/quiz-controller-spec', function() {
                     currentQuestion = { options:['FOO','BAR'], answer: 1 },
                     quizController = new QuizController();
                 quizController.init(questionProviderMock, answerProviderMock);
-                quizController._currentQuestion = currentQuestion;
+                quizController.currentQuestion = currentQuestion;
 
                 isCorrect = quizController.answer(currentQuestion.options[1]);
 
@@ -109,7 +109,7 @@ describe('test/quiz-controller-spec', function() {
                     currentQuestion = { options:['FOO','BAR'], answer: 1 },
                     quizController = new QuizController();
                 quizController.init(questionProviderMock, answerProviderMock);
-                quizController._currentQuestion = currentQuestion;
+                quizController.currentQuestion = currentQuestion;
 
                 isCorrect = quizController.answer(currentQuestion.options[0]);
 
@@ -130,8 +130,8 @@ describe('test/quiz-controller-spec', function() {
                 isCorrect = correctness;
             };
             quizController.init(questionProviderMock, answerProviderMock);
-            quizController._currentQuestionIndex = 42;
-            quizController._currentQuestion = currentQuestion;
+            quizController.currentQuestionIndex = 42;
+            quizController.currentQuestion = currentQuestion;
 
             isCorrect = quizController.answer(currentQuestion.options[1]);
 

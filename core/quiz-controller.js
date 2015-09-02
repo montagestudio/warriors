@@ -49,11 +49,10 @@ exports.QuizController = Montage.specialize(/** @lends QuizController# */ {
             self.currentQuestion = this.quizProvider.getQuestion(this.currentQuestionIndex);
 
             // check if we have submitted the last question
-            if (self.currentQuestion && typeof self.currentQuestion == 'object') {
-                return self.currentQuestion;
-            } else {
+            if (!self.currentQuestion || typeof self.currentQuestion !== 'object') {
                 this.submittedLastQuestion = true;
             }
+            return self.currentQuestion
         }
     },
 
