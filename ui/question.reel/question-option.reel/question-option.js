@@ -80,7 +80,8 @@ var QuestionOption = exports.QuestionOption = Component.specialize( {
 
     reset: {
         value: function () {
-            this.classList.remove("is-wrong", "is-correct");
+            this.classList.remove("is-wrong");
+            this.classList.remove("is-correct");
         }
     },
 
