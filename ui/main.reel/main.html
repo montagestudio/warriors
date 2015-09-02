@@ -67,7 +67,8 @@
                 "element": { "#": "timer" }
             },
             "bindings": {
-                "questionIndex": {"<-": "@owner.application.quizController._currentQuestionIndex"}
+                "questionIndex": {"<-": "@owner.application.quizController._currentQuestionIndex"},
+                "questions": {"<-": "@owner.application.quizController._quizProvider._quiz.questions"}
             }
         },
 
