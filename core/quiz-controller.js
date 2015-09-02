@@ -9,11 +9,11 @@ var Montage = require("montage/core/core").Montage,
  */
 exports.QuizController = Montage.specialize(/** @lends QuizController# */ {
 
-    _quizProvider: {
+    quizProvider: {
         value: null
     },
 
-    _answerProvider: {
+    answerProvider: {
         value: null
     },
 
@@ -37,8 +37,8 @@ exports.QuizController = Montage.specialize(/** @lends QuizController# */ {
 
     init: {
         value: function(quizProvider, answerProvider) {
-            this._quizProvider = quizProvider;
-            this._answerProvider = answerProvider;
+            this.quizProvider = quizProvider;
+            this.answerProvider = answerProvider;
         }
     },
 
@@ -46,7 +46,7 @@ exports.QuizController = Montage.specialize(/** @lends QuizController# */ {
         value: function() {
             this.currentQuestionIndex++;
             var self = this;
-            self.currentQuestion = this._quizProvider.getQuestion(this.currentQuestionIndex);
+            self.currentQuestion = this.quizProvider.getQuestion(this.currentQuestionIndex);
 
             // check if we have submitted the last question
             if (self.currentQuestion && typeof self.currentQuestion == 'object') {
@@ -61,7 +61,7 @@ exports.QuizController = Montage.specialize(/** @lends QuizController# */ {
         value: function(answer) {
             var answerIndex = this.currentQuestion.options.indexOf(answer);
             var isCorrect = answerIndex === this.currentQuestion.answer;
-            this._answerProvider.save(this.currentQuestionIndex, answer, isCorrect);
+            this.answerProvider.save(this.currentQuestionIndex, answer, isCorrect);
             return isCorrect;
         }
     }

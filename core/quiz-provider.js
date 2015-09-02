@@ -10,25 +10,25 @@ var Montage = require("montage/core/core").Montage,
  */
 exports.QuizProvider = Montage.specialize(/** @lends QuizProvider# */ {
 
-    _quiz: {
+    quiz: {
         value: null
     },
 
     constructor: {
         value: function() {
-            this._quiz = Quiz.load(quiz);
+            this.quiz = Quiz.load(quiz);
         }
     },
 
     getTitle: {
         value: function() {
-            return this._quiz.title;
+            return this.quiz.title;
         }
     },
 
     getQuestion: {
         value: function(index) {
-            return this._quiz.questions[index];
+            return this.quiz.questions[index];
         }
     }
 });

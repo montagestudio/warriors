@@ -14,8 +14,6 @@ exports.Question = Component.specialize(/** @lends Question# */ {
         }
     },
 
-    // creating current question variable
-
     _data: {
         value: null
     },
@@ -56,12 +54,6 @@ exports.Question = Component.specialize(/** @lends Question# */ {
         value: function () {
             this.goToNextQuestion();
             // this.classList.add("transition");
-        }
-    },
-
-    templateDidLoad: {
-        value: function () {
-
         }
     }
 });
