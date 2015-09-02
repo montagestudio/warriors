@@ -17,17 +17,21 @@ exports.QuizController = Montage.specialize(/** @lends QuizController# */ {
         value: null
     },
 
-    _currentQuestionIndex: {
+    currentQuestionIndex: {
         value: null
     },
 
-    _currentQuestion: {
+    currentQuestion: {
         value: null
+    },
+
+    submittedLastQuestion: {
+        value: false
     },
 
     constructor: {
         value: function() {
-            this._currentQuestionIndex = -1;
+            this.currentQuestionIndex = -1;
         }
     },
 
@@ -40,18 +44,24 @@ exports.QuizController = Montage.specialize(/** @lends QuizController# */ {
 
     getNextQuestion: {
         value: function() {
-            this._currentQuestionIndex++;
+            this.currentQuestionIndex++;
             var self = this;
-            self._currentQuestion = this._quizProvider.getQuestion(this._currentQuestionIndex);
-            return self._currentQuestion;
+            self.currentQuestion = this._quizProvider.getQuestion(this.currentQuestionIndex);
+
+            // check if we have submitted the last question
+            if (self.currentQuestion && typeof self.currentQuestion == 'object') {
+                return self.currentQuestion;
+            } else {
+                this.submittedLastQuestion = true;
+            }
         }
     },
 
     answer: {
         value: function(answer) {
-            var answerIndex = this._currentQuestion.options.indexOf(answer);
-            var isCorrect = answerIndex === this._currentQuestion.answer;
-            this._answerProvider.save(this._currentQuestionIndex, answer, isCorrect);
+            var answerIndex = this.currentQuestion.options.indexOf(answer);
+            var isCorrect = answerIndex === this.currentQuestion.answer;
+            this._answerProvider.save(this.currentQuestionIndex, answer, isCorrect);
             return isCorrect;
         }
     }

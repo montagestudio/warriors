@@ -12,8 +12,7 @@
     {
         "owner": {
             "properties": {
-                "element": {"#": "main"},
-                "view": {"@": "pageSubstitution"}
+                "element": {"#": "main"}
             },
             "listeners": [
                 {
@@ -21,7 +20,10 @@
                     "listener": {"@": "owner"},
                     "capture": false
                 }
-            ]
+            ],
+            "bindings": {
+                "isQuizFinished": {"<-": "@owner.application.quizController.submittedLastQuestion"}
+            }
         },
 
         "pageSubstitution": {
@@ -29,8 +31,8 @@
             "properties": {
                 "element": { "#": "pageSubstitution" }
             },
-            "bindings" : {
-                "switchValue": {"<-": "@owner.application.currentView"}
+            "bindings": {
+                "switchValue": {"<-": "@owner.currentView"}
             }
         },
 
@@ -40,7 +42,7 @@
                 "element": { "#": "question"}
             },
             "bindings": {
-                "question": {"<-": "@owner.application.quizController._currentQuestion"}
+                "question": {"<-": "@owner.application.quizController.currentQuestion"}
             }
         },
 
@@ -67,7 +69,7 @@
                 "element": { "#": "timer" }
             },
             "bindings": {
-                "questionIndex": {"<-": "@owner.application.quizController._currentQuestionIndex"},
+                "questionIndex": {"<-": "@owner.application.quizController.currentQuestionIndex"},
                 "questions": {"<-": "@owner.application.quizController._quizProvider._quiz.questions"}
             }
         },

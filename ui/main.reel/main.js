@@ -21,9 +21,21 @@ exports.Main = Component.specialize( /** @lends module:"ui/main.reel".Main# */ {
         }
     },
 
+    currentView: {
+        value: 'intro'
+    },
+
+    isQuizFinished: {
+        set: function (value) {
+            if(value) {
+                this.currentView = 'results';
+            }
+        }
+    },
+
     handleStartQuizAction: {
         value: function () {
-            this.view.switchValue = "quiz";
+            this.currentView = "quiz";
             this.application.quizController.getNextQuestion();
         }
     }
