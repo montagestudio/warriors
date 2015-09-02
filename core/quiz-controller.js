@@ -9,11 +9,11 @@ var Montage = require("montage/core/core").Montage,
  */
 exports.QuizController = Montage.specialize(/** @lends QuizController# */ {
 
-    _questionController: {
+    _quizProvider: {
         value: null
     },
 
-    _answerController: {
+    _answerProvider: {
         value: null
     },
 
@@ -26,11 +26,15 @@ exports.QuizController = Montage.specialize(/** @lends QuizController# */ {
     },
 
     constructor: {
-        value: function(questionController, answerController) {
-            this._questionController = questionController;
-            // this._questions = questionController._questions;
-            this._answerController = answerController;
+        value: function() {
             this._currentQuestionIndex = -1;
+        }
+    },
+
+    init: {
+        value: function(quizProvider, answerProvider) {
+            this._quizProvider = quizProvider;
+            this._answerProvider = answerProvider;
         }
     },
 
@@ -38,22 +42,17 @@ exports.QuizController = Montage.specialize(/** @lends QuizController# */ {
         value: function() {
             this._currentQuestionIndex++;
             var self = this;
-            return this._questionController.getQuestion(this._currentQuestionIndex)
-            .then(function(question){
-                self._currentQuestion = question;
-                return question;
-            });
+            self._currentQuestion = this._quizProvider.getQuestion(this._currentQuestionIndex);
+            return self._currentQuestion;
         }
     },
 
     answer: {
         value: function(answer) {
-            if (answer == this._currentQuestion.answer) {
-                console.log('true');
-                return true;
-            } else {
-                return false;
-            }
+            var answerIndex = this._currentQuestion.options.indexOf(answer);
+            var isCorrect = answerIndex === this._currentQuestion.answer;
+            this._answerProvider.save(this._currentQuestionIndex, answer, isCorrect);
+            return isCorrect;
         }
     }
 });

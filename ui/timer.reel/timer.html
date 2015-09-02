@@ -28,6 +28,14 @@
             },
             "bindings": {
                 "value": { "<-": "@owner.questions.length" }
+
+        "timer": {
+            "prototype": "montage/ui/text.reel",
+            "properties": {
+                "element": { "#": "timer" }
+            },
+            "bindings": {
+                "value": { "<-": "@owner.currentTime" }
             }
         }
     }
@@ -35,7 +43,7 @@
 </head>
 <body>
     <div data-montage-id="owner" class="Timer">
-        <div class="time">:90</div>
+        <div data-montage-id="timer" class="time"></div>
         <div class="questionNumber">
             <div data-montage-id="currentQuestionIndex" class="currentQuestionIndex"></div>
             <div>of</div>

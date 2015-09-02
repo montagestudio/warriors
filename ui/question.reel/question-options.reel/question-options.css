@@ -28,6 +28,11 @@ FLOW
     position: relative;
 }*/
 
+.transition .montage-Flow-camera {
+    transform: translate3d(0px, 0px, -5000px) !important;
+    transition: all 1s ease-in-out;
+}
+
 
 /* basketball */
 

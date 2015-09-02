@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <link rel="stylesheet" type="text/css" href="results.css">
+    <script type="text/montage-serialization">
+    {
+        "owner": {
+            "properties": {
+                "element": {"#": "owner"}
+            }
+        },
+
+        "percentCorrect": {
+            "prototype": "montage/ui/text.reel",
+            "properties": {
+                "element": { "#": "percentCorrect" }
+            },
+            "bindings": {
+                "value": { "<-": "80" }
+            }
+        },
+
+        "answersCorrect": {
+            "prototype": "montage/ui/text.reel",
+            "properties": {
+                "element": { "#": "answersCorrect" }
+            },
+            "bindings": {
+                "value": { "<-": "8" }
+            }
+        },
+
+        "totalQuestions": {
+            "prototype": "montage/ui/text.reel",
+            "properties": {
+                "element": { "#": "totalQuestions" }
+            },
+            "bindings": {
+                "value": { "<-": "10" }
+            }
+        },
+
+        "totalTime": {
+            "prototype": "montage/ui/text.reel",
+            "properties": {
+                "element": { "#": "totalTime" }
+            },
+            "bindings": {
+                "value": { "<-": "58" }
+            }
+        },
+
+        "percentDifference": {
+            "prototype": "montage/ui/text.reel",
+            "properties": {
+                "element": { "#": "percentDifference" }
+            },
+            "bindings": {
+                "value": { "<-": "10" }
+            }
+        },
+
+        "timeDifference": {
+            "prototype": "montage/ui/text.reel",
+            "properties": {
+                "element": { "#": "timeDifference" }
+            },
+            "bindings": {
+                "value": { "<-": "4" }
+            }
+        },
+
+        "isHigher": {
+            "prototype": "montage/ui/text.reel",
+            "properties": {
+                "element": { "#": "isHigher" }
+            },
+            "bindings": {
+                "value": { "<-": "true ? 'higher':'lower'" }
+            }
+        },
+
+        "isFaster": {
+            "prototype": "montage/ui/text.reel",
+            "properties": {
+                "element": { "#": "isFaster" }
+            },
+            "bindings": {
+                "value": { "<-": "true ? 'faster':'slower'" }
+            }
+        }
+
+
+    }
+    </script>
+</head>
+<body>
+    <div data-montage-id="owner" class="Results">
+        <div data-montage-id="results" class="results-container result-details">
+
+            <h1 class="results-title">Congratulations</h1>
+            <div data-montage-id="percentCorrect" class="percentCorrect">80</div>
+            <div class="result-data">
+                <div class="result-answer">
+                    <div class="result-data-container">
+                        <div class="result-large">
+                            <span data-montage-id="answersCorrect"></span>/<span data-montage-id="totalQuestions"></span>
+                        </div>
+                        <span>correct</span>
+                    </div>
+                    <div class="result-data-container">
+                        <div class="result-large"><span data-montage-id="percentDifference" class="data-unit" data-unit="%">10</span></div>
+                        <div><span data-montage-id="isHigher"></span> than average</div>
+                    </div>
+                </div>
+                <div class="result-timeDetails">
+
+                    <div class="result-data-container">
+                        <div class="result-large">
+                            :<span data-montage-id="totalTime">52</span>
+                        </div>
+                        <span>total time</span>
+                    </div>
+                    <div class="result-data-container">
+                        <div class="result-large"><span data-montage-id="timeDifference" class="data-unit" data-unit="s">5</span></div>
+                        <div><span data-montage-id="isFaster"></span> than average</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="results-container share">
+            <h2 class="results-title">Share your Results</h2>
+            <div class="share-buttons">
+                <button>facebook</button>
+                <button>twitter</button>
+            </div>
+        </div>
+        <button class="btn">restart quiz</button>
+    </div>
+</body>
+</html>

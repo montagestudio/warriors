@@ -18,6 +18,10 @@
     font-weight: 600;
 }
 
+.time:before {
+    content: ':';
+}
+
 .questionNumber {
     margin-left: 1em;
     display: inline-block;

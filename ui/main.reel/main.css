@@ -36,7 +36,7 @@ html {
     right:  0;
     bottom: 0;
     background-image: radial-gradient(rgba(0,0,0,.3) 20%, rgba(0,0,0,1) 90%);
-    z-index: -1;
+    z-index: -2;
     background-repeat: no-repeat;
     background-position: center center;
     background-size: 100% 140%;
@@ -128,12 +128,40 @@ html {
     /*margin-bottom: 5em;*/
     width: 500px;
     height: 300px;
-    /*outline: 1px solid red;*/
     display: inline-block;
     background-position: center;
     background-size: contain;
     background-repeat: no-repeat;
     background-image: url(../../assets/image/championship_logo.png);
+}
+
+.modal{
+    position: absolute;
+    top:    0;
+    left:   0;
+    right:  0;
+    bottom: 0;
+    background: rgba(0,0,0,.95);
+    z-index: 100;
+    color: #FFF;
+    display: flex;
+    justify-content: center;
+    opacity: 0;
+    visibility: hidden;
+}
+
+.modal.is-visible {
+    opacity: 1;
+    visibility: visible;
+}
+
+.modal h1 {
+    align-self: center;
+    text-align: center;
+    border: 2px solid #FFF;
+    display: inline-block;
+    padding: 1em;
+    margin: 0;
 }
 
 /*@media (min-width: 414px) {

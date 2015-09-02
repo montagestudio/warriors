@@ -42,7 +42,7 @@ var QuestionOption = exports.QuestionOption = Component.specialize( {
             // set flag in bindings to check
             // check scope in FRB for binding
 
-            if (this.data == this.flowContent[this.currentIndex] && e.target !== this.selectItem) {
+            if (this.flowContent && this.data == this.flowContent[this.currentIndex] && e.target !== this.selectItem) {
                 if (this.classList.contains("show-details")) {
                     this.hideDetails();
                 } else {
@@ -66,9 +66,42 @@ var QuestionOption = exports.QuestionOption = Component.specialize( {
         }
     },
 
+    isCorrect: {
+        value: function () {
+            this.classList.add("is-correct");
+        }
+    },
+
+    isWrong: {
+        value: function () {
+            this.classList.add("is-wrong");
+        }
+    },
+
+    reset: {
+        value: function () {
+            this.classList.remove("is-wrong", "is-correct");
+        }
+    },
+
     handleSelectItemAction: {
         value: function () {
-            this.dispatchEventNamed("nextQuestion", true, true);
+            var self = this;
+            if (this.application.quizController.answer(this.data)){
+                this.isCorrect();
+                setTimeout(function(){
+                    self.reset();
+                    self.dispatchEventNamed("submitAnswer", true, true);
+                }, 1000)
+
+            } else {
+                this.isWrong();
+                setTimeout(function(){
+                    self.reset();
+                    self.dispatchEventNamed("submitAnswer", true, true);
+                }, 1000)
+            }
+
         }
     }
 });

@@ -35,30 +35,27 @@ exports.Question = Component.specialize(/** @lends Question# */ {
 
     goToNextQuestion: {
         value: function () {
-            var self = this;
-            this.application.QuizController.getNextQuestion()
-            .then(
-                function(value) {
-                    self.data = value;
-                })
-            .catch(
-                function(reason){
-                    console.log("you are at the last question");
-                });
+            var question = this.application.quizController.getNextQuestion();
+            if (question) {
+                this.data = question;
+            } else {
+                console.log("You're at the last question");
+            }
         }
     },
 
     enterDocument: {
         value: function (firstTime) {
             if (firstTime) {
-                this.addEventListener("nextQuestion", this, false)
+                this.addEventListener("submitAnswer", this, false);
             }
         }
     },
 
-    handleNextQuestion: {
+    handleSubmitAnswer: {
         value: function () {
             this.goToNextQuestion();
+            // this.classList.add("transition");
         }
     },
 
