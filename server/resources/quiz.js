@@ -5,8 +5,8 @@ module.exports = [
         method: 'GET',
         path: '/quiz',
         handler: function(request, reply) {
-            request.pg.client.query('SELECT id FROM quiz', function(err, result) {
-                reply(result.rows.map(function(x) { return x.id }));
+            request.pg.client.query("SELECT id, document->'title' AS title FROM quiz", function(err, result) {
+                reply(result.rows);
             })
         }
     },
