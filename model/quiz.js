@@ -1,4 +1,4 @@
-var Question = require('model/question').Question;
+var Question = require('./question').Question;
 
 var Quiz = function(title, questions) {
     this.title = title;

@@ -1,4 +1,4 @@
-var Option = require('model/option').Option;
+var Option = require('./option').Option;
 
 var Question = function(title, options, answer) {
     this.title = title;
