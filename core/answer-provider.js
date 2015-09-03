@@ -9,20 +9,20 @@ var Montage = require("montage/core/core").Montage,
  */
 exports.AnswerProvider = Montage.specialize(/** @lends AnswerProvider# */ {
 
-    _answers: {
+    answers: {
         value: null
     },
 
     constructor: {
         value: function() {
-            this._answers = [];
+            this.answers = [];
         }
     },
 
     save: {
         value: function(index, answer, isCorrect) {
             var answerData = new Answer(null, index, answer, isCorrect);
-            this._answers.push(answerData);
+            this.answers.push(answerData);
         }
     }
 });

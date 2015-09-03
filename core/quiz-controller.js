@@ -17,6 +17,10 @@ exports.QuizController = Montage.specialize(/** @lends QuizController# */ {
         value: null
     },
 
+    statsProvider: {
+        value: null
+    },
+
     currentQuestionIndex: {
         value: null
     },
@@ -36,9 +40,10 @@ exports.QuizController = Montage.specialize(/** @lends QuizController# */ {
     },
 
     init: {
-        value: function(quizProvider, answerProvider) {
+        value: function(quizProvider, answerProvider, statsProvider) {
             this.quizProvider = quizProvider;
             this.answerProvider = answerProvider;
+            this.statsProvider = statsProvider;
         }
     },
 

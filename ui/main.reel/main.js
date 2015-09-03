@@ -4,7 +4,11 @@
     @requires montage/ui/component
 */
 var Component = require("montage/ui/component").Component,
-PressComposer = require("montage/composer/press-composer").PressComposer;
+PressComposer = require("montage/composer/press-composer").PressComposer,
+QuizController = require("core/quiz-controller").QuizController,
+AnswerProvider = require("core/answer-provider").AnswerProvider,
+StatsProvider = require("core/stats-provider").StatsProvider,
+QuizProvider = require("core/quiz-provider").QuizProvider;
 
 /**
     Description TODO
@@ -13,11 +17,18 @@ PressComposer = require("montage/composer/press-composer").PressComposer;
 */
 exports.Main = Component.specialize( /** @lends module:"ui/main.reel".Main# */ {
 
-    enterDocument: {
-        value: function Main(firstTime) {
-            if(firstTime) {
+    constructor: {
+        value: function () {
+            var answerProvider = new AnswerProvider();
+            var quizProvider   = new QuizProvider();
+            var statsProvider   = new StatsProvider();
 
-            }
+            // $question - is this how I should do this?
+            statsProvider.init(answerProvider);
+
+            this.application.quizController = new QuizController();
+            this.application.quizController.init(quizProvider, answerProvider, statsProvider);
+
         }
     },
 
