@@ -1,13 +1,57 @@
-var Answer = require('../model/answer').Answer;
+var Answer = require('../model/answer').Answer,
+    Quiz = require('../model/quiz').Quiz;
+
+function handlerDbError(error, request, reply) {
+    var message = request.debug ? error.message : '';
+    reply(message).code(500);
+}
 
 module.exports = [
     {
         method: 'GET',
         path: '/quiz',
         handler: function(request, reply) {
-            request.pg.client.query("SELECT id, document->'title' AS title FROM quiz", function(err, result) {
+            var query = request.pg.client.query({
+                text: "SELECT id, document->'title' AS title FROM quiz",
+                name: 'list quiz'
+            });
+            query.on('row', function(row, result) {
+                result.addRow(row);
+            });
+            query.on('end', function(result) {
                 reply(result.rows);
+            });
+            query.on('error', function(error) {
+                handlerDbError(error, request, reply);
             })
+        }
+    },
+    {
+        method: 'POST',
+        path: '/quiz',
+        handler: function(request, reply) {
+            try {
+                console.log(request.payload.questions[0]);
+                var quiz = Quiz.load(request.payload);
+                console.log(quiz);
+                var query = request.pg.client.query({
+                    text: 'INSERT INTO quiz (id, document) VALUES (DEFAULT, $1) RETURNING id',
+                    name: 'insert quiz',
+                    values: [quiz]
+                });
+                query.on('row', function(row, result) {
+                    result.addRow(row);
+                });
+                query.on('end', function(result) {
+                    reply(result.rows[0].id).code(201);
+                });
+                query.on('error', function(error) {
+                    handlerDbError(error, request, reply);
+                })
+            } catch (error) {
+                var message = request.debug ? error.message : '';
+                reply(message).code(400);
+            }
         }
     },
     {
@@ -87,7 +131,7 @@ module.exports = [
         handler: function(request, reply) {
             request.pg.client.query({
                 text: 'SELECT * FROM answer WHERE quiz_id = $1 AND index = $2',
-                name: 'answers by quiz_id',
+                name: 'answers by quiz_id and index',
                 values: [request.params.id, request.params.index]
             }, function(error, result) {
                 if (error) {
