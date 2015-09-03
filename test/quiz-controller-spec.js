@@ -91,14 +91,14 @@ describe('test/quiz-controller-spec', function() {
         describe('correctly', function() {
             it('should return that answer is true', function() {
                 var isCorrect,
-                    currentQuestion = { options:['FOO','BAR'], answer: 1 },
+                    currentQuestion = { options: ['FOO', 'BAR'], answer: 1 },
                     quizController = new QuizController();
                 quizController.init(questionProviderMock, answerProviderMock);
                 quizController.currentQuestion = currentQuestion;
 
-                isCorrect = quizController.answer(currentQuestion.options[1]);
-
+                isCorrect = quizController.answer('BAR');
                 expect(isCorrect).toBeDefined();
+
                 expect(isCorrect).toEqual(true);
             });
         });
@@ -106,12 +106,12 @@ describe('test/quiz-controller-spec', function() {
         describe('incorrectly', function() {
             it('should return that answer is false', function() {
                 var isCorrect,
-                    currentQuestion = { options:['FOO','BAR'], answer: 1 },
+                    currentQuestion = { options: ['FOO', 'BAR'], answer: 1 },
                     quizController = new QuizController();
                 quizController.init(questionProviderMock, answerProviderMock);
                 quizController.currentQuestion = currentQuestion;
 
-                isCorrect = quizController.answer(currentQuestion.options[0]);
+                isCorrect = quizController.answer('FOO');
 
                 expect(isCorrect).toBeDefined();
                 expect(isCorrect).toEqual(false);
@@ -138,7 +138,7 @@ describe('test/quiz-controller-spec', function() {
             expect(questionAnswered).toBeDefined();
             expect(questionAnswered).toEqual(42);
             expect(givenAnswer).toBeDefined();
-            expect(givenAnswer).toEqual('BAR');
+            expect(givenAnswer).toEqual(1);
             expect(isCorrect).toBeDefined();
             expect(isCorrect).toEqual(true);
         });
