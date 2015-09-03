@@ -7,7 +7,7 @@ function loadConfiguration() {
     nconf.formats.yaml = require('nconf-yaml');
     var configurationFile = process.env.WARRIORS_CONF_FILE || './configuration.yml';
     nconf.argv()
-        .env()
+        .env('__')
         .file(configurationFile);
 
     nconf.defaults({
