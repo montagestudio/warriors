@@ -1,3 +1,5 @@
+CREATE DATABASE warriors;
+\c warriors
 CREATE EXTENSION "uuid-ossp";
 CREATE TABLE "quiz" (
     id          UUID    PRIMARY KEY DEFAULT uuid_generate_v4(),
