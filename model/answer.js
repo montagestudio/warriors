@@ -6,6 +6,14 @@ var Answer = function(quizId, index, answer, isCorrect) {
 };
 
 Answer.load = function(obj) {
+    if (typeof obj              === 'undefined' ||
+        typeof obj.quizId       === 'undefined' ||
+        typeof obj.index        === 'undefined' ||
+        typeof obj.answer       === 'undefined' ||
+        typeof obj.isCorrect    === 'undefined'
+    ) {
+        throw new Error('Incorrect data to load:' + JSON.stringify(obj));
+    }
     return new Answer(obj.quizId, obj.index, obj.answer, obj.isCorrect);
 };
 
