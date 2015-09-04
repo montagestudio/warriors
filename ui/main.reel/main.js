@@ -4,11 +4,12 @@
     @requires montage/ui/component
 */
 var Component = require("montage/ui/component").Component,
-PressComposer = require("montage/composer/press-composer").PressComposer,
-QuizController = require("core/quiz-controller").QuizController,
-AnswerProvider = require("core/answer-provider").AnswerProvider,
-StatsProvider = require("core/stats-provider").StatsProvider,
-QuizProvider = require("core/quiz-provider").QuizProvider;
+    PressComposer = require("montage/composer/press-composer").PressComposer,
+    QuizController = require("core/quiz-controller").QuizController,
+    AnswerProvider = require("core/answer-provider").AnswerProvider,
+    StatsProvider = require("core/stats-provider").StatsProvider,
+    QuizProvider = require("core/quiz-provider").QuizProvider,
+    Application = require("montage/core/application").application;
 
 /**
     Description TODO
@@ -25,8 +26,8 @@ exports.Main = Component.specialize( /** @lends module:"ui/main.reel".Main# */ {
 
             statsProvider.init(answerProvider);
 
-            this.application.quizController = new QuizController();
-            this.application.quizController.init(quizProvider, answerProvider, statsProvider);
+            Application.quizController = new QuizController();
+            Application.quizController.init(quizProvider, answerProvider, statsProvider);
 
         }
     },
@@ -46,7 +47,7 @@ exports.Main = Component.specialize( /** @lends module:"ui/main.reel".Main# */ {
     handleStartQuizAction: {
         value: function () {
             this.currentView = "quiz";
-            this.application.quizController.getNextQuestion();
+            Application.quizController.getNextQuestion();
         }
     }
 
