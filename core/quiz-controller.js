@@ -2,7 +2,8 @@
  * @module quiz-controller
  */
 var Promise = require("montage/core/promise").Promise.Promise,
-    Target = require("montage/core/target").Target;
+    Target = require("montage/core/target").Target,
+    Application = require("montage/core/application").application;
 /**
  * @class QuizController
  * @extends Montage
@@ -75,7 +76,7 @@ exports.QuizController = Target.specialize(/** @lends QuizController# */ {
     constructor: {
         value: function() {
             this.currentQuestionIndex = -1;
-            this.addEventListener("timerHasEnded", function() {console.log("fired")}, true);
+            Application.addEventListener("timerHasEnded", this, false);
         }
     },
 
