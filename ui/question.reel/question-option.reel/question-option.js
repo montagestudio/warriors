@@ -94,7 +94,6 @@ var QuestionOption = exports.QuestionOption = Component.specialize( {
                 this.setCorrect();
                 this.reset();
 
-
             } else {
                 this.setWrong();
                 this.reset();
