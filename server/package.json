@@ -16,6 +16,9 @@
         "lab": "^5.15.2"
     },
     "scripts": {
-        "start": "./warriors-server.js"
+        "start": "node warriors-server.js"
+    },
+    "engines": {
+        "node": "0.10.40"
     }
 }
