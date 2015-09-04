@@ -39,7 +39,9 @@
             },
             "bindings": {
                 "data": { "<-": "@menuItems:iteration" },
-                "classList.has('is-current')": { "<-": "@menuItems:iteration.index == @owner.application.quizController.currentQuestionIndex" }
+                "classList.has('is-current')": { "<-": "@menuItems:iteration.index == @owner.application.quizController.currentQuestionIndex" },
+                "classList.has('is-correct')": {"<-": "@owner.answers[@menuItems:iteration.index].isCorrect"},
+                "classList.has('is-wrong')": {"<-": "@owner.answers[@menuItems:iteration.index].isCorrect == false"}
             }
         },
 

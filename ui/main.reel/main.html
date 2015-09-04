@@ -53,7 +53,8 @@
             },
             "bindings": {
                 "questions": {"<-": "@owner.application.quizController.quizProvider.quiz.questions"},
-                "classList.has('is-visible')" : { "<-" : "@owner.isQuizFinished"}
+                "classList.has('is-visible')" : { "<-" : "@owner.isQuizFinished"},
+                "answers": {"<-": "@owner.application.quizController.answerProvider.answers"}
             }
         },
 
