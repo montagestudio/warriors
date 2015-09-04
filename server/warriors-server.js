@@ -5,14 +5,16 @@ function loadConfiguration() {
     var nconf = require('nconf');
 
     nconf.formats.yaml = require('nconf-yaml');
-    var configurationFile = process.env.WARRIORS_CONF_FILE || './configuration.yml';
-    nconf.argv()
-        .env('__')
-        .file(configurationFile);
+    var configurationFile = process.env.WARRIORS_CONF_FILE || './configuration.yaml';
+
+    nconf
+        .argv()
+        .file({ file: configurationFile, format: nconf.formats.yaml })
+        .env('__');
 
     nconf.defaults({
         server: {
-            address: "0.0.0.0",
+            host: "0.0.0.0",
             port: 3000
         },
         db: {
@@ -24,7 +26,6 @@ function loadConfiguration() {
 
 function loadResources(server) {
     var routes = require('./resources').routes;
-    console.log(routes);
     for (var i = 0; i < routes.length; i++) {
         var route = routes[i];
         if (typeof route.handler === 'function') {
@@ -41,7 +42,7 @@ function startServer(nconf) {
     var server = new Hapi.Server();
 
     server.connection({
-        address: nconf.get('server:address'),
+        address: nconf.get('server:host'),
         port: nconf.get('server:port'),
         labels: ['api']
     });
@@ -51,16 +52,25 @@ function startServer(nconf) {
         return reply.continue();
     });
 
+    console.log(nconf.get('server:port'));
+
     server.register([
         require('inert'),
         require('vision'),
         {
-            register: require('hapi-swaggered')
+            register: require('hapi-swaggered'),
+            options: {
+                info: {
+                    title: 'Warriors API',
+                    description: 'API used to persist and share quiz data',
+                    version: '1.0'
+                }
+            }
         },
         {
             register: require('hapi-swaggered-ui'),
             options: {
-                title: 'Example API',
+                title: 'Warriors API',
                 path: '/docs'
             }
         },
