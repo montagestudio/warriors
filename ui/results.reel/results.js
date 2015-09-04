@@ -40,7 +40,7 @@ exports.Results = Component.specialize(/** @lends Results# */ {
 
     templateDidLoad: {
         value: function () {
-            this.percentageCorrect = Math.round(this.application.quizController.statsProvider.getPercentageCorrect());
+            this.percentageCorrect = this.application.quizController.statsProvider.getPercentageCorrect().toFixed(1);
             this.answersCorrect = this.application.quizController.statsProvider.getTotalCorrect();
         }
     }

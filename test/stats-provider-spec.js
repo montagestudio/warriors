@@ -1,5 +1,4 @@
-var StatsProvider = require("core/stats-provider").StatsProvider,
-StatsProvider = require("core/stats-provider").StatsProvider;
+var StatsProvider = require("core/stats-provider").StatsProvider;
 
 describe('test/stats-provider-spec', function() {
     var done,

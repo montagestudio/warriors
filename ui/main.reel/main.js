@@ -8,6 +8,7 @@ PressComposer = require("montage/composer/press-composer").PressComposer,
 QuizController = require("core/quiz-controller").QuizController,
 AnswerProvider = require("core/answer-provider").AnswerProvider,
 StatsProvider = require("core/stats-provider").StatsProvider,
+TimerProvider = require("core/timer-provider").TimerProvider,
 QuizProvider = require("core/quiz-provider").QuizProvider;
 
 /**
@@ -22,11 +23,12 @@ exports.Main = Component.specialize( /** @lends module:"ui/main.reel".Main# */ {
             var answerProvider = new AnswerProvider();
             var quizProvider   = new QuizProvider();
             var statsProvider   = new StatsProvider();
+            var timerProvider   = new TimerProvider();
 
             statsProvider.init(answerProvider);
 
             this.application.quizController = new QuizController();
-            this.application.quizController.init(quizProvider, answerProvider, statsProvider);
+            this.application.quizController.init(quizProvider, answerProvider, statsProvider, timerProvider);
 
         }
     },
@@ -46,6 +48,7 @@ exports.Main = Component.specialize( /** @lends module:"ui/main.reel".Main# */ {
     handleStartQuizAction: {
         value: function () {
             this.currentView = "quiz";
+            this.application.quizController.timerProvider.start();
             this.application.quizController.getNextQuestion();
         }
     }

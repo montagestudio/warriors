@@ -53,7 +53,6 @@ exports.Question = Component.specialize(/** @lends Question# */ {
 
     handleNextQuestion: {
         value: function () {
-            console.log("nextQuestion fired")
             this.goToNextQuestion();
             this.classList.remove("transition");
         }
@@ -62,7 +61,6 @@ exports.Question = Component.specialize(/** @lends Question# */ {
     handleQuestionTransition: {
         value: function () {
             this.classList.add("transition");
-            console.log('questionTransition fired')
         }
     }
 });

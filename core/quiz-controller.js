@@ -1,13 +1,13 @@
 /**
  * @module quiz-controller
  */
-var Montage = require("montage/core/core").Montage,
-    Promise = require("montage/core/promise").Promise.Promise;
+var Promise = require("montage/core/promise").Promise.Promise,
+    Target = require("montage/core/target").Target;
 /**
  * @class QuizController
  * @extends Montage
  */
-exports.QuizController = Montage.specialize(/** @lends QuizController# */ {
+exports.QuizController = Target.specialize(/** @lends QuizController# */ {
 
     quizProvider: {
         value: null
@@ -18,6 +18,10 @@ exports.QuizController = Montage.specialize(/** @lends QuizController# */ {
     },
 
     statsProvider: {
+        value: null
+    },
+
+    timerProvider: {
         value: null
     },
 
@@ -39,17 +43,9 @@ exports.QuizController = Montage.specialize(/** @lends QuizController# */ {
         }
     },
 
-    constructor: {
-        value: function() {
-            this.currentQuestionIndex = -1;
-        }
-    },
-
-    init: {
-        value: function(quizProvider, answerProvider, statsProvider) {
-            this.quizProvider = quizProvider;
-            this.answerProvider = answerProvider;
-            this.statsProvider = statsProvider;
+    handleTimerHasEnded: {
+        value: function () {
+            console.log("quiz controller: timer has ended");
         }
     },
 
@@ -73,6 +69,22 @@ exports.QuizController = Montage.specialize(/** @lends QuizController# */ {
             var isCorrect = answerIndex === this.currentQuestion.answer;
             this.answerProvider.save(this.currentQuestionIndex, answerIndex, isCorrect);
             return isCorrect;
+        }
+    },
+
+    constructor: {
+        value: function() {
+            this.currentQuestionIndex = -1;
+            this.addEventListener("timerHasEnded", function() {console.log("fired")}, true);
+        }
+    },
+
+    init: {
+        value: function(quizProvider, answerProvider, statsProvider, timerProvider) {
+            this.quizProvider = quizProvider;
+            this.answerProvider = answerProvider;
+            this.statsProvider = statsProvider;
+            this.timerProvider = timerProvider;
         }
     }
 });
