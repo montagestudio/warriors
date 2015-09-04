@@ -41,7 +41,6 @@
 
 .is-correct.questionOption:after,
 .is-wrong.questionOption:after {
-    content:'';
     text-align: center;
     color: #FFF;
     font-size: 2em;
@@ -58,12 +57,34 @@
 }
 
 .is-correct.questionOption:after {
+    content:'correct!';
     background: #00D300;
 }
 
 .is-wrong.questionOption:after {
+    content:'wrong';
     background: red;
 }
+
+.is-correct.questionOption:before,
+.is-wrong.questionOption:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 4;
+    background: rgba(4,82,156,.7);
+}
+
+/*.is-correct.questionOption:before {
+    background: rgba(0,255,0,.5);
+}
+
+.is-wrong.questionOption:before {
+    background: rgba(255,0,0,.5);
+}*/
 
 /* controls the overflow */
 

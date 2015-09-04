@@ -28,9 +28,23 @@ FLOW
     position: relative;
 }*/
 
+.montage-Flow-camera,
+.montage-Flow-Repetition {
+    transition: all .5s ease-in-out;
+}
+
 .transition .montage-Flow-camera {
-    transform: translate3d(0px, 0px, -5000px) !important;
-    transition: all 1s ease-in-out;
+    transform: translate3d(0px, 0px, -5000px) scale(.2)!important;
+
+}
+
+.montage-Flow-Repetition {
+    transform: rotateY(-360deg);
+}
+
+.transition .montage-Flow-Repetition {
+    transform: rotateY(180deg);
+    opacity: 0;
 }
 
 

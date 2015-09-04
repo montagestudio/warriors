@@ -33,6 +33,12 @@ exports.QuizController = Montage.specialize(/** @lends QuizController# */ {
         value: false
     },
 
+    submitQuiz: {
+        value: function () {
+
+        }
+    },
+
     constructor: {
         value: function() {
             this.currentQuestionIndex = -1;

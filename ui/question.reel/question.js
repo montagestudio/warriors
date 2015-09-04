@@ -45,15 +45,24 @@ exports.Question = Component.specialize(/** @lends Question# */ {
     enterDocument: {
         value: function (firstTime) {
             if (firstTime) {
-                this.addEventListener("submitAnswer", this, false);
+                this.addEventListener("questionTransition", this, false);
+                this.addEventListener("nextQuestion", this, false);
             }
         }
     },
 
-    handleSubmitAnswer: {
+    handleNextQuestion: {
         value: function () {
+            console.log("nextQuestion fired")
             this.goToNextQuestion();
-            // this.classList.add("transition");
+            this.classList.remove("transition");
+        }
+    },
+
+    handleQuestionTransition: {
+        value: function () {
+            this.classList.add("transition");
+            console.log('questionTransition fired')
         }
     }
 });

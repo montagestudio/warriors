@@ -35,14 +35,7 @@ var QuestionOption = exports.QuestionOption = Component.specialize( {
     handleClick: {
         value: function (e) {
 
-            // check to see if clicked object matches object at currentIndex and isn't a click of the selectItem button
-            // check popcorn for selected / active state when in middle
-            // selected state as used in popcorn doesn't work because as soon as you click it is "selected"
-
-            // set flag in bindings to check
-            // check scope in FRB for binding
-
-            if (this.flowContent && this.data == this.flowContent[this.currentIndex] && e.target !== this.selectItem) {
+            if (this.flowContent && this.data == this.flowContent[this.currentIndex] && e.target !== this.submitAnswer) {
                 if (this.classList.contains("show-details")) {
                     this.hideDetails();
                 } else {
@@ -66,13 +59,13 @@ var QuestionOption = exports.QuestionOption = Component.specialize( {
         }
     },
 
-    isCorrect: {
+    setCorrect: {
         value: function () {
             this.classList.add("is-correct");
         }
     },
 
-    isWrong: {
+    setWrong: {
         value: function () {
             this.classList.add("is-wrong");
         }
@@ -80,27 +73,31 @@ var QuestionOption = exports.QuestionOption = Component.specialize( {
 
     reset: {
         value: function () {
-            this.classList.remove("is-wrong");
-            this.classList.remove("is-correct");
+            var self = this;
+            setTimeout(function(){
+                self.dispatchEventNamed("questionTransition", true, true);
+
+                setTimeout(function(){
+                    self.dispatchEventNamed("nextQuestion", true, true);
+                    self.classList.remove("is-wrong");
+                    self.classList.remove("is-correct");
+                },500);
+
+            },1000);
         }
     },
 
-    handleSelectItemAction: {
+    handleSubmitAnswerAction: {
         value: function () {
-            var self = this;
+
             if (this.application.quizController.answer(this.data)){
-                this.isCorrect();
-                setTimeout(function(){
-                    self.reset();
-                    self.dispatchEventNamed("submitAnswer", true, true);
-                }, 1000)
+                this.setCorrect();
+                this.reset();
+
 
             } else {
-                this.isWrong();
-                setTimeout(function(){
-                    self.reset();
-                    self.dispatchEventNamed("submitAnswer", true, true);
-                }, 1000)
+                this.setWrong();
+                this.reset();
             }
 
         }

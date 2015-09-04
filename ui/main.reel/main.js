@@ -23,7 +23,6 @@ exports.Main = Component.specialize( /** @lends module:"ui/main.reel".Main# */ {
             var quizProvider   = new QuizProvider();
             var statsProvider   = new StatsProvider();
 
-            // $question - is this how I should do this?
             statsProvider.init(answerProvider);
 
             this.application.quizController = new QuizController();

@@ -17,6 +17,20 @@ describe('test/stats-provider-spec', function() {
     });
     describe('When quiz is completed', function() {
 
+        describe('and quiz percentage array returns null', function() {
+            it('should return null', function() {
+                var percentCorrect,
+                    array,
+                    statsProvider = new StatsProvider();
+                statsProvider.init(null, null);
+
+                array = statsProvider._getQuizPercentageCorrectArray = null;
+
+                expect(array).toBeDefined();
+                expect(array).toEqual(null);
+            });
+        });
+
         it('should return the total number questions', function() {
             var percentCorrect,
                 statsProvider = new StatsProvider();
@@ -33,7 +47,7 @@ describe('test/stats-provider-spec', function() {
                 statsProvider = new StatsProvider();
             statsProvider.init(answerProviderMock, null);
 
-            correctAnswersTotal = statsProvider._getTotalCorrect();
+            correctAnswersTotal = statsProvider.getTotalCorrect();
 
             expect(correctAnswersTotal).toBeDefined();
             expect(correctAnswersTotal).toEqual(1);
@@ -55,6 +69,7 @@ describe('test/stats-provider-spec', function() {
                 percentageDifference,
                 statsProvider = new StatsProvider();
             statsProvider.init(answerProviderMock, null);
+            statsProvider._getQuizPercentageCorrectArray = [40,50,20,90,100,30];
 
             averagePercentage = statsProvider._getAveragePercentCorrect();
             percentageDifference = statsProvider.getPercentageDifference();
@@ -69,6 +84,7 @@ describe('test/stats-provider-spec', function() {
             var isPercentageHigherThanAverage,
                 statsProvider = new StatsProvider();
             statsProvider.init(answerProviderMock, null);
+            statsProvider._getQuizPercentageCorrectArray = [40,50,20,90,100,30];
 
             isPercentageHigherThanAverage = statsProvider.isPercentageHigherThanAverage();
 

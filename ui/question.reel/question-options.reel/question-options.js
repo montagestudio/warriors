@@ -105,7 +105,20 @@ exports.QuestionOptions = Component.specialize(/** @lends QuestionOptions# */ {
                         }
                     }
                 ];
+        }
+    },
 
+    enterDocument: {
+        value: function (firstTime) {
+            if (firstTime) {
+                this.addEventListener("nextQuestion", this, false);
+            }
+        }
+    },
+
+    handleNextQuestion: {
+        value: function () {
+            this.flowRibbon.startScrollingIndexToOffset(0,0);
         }
     },
 

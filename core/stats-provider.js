@@ -16,19 +16,31 @@ exports.StatsProvider = Montage.specialize(/** @lends StatsProvider# */ {
         value: null
     },
 
-    // $question - where is this information coming from?
+    // $question - is this how we check for an empty array? can't this be done in one method?
 
     _quizPercentageCorrectArray: {
-        value: [40,50,20,90,100,30]
+        value: null
     },
 
-    _getAveragePercentCorrect: {
-        value: function () {
-            return this._quizPercentageCorrectArray.reduce(function(sum, result){ return sum + result;},0) / this._quizPercentageCorrectArray.length;
+    _getQuizPercentageCorrectArray: {
+        set: function(value) {
+            if(value) {
+                return this._quizPercentageCorrectArray = value;
+            } else {
+                return null;
+            }
         }
     },
 
-    _getTotalCorrect: {
+    // $questionEnd
+
+    _getAveragePercentCorrect: {
+        value: function () {
+            return this._quizPercentageCorrectArray.reduce(function(sum, result){return sum + result;},0) / this._quizPercentageCorrectArray.length;
+        }
+    },
+
+    getTotalCorrect: {
         value: function () {
             return this.answerProvider.answers.filter(function(answer) { return answer.isCorrect; }).length
         }
@@ -36,7 +48,7 @@ exports.StatsProvider = Montage.specialize(/** @lends StatsProvider# */ {
 
     getPercentageCorrect: {
         value: function () {
-            return  this._getTotalCorrect() / this.answerProvider.answers.length * 100;
+            return  this.getTotalCorrect() / this.answerProvider.answers.length * 100;
         }
     },
 
