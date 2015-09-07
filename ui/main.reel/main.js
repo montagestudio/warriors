@@ -9,7 +9,9 @@ var Component = require("montage/ui/component").Component,
     AnswerProvider = require("core/answer-provider").AnswerProvider,
     StatsProvider = require("core/stats-provider").StatsProvider,
     QuizProvider = require("core/quiz-provider").QuizProvider,
-    Application = require("montage/core/application").application;
+    BackendService = require("core/backend-service").BackendService,
+    Application = require("montage/core/application").application,
+    configuration = require('core/configuration').configuration;
 
 /**
     Description TODO
@@ -20,11 +22,15 @@ exports.Main = Component.specialize( /** @lends module:"ui/main.reel".Main# */ {
 
     constructor: {
         value: function () {
+            var backendService = new BackendService();
             var answerProvider = new AnswerProvider();
             var quizProvider   = new QuizProvider();
-            var statsProvider   = new StatsProvider();
+            var statsProvider  = new StatsProvider();
 
-            statsProvider.init(answerProvider);
+            backendService.init(configuration.backendUrl);
+            answerProvider.init(backendService);
+            quizProvider.init(configuration.quizId, backendService);
+            statsProvider.init(configuration.quizId, answerProvider, null, backendService);
 
             Application.quizController = new QuizController();
             Application.quizController.init(quizProvider, answerProvider, statsProvider);
@@ -46,8 +52,11 @@ exports.Main = Component.specialize( /** @lends module:"ui/main.reel".Main# */ {
 
     handleStartQuizAction: {
         value: function () {
-            this.currentView = "quiz";
-            Application.quizController.getNextQuestion();
+            var self = this;
+            Application.quizController.start()
+                .then(function() {
+                    self.currentView = "quiz";
+                });
         }
     }
 

@@ -1,7 +1,8 @@
 /**
  * @module stats-provider
  */
-var Montage = require("montage/core/core").Montage;
+var Montage = require("montage/core/core").Montage,
+    Promise = require("montage/core/promise").Promise.Promise;
 /**
  * @class StatsProvider
  * @extends Montage
@@ -9,6 +10,14 @@ var Montage = require("montage/core/core").Montage;
 exports.StatsProvider = Montage.specialize(/** @lends StatsProvider# */ {
 
     answerProvider: {
+        value: null
+    },
+
+    _quizId: {
+        value: null
+    },
+
+    _backendService: {
         value: null
     },
 
@@ -34,9 +43,43 @@ exports.StatsProvider = Montage.specialize(/** @lends StatsProvider# */ {
 
     // $questionEnd
 
+    constructor: {
+        value: function() {
+        }
+    },
+
+    init: {
+        value: function(quizId, answerProvider, timeController, backendService) {
+            this._quizId = quizId;
+            this.answerProvider = answerProvider;
+            this.timeController = timeController;
+            this._backendService = backendService;
+        }
+    },
+
+    loadAveragePercentCorrect: {
+        value: function() {
+            var self = this;
+            return this._backendService.get(['quiz', this._quizId, 'stats'].join('/'))
+                .then(function(response) {
+                    if (response.status == 200) {
+                        self._getQuizPercentageCorrectArray = JSON.parse(response.body);
+                    } else if (response.status == 204) {
+                        self._getQuizPercentageCorrectArray = [];
+                    }
+                });
+        }
+    },
+
     _getAveragePercentCorrect: {
         value: function () {
-            return this._quizPercentageCorrectArray.reduce(function(sum, result){return sum + result;},0) / this._quizPercentageCorrectArray.length;
+            return this._quizPercentageCorrectArray.reduce(function(sum, result){ return sum + result; }, 0) / this._quizPercentageCorrectArray.length;
+        }
+    },
+
+    getTotal: {
+        value: function() {
+            return this.answerProvider.answers.length;
         }
     },
 
@@ -46,33 +89,27 @@ exports.StatsProvider = Montage.specialize(/** @lends StatsProvider# */ {
         }
     },
 
+    getTotalWrong: {
+        value: function () {
+            return this.answerProvider.answers.filter(function(answer) { return !answer.isCorrect; }).length
+        }
+    },
+
     getPercentageCorrect: {
         value: function () {
-            return  this.getTotalCorrect() / this.answerProvider.answers.length * 100;
+            return this.getTotalCorrect() / this.answerProvider.answers.length * 100;
         }
     },
 
     getPercentageDifference: {
         value: function () {
-            return  this.getPercentageCorrect() - this._getAveragePercentCorrect();
+            return this.getPercentageCorrect() - this._getAveragePercentCorrect();
         }
     },
 
     isPercentageHigherThanAverage: {
         value: function () {
             return this.getPercentageCorrect() > this._getAveragePercentCorrect();
-        }
-    },
-
-    constructor: {
-        value: function() {
-        }
-    },
-
-    init: {
-        value: function(answerProvider, timeController) {
-            this.answerProvider = answerProvider;
-            this.timeController = timeController;
         }
     }
 });

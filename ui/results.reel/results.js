@@ -1,7 +1,8 @@
 /**
  * @module ui/results.reel
  */
-var Component = require("montage/ui/component").Component;
+var Component = require("montage/ui/component").Component,
+    Application = require("montage/core/application").application;
 
 /**
  * @class Results
@@ -29,7 +30,7 @@ exports.Results = Component.specialize(/** @lends Results# */ {
     },
 
     percentDifference: {
-        value: 15
+        value: null
     },
 
     // $question - can I change the value into an absolute value inside of this property?
@@ -40,8 +41,10 @@ exports.Results = Component.specialize(/** @lends Results# */ {
 
     templateDidLoad: {
         value: function () {
-            this.percentageCorrect = Math.round(this.application.quizController.statsProvider.getPercentageCorrect());
-            this.answersCorrect = this.application.quizController.statsProvider.getTotalCorrect();
+            var statistics = Application.quizController.getStatistics();
+            this.percentageCorrect = Math.round(statistics.percentageCorrect);
+            this.answersCorrect = statistics.totalCorrect;
+            this.percentDifference = Math.round(statistics.percentageDifference)
         }
     }
 

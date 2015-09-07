@@ -13,16 +13,33 @@ exports.AnswerProvider = Montage.specialize(/** @lends AnswerProvider# */ {
         value: null
     },
 
+    _backendService: {
+        value: null
+    },
+
     constructor: {
         value: function() {
             this.answers = [];
         }
     },
 
+    init:{
+        value: function(backendService) {
+            this._backendService = backendService;
+        }
+    },
+
     save: {
-        value: function(index, answer, isCorrect) {
-            var answerData = new Answer(null, index, answer, isCorrect);
+        value: function(runId, index, answer, isCorrect) {
+            var answerData = new Answer(runId, index, answer, isCorrect);
             this.answers.push(answerData);
+            this._recordAnswer(answerData);
+        }
+    },
+
+    _recordAnswer: {
+        value: function(answer) {
+            return this._backendService.post(['run', answer.runId, 'answer'].join('/'), answer);
         }
     }
 });
