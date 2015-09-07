@@ -3,6 +3,7 @@ var Answer = require('../model/answer').Answer,
     Run = require('../model/run').Run;
 
 function handlerDbError(error, request, reply) {
+    console.log(error);
     var message = request.debug ? error.message : '';
     reply(message).code(500);
 }
@@ -147,36 +148,16 @@ module.exports = [
     },
     {
         method: 'POST',
-        path: '/quiz/{id}/run',
-        handler: function(request, reply) {
-            var query = request.pg.client.query({
-                text: 'INSERT INTO run (id, quiz_id) VALUES (DEFAULT, $1) RETURNING id',
-                name: 'insert run',
-                values: [request.params.id]
-            });
-            query.on('row', function(row, result) {
-                result.addRow(row);
-            });
-            query.on('end', function(result) {
-                reply(result.rows[0].id).code(201);
-            });
-            query.on('error', function(error) {
-                handlerDbError(error, request, reply);
-            });
-        }
-    },
-    {
-        method: 'POST',
         path: '/run/{id}/answer',
         handler: function(request, reply) {
             try {
                 var answer = Answer.load(request.payload);
                 var query = request.pg.client.query({
                     text: 'INSERT INTO answer (id, run_id, question, answer, correct) VALUES (DEFAULT, $1, $2, $3, $4) RETURNING id',
-                    name: 'insert run',
+                    name: 'insert answer',
                     values: [
                         request.params.id,
-                        answer.index,
+                        answer.question,
                         answer.answer,
                         answer.isCorrect
                     ]
@@ -263,7 +244,7 @@ module.exports = [
                 result.addRow(row);
             });
             query.on('end', function(result) {
-                reply(result.rows.map(function(row) { return row.score; }));
+                reply(result.rows.map(function(row) { return +row.score; }));
             });
             query.on('error', function(error) {
                 handlerDbError(error, request, reply);

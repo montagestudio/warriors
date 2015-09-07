@@ -39,7 +39,13 @@ function loadResources(server) {
 }
 
 function startServer(nconf) {
-    var server = new Hapi.Server();
+    var server = new Hapi.Server({
+        connections: {
+            routes: {
+                cors: true
+            }
+        }
+    });
 
     server.connection({
         address: nconf.get('server:host'),
@@ -51,8 +57,6 @@ function startServer(nconf) {
         request.debug = request.headers['user-agent'] === 'Hapi, I am your father';
         return reply.continue();
     });
-
-    console.log(nconf.get('server:port'));
 
     server.register([
         require('inert'),
