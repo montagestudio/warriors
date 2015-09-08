@@ -25,8 +25,8 @@ exports.Results = Component.specialize(/** @lends Results# */ {
         value: null
     },
 
-    totalTime: {
-        value: 59
+    elapsedTime: {
+        value: null
     },
 
     percentDifference: {
@@ -44,7 +44,9 @@ exports.Results = Component.specialize(/** @lends Results# */ {
             var statistics = Application.quizController.getStatistics();
             this.percentageCorrect = Math.round(statistics.percentageCorrect);
             this.answersCorrect = statistics.totalCorrect;
-            this.percentDifference = Math.round(statistics.percentageDifference)
+            this.percentDifference = Math.round(statistics.percentageDifference);
+            this.elapsedTime = statistics.elapsedTime;
+            this.elapsedTimeDifference = statistics.elapsedTimeDifference;
         }
     }
 

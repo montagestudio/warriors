@@ -32,7 +32,7 @@ exports.Main = Component.specialize( /** @lends module:"ui/main.reel".Main# */ {
             backendService.init(configuration.backendUrl);
             answerProvider.init(backendService);
             quizProvider.init(configuration.quizId, backendService);
-            statsProvider.init(configuration.quizId, answerProvider, null, backendService);
+            statsProvider.init(configuration.quizId, answerProvider, timerProvider, backendService);
 
             Application.quizController = new QuizController();
             Application.quizController.init(quizProvider, answerProvider, statsProvider, timerProvider);
@@ -51,6 +51,8 @@ exports.Main = Component.specialize( /** @lends module:"ui/main.reel".Main# */ {
         }
     },
 
+    //$question -  is this supposed to work when the button is inside of intro.html!?
+
     handleStartQuizAction: {
         value: function () {
 
@@ -59,9 +61,6 @@ exports.Main = Component.specialize( /** @lends module:"ui/main.reel".Main# */ {
                 .then(function() {
                     self.currentView = "quiz";
                 });
-
-            // this.application.quizController.timerProvider.start();
-            // this.application.quizController.getNextQuestion();
         }
     }
 

@@ -10,15 +10,13 @@ Target = require("montage/core/target").Target;
 exports.TimerProvider = Target.specialize(/** @lends TimerProvider# */ {
 
     constructor: {
-        value: function() {
-
-        }
+        value: function() {}
     },
 
     init: {
         value: function (time) {
+            this.quizTime = time;
             this.currentTime = time;
-            this.isActiveTarget = true;
         }
     },
 
@@ -26,17 +24,16 @@ exports.TimerProvider = Target.specialize(/** @lends TimerProvider# */ {
         value: false
     },
 
-    startTime: {
-        value: 5
+    quizTime: {
+        value: null
     },
 
     currentTime: {
-        value: 5
+        value: null
     },
 
     start: {
         value: function () {
-            console.log("timer started");
             this._isRunning = true;
             this.increment();
         }
@@ -44,7 +41,7 @@ exports.TimerProvider = Target.specialize(/** @lends TimerProvider# */ {
 
     pause: {
         value: function () {
-            this.isRunning = false;
+            this._isRunning = false;
         }
     },
 
@@ -53,21 +50,20 @@ exports.TimerProvider = Target.specialize(/** @lends TimerProvider# */ {
             var self = this;
             if(this._isRunning && this.currentTime > 0) {
                 setTimeout(function(){
-                    console.log(self.currentTime);
                     self.currentTime--;
                     self.increment();
                 }, 1000);
             } else if (self.currentTime == 0 ) {
-                console.log("should dispatch event");
                 this.dispatchEventNamed("timerHasEnded",true,false);
             }
         }
     },
 
     reset: {
-        value: function () {
+        value: function (time) {
             this.running = false;
-            this.currentTime = this.startTime;
+            this.quizTime = time || this.quizTime;
+            this.currentTime = time || this.quizTime;
         }
     }
 });

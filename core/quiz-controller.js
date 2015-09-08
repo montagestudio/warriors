@@ -39,18 +39,16 @@ exports.QuizController = Target.specialize(/** @lends QuizController# */ {
         value: null
     },
 
+    showTimerEndedModal: {
+        value: false
+    },
+
     _runId: {
         value: null
     },
 
     submittedLastQuestion: {
         value: false
-    },
-
-    submitQuiz: {
-        value: function () {
-
-        }
     },
 
     constructor: {
@@ -73,7 +71,16 @@ exports.QuizController = Target.specialize(/** @lends QuizController# */ {
 
     handleTimerHasEnded: {
         value: function () {
-            console.log("quiz controller: timer has ended");
+            this.showTimerEndedModal = true;
+            var self = this;
+
+            setTimeout(function() {
+                self.end();
+            },500);
+
+            setTimeout(function(){
+                self.showTimerEndedModal = false;
+            }, 2000);
         }
     },
 
@@ -106,6 +113,7 @@ exports.QuizController = Target.specialize(/** @lends QuizController# */ {
                 .then(function(runId) {
                     self._runId = runId;
                     self.getNextQuestion();
+                    self.timerProvider.init(2);
                     self.timerProvider.start();
                 });
         }
@@ -114,7 +122,9 @@ exports.QuizController = Target.specialize(/** @lends QuizController# */ {
     end: {
         value: function(isFinished) {
             var self = this;
-            var run = new Run(this._runId, this.statsProvider.getTotalCorrect(), this.statsProvider.getTotalWrong(), null, !!isFinished);
+            //$question - should reset timer?
+            this.timerProvider.pause();
+            var run = new Run(this._runId, this.statsProvider.getTotalCorrect(), this.statsProvider.getTotalWrong(), this.timerProvider.currentTime, !!isFinished);
             return this.quizProvider.endRun(run)
                 .then(function() {
                     return self.statsProvider.loadAveragePercentCorrect();
@@ -130,11 +140,15 @@ exports.QuizController = Target.specialize(/** @lends QuizController# */ {
             var percentageCorrect = this.statsProvider.getPercentageCorrect();
             var totalCorrect = this.statsProvider.getTotalCorrect();
             var percentageDifference = this.statsProvider.getPercentageDifference();
+            var elapsedTime = this.statsProvider.getElapsedTime();
+            var elapsedTimeDifference = this.statsProvider.getElapsedTimeDifference();
 
             return {
                 percentageCorrect: percentageCorrect,
                 totalCorrect: totalCorrect,
-                percentageDifference: percentageDifference
+                percentageDifference: percentageDifference,
+                elapsedTime: elapsedTime,
+                elapsedTimeDifference: elapsedTimeDifference
             };
         }
     }

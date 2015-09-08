@@ -41,13 +41,13 @@
             }
         },
 
-        "totalTime": {
+        "elapsedTime": {
             "prototype": "montage/ui/text.reel",
             "properties": {
-                "element": { "#": "totalTime" }
+                "element": { "#": "elapsedTime" }
             },
             "bindings": {
-                "value": { "<-": "@owner.totalTime" }
+                "value": { "<-": "@owner.elapsedTime" }
             }
         },
 
@@ -67,7 +67,7 @@
                 "element": { "#": "timeDifference" }
             },
             "bindings": {
-                "value": { "<-": "@owner.timeDifference" }
+                "value": { "<-": "@owner.elapsedTimeDifference" }
             }
         },
 
@@ -118,9 +118,9 @@
 
                     <div class="result-data-container">
                         <div class="result-large">
-                            :<span data-montage-id="totalTime">52</span>
+                            :<span data-montage-id="elapsedTime">52</span>
                         </div>
-                        <span>total time</span>
+                        <span>elapsed time</span>
                     </div>
                     <div class="result-data-container">
                         <div class="result-large"><span data-montage-id="timeDifference" class="data-unit" data-unit="s">5</span></div>

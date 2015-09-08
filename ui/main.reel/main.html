@@ -72,15 +72,27 @@
             },
             "bindings": {
                 "questionIndex": {"<-": "@owner.application.quizController.currentQuestionIndex"},
-                "questions": {"<-": "@owner.application.quizController.quizProvider.quiz.questions"}
+                "questions": {"<-": "@owner.application.quizController.quizProvider.quiz.questions"},
+                "currentTime": {"<-": "@owner.application.quizController.timerProvider.currentTime"}
             }
         },
 
-        "startQuiz": {
-            "prototype": "montage/ui/button.reel",
+        "intro": {
+            "prototype": "ui/intro.reel",
             "properties": {
-                "element": { "#": "startQuiz" }
+                "element": { "#": "intro" }
             }
+        },
+
+        "timerEndedModal": {
+            "prototype": "ui/timer-ended-modal.reel",
+            "properties": {
+                "element": { "#": "timerEndedModal" }
+            },
+            "bindings": {
+                "classList.has('is-visible')": {"<-": "@owner.application.quizController.showTimerEndedModal"}
+            }
+
         }
 
     }
@@ -96,15 +108,7 @@
 
         <div data-montage-id="pageSubstitution" class="content">
 
-            <div data-arg="intro">
-                <div class="intro">
-                    <div class="logo"></div>
-                    <div>How Well do you know the 2015 NBA Champions?</div>
-                    <div>You have 1 minute to find out!</div>
-                    <button data-montage-id="startQuiz" class="btn">start quiz</button>
-                </div>
-
-            </div>
+            <div data-arg="intro" data-montage-id="intro"></div>
 
             <div data-arg="quiz" class="view">
                 <div data-montage-id="timer"></div>
@@ -117,9 +121,7 @@
 
         </div>
 
-        <div class="modal">
-            <h1>end of time</h1>
-        </div>
+        <div data-montage-id="timerEndedModal"></div>
     </div>
 </body>
 </html>
