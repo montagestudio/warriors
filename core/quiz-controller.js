@@ -1,14 +1,15 @@
 /**
  * @module quiz-controller
  */
-var Montage = require("montage/core/core").Montage,
+var Target = require("montage/core/target").Target,
     Promise = require("montage/core/promise").Promise.Promise,
+    Application = require("montage/core/application").application;
     Run = require('model/run').Run;
 /**
  * @class QuizController
  * @extends Montage
  */
-exports.QuizController = Montage.specialize(/** @lends QuizController# */ {
+exports.QuizController = Target.specialize(/** @lends QuizController# */ {
 
     quizProvider: {
         value: null
@@ -19,6 +20,10 @@ exports.QuizController = Montage.specialize(/** @lends QuizController# */ {
     },
 
     statsProvider: {
+        value: null
+    },
+
+    timerProvider: {
         value: null
     },
 
@@ -52,15 +57,23 @@ exports.QuizController = Montage.specialize(/** @lends QuizController# */ {
         value: function() {
             this.isFinished = false;
             this.currentQuestionIndex = -1;
+            Application.addEventListener("timerHasEnded", this, false);
         }
     },
 
     init: {
-        value: function(quizProvider, answerProvider, statsProvider) {
+        value: function(quizProvider, answerProvider, statsProvider, timerProvider) {
             this.quizProvider = quizProvider;
             this.quizProvider.loadData();
             this.answerProvider = answerProvider;
             this.statsProvider = statsProvider;
+            this.timerProvider = timerProvider;
+        }
+    },
+
+    handleTimerHasEnded: {
+        value: function () {
+            console.log("quiz controller: timer has ended");
         }
     },
 
@@ -93,6 +106,7 @@ exports.QuizController = Montage.specialize(/** @lends QuizController# */ {
                 .then(function(runId) {
                     self._runId = runId;
                     self.getNextQuestion();
+                    self.timerProvider.start();
                 });
         }
     },

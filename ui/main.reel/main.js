@@ -8,6 +8,7 @@ var Component = require("montage/ui/component").Component,
     QuizController = require("core/quiz-controller").QuizController,
     AnswerProvider = require("core/answer-provider").AnswerProvider,
     StatsProvider = require("core/stats-provider").StatsProvider,
+    TimerProvider = require("core/timer-provider").TimerProvider,
     QuizProvider = require("core/quiz-provider").QuizProvider,
     BackendService = require("core/backend-service").BackendService,
     Application = require("montage/core/application").application,
@@ -25,7 +26,8 @@ exports.Main = Component.specialize( /** @lends module:"ui/main.reel".Main# */ {
             var backendService = new BackendService();
             var answerProvider = new AnswerProvider();
             var quizProvider   = new QuizProvider();
-            var statsProvider  = new StatsProvider();
+            var statsProvider   = new StatsProvider();
+            var timerProvider   = new TimerProvider();
 
             backendService.init(configuration.backendUrl);
             answerProvider.init(backendService);
@@ -33,8 +35,7 @@ exports.Main = Component.specialize( /** @lends module:"ui/main.reel".Main# */ {
             statsProvider.init(configuration.quizId, answerProvider, null, backendService);
 
             Application.quizController = new QuizController();
-            Application.quizController.init(quizProvider, answerProvider, statsProvider);
-
+            Application.quizController.init(quizProvider, answerProvider, statsProvider, timerProvider);
         }
     },
 
@@ -52,11 +53,15 @@ exports.Main = Component.specialize( /** @lends module:"ui/main.reel".Main# */ {
 
     handleStartQuizAction: {
         value: function () {
+
             var self = this;
             Application.quizController.start()
                 .then(function() {
                     self.currentView = "quiz";
                 });
+
+            // this.application.quizController.timerProvider.start();
+            // this.application.quizController.getNextQuestion();
         }
     }
 
