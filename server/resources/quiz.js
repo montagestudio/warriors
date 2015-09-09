@@ -236,7 +236,11 @@ module.exports = [
             var query = request.pg.client.query({
                 text:   'SELECT round((correct_count*100.0)/(correct_count+wrong_count), 2) AS score, duration ' +
                         'FROM run ' +
-                        'WHERE quiz_id = $1 AND finished = TRUE',
+                        'WHERE quiz_id = $1 AND finished = TRUE AND correct_count+wrong_count <> 0 ' +
+                        'UNION ' +
+                        'SELECT 0 AS score, duration ' +
+                        'FROM run ' +
+                        'WHERE quiz_id = $1 AND finished = TRUE AND (correct_count+wrong_count = 0 OR correct_count IS NULL OR wrong_count IS NULL)',
                 name: 'score by quizId',
                 values: [request.params.id]
             });
