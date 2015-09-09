@@ -114,12 +114,12 @@ exports.QuizController = Target.specialize(/** @lends QuizController# */ {
             var self = this;
             return this.quizProvider.startRun()
                 .then(function(runId) {
-                    console.log()
                     self._runId = runId;
                     self.getNextQuestion();
-                    self.timerProvider.init(time);
-                    self.timerProvider.start();
-                });
+                    self.timerProvider.start(time);
+                }).catch(function(e) {
+                    console.log(e); // "oh, no!"
+                });;
         }
     },
 

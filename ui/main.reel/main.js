@@ -56,7 +56,7 @@ exports.Main = Component.specialize( /** @lends module:"ui/main.reel".Main# */ {
     handleStartQuizAction: {
         value: function () {
             var self = this;
-            Application.quizController.start()
+            Application.quizController.start(60)
                 .then(function() {
                     self.currentView = "quiz";
                 });
