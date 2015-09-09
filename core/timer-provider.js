@@ -29,6 +29,10 @@ exports.TimerProvider = Target.specialize(/** @lends TimerProvider# */ {
         value: null
     },
 
+    _hasExpired: {
+        value: null
+    },
+
     start: {
         value: function (time) {
             if (this._timeoutId) {
@@ -37,6 +41,7 @@ exports.TimerProvider = Target.specialize(/** @lends TimerProvider# */ {
             this.quizTime = time;
             this.currentTime = time;
             this._isRunning = true;
+            this._hasExpired = false;
             this.increment();
         }
     },
@@ -50,7 +55,7 @@ exports.TimerProvider = Target.specialize(/** @lends TimerProvider# */ {
 
     resume: {
         value: function() {
-            if (this.quizTime) {
+            if (this.quizTime && !this._hasExpired) {
                 this._isRunning = true;
                 this.increment();
             }
@@ -69,6 +74,7 @@ exports.TimerProvider = Target.specialize(/** @lends TimerProvider# */ {
             } else if (self.currentTime == 0 ) {
                 clearTimeout(this._timeoutId);
                 this.dispatchEventNamed("timerHasEnded",true,false);
+                this._hasExpired = true;
             }
         }
     }
