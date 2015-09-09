@@ -20,7 +20,7 @@ describe('test/quiz-controller-spec', function() {
         statsProviderMock = {
             getTotalCorrect: function() {},
             getTotalWrong: function() {},
-            loadAveragePercentCorrect: function() {},
+            loadRunStatistics: function() {},
             getPercentageCorrect: function() {},
             getPercentageDifference: function() {}
         };
@@ -151,7 +151,7 @@ describe('test/quiz-controller-spec', function() {
             quizProviderMock.endRun = function() {
                 return Promise.resolve();
             };
-            statsProviderMock.loadAveragePercentCorrect = function() {
+            statsProviderMock.loadRunStatistics = function() {
                 providerCalled = true;
             };
             quizController.init(quizProviderMock, answerProviderMock, statsProviderMock);

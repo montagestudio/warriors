@@ -106,8 +106,8 @@ describe('test/stats-provider-spec', function() {
         });
     });
 
-    describe('When loading average percent correct', function() {
-        it('should get average percent correct from the backend', function() {
+    describe('When loading run statistics', function() {
+        it('should get statistics from the backend', function() {
             var providedPath,
                 statsProvider = new StatsProvider();
             backendServiceMock.get = function(path) {
@@ -117,7 +117,7 @@ describe('test/stats-provider-spec', function() {
             statsProvider.init('42', answerProviderMock, null, backendServiceMock);
 
             runs(function() {
-                statsProvider.loadAveragePercentCorrect()
+                statsProvider.loadRunStatistics()
                     .then(function() {
                         done = true;
                     });
@@ -134,15 +134,14 @@ describe('test/stats-provider-spec', function() {
         });
 
         it('should store average percent correct', function() {
-            var providedPath,
-                statsProvider = new StatsProvider();
+            var statsProvider = new StatsProvider();
             backendServiceMock.get = function() {
-                return Promise.resolve({ status: 200, body: '[12.34, 42.42, 80.23]' });
+                return Promise.resolve({ status: 200, body: '[{"score": 12.34, "duration": 12}, {"score": 42.42, "duration": 64}, {"score": 80.23, "duration": 25}]' });
             };
             statsProvider.init('42', answerProviderMock, null, backendServiceMock);
 
             runs(function() {
-                statsProvider.loadAveragePercentCorrect()
+                statsProvider.loadRunStatistics()
                     .then(function() {
                         done = true;
                     });
@@ -158,6 +157,33 @@ describe('test/stats-provider-spec', function() {
                 expect(statsProvider._quizPercentageCorrectArray[0]).toEqual(12.34);
                 expect(statsProvider._quizPercentageCorrectArray[1]).toEqual(42.42);
                 expect(statsProvider._quizPercentageCorrectArray[2]).toEqual(80.23);
+            })
+        });
+
+        it('should store durations', function() {
+            var statsProvider = new StatsProvider();
+            backendServiceMock.get = function() {
+                return Promise.resolve({ status: 200, body: '[{"score": 12.34, "duration": 12}, {"score": 42.42, "duration": 64}, {"score": 80.23, "duration": 25}]' });
+            };
+            statsProvider.init('42', answerProviderMock, null, backendServiceMock);
+
+            runs(function() {
+                statsProvider.loadRunStatistics()
+                    .then(function() {
+                        done = true;
+                    });
+            });
+
+            waitsFor(function() {
+                return done;
+            });
+
+            runs(function() {
+                expect(statsProvider._quizElapsedTimeArray).not.toBeNull();
+                expect(statsProvider._quizElapsedTimeArray.length).toEqual(3);
+                expect(statsProvider._quizElapsedTimeArray[0]).toEqual(12);
+                expect(statsProvider._quizElapsedTimeArray[1]).toEqual(64);
+                expect(statsProvider._quizElapsedTimeArray[2]).toEqual(25);
             })
         });
     });

@@ -234,7 +234,7 @@ module.exports = [
         path: '/quiz/{id}/stats',
         handler: function(request, reply) {
             var query = request.pg.client.query({
-                text:   'SELECT trunc((correct_count*100.0)/(correct_count+wrong_count), 2) AS score ' +
+                text:   'SELECT round((correct_count*100.0)/(correct_count+wrong_count), 2) AS score, duration ' +
                         'FROM run ' +
                         'WHERE quiz_id = $1 AND finished = TRUE',
                 name: 'score by quizId',
@@ -244,7 +244,7 @@ module.exports = [
                 result.addRow(row);
             });
             query.on('end', function(result) {
-                reply(result.rows.map(function(row) { return +row.score; }));
+                reply(result.rows.map(function(x) { return {score: +x.score, duration: x.duration || -1}}));
             });
             query.on('error', function(error) {
                 handlerDbError(error, request, reply);

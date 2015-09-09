@@ -44,7 +44,7 @@ exports.StatsProvider = Montage.specialize(/** @lends StatsProvider# */ {
     // $questionEnd
 
     _quizElapsedTimeArray: {
-        value: [60,45,30,20]
+        value: null
     },
 
     _getQuizElapsedTimeArray: {
@@ -75,15 +75,18 @@ exports.StatsProvider = Montage.specialize(/** @lends StatsProvider# */ {
         }
     },
 
-    loadAveragePercentCorrect: {
+    loadRunStatistics: {
         value: function() {
             var self = this;
             return this._backendService.get(['quiz', this._quizId, 'stats'].join('/'))
                 .then(function(response) {
                     if (response.status == 200) {
-                        self._getQuizPercentageCorrectArray = JSON.parse(response.body);
+                        var statistics = JSON.parse(response.body);
+                        self._quizPercentageCorrectArray = statistics.map(function(x) { return x.score; });
+                        self._quizElapsedTimeArray = statistics.map(function(x) { return x.duration; });
                     } else if (response.status == 204) {
-                        self._getQuizPercentageCorrectArray = [];
+                        self._quizPercentageCorrectArray = [];
+                        self._quizElapsedTimeArray = [];
                     }
                 });
         }
@@ -145,7 +148,7 @@ exports.StatsProvider = Montage.specialize(/** @lends StatsProvider# */ {
 
     _getAverageElapsedTime: {
         value: function () {
-            return this._getAverageOfArray(this._quizElapsedTimeArray);
+            return Math.round(this._getAverageOfArray(this._quizElapsedTimeArray)*100)/100;
         }
     },
 
