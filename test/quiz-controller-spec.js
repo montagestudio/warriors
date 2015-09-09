@@ -12,6 +12,7 @@ describe('test/quiz-controller-spec', function() {
         quizProviderMock = {
             loadData: function() {},
             getQuestion: function() { return {}; },
+            getQuestionsCount: function() {},
             startRun: function() {},
             endRun: function() {}
         };
@@ -31,7 +32,7 @@ describe('test/quiz-controller-spec', function() {
         timerProviderMock = {
             start: function() {},
             pause: function() {},
-            reset: function() {}
+            resume: function() {}
         };
     });
     describe('When starting the quiz', function() {
@@ -128,8 +129,8 @@ describe('test/quiz-controller-spec', function() {
             statsProviderMock.getTotalCorrect = function() {
                 return 2;
             };
-            statsProviderMock.getTotalWrong = function() {
-                return 1;
+            quizProviderMock.getQuestionsCount = function() {
+                return 3;
             };
             quizController.init(quizProviderMock, answerProviderMock, statsProviderMock, timerProviderMock);
             quizController._runId = '123';

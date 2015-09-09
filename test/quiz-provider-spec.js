@@ -130,4 +130,19 @@ describe('test/quiz-provider-spec', function() {
             });
         });
     });
+
+    describe('When getting questions count', function() {
+        it('should return total count of questions', function() {
+            var quizMock = Quiz.load(mockData),
+                questionsCount,
+                quizProvider = new QuizProvider();
+            quizProvider.init(42, backendServiceMock);
+            quizProvider.quiz = quizMock;
+
+            questionsCount = quizProvider.getQuestionsCount();
+
+            expect(questionsCount).toBeDefined();
+            expect(questionsCount).toEqual(2);
+        });
+    });
 });

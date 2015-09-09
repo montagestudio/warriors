@@ -69,6 +69,12 @@ exports.QuizProvider = Montage.specialize(/** @lends QuizProvider# */ {
         value: function(index) {
             return this.quiz.questions[index];
         }
+    },
+
+    getQuestionsCount: {
+        value: function() {
+            return this.quiz.questions.length;
+        }
     }
 });
 

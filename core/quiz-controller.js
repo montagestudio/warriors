@@ -125,7 +125,8 @@ exports.QuizController = Target.specialize(/** @lends QuizController# */ {
         value: function(isFinished) {
             var self = this;
             this.timerProvider.pause();
-            var run = new Run(this._runId, this.statsProvider.getTotalCorrect(), this.statsProvider.getTotalWrong(), this.timerProvider.currentTime, !!isFinished);
+            var totalWrong = this.quizProvider.getQuestionsCount() - this.statsProvider.getTotalCorrect();
+            var run = new Run(this._runId, this.statsProvider.getTotalCorrect(), totalWrong, this.timerProvider.currentTime, !!isFinished);
             return this.quizProvider.endRun(run)
                 .then(function() {
                     return self.statsProvider.loadRunStatistics();

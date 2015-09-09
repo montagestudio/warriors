@@ -112,13 +112,21 @@ exports.StatsProvider = Montage.specialize(/** @lends StatsProvider# */ {
 
     getTotalCorrect: {
         value: function () {
-            return this.answerProvider.answers.filter(function(answer) { return answer.isCorrect; }).length;
+            if (this.answerProvider.answers.length > 0) {
+                return this.answerProvider.answers.filter(function(answer) { return answer.isCorrect; }).length;
+            } else {
+                return 0;
+            }
         }
     },
 
     getTotalWrong: {
         value: function () {
-            return this.answerProvider.answers.filter(function(answer) { return !answer.isCorrect; }).length;
+            if (this.answerProvider.answers.length > 0) {
+                return this.answerProvider.answers.filter(function(answer) { return !answer.isCorrect; }).length;
+            } else {
+                return -1;
+            }
         }
     },
 

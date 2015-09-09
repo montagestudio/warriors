@@ -55,6 +55,18 @@ describe('test/stats-provider-spec', function() {
             expect(correctAnswersTotal).toEqual(1);
         });
 
+        it('should return 0 if there is no answer', function() {
+            var correctAnswersTotal,
+                statsProvider = new StatsProvider();
+            answerProviderMock.answers = [];
+            statsProvider.init('42', answerProviderMock, null);
+
+            correctAnswersTotal = statsProvider.getTotalCorrect();
+
+            expect(correctAnswersTotal).toBeDefined();
+            expect(correctAnswersTotal).toEqual(0);
+        });
+
         it('should return the total number of wrong answers', function() {
             var wrongAnswersTotal,
                 statsProvider = new StatsProvider();
@@ -64,6 +76,18 @@ describe('test/stats-provider-spec', function() {
 
             expect(wrongAnswersTotal).toBeDefined();
             expect(wrongAnswersTotal).toEqual(3);
+        });
+
+        it('should return -1 if there is no answer', function() {
+            var wrongAnswersTotal,
+                statsProvider = new StatsProvider();
+            answerProviderMock.answers = [];
+            statsProvider.init('42', answerProviderMock, null);
+
+            wrongAnswersTotal = statsProvider.getTotalWrong();
+
+            expect(wrongAnswersTotal).toBeDefined();
+            expect(wrongAnswersTotal).toEqual(-1);
         });
 
         it('should return the percentage of correct answers', function() {
