@@ -92,6 +92,8 @@ exports.QuizController = Target.specialize(/** @lends QuizController# */ {
             this.submittedLastQuestion = (!this.currentQuestion || typeof this.currentQuestion !== 'object');
             if (this.submittedLastQuestion) {
                 this.end(true);
+            } else {
+                this.timerProvider.resume();
             }
             return this.currentQuestion
         }
@@ -99,6 +101,7 @@ exports.QuizController = Target.specialize(/** @lends QuizController# */ {
 
     answer: {
         value: function(answer) {
+            this.timerProvider.pause();
             var answerIndex = this.currentQuestion.options.indexOf(answer);
             var isCorrect = answerIndex === this.currentQuestion.answer;
             this.answerProvider.save(this._runId, this.currentQuestionIndex, answerIndex, isCorrect);
@@ -113,8 +116,7 @@ exports.QuizController = Target.specialize(/** @lends QuizController# */ {
                 .then(function(runId) {
                     self._runId = runId;
                     self.getNextQuestion();
-                    self.timerProvider.init(2);
-                    self.timerProvider.start();
+                    self.timerProvider.start(10);
                 });
         }
     },
@@ -122,7 +124,6 @@ exports.QuizController = Target.specialize(/** @lends QuizController# */ {
     end: {
         value: function(isFinished) {
             var self = this;
-            //$question - should reset timer?
             this.timerProvider.pause();
             var run = new Run(this._runId, this.statsProvider.getTotalCorrect(), this.statsProvider.getTotalWrong(), this.timerProvider.currentTime, !!isFinished);
             return this.quizProvider.endRun(run)
@@ -150,6 +151,17 @@ exports.QuizController = Target.specialize(/** @lends QuizController# */ {
                 elapsedTime: elapsedTime,
                 elapsedTimeDifference: elapsedTimeDifference
             };
+        }
+    },
+
+    reset: {
+        value: function() {
+            this._runId = null;
+            this.isFinished = false;
+            this.submittedLastQuestion = null;
+            this.currentQuestion = null;
+            this.currentQuestionIndex = -1;
+            this.answerProvider.reset();
         }
     }
 });

@@ -13,13 +13,6 @@ exports.TimerProvider = Target.specialize(/** @lends TimerProvider# */ {
         value: function() {}
     },
 
-    init: {
-        value: function (time) {
-            this.quizTime = time;
-            this.currentTime = time;
-        }
-    },
-
     _isRunning: {
         value: false
     },
@@ -32,8 +25,17 @@ exports.TimerProvider = Target.specialize(/** @lends TimerProvider# */ {
         value: null
     },
 
+    _timeoutId: {
+        value: null
+    },
+
     start: {
-        value: function () {
+        value: function (time) {
+            if (this._timeoutId) {
+                clearTimeout(this._timeoutId);
+            }
+            this.quizTime = time;
+            this.currentTime = time;
             this._isRunning = true;
             this.increment();
         }
@@ -41,7 +43,17 @@ exports.TimerProvider = Target.specialize(/** @lends TimerProvider# */ {
 
     pause: {
         value: function () {
+            clearTimeout(this._timeoutId);
             this._isRunning = false;
+        }
+    },
+
+    resume: {
+        value: function() {
+            if (this.quizTime) {
+                this._isRunning = true;
+                this.increment();
+            }
         }
     },
 
@@ -49,21 +61,15 @@ exports.TimerProvider = Target.specialize(/** @lends TimerProvider# */ {
         value: function () {
             var self = this;
             if(this._isRunning && this.currentTime > 0) {
-                setTimeout(function(){
+                this._timeoutId = setTimeout(function(){
+                    console.log('timeout', self._timeoutId);
                     self.currentTime--;
                     self.increment();
                 }, 1000);
             } else if (self.currentTime == 0 ) {
+                clearTimeout(this._timeoutId);
                 this.dispatchEventNamed("timerHasEnded",true,false);
             }
-        }
-    },
-
-    reset: {
-        value: function (time) {
-            this.running = false;
-            this.quizTime = time || this.quizTime;
-            this.currentTime = time || this.quizTime;
         }
     }
 });

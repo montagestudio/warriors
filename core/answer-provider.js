@@ -37,6 +37,12 @@ exports.AnswerProvider = Montage.specialize(/** @lends AnswerProvider# */ {
         }
     },
 
+    reset: {
+        value: function() {
+            this.answers = [];
+        }
+    },
+
     _recordAnswer: {
         value: function(answer) {
             return this._backendService.post(['run', answer.runId, 'answer'].join('/'), answer);

@@ -1,105 +1,109 @@
 var TimerProvider = require("core/timer-provider").TimerProvider;
 
 describe('test/timer-provider-spec', function() {
-    var done;
+    var done,
+        timerProvider;
     beforeEach(function () {
         done = false;
     });
 
-    describe('When timer is initialized', function() {
-
-        it('should set quizTime', function() {
-            var currentTime,
-                timerProvider = new TimerProvider;
-
-            timerProvider.init(60);
-
-            quizTime = timerProvider.quizTime;
-
-            expect(quizTime).toBeDefined();
-            expect(quizTime).toEqual(60);
-        });
-
-        it('should set currentTime equal to quizTime', function() {
-            var currentTime,
-                timerProvider = new TimerProvider;
-            timerProvider.init(90);
-
-            currentTime = timerProvider.currentTime;
-
-            expect(currentTime).toBeDefined();
-            expect(currentTime).toEqual(90);
-        });
+    afterEach(function() {
+        if (timerProvider._timeoutId) {
+            clearTimeout(timerProvider._timeoutId);
+        }
     });
 
     describe('When timer is running', function() {
 
         it('should decrement current time by 1 every second', function() {
-            var currentTime,
-                startTime,
-                timerProvider = new TimerProvider;
-            timerProvider.init(90);
+            timerProvider = new TimerProvider;
 
-            timerProvider.start();
+            timerProvider.start(90);
 
-            setTimeout(function(){
-                currentTime = timerProvider.currentTime;
-                expect(currentTime).toBeDefined();
-                expect(currentTime).toEqual(89);
+            runs(function() {
+                setTimeout(function() {
+                    done = true;
+                }, 1000);
+            });
+
+            waitsFor(function() {
+                return done;
+            });
+
+            runs(function() {
+                expect(timerProvider.currentTime).toBeDefined();
+                expect(timerProvider.currentTime).toEqual(89);
                 timerProvider.pause();
-            }, 1000);
+            });
         });
 
         describe('and then paused', function() {
 
             it('should stop the currentTime', function() {
-                var currentTime,
-                    timerProvider = new TimerProvider;
-                timerProvider.init(90);
-                timerProvider.start();
+                var paused = false;
+                timerProvider = new TimerProvider;
+                timerProvider.start(90);
 
-                setTimeout(function(){
-                    timerProvider.pause();
+                runs(function() {
+                    setTimeout(function() {
+                        timerProvider.pause();
+                        paused = true;
+                    }, 2000);
+                });
 
-                    setTimeout(function(){
-                        currentTime = timerProvider.currentTime;
+                waitsFor(function() {
+                    return paused;
+                });
 
-                        //$question - these aren't being checked because of the timeout?
-                        expect(currentTime).toBeDefined();
-                        expect(currentTime).toEqual(88);
-                    }, 2000)
+                runs(function() {
+                    setTimeout(function() {
+                        done = true;
+                    }, 2000);
+                });
 
-                }, 1000);
+                waitsFor(function() {
+                    return done;
+                });
 
-            });
-        });
-
-        describe('and reset', function() {
-
-            it('should set currentTime to quizTime', function() {
-                var currentTime,
-                    timerProvider = new TimerProvider;
-
-                timerProvider.init(60);
-                timerProvider.reset();
-
-                quizTime = timerProvider.quizTime;
-
-                expect(quizTime).toBeDefined();
-                expect(quizTime).toEqual(60);
+                runs(function() {
+                    expect(timerProvider.currentTime).toBeDefined();
+                    expect(timerProvider.currentTime).toEqual(88);
+                });
             });
 
-            it('should set currentTime to reset time', function() {
-                var currentTime,
+            describe('and then resumed', function() {
+                it('should continue decrementing from the same time', function() {
+                    var paused = false;
                     timerProvider = new TimerProvider;
+                    timerProvider.start(90);
 
-                timerProvider.init(60);
-                timerProvider.reset(90);
+                    runs(function() {
+                        setTimeout(function() {
+                            timerProvider.pause();
+                            paused = true;
+                        }, 2000);
+                    });
 
-                quizTime = timerProvider.quizTime;
+                    waitsFor(function() {
+                        return paused;
+                    });
 
-                expect(quizTime).toBeDefined();
-                expect(quizTime).toEqual(90);
+                    runs(function() {
+                        timerProvider.resume();
+                        setTimeout(function() {
+                            done = true;
+                        }, 1000);
+                    });
+
+                    waitsFor(function() {
+                        return done;
+                    });
+
+                    runs(function() {
+                        expect(timerProvider.currentTime).toBeDefined();
+                        expect(timerProvider.currentTime).toEqual(87);
+                    });
+                });
             });
         });
     });

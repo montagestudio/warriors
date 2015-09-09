@@ -89,6 +89,13 @@
             "bindings": {
                 "value": { "<-": "@owner.timeDifference > 0 ? 'faster':'slower'" }
             }
+        },
+
+        "restartQuiz": {
+            "prototype": "montage/ui/button.reel",
+            "properties": {
+                "element": { "#": "restartQuiz" }
+            }
         }
 
 
@@ -136,7 +143,7 @@
                 <button>twitter</button>
             </div>
         </div>
-        <button class="btn">restart quiz</button>
+        <button data-montage-id="restartQuiz"  class="btn">restart quiz</button>
     </div>
 </body>
 </html>

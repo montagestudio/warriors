@@ -5,7 +5,8 @@ describe('test/quiz-controller-spec', function() {
     var done,
         quizProviderMock,
         answerProviderMock,
-        statsProviderMock;
+        statsProviderMock,
+        timerProviderMock;
     beforeEach(function() {
         done = false;
         quizProviderMock = {
@@ -15,14 +16,22 @@ describe('test/quiz-controller-spec', function() {
             endRun: function() {}
         };
         answerProviderMock = {
-            save: function() {}
+            save: function() {},
+            reset: function() {}
         };
         statsProviderMock = {
             getTotalCorrect: function() {},
             getTotalWrong: function() {},
             loadRunStatistics: function() {},
             getPercentageCorrect: function() {},
-            getPercentageDifference: function() {}
+            getPercentageDifference: function() {},
+            getElapsedTime: function() {},
+            getElapsedTimeDifference: function() {}
+        };
+        timerProviderMock = {
+            start: function() {},
+            pause: function() {},
+            reset: function() {}
         };
     });
     describe('When starting the quiz', function() {
@@ -31,12 +40,14 @@ describe('test/quiz-controller-spec', function() {
             quizProviderMock.startRun = function() {
                 return Promise.resolve('FOO');
             };
-            quizController.init(quizProviderMock, answerProviderMock, statsProviderMock);
+            quizController.init(quizProviderMock, answerProviderMock, statsProviderMock, timerProviderMock);
 
             runs(function() {
                 quizController.start()
                     .then(function() {
                         done = true;
+                    }, function(error) {
+                        console.log(error);
                     });
             });
 
@@ -57,7 +68,7 @@ describe('test/quiz-controller-spec', function() {
                 providerCalled = true;
                 return Promise.resolve('FOO');
             };
-            quizController.init(quizProviderMock, answerProviderMock, statsProviderMock);
+            quizController.init(quizProviderMock, answerProviderMock, statsProviderMock, timerProviderMock);
 
             runs(function() {
                 quizController.start()
@@ -84,7 +95,7 @@ describe('test/quiz-controller-spec', function() {
                 return { title: 'BAR' };
             };
 
-            quizController.init(quizProviderMock, answerProviderMock, statsProviderMock);
+            quizController.init(quizProviderMock, answerProviderMock, statsProviderMock, timerProviderMock);
 
             runs(function() {
                 quizController.start()
@@ -120,7 +131,7 @@ describe('test/quiz-controller-spec', function() {
             statsProviderMock.getTotalWrong = function() {
                 return 1;
             };
-            quizController.init(quizProviderMock, answerProviderMock, statsProviderMock);
+            quizController.init(quizProviderMock, answerProviderMock, statsProviderMock, timerProviderMock);
             quizController._runId = '123';
 
             runs(function() {
@@ -154,7 +165,7 @@ describe('test/quiz-controller-spec', function() {
             statsProviderMock.loadRunStatistics = function() {
                 providerCalled = true;
             };
-            quizController.init(quizProviderMock, answerProviderMock, statsProviderMock);
+            quizController.init(quizProviderMock, answerProviderMock, statsProviderMock, timerProviderMock);
 
             runs(function() {
                 quizController.end(true)
@@ -184,7 +195,7 @@ describe('test/quiz-controller-spec', function() {
                     passedIndex = index;
                     return { title: 'BAR' };
                 };
-                quizController.init(quizProviderMock, answerProviderMock, statsProviderMock);
+                quizController.init(quizProviderMock, answerProviderMock, statsProviderMock, timerProviderMock);
                 quizController.currentQuestionIndex = 0;
 
                 newQuestion = quizController.getNextQuestion();
@@ -205,7 +216,7 @@ describe('test/quiz-controller-spec', function() {
                     quizProviderMock.getQuestion = function() {
                         return null;
                     };
-                    quizController.init(quizProviderMock, answerProviderMock, statsProviderMock);
+                    quizController.init(quizProviderMock, answerProviderMock, statsProviderMock, timerProviderMock);
                     quizController.currentQuestionIndex = 0;
 
                     newQuestion = quizController.getNextQuestion();
@@ -224,7 +235,7 @@ describe('test/quiz-controller-spec', function() {
                     passedIndex = index;
                     return { title: 'FOO' };
                 };
-                quizController.init(quizProviderMock, answerProviderMock, statsProviderMock);
+                quizController.init(quizProviderMock, answerProviderMock, statsProviderMock, timerProviderMock);
 
                 newQuestion = quizController.getNextQuestion();
 
@@ -242,7 +253,7 @@ describe('test/quiz-controller-spec', function() {
                 var isCorrect,
                     currentQuestion = { options: ['FOO', 'BAR'], answer: 1 },
                     quizController = new QuizController();
-                quizController.init(quizProviderMock, answerProviderMock, statsProviderMock);
+                quizController.init(quizProviderMock, answerProviderMock, statsProviderMock, timerProviderMock);
                 quizController.currentQuestion = currentQuestion;
 
                 isCorrect = quizController.answer('BAR');
@@ -257,7 +268,7 @@ describe('test/quiz-controller-spec', function() {
                 var isCorrect,
                     currentQuestion = { options: ['FOO', 'BAR'], answer: 1 },
                     quizController = new QuizController();
-                quizController.init(quizProviderMock, answerProviderMock, statsProviderMock);
+                quizController.init(quizProviderMock, answerProviderMock, statsProviderMock, timerProviderMock);
                 quizController.currentQuestion = currentQuestion;
 
                 isCorrect = quizController.answer('FOO');
@@ -280,7 +291,7 @@ describe('test/quiz-controller-spec', function() {
                 givenAnswer = answer;
                 isCorrect = correctness;
             };
-            quizController.init(quizProviderMock, answerProviderMock, statsProviderMock);
+            quizController.init(quizProviderMock, answerProviderMock, statsProviderMock, timerProviderMock);
             quizController._runId = 'FOO';
             quizController.currentQuestionIndex = 42;
             quizController.currentQuestion = currentQuestion;
@@ -305,7 +316,7 @@ describe('test/quiz-controller-spec', function() {
             statsProviderMock.getPercentageCorrect = function() {
                 providerCalled = true;
             };
-            quizController.init(quizProviderMock, answerProviderMock, statsProviderMock);
+            quizController.init(quizProviderMock, answerProviderMock, statsProviderMock, timerProviderMock);
 
             quizController.getStatistics();
 
@@ -318,7 +329,7 @@ describe('test/quiz-controller-spec', function() {
             statsProviderMock.getTotalCorrect = function() {
                 providerCalled = true;
             };
-            quizController.init(quizProviderMock, answerProviderMock, statsProviderMock);
+            quizController.init(quizProviderMock, answerProviderMock, statsProviderMock, timerProviderMock);
 
             quizController.getStatistics();
 
@@ -331,7 +342,7 @@ describe('test/quiz-controller-spec', function() {
             statsProviderMock.getPercentageDifference = function() {
                 providerCalled = true;
             };
-            quizController.init(quizProviderMock, answerProviderMock, statsProviderMock);
+            quizController.init(quizProviderMock, answerProviderMock, statsProviderMock, timerProviderMock);
 
             quizController.getStatistics();
 
@@ -349,7 +360,7 @@ describe('test/quiz-controller-spec', function() {
             statsProviderMock.getPercentageDifference = function() {
                 return 17.56;
             };
-            quizController.init(quizProviderMock, answerProviderMock, statsProviderMock);
+            quizController.init(quizProviderMock, answerProviderMock, statsProviderMock, timerProviderMock);
 
             var statistics = quizController.getStatistics();
 
@@ -357,6 +368,64 @@ describe('test/quiz-controller-spec', function() {
             expect(statistics.percentageCorrect).toEqual(35.24);
             expect(statistics.totalCorrect).toEqual(5);
             expect(statistics.percentageDifference).toEqual(17.56);
+        });
+    });
+
+    describe('When resetting the quiz', function() {
+        it('should remove the run id', function() {
+            var quizController = new QuizController();
+            quizController.init(quizProviderMock, answerProviderMock, statsProviderMock, timerProviderMock);
+            quizController._runId = 'FOO';
+
+            quizController.reset();
+
+            expect(quizController._runId).toBeNull();
+        });
+
+        it('should mark the quiz as not finished', function() {
+            var quizController = new QuizController();
+            quizController.init(quizProviderMock, answerProviderMock, statsProviderMock, timerProviderMock);
+            quizController.isFinished = true;
+
+            quizController.reset();
+
+            expect(quizController.isFinished).toEqual(false);
+        });
+
+        it('should mark the quiz as not at last question', function() {
+            var quizController = new QuizController();
+            quizController.init(quizProviderMock, answerProviderMock, statsProviderMock, timerProviderMock);
+            quizController.submittedLastQuestion = true;
+
+            quizController.reset();
+
+            expect(quizController.submittedLastQuestion).not.toBeTruthy();
+        });
+
+        it('should forget currentQuestion', function() {
+            var quizController = new QuizController();
+            quizController.init(quizProviderMock, answerProviderMock, statsProviderMock, timerProviderMock);
+            quizController.currentQuestion = 'FOO';
+            quizController.currentQuestionIndex = 1;
+
+            quizController.reset();
+
+            expect(quizController.currentQuestion).toBeNull();
+            expect(quizController.currentQuestionIndex).toEqual(-1);
+        });
+
+        it('should reset answer provider', function() {
+            var providerCalled,
+                quizController = new QuizController();
+            answerProviderMock.reset = function() {
+                providerCalled = true;
+            };
+            quizController.init(quizProviderMock, answerProviderMock, statsProviderMock, timerProviderMock);
+
+            quizController.reset();
+
+            expect(providerCalled).toBeDefined();
+            expect(providerCalled).toEqual(true);
         });
     });
 });

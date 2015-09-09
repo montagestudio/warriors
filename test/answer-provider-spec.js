@@ -76,4 +76,16 @@ describe('test/answer-provider-spec', function() {
             expect(savedAnswer1.isCorrect).toEqual(false);
         });
     });
+
+    describe('When resetting', function() {
+        it('should remove saved answers', function() {
+            var answerProvider = new AnswerProvider();
+            answerProvider.init(backendServiceMock);
+            answerProvider.answers = ['FOO', 'BAR'];
+
+            answerProvider.reset();
+
+            expect(answerProvider.answers.length).toEqual(0);
+        });
+    });
 });
