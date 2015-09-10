@@ -10,7 +10,8 @@
     z-index: 100;
     opacity: 0;
     visibility: hidden;
-    transform: translateX(100%);
+    -webkit-transform: translateX(100%);
+            transform: translateX(100%);
     transition: all .4s ease-in;
 }
 
@@ -33,7 +34,8 @@
 }
 
 .Menu.is-open {
-    transform: translateX(0%);
+    -webkit-transform: translateX(0%);
+            transform: translateX(0%);
     transition: all .4s cubic-bezier(.46,.62,.53,1.33);
 }
 
@@ -48,6 +50,7 @@
     height: 44px;
     background: #272727;
     color: #FFF;
+    transition: -webkit-transform .4s ease-in-out;
     transition: transform .4s ease-in-out;
     box-shadow: 0 2px 1px rgba(0,0,0,.5);
 }
@@ -76,11 +79,12 @@
     font-size: 3em;
     margin-left: 2px;
     margin-top: -2px;
-    transform: rotate(45deg);
+    -webkit-transform: rotate(45deg);
+            transform: rotate(45deg);
     opacity: 0;
 }
 
-.is-open .menuToggle { transform: translateX(39px) rotate(360deg); }
+.is-open .menuToggle { -webkit-transform: translateX(39px) rotate(360deg); transform: translateX(39px) rotate(360deg); }
 
 .is-open .menuToggle:active { box-shadow: none; }
 

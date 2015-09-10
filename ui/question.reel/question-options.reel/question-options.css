@@ -1,23 +1,45 @@
+@-webkit-keyframes transition-options-in {
+    0% {-webkit-transform: rotateY(-180deg);transform: rotateY(-180deg); opacity: 0;}
+}
+
 @keyframes transition-options-in {
-    0% {transform: rotateY(-180deg); opacity: 0;}
+    0% {-webkit-transform: rotateY(-180deg);transform: rotateY(-180deg); opacity: 0;}
+}
+
+@-webkit-keyframes transition-options-out {
+    100% {-webkit-transform: rotateY(180deg);transform: rotateY(180deg); opacity: 0;}
 }
 
 @keyframes transition-options-out {
-    100% {transform: rotateY(180deg); opacity: 0;}
+    100% {-webkit-transform: rotateY(180deg);transform: rotateY(180deg); opacity: 0;}
+}
+
+@-webkit-keyframes transition-camera-in {
+    0% {-webkit-transform: translate3d(0px, 0px, -10000px);transform: translate3d(0px, 0px, -10000px)}
 }
 
 @keyframes transition-camera-in {
-    0% {transform: translate3d(0px, 0px, -10000px)}
+    0% {-webkit-transform: translate3d(0px, 0px, -10000px);transform: translate3d(0px, 0px, -10000px)}
+}
+
+@-webkit-keyframes transition-camera-out {
+    100% {-webkit-transform: translate3d(0px, 0px, -10000px);transform: translate3d(0px, 0px, -10000px)}
 }
 
 @keyframes transition-camera-out {
-    100% {transform: translate3d(0px, 0px, -10000px)}
+    100% {-webkit-transform: translate3d(0px, 0px, -10000px);transform: translate3d(0px, 0px, -10000px)}
 }
 
 .QuestionOptions {
-    flex: 1;
+    -webkit-flex: 1;
+        -ms-flex: 1;
+            flex: 1;
+    display: -webkit-flex;
+    display: -ms-flexbox;
     display: flex;
-    flex-direction: column;
+    -webkit-flex-direction: column;
+        -ms-flex-direction: column;
+            flex-direction: column;
     margin: 2em;
 }
 
@@ -30,26 +52,34 @@ FLOW
 .flow-container {
     position: relative;
     max-height: 860px;
-    flex: 1;
+    -webkit-flex: 1;
+        -ms-flex: 1;
+            flex: 1;
+    display: -webkit-flex;
+    display: -ms-flexbox;
     display: flex;
 }
 
 /* next question transition */
 
 .transition-in .montage-Flow-camera {
-    animation: transition-camera-in .5s forwards ease-in-out;
+    -webkit-animation: transition-camera-in .5s forwards ease-in-out;
+            animation: transition-camera-in .5s forwards ease-in-out;
 }
 
 .transition-out .montage-Flow-camera {
-    animation: transition-camera-out .5s forwards ease-in-out;
+    -webkit-animation: transition-camera-out .5s forwards ease-in-out;
+            animation: transition-camera-out .5s forwards ease-in-out;
 }
 
 .transition-out .montage-Flow-Repetition {
-    animation: transition-options-out .5s forwards ease-in-out;
+    -webkit-animation: transition-options-out .5s forwards ease-in-out;
+            animation: transition-options-out .5s forwards ease-in-out;
 }
 
 .transition-in .montage-Flow-Repetition {
-    animation: transition-options-in .5s forwards ease-in-out;
+    -webkit-animation: transition-options-in .5s forwards ease-in-out;
+            animation: transition-options-in .5s forwards ease-in-out;
 }
 
 /* basketball */

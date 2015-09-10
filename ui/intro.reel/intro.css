@@ -1,6 +1,11 @@
+@-webkit-keyframes intro {
+    from    {opacity: 0; -webkit-transform: translateY(100px); transform: translateY(100px);}
+    to      {opacity: 1; -webkit-transform: translateY(0); transform: translateY(0);}
+}
+
 @keyframes intro {
-    from    {opacity: 0; transform: translateY(100px);}
-    to      {opacity: 1; transform: translateY(0);}
+    from    {opacity: 0; -webkit-transform: translateY(100px); transform: translateY(100px);}
+    to      {opacity: 1; -webkit-transform: translateY(0); transform: translateY(0);}
 }
 
 .intro {
@@ -38,12 +43,13 @@
     /*animation: intro 1s .5s ease both;*/
 }
 
-.intro > :nth-child(2) { animation-delay: 1.5s; }
-.intro > :nth-child(3) { animation-delay: 2.5s; }
-.intro > :nth-child(4) { animation-delay: 3.5s; }
+.intro > :nth-child(2) { -webkit-animation-delay: 1.5s; animation-delay: 1.5s; }
+.intro > :nth-child(3) { -webkit-animation-delay: 2.5s; animation-delay: 2.5s; }
+.intro > :nth-child(4) { -webkit-animation-delay: 3.5s; animation-delay: 3.5s; }
 
 .intro.transition-out {
     transition: all .5s ease-in;
-    transform: scale(0);
+    -webkit-transform: scale(0);
+            transform: scale(0);
     opacity: 0;
 }

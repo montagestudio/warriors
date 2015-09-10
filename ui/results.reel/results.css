@@ -1,23 +1,35 @@
-@keyframes results-in {
-    0% {transform: translateY(-150%);}
+@-webkit-keyframes results-in {
+    0% {-webkit-transform: translateY(-150%);transform: translateY(-150%);}
     100% {}
+}
+
+@keyframes results-in {
+    0% {-webkit-transform: translateY(-150%);transform: translateY(-150%);}
+    100% {}
+}
+
+@-webkit-keyframes results-out {
+    0% {}
+    100% {-webkit-transform: translateY(-150%);transform: translateY(-150%);}
 }
 
 @keyframes results-out {
     0% {}
-    100% {transform: translateY(-150%);}
+    100% {-webkit-transform: translateY(-150%);transform: translateY(-150%);}
 }
 
 .Results {
     margin: 0 auto;
     width: 500px;
-    animation: results-in .5s cubic-bezier(.44,1.14,.77,1.16) forwards;
+    -webkit-animation: results-in .5s cubic-bezier(.44,1.14,.77,1.16) forwards;
+            animation: results-in .5s cubic-bezier(.44,1.14,.77,1.16) forwards;
 }
 
 .transition-results-out.Results {
     margin: 0 auto;
     width: 500px;
-    animation: results-out .5s cubic-bezier(.44,1.14,.77,1.16) forwards;
+    -webkit-animation: results-out .5s cubic-bezier(.44,1.14,.77,1.16) forwards;
+            animation: results-out .5s cubic-bezier(.44,1.14,.77,1.16) forwards;
 }
 
 .results h1 {
@@ -74,6 +86,8 @@
 }
 
 .result-data {
+    display: -webkit-flex;
+    display: -ms-flexbox;
     display: flex;
 }
 
@@ -88,7 +102,9 @@
 }
 
 .result-data > div {
-    flex: 1;
+    -webkit-flex: 1;
+        -ms-flex: 1;
+            flex: 1;
     text-align: center;
 }
 
@@ -152,10 +168,14 @@
 }
 
 .share-buttons {
+    display: -webkit-flex;
+    display: -ms-flexbox;
     display: flex;
 }
 
 .share-buttons button {
-    flex: 1;
+    -webkit-flex: 1;
+        -ms-flex: 1;
+            flex: 1;
     margin: 0 1em;
 }
