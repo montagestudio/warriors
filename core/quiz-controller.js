@@ -39,6 +39,10 @@ exports.QuizController = Target.specialize(/** @lends QuizController# */ {
         value: null
     },
 
+    totalQuestions: {
+        value: null
+    },
+
     showTimerEndedModal: {
         value: false
     },
@@ -49,6 +53,18 @@ exports.QuizController = Target.specialize(/** @lends QuizController# */ {
 
     submittedLastQuestion: {
         value: false
+    },
+
+    _startTime: {
+        value: null
+    },
+
+    //$question - is this a correct pattern?
+
+    getTotalQuestions: {
+        value: function() {
+            return this.quizProvider.getQuestionsCount();
+        }
     },
 
     constructor: {
@@ -86,13 +102,13 @@ exports.QuizController = Target.specialize(/** @lends QuizController# */ {
 
     getNextQuestion: {
         value: function() {
-            this.currentQuestionIndex++;
-            this.currentQuestion = this.quizProvider.getQuestion(this.currentQuestionIndex);
+            this.currentQuestion = this.quizProvider.getQuestion(this.currentQuestionIndex + 1);
 
             this.submittedLastQuestion = (!this.currentQuestion || typeof this.currentQuestion !== 'object');
             if (this.submittedLastQuestion) {
                 this.end(true);
             } else {
+                this.currentQuestionIndex++;
                 this.timerProvider.resume();
             }
             return this.currentQuestion
@@ -111,14 +127,18 @@ exports.QuizController = Target.specialize(/** @lends QuizController# */ {
 
     start: {
         value: function(time) {
+            if(time) {
+                this._startTime = time;
+            }
             var self = this;
+
             return this.quizProvider.startRun()
                 .then(function(runId) {
                     self._runId = runId;
                     self.getNextQuestion();
-                    self.timerProvider.start(time);
+                    self.timerProvider.start(self._startTime);
                 }).catch(function(e) {
-                    console.log(e); // "oh, no!"
+                    console.log(e);
                 });;
         }
     },
@@ -146,10 +166,12 @@ exports.QuizController = Target.specialize(/** @lends QuizController# */ {
             var percentageDifference = this.statsProvider.getPercentageDifference();
             var elapsedTime = this.statsProvider.getElapsedTime();
             var elapsedTimeDifference = this.statsProvider.getElapsedTimeDifference();
+            var totalQuestions = this.getTotalQuestions();
 
             return {
                 percentageCorrect: percentageCorrect,
                 totalCorrect: totalCorrect,
+                totalQuestions: totalQuestions,
                 percentageDifference: percentageDifference,
                 elapsedTime: elapsedTime,
                 elapsedTimeDifference: elapsedTimeDifference

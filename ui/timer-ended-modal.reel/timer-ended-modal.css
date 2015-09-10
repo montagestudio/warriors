@@ -28,8 +28,9 @@
 .modal h1 {
     align-self: center;
     text-align: center;
-    border: 2px solid #FFF;
+    border: .1em solid #FFF;
     display: inline-block;
+    font-size: 4em;
     padding: 1em;
     margin: 0;
 }

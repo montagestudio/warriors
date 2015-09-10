@@ -15,9 +15,7 @@ exports.Results = Component.specialize(/** @lends Results# */ {
         }
     },
 
-    // $question - is this the way to set values???
-
-    percentageCorrect: {
+    _percentageCorrect: {
         value: null
     },
 
@@ -33,10 +31,23 @@ exports.Results = Component.specialize(/** @lends Results# */ {
         value: null
     },
 
-    // $question - can I change the value into an absolute value inside of this property?
-
     timeDifference: {
-        value: -2
+        value: null
+    },
+
+    totalQuestions: {
+        value: null
+    },
+
+    handleRestartQuizAction: {
+        value: function () {
+            var self = this;
+            this.classList.add('transition-results-out');
+            //$question - feels hacky
+            setTimeout(function() {
+                self.classList.remove('transition-results-out');
+            }, 1000)
+        }
     },
 
     templateDidLoad: {
@@ -46,10 +57,9 @@ exports.Results = Component.specialize(/** @lends Results# */ {
             this.answersCorrect = statistics.totalCorrect;
             this.percentDifference = Math.round(statistics.percentageDifference);
             this.elapsedTime = statistics.elapsedTime;
-            this.elapsedTimeDifference = statistics.elapsedTimeDifference;
+            this.totalQuestions = statistics.totalQuestions;
+            this.elapsedTimeDifference = statistics.elapsedTimeDifference.toFixed(1);
         }
     }
-
-    // $questionEnd
 
 });

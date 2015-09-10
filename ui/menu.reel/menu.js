@@ -3,8 +3,6 @@
  */
 var Component = require("montage/ui/component").Component;
 
-// $question: should I be loading the questions again here? Doesn't seem so.
-
 /**
  * @class Menu
  * @extends Component

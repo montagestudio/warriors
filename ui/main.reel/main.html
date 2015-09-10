@@ -72,7 +72,7 @@
             },
             "bindings": {
                 "questionIndex": {"<-": "@owner.application.quizController.currentQuestionIndex"},
-                "questions": {"<-": "@owner.application.quizController.quizProvider.quiz.questions"},
+                "totalQuestions": {"<-": "@owner.application.quizController.getTotalQuestions"},
                 "currentTime": {"<-": "@owner.application.quizController.timerProvider.currentTime"}
             }
         },

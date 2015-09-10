@@ -62,12 +62,14 @@ var QuestionOption = exports.QuestionOption = Component.specialize( {
     setCorrect: {
         value: function () {
             this.classList.add("is-correct");
+            this.classList.add("answered");
         }
     },
 
     setWrong: {
         value: function () {
             this.classList.add("is-wrong");
+            this.classList.add("answered");
         }
     },
 
@@ -77,10 +79,14 @@ var QuestionOption = exports.QuestionOption = Component.specialize( {
             setTimeout(function(){
                 self.dispatchEventNamed("questionTransition", true, true);
 
+                // take off transition on first question
+                // if(self.application.quizController.currentQuestionIndex != 0) {}
+
                 setTimeout(function(){
                     self.dispatchEventNamed("nextQuestion", true, true);
                     self.classList.remove("is-wrong");
                     self.classList.remove("is-correct");
+                    self.classList.remove("answered");
                 },500);
 
             },1000);
@@ -89,7 +95,6 @@ var QuestionOption = exports.QuestionOption = Component.specialize( {
 
     handleSubmitAnswerAction: {
         value: function () {
-
             if (this.application.quizController.answer(this.data)){
                 this.setCorrect();
                 this.reset();

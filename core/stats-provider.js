@@ -13,6 +13,10 @@ exports.StatsProvider = Montage.specialize(/** @lends StatsProvider# */ {
         value: null
     },
 
+    _quizProvider: {
+        value: null
+    },
+
     _quizId: {
         value: null
     },
@@ -25,23 +29,9 @@ exports.StatsProvider = Montage.specialize(/** @lends StatsProvider# */ {
         value: null
     },
 
-    // $question - is this how we check for an empty array? can't this be done in one method?
-
     _quizPercentageCorrectArray: {
         value: null
     },
-
-    _getQuizPercentageCorrectArray: {
-        set: function(value) {
-            if(value) {
-                return this._quizPercentageCorrectArray = value;
-            } else {
-                return null;
-            }
-        }
-    },
-
-    // $questionEnd
 
     _quizElapsedTimeArray: {
         value: null
@@ -67,10 +57,11 @@ exports.StatsProvider = Montage.specialize(/** @lends StatsProvider# */ {
     },
 
     init: {
-        value: function(quizId, answerProvider, timerProvider, backendService) {
+        value: function(quizProvider, quizId, answerProvider, timerProvider, backendService) {
             this._quizId = quizId;
             this.answerProvider = answerProvider;
             this.timerProvider = timerProvider;
+            this.quizProvider = quizProvider;
             this._backendService = backendService;
         }
     },
@@ -132,7 +123,7 @@ exports.StatsProvider = Montage.specialize(/** @lends StatsProvider# */ {
 
     getPercentageCorrect: {
         value: function () {
-            return this.getTotalCorrect() / this.answerProvider.answers.length * 100;
+            return this.getTotalCorrect() / this.quizProvider.getQuestionsCount() * 100;
         }
     },
 
@@ -142,11 +133,11 @@ exports.StatsProvider = Montage.specialize(/** @lends StatsProvider# */ {
         }
     },
 
-    isPercentageHigherThanAverage: {
-        value: function () {
-            return this.getPercentageCorrect() > this._getAveragePercentCorrect();
-        }
-    },
+    // isPercentageHigherThanAverage: {
+    //     value: function () {
+    //         return this.getPercentageCorrect() > this._getAveragePercentCorrect();
+    //     }
+    // },
 
     getElapsedTime: {
         value: function () {
@@ -164,7 +155,13 @@ exports.StatsProvider = Montage.specialize(/** @lends StatsProvider# */ {
         value: function () {
             return this.timerProvider.currentTime - this._getAverageElapsedTime();
         }
-    }
+    },
+
+    // isElapsedTimeHigherThanAverage: {
+    //     value: function () {
+    //         return this.getPercentageCorrect() > this._getAveragePercentCorrect();
+    //     }
+    // }
 });
 
 

@@ -67,11 +67,10 @@ exports.TimerProvider = Target.specialize(/** @lends TimerProvider# */ {
             var self = this;
             if(this._isRunning && this.currentTime > 0) {
                 this._timeoutId = setTimeout(function(){
-                    console.log('timeout', self._timeoutId);
                     self.currentTime--;
                     self.increment();
                 }, 1000);
-            } else if (self.currentTime == 0 ) {
+            } else if (self.currentTime == 0) {
                 clearTimeout(this._timeoutId);
                 this.dispatchEventNamed("timerHasEnded",true,false);
                 this._hasExpired = true;

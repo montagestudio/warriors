@@ -53,6 +53,7 @@ html {
     -webkit-flex-direction: column;
         -ms-flex-direction: column;
             flex-direction: column;
+    justify-content: center;
 }
 
 .view {
@@ -90,82 +91,3 @@ html {
     color: #FFF;
     font-size: 2em;
 }
-
-/* Intro */
-
-.intro {
-    margin: 0 auto;
-    max-width: 800px;
-    text-align: center;
-    color: #FFF;
-    position: relative;
-}
-
-.intro div {
-    font-size: 3em;
-    line-height: 1.4;
-    margin-bottom: 2em;
-}
-
-.intro button {
-    font-size: 1.4em;
-    max-width: 200px;
-}
-
-/*.teamHeader {
-    -webkit-flex: 1 0 auto;
-        -ms-flex: 1 0 auto;
-            flex: 1 0 auto;
-    box-sizing: border-box;
-    position: relative;
-    text-align: center;
-    color: rgb(255,204,51);
-    min-height: 20px;
-    max-height: 20px;
-}*/
-
-.intro .logo {
-    /*margin-bottom: 5em;*/
-    width: 500px;
-    height: 300px;
-    display: inline-block;
-    background-position: center;
-    background-size: contain;
-    background-repeat: no-repeat;
-    background-image: url(../../assets/image/championship_logo.png);
-}
-
-/*@media (min-width: 414px) {
-    .teamHeader {
-        min-height: 80px;
-        margin-top: 1rem;
-    }
-
-    .logo {
-        background-position: center;
-    }
-
-    .question {
-        font-size: 1.7em;
-        max-height: 90px;
-    }
-}
-
-@media (min-width: 900px) {
-    .teamHeader {
-        min-height: 160px;
-        margin-top: 2rem;
-    }
-
-    .question {
-        font-size: 2em;
-        margin: .5em;
-        max-height: 100px;
-    }
-
-    .flow-container {
-        flex: 10;
-    }
-
-}
-*/

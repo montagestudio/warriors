@@ -1,3 +1,23 @@
+@keyframes transition-options-in {
+    0% {transform: rotateY(-180deg); opacity: 0;}
+    100% {}
+}
+
+@keyframes transition-options-out {
+    0% {}
+    100% {transform: rotateY(180deg); opacity: 0;}
+}
+
+@keyframes transition-camera-in {
+    0% {transform: translate3d(0px, 0px, -5000px) scale(.1)}
+    100% {}
+}
+
+@keyframes transition-camera-out {
+    0% {}
+    100% {transform: translate3d(0px, 0px, -5000px) scale(.1)}
+}
+
 .QuestionOptions {
     flex: 1;
     display: flex;
@@ -13,40 +33,28 @@ FLOW
 
 .flow-container {
     position: relative;
-    /*-webkit-flex: 7;
-        -ms-flex: 7;
-            flex: 7;*/
     max-height: 860px;
     flex: 1;
     display: flex;
-    /*outline: 1px solid rgba(255,255,255,.2);*/
 }
 
-/*.flowCenter {
-    flex: 1;
-    max-height: 800px;
-    position: relative;
-}*/
+/* next question transition */
 
-.montage-Flow-camera,
-.montage-Flow-Repetition {
-    transition: all .5s ease-in-out;
+.transition-in .montage-Flow-camera {
+    animation: transition-camera-in .5s forwards ease-in-out;
 }
 
-.transition .montage-Flow-camera {
-    transform: translate3d(0px, 0px, -5000px) scale(.2)!important;
-
+.transition-out .montage-Flow-camera {
+    animation: transition-camera-out .5s forwards ease-in-out;
 }
 
-.montage-Flow-Repetition {
-    transform: rotateY(-360deg);
+.transition-out .montage-Flow-Repetition {
+    animation: transition-options-out .5s forwards ease-in-out;
 }
 
-.transition .montage-Flow-Repetition {
-    transform: rotateY(180deg);
-    opacity: 0;
+.transition-in .montage-Flow-Repetition {
+    animation: transition-options-in .5s forwards ease-in-out;
 }
-
 
 /* basketball */
 

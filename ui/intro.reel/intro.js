@@ -12,5 +12,11 @@ exports.Intro = Component.specialize(/** @lends Intro# */ {
         value: function Intro() {
             this.super();
         }
+    },
+
+    handleStartQuizAction: {
+        value: function () {
+            this.classList.add('transition-out');
+        }
     }
 });

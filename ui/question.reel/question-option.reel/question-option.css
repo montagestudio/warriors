@@ -39,52 +39,103 @@
     z-index: 2;
 }*/
 
-.is-correct.questionOption:after,
-.is-wrong.questionOption:after {
-    text-align: center;
-    color: #FFF;
-    font-size: 2em;
-    line-height: 160px;
+.playerInfoWrapper:before,
+.playerInfoWrapper:before {
     position: absolute;
-    height: 160px;
-    width:  160px;
+    content: '';
+    font-size: 0em;
+    height: 5em;
+    width:  5em;
     top: 50%;
     left: 50%;
-    border: 10px solid #FFF;
     transform: translate(-50%,-50%);
     border-radius: 50%;
-    z-index: 5;
+    transition: inherit;
+    z-index: 2;
+    transition: all .3s ease;
 }
 
-.is-correct.questionOption:after {
-    content:'correct!';
-    background: #00D300;
+.is-correct .playerInfoWrapper:before,
+.is-wrong .playerInfoWrapper:before {
+    font-size: 12em;
 }
 
-.is-wrong.questionOption:after {
-    content:'wrong';
-    background: red;
+.is-correct .playerInfoWrapper:before {
+    background: radial-gradient(rgba(0,211,0,0), rgb(0,211,0) 80%);
 }
 
-.is-correct.questionOption:before,
-.is-wrong.questionOption:before {
+.is-wrong .playerInfoWrapper:before {
+    background: radial-gradient(rgba(239,0,26,0), rgb(239,0,26) 80%);
+}
+
+.cardOverflow:before,
+.cardOverflow:after {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    height: 2em;
+    width:  2em;
+    line-height: 2em;
+    font-size:   6em;
+    font-weight: 700;
+    transition: all .2s cubic-bezier(.44,1.14,.77,1.16);
+    z-index: 10;
+}
+
+/* circle bg */
+
+.cardOverflow:before {
+    content: '';
+    border-radius: 50%;
+    transform: translate(-50%, -50%) scale(0);
+    box-shadow: 0 0 2px 2px rgba(0,0,0,.15)
+}
+
+.answered .cardOverflow:before {
+    transform: translate(-50%, -50%) scale(1);
+}
+
+/* correct / wrong bg settings */
+
+.is-correct .cardOverflow:before    { background: rgb(0,211,0); }
+.is-wrong .cardOverflow:before      { background: rgb(239,0,26); }
+
+/* correct / wrong symbol settings */
+
+.cardOverflow:after {
     content: '';
     position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    z-index: 4;
-    background: rgba(4,82,156,.7);
+    display: block;
+    text-align: center;
+    color: #FFF;
+    font-family: sans-serif;
+    transform-origin: 50% 50%;
+    transform: translate(-50%,-50%) rotate(45deg) scale(0);
 }
 
-/*.is-correct.questionOption:before {
-    background: rgba(0,255,0,.5);
+.is-wrong .cardOverflow:after {
+    content: '+';
+    font-size: 7em;
+    margin-top: -.05em;
+    margin-left: .05em;
 }
 
-.is-wrong.questionOption:before {
-    background: rgba(255,0,0,.5);
-}*/
+.is-correct .cardOverflow:after {
+    content: 'L';
+    margin-top: -.05em;
+}
+
+.answered.is-wrong .cardOverflow:after {
+    transform: translate(-50%,-50%) rotate(45deg) scale(1);
+}
+
+.answered.is-correct .cardOverflow:after {
+    transform: translate(-50%,-50%) rotate(45deg) rotateY(180deg) scale(0);
+}
+
+.answered.is-correct .cardOverflow:after {
+    transform: translate(-50%,-50%) rotate(45deg) rotateY(180deg) scale(1);
+}
 
 /* controls the overflow */
 

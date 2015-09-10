@@ -8,8 +8,8 @@
     background: rgb(4,82,156);
     color: #FFF;
     z-index: 100;
-    /*opacity: 0;*/
-    /*visibility: hidden;*/
+    opacity: 0;
+    visibility: hidden;
     transform: translateX(100%);
     transition: all .4s ease-in;
 }

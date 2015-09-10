@@ -8,7 +8,14 @@
         "owner": {
             "properties": {
                 "element": {"#": "owner"}
-            }
+            },
+            "listeners": [
+                {
+                    "type": "action",
+                    "listener": {"@": "owner"},
+                    "capture": false
+                }
+            ]
         },
 
         "startQuiz": {
@@ -23,7 +30,7 @@
 <body>
     <div data-montage-id="owner" class="Intro intro">
         <div class="logo"></div>
-        <div>How Well do you know the 2015 NBA Champions?</div>
+        <div>How well do you know the 2015 NBA Champions?</div>
         <div>You have 1 minute to find out!</div>
         <button data-montage-id="startQuiz" class="btn">start quiz</button>
     </div>

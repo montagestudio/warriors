@@ -31,17 +31,6 @@ exports.Question = Component.specialize(/** @lends Question# */ {
         }
     },
 
-    goToNextQuestion: {
-        value: function () {
-            var question = this.application.quizController.getNextQuestion();
-            if (question) {
-                this.data = question;
-            } else {
-                console.log("You're at the last question");
-            }
-        }
-    },
-
     enterDocument: {
         value: function (firstTime) {
             if (firstTime) {
@@ -53,14 +42,27 @@ exports.Question = Component.specialize(/** @lends Question# */ {
 
     handleNextQuestion: {
         value: function () {
-            this.goToNextQuestion();
-            this.classList.remove("transition");
+            var self = this;
+            var question = this.application.quizController.getNextQuestion();
+            if (question) {
+                this.data = question;
+                this.classList.add("transition-in");
+                this.classList.remove("transition-out");
+            } else {
+                setTimeout(function(){
+                    self.classList.add("transition-in");
+                    self.classList.remove("transition-out");
+                }, 1000);
+
+            }
+
         }
     },
 
     handleQuestionTransition: {
         value: function () {
-            this.classList.add("transition");
+            this.classList.add("transition-out");
+            this.classList.remove("transition-in");
         }
     }
 });

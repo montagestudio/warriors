@@ -1,6 +1,23 @@
+@keyframes results-in {
+    0% {transform: translateY(-150%);}
+    100% {}
+}
+
+@keyframes results-out {
+    0% {}
+    100% {transform: translateY(-150%);}
+}
+
 .Results {
     margin: 0 auto;
     width: 500px;
+    animation: results-in .5s cubic-bezier(.44,1.14,.77,1.16) forwards;
+}
+
+.transition-results-out.Results {
+    margin: 0 auto;
+    width: 500px;
+    animation: results-out .5s cubic-bezier(.44,1.14,.77,1.16) forwards;
 }
 
 .results h1 {
@@ -25,7 +42,7 @@
 
 .result-details {
     position: relative;
-    border: 10px solid yellow;
+    border: 10px solid rgb(255,204,51);
     background-image: url('../../assets/image/basketball-floor-texture.jpg');
     background-size: 100%;
 }
@@ -43,6 +60,10 @@
 
 .result-data {
     display: flex;
+}
+
+.result-data .data-title {
+    font-size: 1.3em;
 }
 
 .result-data-container {}
@@ -64,8 +85,10 @@
 .data-unit:after {
     position: absolute;
     content: attr(data-unit);
+    margin-left: .15em;
     top: .6em;
     font-size: .3em;
+    font-family: 'helvetica neue', sans-serif;
 }
 
 /* total percent */
@@ -92,6 +115,8 @@
 .result-large,
 .result-small {
     font-weight: 700;
+    font-family: 'helvetica neue', sans-serif;
+    margin-bottom: .1em;
 }
 
 .result-large {

@@ -32,7 +32,7 @@ exports.Main = Component.specialize( /** @lends module:"ui/main.reel".Main# */ {
             backendService.init(configuration.backendUrl);
             answerProvider.init(backendService);
             quizProvider.init(configuration.quizId, backendService);
-            statsProvider.init(configuration.quizId, answerProvider, timerProvider, backendService);
+            statsProvider.init(quizProvider, configuration.quizId, answerProvider, timerProvider, backendService);
 
             Application.quizController = new QuizController();
             Application.quizController.init(quizProvider, answerProvider, statsProvider, timerProvider);
@@ -65,10 +65,13 @@ exports.Main = Component.specialize( /** @lends module:"ui/main.reel".Main# */ {
         value: function () {
             var self = this;
             Application.quizController.reset();
-            Application.quizController.start()
-                .then(function() {
-                    self.currentView = "quiz";
-                });
+            // $question - feels hacky
+            setTimeout(function() {
+                Application.quizController.start()
+                    .then(function() {
+                        self.currentView = "quiz";
+                    });
+            }, 500);
         }
     }
 
