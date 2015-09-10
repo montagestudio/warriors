@@ -51,12 +51,10 @@ exports.Main = Component.specialize( /** @lends module:"ui/main.reel".Main# */ {
         }
     },
 
-    //$question -  is this supposed to work when the button is inside of intro.html!?
-
     handleStartQuizAction: {
         value: function () {
             var self = this;
-            Application.quizController.start(60)
+            Application.quizController.start(configuration.quizTime)
                 .then(function() {
                     self.currentView = "quiz";
                 });
