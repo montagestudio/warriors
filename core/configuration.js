@@ -1,5 +1,5 @@
 exports.configuration = {
     backendUrl: 'http://warriors.mybluemix.net',
-    quizId: '274f5791-1761-4df5-a044-d919620c6f13',
-    quizTime: '30'
+    quizId: 'fe501bbd-8fe4-4a68-ac1e-01f0689ebcf6',
+    quizTime: '60'
 };
