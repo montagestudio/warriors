@@ -29,7 +29,8 @@
         "pageSubstitution": {
             "prototype": "montage/ui/substitution.reel",
             "properties": {
-                "element": { "#": "pageSubstitution" }
+                "element": { "#": "pageSubstitution" },
+                "shouldLoadComponentTree": true
             },
             "bindings": {
                 "switchValue": {"<-": "@owner.currentView"}
@@ -72,7 +73,7 @@
             },
             "bindings": {
                 "questionIndex": {"<-": "@owner.application.quizController.currentQuestionIndex"},
-                "totalQuestions": {"<-": "@owner.application.quizController.getTotalQuestions"},
+                "totalQuestions": {"<-": "@owner.application.quizController.totalQuestions"},
                 "currentTime": {"<-": "@owner.application.quizController.timerProvider.currentTime"}
             }
         },

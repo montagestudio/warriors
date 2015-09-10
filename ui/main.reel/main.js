@@ -65,6 +65,7 @@ exports.Main = Component.specialize( /** @lends module:"ui/main.reel".Main# */ {
         value: function () {
             var self = this;
             Application.quizController.reset();
+
             // $question - feels hacky
             setTimeout(function() {
                 Application.quizController.start()

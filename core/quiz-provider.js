@@ -61,19 +61,29 @@ exports.QuizProvider = Montage.specialize(/** @lends QuizProvider# */ {
 
     getTitle: {
         value: function() {
-            return this.quiz.title;
+            if (this.quiz) {
+                return this.quiz.title;
+            }
+            return null;
         }
     },
 
     getQuestion: {
         value: function(index) {
-            return this.quiz.questions[index];
+            if (this.quiz) {
+                return this.quiz.questions[index];
+            }
+            return null;
         }
     },
 
     getQuestionsCount: {
         value: function() {
-            return this.quiz.questions.length;
+            if (this.quiz) {
+
+                return this.quiz.questions.length;
+            }
+            return 0;
         }
     }
 });

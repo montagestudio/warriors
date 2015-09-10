@@ -85,7 +85,10 @@ exports.StatsProvider = Montage.specialize(/** @lends StatsProvider# */ {
 
     _getAverageOfArray: {
         value: function (arr) {
-            return arr.reduce(function(sum, result){ return sum + result; }, 0) / arr.length;
+            if(arr) {
+                return arr.reduce(function(sum, result){ return sum + result; }, 0) / arr.length;
+            }
+            return 0;
         }
     },
 

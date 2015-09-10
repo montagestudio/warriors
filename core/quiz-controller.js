@@ -59,12 +59,8 @@ exports.QuizController = Target.specialize(/** @lends QuizController# */ {
         value: null
     },
 
-    //$question - is this a correct pattern?
-
-    getTotalQuestions: {
-        value: function() {
-            return this.quizProvider.getQuestionsCount();
-        }
+    totalQuestions: {
+        value: null
     },
 
     constructor: {
@@ -136,10 +132,11 @@ exports.QuizController = Target.specialize(/** @lends QuizController# */ {
                 .then(function(runId) {
                     self._runId = runId;
                     self.getNextQuestion();
+                    self.totalQuestions = self.quizProvider.getQuestionsCount();
                     self.timerProvider.start(self._startTime);
                 }).catch(function(e) {
                     console.log(e);
-                });;
+                });
         }
     },
 
@@ -166,7 +163,7 @@ exports.QuizController = Target.specialize(/** @lends QuizController# */ {
             var percentageDifference = this.statsProvider.getPercentageDifference();
             var elapsedTime = this.statsProvider.getElapsedTime();
             var elapsedTimeDifference = this.statsProvider.getElapsedTimeDifference();
-            var totalQuestions = this.getTotalQuestions();
+            var totalQuestions = this.totalQuestions;
 
             return {
                 percentageCorrect: percentageCorrect,

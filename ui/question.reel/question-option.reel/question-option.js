@@ -79,9 +79,6 @@ var QuestionOption = exports.QuestionOption = Component.specialize( {
             setTimeout(function(){
                 self.dispatchEventNamed("questionTransition", true, true);
 
-                // take off transition on first question
-                // if(self.application.quizController.currentQuestionIndex != 0) {}
-
                 setTimeout(function(){
                     self.dispatchEventNamed("nextQuestion", true, true);
                     self.classList.remove("is-wrong");
