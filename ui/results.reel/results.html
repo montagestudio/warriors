@@ -64,7 +64,8 @@
                 "element": { "#": "percentDifference" }
             },
             "bindings": {
-                "value": { "<-": "@owner.percentDifference" }
+                "value": { "<-": "@owner.percentDifference" },
+                "classList.has('higher')": { "<-": "@owner.percentDifference >= 0"}
             }
         },
 
@@ -74,7 +75,8 @@
                 "element": { "#": "timeDifference" }
             },
             "bindings": {
-                "value": { "<-": "@owner.elapsedTimeDifference" }
+                "value": { "<-": "@owner.elapsedTimeDifference" },
+                "classList.has('higher')": { "<-": "@owner.percentDifference >= 0"}
             }
         },
 

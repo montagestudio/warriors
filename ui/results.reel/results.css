@@ -61,6 +61,11 @@
     margin-bottom: 1em;
 }
 
+/*.higher {
+    color: #00D300;
+    text-shadow: 1px 1px black;
+}*/
+
 .results-container {
     margin-bottom: 2em;
     padding: 8em 2em 4em;

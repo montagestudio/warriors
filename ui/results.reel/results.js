@@ -55,10 +55,10 @@ exports.Results = Component.specialize(/** @lends Results# */ {
             var statistics = Application.quizController.getStatistics();
             this.percentageCorrect = Math.round(statistics.percentageCorrect);
             this.answersCorrect = statistics.totalCorrect;
-            this.percentDifference = Math.round(statistics.percentageDifference);
+            this.percentDifference = Math.abs(Math.round(statistics.percentageDifference));
             this.elapsedTime = statistics.elapsedTime;
             this.totalQuestions = statistics.totalQuestions;
-            this.elapsedTimeDifference = statistics.elapsedTimeDifference.toFixed(1);
+            this.elapsedTimeDifference = Math.abs(Math.round(statistics.elapsedTimeDifference));
         }
     }
 
