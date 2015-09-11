@@ -11,9 +11,9 @@
     display: flex;
 }
 
-.menuItem.is-current {
+/*.menuItem.is-current {
     background: rgba(255,255,255,.1);
-}
+}*/
 
 .menuItem-icon {
     display: inline-block;
