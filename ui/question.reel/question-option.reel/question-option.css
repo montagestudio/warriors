@@ -317,8 +317,8 @@
 /* show-detail transition */
 
 .show-details .playerImage {
-    -webkit-filter: blur(5px) contrast(200%) grayscale(1);;
-            filter: blur(5px) contrast(200%) grayscale(1);;
+    -webkit-filter: blur(5px) contrast(200%) grayscale(1);
+            filter: blur(5px) contrast(200%) grayscale(1);
 }
 
 .playerInfoWrapper,

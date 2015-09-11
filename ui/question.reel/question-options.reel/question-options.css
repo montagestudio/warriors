@@ -15,19 +15,19 @@
 }
 
 @-webkit-keyframes transition-camera-in {
-    0% {-webkit-transform: translate3d(0px, 0px, -10000px);transform: translate3d(0px, 0px, -10000px)}
+    0% {-webkit-transform: scale(.1);transform: scale(.1)}
 }
 
 @keyframes transition-camera-in {
-    0% {-webkit-transform: translate3d(0px, 0px, -10000px);transform: translate3d(0px, 0px, -10000px)}
+    0% {-webkit-transform: scale(.1);transform: scale(.1)}
 }
 
 @-webkit-keyframes transition-camera-out {
-    100% {-webkit-transform: translate3d(0px, 0px, -10000px);transform: translate3d(0px, 0px, -10000px)}
+    100% {-webkit-transform: scale(.1);transform: scale(.1)}
 }
 
 @keyframes transition-camera-out {
-    100% {-webkit-transform: translate3d(0px, 0px, -10000px);transform: translate3d(0px, 0px, -10000px)}
+    100% {-webkit-transform: scale(.1);transform: scale(.1)}
 }
 
 .QuestionOptions {
@@ -62,12 +62,13 @@ FLOW
 
 /* next question transition */
 
-.transition-in .montage-Flow-camera {
+.transition-in .montage-Flow {
     -webkit-animation: transition-camera-in .5s forwards ease-in-out;
             animation: transition-camera-in .5s forwards ease-in-out;
+
 }
 
-.transition-out .montage-Flow-camera {
+.transition-out .montage-Flow {
     -webkit-animation: transition-camera-out .5s forwards ease-in-out;
             animation: transition-camera-out .5s forwards ease-in-out;
 }
