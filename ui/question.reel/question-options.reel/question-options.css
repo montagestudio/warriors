@@ -31,9 +31,9 @@
 }
 
 .QuestionOptions {
-    -webkit-flex: 1;
-        -ms-flex: 1;
-            flex: 1;
+    -webkit-flex: 8;
+        -ms-flex: 8;
+            flex: 8;
     display: -webkit-flex;
     display: -ms-flexbox;
     display: flex;
