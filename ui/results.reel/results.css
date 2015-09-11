@@ -70,8 +70,8 @@
     position: relative;
     /*border: 10px solid rgb(255,204,51);*/
     border: 10px solid rgb(4,82,156);
-    background-image: url('../../assets/image/basketball-floor-texture.jpg');
-    background-size: 100%;
+    background-image: url('../../assets/image/floor-texture.jpg');
+    background-size: 50%;
 }
 
 .result-details:after {
