@@ -144,14 +144,12 @@ exports.QuizController = Target.specialize(/** @lends QuizController# */ {
         value: function(isFinished) {
             var self = this;
             this.timerProvider.pause();
+            this.isFinished = true;
             var totalWrong = this.quizProvider.getQuestionsCount() - this.statsProvider.getTotalCorrect();
             var run = new Run(this._runId, this.statsProvider.getTotalCorrect(), totalWrong, this.timerProvider.currentTime, !!isFinished);
-            return this.quizProvider.endRun(run)
+            return self.statsProvider.loadRunStatistics()
                 .then(function() {
-                    return self.statsProvider.loadRunStatistics();
-                })
-                .then(function() {
-                    self.isFinished = true;
+                    return self.quizProvider.endRun(run);
                 });
         }
     },
