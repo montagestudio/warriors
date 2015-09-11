@@ -10,7 +10,9 @@ Target = require("montage/core/target").Target;
 exports.TimerProvider = Target.specialize(/** @lends TimerProvider# */ {
 
     constructor: {
-        value: function() {}
+        value: function() {
+            this.tick = new Audio('../assets/tick.wav');
+        }
     },
 
     _isRunning: {
@@ -65,7 +67,9 @@ exports.TimerProvider = Target.specialize(/** @lends TimerProvider# */ {
     increment: {
         value: function () {
             var self = this;
+
             if(this._isRunning && this.currentTime > 0) {
+                self.tick.play();
                 this._timeoutId = setTimeout(function(){
                     self.currentTime--;
                     self.increment();

@@ -103,3 +103,99 @@ html {
     color: #FFF;
     font-size: 2em;
 }
+
+/* flashes */
+
+svg {
+    position: absolute;
+    top: 5%;
+    left: 0;
+    height: 60%;
+    width: 100%;
+    text-align: center;
+    color: #FFF;
+    -webkit-filter: blur(3px);
+            filter: blur(3px);
+/*    background: blue;*/
+}
+
+@media (min-width: 700px)  { svg { -webkit-filter: blur(5px); filter: blur(5px); }}
+@media (min-width: 1000px) { svg { -webkit-filter: blur(8px); filter: blur(8px); }}
+@media (min-width: 1500px) { svg { -webkit-filter: blur(12px); filter: blur(12px); }}
+
+@-webkit-keyframes flash-1 {
+    0%   {opacity: 0;}
+    15%  {opacity: 0;}
+    16%  {opacity: 1;}
+    20%  {opacity: 0;}
+    65%  {opacity: 0;}
+    66%  {opacity: 1;}
+    70%  {opacity: 0;}
+    95%  {opacity: 0;}
+    96%  {opacity: 1;}
+    100% {opacity: 0;}
+}
+
+@keyframes flash-1 {
+    0%   {opacity: 0;}
+    15%  {opacity: 0;}
+    16%  {opacity: 1;}
+    20%  {opacity: 0;}
+    65%  {opacity: 0;}
+    66%  {opacity: 1;}
+    70%  {opacity: 0;}
+    95%  {opacity: 0;}
+    96%  {opacity: 1;}
+    100% {opacity: 0;}
+}
+
+.flash1 {
+    -webkit-transform: translate(10px,10px);
+            transform: translate(10px,10px);
+    -webkit-animation: flash-1 3s infinite both;
+            animation: flash-1 3s infinite both;
+}
+
+.flash2 {
+    -webkit-transform: translate(100px,68px);
+            transform: translate(100px,68px);
+    -webkit-animation: flash-1 4s .5s infinite both;
+            animation: flash-1 4s .5s infinite both;
+}
+
+.flash3 {
+    -webkit-transform: translate(45px,36px) scale(.8);
+            transform: translate(45px,36px) scale(.6);
+    -webkit-animation: flash-1 2.5s 1.25s infinite both;
+            animation: flash-1 2.5s 1.25s infinite both;
+}
+.flash4 {
+    -webkit-transform: translate(165px,8px) scale(.6);
+            transform: translate(165px,8px) scale(.6);
+    -webkit-animation: flash-1 3.5s .25s infinite both;
+            animation: flash-1 3.5s .25s infinite both;
+}
+.flash5 {
+    -webkit-transform: translate(120px,25px);
+            transform: translate(120px,25px);
+    -webkit-animation: flash-1 4.75s 1s infinite both;
+            animation: flash-1 4.75s 1s infinite both;
+}
+.flash6 {
+    -webkit-transform: translate(25px,80px);
+            transform: translate(25px,80px);
+    -webkit-animation: flash-1 1.75s .75s infinite both;
+            animation: flash-1 1.75s .75s infinite both;
+}
+.flash7 {
+    -webkit-transform: translate(90px,50px);
+            transform: translate(90px,50px);
+    -webkit-animation: flash-1 2.75s infinite both;
+            animation: flash-1 2.75s infinite both;
+}
+.flash8 {
+    -webkit-transform: translate(160px,50px);
+            transform: translate(160px,50px);
+    -webkit-animation: flash-1 6s infinite both;
+            animation: flash-1 6s infinite both;
+}
