@@ -2,7 +2,8 @@
   "name": "warriors",
   "version": "0.0.0",
   "dependencies": {
-    "montage": "montagejs/montage#master"
+    "montage": "montagejs/montage#master",
+    "mjs-volume": "git+https://github.com/montagestudio/mjs-volume.git"
   },
   "bundle": [
     "ui/main.reel"
