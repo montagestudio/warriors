@@ -20,24 +20,22 @@
 
 .Results {
     margin: 0 auto;
-    width: 500px;
+    width: 440px;
     -webkit-animation: results-in .5s cubic-bezier(.44,1.14,.77,1.16) forwards;
             animation: results-in .5s cubic-bezier(.44,1.14,.77,1.16) forwards;
 }
 
 .transition-results-out.Results {
-    margin: 0 auto;
-    width: 500px;
     -webkit-animation: results-out .5s cubic-bezier(.44,1.14,.77,1.16) forwards;
             animation: results-out .5s cubic-bezier(.44,1.14,.77,1.16) forwards;
 }
 
 .results h1 {
-    font-size: 3em;
+    font-size: 2.5em;
 }
 
 .results h2 {
-    font-size: 2em;
+    font-size: 1.5em;
 }
 
 .results-header {
@@ -45,11 +43,11 @@
     top:   -10px;
     left:  -10px;
     right: -10px;
-    padding: .5em;
+    padding: .25em;
     background: rgb(4,82,156);
     color: #FFF;
     text-align: center;
-    line-height: 1;
+    line-height: 1.5;
     margin: 0;
     z-index: 1
 }
@@ -58,8 +56,10 @@
     text-align: center;
     line-height: 1;
     margin: 0;
-    margin-bottom: 1em;
+    margin-bottom: .5em;
 }
+
+/* flag for higher lower colors */
 
 /*.higher {
     color: #00D300;
@@ -67,14 +67,14 @@
 }*/
 
 .results-container {
-    margin-bottom: 2em;
-    padding: 8em 2em 4em;
+    margin-bottom: 1em;
+    padding: 6em 2em 2em;
 }
 
 .result-details {
     position: relative;
-    /*border: 10px solid rgb(255,204,51);*/
     border: 10px solid rgb(4,82,156);
+    background: #FFF;
     background-image: url('../../assets/image/floor-texture.jpg');
     background-size: 50%;
 }
@@ -86,7 +86,6 @@
     bottom: 0;
     left:   0;
     right:  0;
-
     z-index: -1;
 }
 
@@ -99,8 +98,6 @@
 .result-data .data-title {
     font-size: 1.3em;
 }
-
-.result-data-container {}
 
 .result-data-container + .result-data-container {
     margin-top: 3em;
@@ -133,9 +130,9 @@
     position: relative;
     text-align: center;
     font-weight: 700;
-    font-size: 10em;
+    font-size: 8em;
     line-height: 1;
-    margin-bottom: 32px;
+    margin-bottom: 16px;
     color: rgb(4,82,156);
 }
 
@@ -168,19 +165,18 @@
 /* sharing */
 
 .share {
-    background: #FFF;
-    padding: 2em;
+    background: rgba(255,255,255,.9);
+    padding: 1em;
 }
 
-.share-buttons {
-    display: -webkit-flex;
-    display: -ms-flexbox;
-    display: flex;
+.share-title {
+    text-align: center;
+    margin-bottom: 15px;
+    font-weight: 300;
 }
 
-.share-buttons button {
-    -webkit-flex: 1;
-        -ms-flex: 1;
-            flex: 1;
-    margin: 0 1em;
+/* restart */
+
+.restartButton.btn {
+    font-size: 16px;
 }

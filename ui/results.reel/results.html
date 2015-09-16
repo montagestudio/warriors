@@ -105,8 +105,14 @@
             "properties": {
                 "element": { "#": "restartQuiz" }
             }
-        }
+        },
 
+        "sharing": {
+            "prototype": "ui/sharing.reel",
+            "properties": {
+                "element": { "#": "sharing" }
+            }
+        }
 
     }
     </script>
@@ -146,13 +152,10 @@
             </div>
         </div>
         <div class="results-container share">
-            <h2 class="results-title">Share your Results</h2>
-            <div class="share-buttons">
-                <button>facebook</button>
-                <button>twitter</button>
-            </div>
+            <h2 class="share-title">Share your results</h2>
+            <div data-montage-id="sharing"></div>
         </div>
-        <button data-montage-id="restartQuiz"  class="btn">restart quiz</button>
+        <button data-montage-id="restartQuiz"  class="btn restartButton">Try Again!</button>
     </div>
 </body>
 </html>

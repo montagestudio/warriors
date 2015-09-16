@@ -19,7 +19,8 @@
 .intro div {
     font-size: 3em;
     line-height: 1.4;
-    margin-bottom: 2em;
+    margin-bottom: 1.25em;
+    text-shadow: -1px 2px 1px black;
 }
 
 .intro button {
@@ -29,7 +30,7 @@
 
 .intro .logo {
     width: 500px;
-    height: 300px;
+    height: 225px;
     display: inline-block;
     background-position: center;
     background-size: contain;
