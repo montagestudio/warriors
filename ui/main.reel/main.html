@@ -1,141 +1,138 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <meta name="apple-mobile-web-app-capable" content="yes">
-    <title>Golden State Warriors</title>
-
+    <title>
+        Golden State Warriors
+    </title>
     <link rel="stylesheet" type="text/css" href="main.css">
-    <link href='http://fonts.googleapis.com/css?family=Arvo:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
-
+    <link href="http://fonts.googleapis.com/css?family=Arvo:400,700,400italic,700italic" rel="stylesheet" type="text/css">
     <script type="text/montage-serialization">
     {
         "owner": {
             "properties": {
                 "element": {"#": "main"}
             },
+            "bindings": {
+                "isQuizFinished": {"<-": "@owner.application.quizController.isFinished"}
+            },
             "listeners": [
                 {
                     "type": "action",
-                    "listener": {"@": "owner"},
-                    "capture": false
+                    "listener": {"@": "owner"}
                 }
-            ],
-            "bindings": {
-                "isQuizFinished": {"<-": "@owner.application.quizController.isFinished"}
+            ]
+        },
+        "intro": {
+            "prototype": "ui/intro.reel",
+            "properties": {
+                "element": {"#": "intro"}
             }
         },
-
+        "menu": {
+            "prototype": "ui/menu.reel",
+            "properties": {
+                "element": {"#": "menu"}
+            },
+            "bindings": {
+                "answers": {"<-": "@owner.application.quizController.answerProvider.answers"},
+                "classList.has('is-visible')": {"<-": "@owner.isQuizFinished"},
+                "questions": {"<-": "@owner.application.quizController.quizProvider.quiz.questions"}
+            }
+        },
         "pageSubstitution": {
             "prototype": "montage/ui/substitution.reel",
             "properties": {
-                "element": { "#": "pageSubstitution" },
+                "element": {"#": "pageSubstitution"},
                 "shouldLoadComponentTree": true
             },
             "bindings": {
                 "switchValue": {"<-": "@owner.currentView"}
             }
         },
-
         "question": {
             "prototype": "ui/question.reel",
             "properties": {
-                "element": { "#": "question"}
+                "element": {"#": "question"}
             },
             "bindings": {
                 "question": {"<-": "@owner.application.quizController.currentQuestion"}
             }
         },
-
-        "menu": {
-            "prototype": "ui/menu.reel",
-            "properties": {
-                "element": { "#": "menu"}
-            },
-            "bindings": {
-                "questions": {"<-": "@owner.application.quizController.quizProvider.quiz.questions"},
-                "classList.has('is-visible')" : { "<-" : "@owner.isQuizFinished"},
-                "answers": {"<-": "@owner.application.quizController.answerProvider.answers"}
-            }
-        },
-
         "results": {
             "prototype": "ui/results.reel",
             "properties": {
-                "element": { "#": "results" }
+                "element": {"#": "results"}
             }
         },
-
+        "scene": {
+            "prototype": "mjs-volume/runtime/scene",
+            "properties": {
+                "path": "Spald.glTF/Spald.json"
+            }
+        },
+        "sceneView": {
+            "prototype": "mjs-volume/ui/scene-view.reel",
+            "properties": {
+                "element": {"#": "sceneView"}
+            }
+        },
         "timer": {
             "prototype": "ui/timer.reel",
             "properties": {
-                "element": { "#": "timer" }
+                "element": {"#": "timer"}
             },
             "bindings": {
+                "currentTime": {"<-": "@owner.application.quizController.timerProvider.currentTime"},
                 "questionIndex": {"<-": "@owner.application.quizController.currentQuestionIndex"},
-                "totalQuestions": {"<-": "@owner.application.quizController.totalQuestions"},
-                "currentTime": {"<-": "@owner.application.quizController.timerProvider.currentTime"}
+                "totalQuestions": {"<-": "@owner.application.quizController.totalQuestions"}
             }
         },
-
-        "intro": {
-            "prototype": "ui/intro.reel",
-            "properties": {
-                "element": { "#": "intro" }
-            }
-        },
-
         "timerEndedModal": {
             "prototype": "ui/timer-ended-modal.reel",
             "properties": {
-                "element": { "#": "timerEndedModal" }
+                "element": {"#": "timerEndedModal"}
             },
             "bindings": {
                 "classList.has('is-visible')": {"<-": "@owner.application.quizController.showTimerEndedModal"}
             }
-
         }
-
     }
     </script>
 </head>
 <body>
     <div data-montage-id="main" class="Main">
-
         <div class="header">
             Warriors Quiz
         </div>
         <div data-montage-id="menu"></div>
-
         <svg viewBox="0 0 100 60" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMinYMin meet" class="flashes">
             <g>
-                <path class="flash1" d="M2.348 2.614c.25.834 1.025 1.44 1.94 1.44s1.69-.606 1.94-1.44l2.335-.584-2.335-.584C5.978.613 5.203.006 4.288.006s-1.69.607-1.94 1.44L.013 2.03l2.335.584z" fill="currentColor"/>
-                <path class="flash2" d="M2.348 2.614c.25.834 1.025 1.44 1.94 1.44s1.69-.606 1.94-1.44l2.335-.584-2.335-.584C5.978.613 5.203.006 4.288.006s-1.69.607-1.94 1.44L.013 2.03l2.335.584z" fill="currentColor"/>
-                <path class="flash3" d="M2.348 2.614c.25.834 1.025 1.44 1.94 1.44s1.69-.606 1.94-1.44l2.335-.584-2.335-.584C5.978.613 5.203.006 4.288.006s-1.69.607-1.94 1.44L.013 2.03l2.335.584z" fill="currentColor"/>
-                <path class="flash4" d="M2.348 2.614c.25.834 1.025 1.44 1.94 1.44s1.69-.606 1.94-1.44l2.335-.584-2.335-.584C5.978.613 5.203.006 4.288.006s-1.69.607-1.94 1.44L.013 2.03l2.335.584z" fill="currentColor"/>
-                <path class="flash5" d="M2.348 2.614c.25.834 1.025 1.44 1.94 1.44s1.69-.606 1.94-1.44l2.335-.584-2.335-.584C5.978.613 5.203.006 4.288.006s-1.69.607-1.94 1.44L.013 2.03l2.335.584z" fill="currentColor"/>
-                <path class="flash6" d="M2.348 2.614c.25.834 1.025 1.44 1.94 1.44s1.69-.606 1.94-1.44l2.335-.584-2.335-.584C5.978.613 5.203.006 4.288.006s-1.69.607-1.94 1.44L.013 2.03l2.335.584z" fill="currentColor"/>
-                <path class="flash7" d="M2.348 2.614c.25.834 1.025 1.44 1.94 1.44s1.69-.606 1.94-1.44l2.335-.584-2.335-.584C5.978.613 5.203.006 4.288.006s-1.69.607-1.94 1.44L.013 2.03l2.335.584z" fill="currentColor"/>
-                <path class="flash8" d="M2.348 2.614c.25.834 1.025 1.44 1.94 1.44s1.69-.606 1.94-1.44l2.335-.584-2.335-.584C5.978.613 5.203.006 4.288.006s-1.69.607-1.94 1.44L.013 2.03l2.335.584z" fill="currentColor"/>
+                <path class="flash1" d="M2.348 2.614c.25.834 1.025 1.44 1.94 1.44s1.69-.606 1.94-1.44l2.335-.584-2.335-.584C5.978.613 5.203.006 4.288.006s-1.69.607-1.94 1.44L.013 2.03l2.335.584z" fill="currentColor"></path>
+                <path class="flash2" d="M2.348 2.614c.25.834 1.025 1.44 1.94 1.44s1.69-.606 1.94-1.44l2.335-.584-2.335-.584C5.978.613 5.203.006 4.288.006s-1.69.607-1.94 1.44L.013 2.03l2.335.584z" fill="currentColor"></path>
+                <path class="flash3" d="M2.348 2.614c.25.834 1.025 1.44 1.94 1.44s1.69-.606 1.94-1.44l2.335-.584-2.335-.584C5.978.613 5.203.006 4.288.006s-1.69.607-1.94 1.44L.013 2.03l2.335.584z" fill="currentColor"></path>
+                <path class="flash4" d="M2.348 2.614c.25.834 1.025 1.44 1.94 1.44s1.69-.606 1.94-1.44l2.335-.584-2.335-.584C5.978.613 5.203.006 4.288.006s-1.69.607-1.94 1.44L.013 2.03l2.335.584z" fill="currentColor"></path>
+                <path class="flash5" d="M2.348 2.614c.25.834 1.025 1.44 1.94 1.44s1.69-.606 1.94-1.44l2.335-.584-2.335-.584C5.978.613 5.203.006 4.288.006s-1.69.607-1.94 1.44L.013 2.03l2.335.584z" fill="currentColor"></path>
+                <path class="flash6" d="M2.348 2.614c.25.834 1.025 1.44 1.94 1.44s1.69-.606 1.94-1.44l2.335-.584-2.335-.584C5.978.613 5.203.006 4.288.006s-1.69.607-1.94 1.44L.013 2.03l2.335.584z" fill="currentColor"></path>
+                <path class="flash7" d="M2.348 2.614c.25.834 1.025 1.44 1.94 1.44s1.69-.606 1.94-1.44l2.335-.584-2.335-.584C5.978.613 5.203.006 4.288.006s-1.69.607-1.94 1.44L.013 2.03l2.335.584z" fill="currentColor"></path>
+                <path class="flash8" d="M2.348 2.614c.25.834 1.025 1.44 1.94 1.44s1.69-.606 1.94-1.44l2.335-.584-2.335-.584C5.978.613 5.203.006 4.288.006s-1.69.607-1.94 1.44L.013 2.03l2.335.584z" fill="currentColor"></path>
             </g>
         </svg>
-
         <div data-montage-id="pageSubstitution" class="content">
-
             <div data-arg="intro" data-montage-id="intro"></div>
-
             <div data-arg="quiz" class="view">
                 <div data-montage-id="timer"></div>
                 <div data-montage-id="question"></div>
             </div>
-
             <div data-arg="results" class="view">
                 <div data-montage-id="results" class="results"></div>
             </div>
-
         </div>
-
         <div data-montage-id="timerEndedModal"></div>
+        <div data-montage-id="sceneView">
+            <canvas data-montage-id="canvas"></canvas>
+        </div>
     </div>
 </body>
 </html>
