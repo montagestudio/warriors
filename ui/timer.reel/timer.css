@@ -18,6 +18,7 @@
         -ms-flex-item-align: center;
             align-self: center;
     border: 4px solid rgba(4,82,156,1);
+    font-family: 'ds-digitalbold', sans-serif;
     border-radius: 4px;
     background: rgba(0,0,0,.4);
     -webkit-animation: timer-in .35s cubic-bezier(.44,1.14,.77,1.1) both;
@@ -26,12 +27,12 @@
 
 .time {
     display: inline-block;
-    font-size: 5.5em;
-    line-height: 1;
+    font-size: 6.5em;
+    line-height: .8;
     font-weight: 600;
-    font-family: sans-serif;
+    color: red;
     margin-right: .5em;
-    /*outline: 1px solid red;*/
+    width: 100px;
 }
 
 .time:before {
@@ -41,8 +42,8 @@
 .questionNumber {
     position: absolute;
     right:  2em;
-    top:    1em;
-    bottom: 1em;
+    top:    1.3em;
+    bottom: 1.3em;
     display: inline-block;
     color: #A0A0A0;
     display: -webkit-flex;
@@ -64,7 +65,14 @@
 
 .currentQuestionIndex,
 .totalQuestions {
-    font-size: 1.5em;
-    line-height: 1.2;
-    color: #FFF;
+    font-size: 1.8em;
+    line-height: .8em;
+    /*color: rgba(255,255,255,.8);*/
+    color: red;
 }
+
+.currentQuestionIndex {
+    /*color: #FFF;*/
+}
+
+
