@@ -19,6 +19,18 @@ exports.Results = Component.specialize(/** @lends Results# */ {
         value: null
     },
 
+    percentageCorrect: {
+        get: function () {
+            return this._percentageCorrect;
+        },
+        set: function (val) {
+            if (val !== this._percentageCorrect) {
+                this._percentageCorrect = val;
+                this.needsDraw = true;
+            }
+        }
+    },
+
     answersCorrect: {
         value: null
     },
@@ -39,11 +51,15 @@ exports.Results = Component.specialize(/** @lends Results# */ {
         value: null
     },
 
+    userPercentageOfTotalTime: {
+        value: null
+    },
+
     handleRestartQuizAction: {
         value: function () {
             var self = this;
             this.classList.add('transition-results-out');
-            //$question - feels hacky
+
             setTimeout(function() {
                 self.classList.remove('transition-results-out');
             }, 1000)
@@ -57,6 +73,7 @@ exports.Results = Component.specialize(/** @lends Results# */ {
             this.answersCorrect = statistics.totalCorrect;
             this.percentDifference = Math.abs(Math.round(statistics.percentageDifference));
             this.elapsedTime = statistics.elapsedTime;
+            this.userPercentageOfTotalTime = Math.round(statistics.elapsedTime / 60 * 100);
             this.totalQuestions = statistics.totalQuestions;
             this.elapsedTimeDifference = Math.abs(Math.round(statistics.elapsedTimeDifference));
         }

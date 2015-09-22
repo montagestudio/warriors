@@ -1,0 +1,71 @@
+.bar {
+    display: flex;
+    box-sizing: border-box;
+    position: relative;
+    z-index: 1;
+    overflow: hidden;
+    padding-right: 40px;
+}
+
+.bar + .bar {
+    margin-top: 10px;
+}
+
+.bar-title {
+    box-sizing: border-box;
+    min-width: 50px;
+    padding: 0 8px;
+    height: 34px;
+    line-height: 34px;
+    background: rgb(255,204,51);
+    align-self: center;
+}
+
+/* animated bar */
+
+@keyframes animate-bar {
+   0% { transform: translateX(-100%); }
+}
+
+.bar-result {
+    height: 34px;
+    flex: 1;
+    color: rgb(4,82,156);
+    background: currentColor;
+    z-index: -1;
+    animation: animate-bar 1.25s 1.75s ease-out;
+}
+
+.bar-result:after,
+.bar-result:before {
+    content: '';
+    position: absolute;
+    right: -40px;
+    top: 0;
+    bottom: 0;
+    width: 41px;
+    z-index: 1;
+}
+
+.bar-result:before { background: currentColor; }
+.bar-result:after  { background: rgba(0,0,0,.1); }
+
+.bar:last-child .bar-result { color: #999; }
+
+/* bar numeric value*/
+
+.bar-data {
+    position: absolute;
+    line-height: 34px;
+    text-align: center;
+    width: 40px;
+    right: -40px;
+    color: #FFF;
+    z-index: 1;
+}
+
+/* pushes data value unit next to value*/
+
+.bar-data span:last-child {
+    margin-left: -3px;
+}

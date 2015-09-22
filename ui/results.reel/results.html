@@ -48,17 +48,140 @@
             }
         },
 
-        "elapsedTime": {
-            "prototype": "montage/ui/text.reel",
+        "percentageCorrectBar": {
+            "prototype": "ui/graph-bar.reel",
             "properties": {
-                "element": { "#": "elapsedTime" }
+                "element": { "#": "percentageCorrectBar" },
+                "title": "You",
+                "unit": "%"
             },
             "bindings": {
-                "value": { "<-": "@owner.elapsedTime" }
+                "value": {"<-": "@owner.percentageCorrect"},
+                "percentage": {"<-": "@owner.percentageCorrect"}
             }
         },
 
-        "percentDifference": {
+        "averageCorrectBar": {
+            "prototype": "ui/graph-bar.reel",
+            "properties": {
+                "element": { "#": "averageCorrectBar" },
+                "title": "Avg",
+                "unit": "%"
+            },
+            "bindings": {
+                "value": {"<-": "@owner.elapsedTime"},
+                "percentage": {"<-": "@owner.elapsedTime"}
+            }
+        },
+
+        "elapsedTimeBar": {
+            "prototype": "ui/graph-bar.reel",
+            "properties": {
+                "element": { "#": "elapsedTimeBar" },
+                "title": "You",
+                "unit": "s"
+            },
+            "bindings": {
+                "value": {"<-": "@owner.elapsedTime"},
+                "percentage": {"<-": "@owner.userPercentageOfTotalTime"}
+            }
+        },
+
+        "averageTimeBar": {
+            "prototype": "ui/graph-bar.reel",
+            "properties": {
+                "element": { "#": "averageTimeBar" },
+                "title": "Avg",
+                "unit": "s"
+            },
+            "bindings": {
+                "value": {"<-": "@owner.percentageCorrect"},
+                "percentage": {"<-": "@owner.userPercentageOfTotalTime"}
+            }
+        },
+
+        "reviewButton": {
+            "prototype": "montage/ui/button.reel",
+            "properties": {
+                "element": { "#": "reviewButton" }
+            }
+        },
+
+        "restartQuiz": {
+            "prototype": "montage/ui/button.reel",
+            "properties": {
+                "element": { "#": "restartQuiz" }
+            }
+        },
+
+        "sharing": {
+            "prototype": "ui/sharing.reel",
+            "properties": {
+                "element": { "#": "sharing" }
+            }
+        }
+
+    }
+    </script>
+</head>
+<body>
+    <div data-montage-id="owner" class="Results">
+        <div data-montage-id="results" class="results-container result-details">
+
+            <h2 class="results-ranking">Hit The Showers!</h2>
+            <div class="result-main">
+                <div data-montage-id="percentageCorrect" class="percentageCorrect">80</div>
+                <div>
+                    <div>
+                        <div class="answers-correct">
+                            <span data-montage-id="answersCorrect"></span>/<span data-montage-id="totalQuestions"></span>
+                            correct
+                        </div>
+                        <button data-montage-id="reviewButton" class="btn btn--small reviewButton">review</button>
+                    </div>
+
+                </div>
+            </div>
+            <div class="result-graphs">
+                <div class="result-data-container">
+                    <h2 class="result-title">Score</h2>
+                    <ul id="graph" class="graph">
+                        <li data-montage-id="percentageCorrectBar"></li>
+                        <li data-montage-id="averageCorrectBar"></li>
+                    </ul>
+                    <!-- <div>
+                        <span data-montage-id="percentDifference" class="data-unit" data-unit="%"></span>
+                        <span data-montage-id="isHigher"></span>
+                    </div> -->
+                </div>
+
+                <div class="result-data-container">
+                    <h2 class="result-title">Time</h2>
+                    <div class="graph-container">
+                        <ul id="graph" class="graph">
+                            <li data-montage-id="elapsedTimeBar"></li>
+                            <li data-montage-id="averageTimeBar"></li>
+                        </ul>
+                    </div>
+                    <!-- <div>
+                        <span data-montage-id="elapsedTime" class="data-unit" data-unit="s"></span>
+                        <span data-montage-id="timeDifference" class="data-unit" data-unit="s"></span>
+                        <span data-montage-id="isFaster"></span>
+                    </div> -->
+                </div>
+            </div>
+            <div>
+                <h2 class="result-title">Share your results</h2>
+                <div data-montage-id="sharing"></div>
+            </div>
+        </div>
+
+        <button data-montage-id="restartQuiz"  class="btn restartButton">Try Again!</button>
+    </div>
+</body>
+</html>
+
+"percentDifference": {
             "prototype": "montage/ui/text.reel",
             "properties": {
                 "element": { "#": "percentDifference" }
@@ -68,7 +191,6 @@
                 "classList.has('higher')": { "<-": "@owner.percentDifference >= 0"}
             }
         },
-
         "timeDifference": {
             "prototype": "montage/ui/text.reel",
             "properties": {
@@ -100,62 +222,12 @@
             }
         },
 
-        "restartQuiz": {
-            "prototype": "montage/ui/button.reel",
+        "elapsedTime": {
+            "prototype": "montage/ui/text.reel",
             "properties": {
-                "element": { "#": "restartQuiz" }
+                "element": { "#": "elapsedTime" }
+            },
+            "bindings": {
+                "value": { "<-": "@owner.elapsedTime" }
             }
         },
-
-        "sharing": {
-            "prototype": "ui/sharing.reel",
-            "properties": {
-                "element": { "#": "sharing" }
-            }
-        }
-
-    }
-    </script>
-</head>
-<body>
-    <div data-montage-id="owner" class="Results">
-        <div data-montage-id="results" class="results-container result-details">
-
-            <h1 class="results-header">Results</h1>
-            <div data-montage-id="percentageCorrect" class="percentageCorrect">80</div>
-            <div class="result-data">
-                <div class="result-answer">
-                    <div class="result-data-container">
-                        <div class="result-large">
-                            <span data-montage-id="answersCorrect"></span>/<span data-montage-id="totalQuestions"></span>
-                        </div>
-                        <span class="data-title">correct</span>
-                    </div>
-                    <div class="result-data-container">
-                        <div class="result-large"><span data-montage-id="percentDifference" class="data-unit" data-unit="%">10</span></div>
-                        <div class="data-title"><span data-montage-id="isHigher"></span> than average</div>
-                    </div>
-                </div>
-                <div class="result-timeDetails">
-
-                    <div class="result-data-container">
-                        <div class="result-large">
-                            :<span data-montage-id="elapsedTime" class="data-unit" data-unit="s">52</span>
-                        </div>
-                        <span class="data-title">elapsed time</span>
-                    </div>
-                    <div class="result-data-container">
-                        <div class="result-large"><span data-montage-id="timeDifference" class="data-unit" data-unit="s">5</span></div>
-                        <div class="data-title"><span data-montage-id="isFaster"></span> than average</div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="results-container share">
-            <h2 class="share-title">Share your results</h2>
-            <div data-montage-id="sharing"></div>
-        </div>
-        <button data-montage-id="restartQuiz"  class="btn restartButton">Try Again!</button>
-    </div>
-</body>
-</html>

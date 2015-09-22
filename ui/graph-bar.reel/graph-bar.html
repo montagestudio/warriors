@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <link rel="stylesheet" type="text/css" href="graph-bar.css">
+    <script type="text/montage-serialization">
+    {
+        "owner": {
+            "properties": {
+                "element": {"#": "owner"},
+                "barElement": {"#": "barResult"}
+            }
+        },
+
+        "title": {
+            "prototype": "montage/ui/text.reel",
+            "properties": {
+                "element": { "#": "title" }
+            },
+            "bindings": {
+                "value": { "<-": "@owner.title" }
+            }
+        },
+
+        "barValue": {
+            "prototype": "montage/ui/text.reel",
+            "properties": {
+                "element": { "#": "barValue" }
+            },
+            "bindings": {
+                "value": { "<-": "@owner.value" }
+            }
+        },
+
+        "barValueUnit": {
+            "prototype": "montage/ui/text.reel",
+            "properties": {
+                "element": { "#": "barValueUnit" }
+            },
+            "bindings": {
+                "value": { "<-": "@owner.unit" }
+            }
+        },
+
+        "barResult": {
+            "prototype": "montage/ui/component",
+            "properties": {
+                "element": { "#": "barResult"},
+                "hasTemplate": false
+            }
+        }
+    }
+    </script>
+</head>
+<body>
+    <li data-montage-id="owner" class="GraphBar bar">
+        <span data-montage-id="title" class="bar-title"></span>
+        <div data-montage-id="barResult" class="bar-result">
+            <div class="bar-data">
+                <span data-montage-id="barValue"></span>
+                <span data-montage-id="barValueUnit" ></span>
+            </div>
+        </div>
+    </li>
+</body>
+</html>
