@@ -1,3 +1,15 @@
+@font-face {
+    font-family: 'ds-digitalbold';
+    src: url('../fonts/ds-digib-webfont.eot');
+    src: url('../fonts/ds-digib/ds-digib-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/ds-digib/ds-digib-webfont.woff2') format('woff2'),
+         url('../fonts/ds-digib/ds-digib-webfont.woff') format('woff'),
+         url('../fonts/ds-digib/ds-digib-webfont.ttf') format('truetype'),
+         url('../fonts/ds-digib/ds-digib-webfont.svg#ds-digitalbold') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
 body {
     font-family: "arvo", "Helvetica Neue", Helvetica, Arial, sans-serif;
     font-size: 13px;
@@ -12,8 +24,10 @@ body:after {
     bottom: 0;
     left:   0;
     right:  0;
-    background: rgba(0,0,0,1);
-    transition: opacity .5s .5s ease-out, visibility .5s .5s ease-out;
+    background-color: #000;
+    background-image: radial-gradient(rgba(255,255,255,.9),rgba(0,0,0,.8) 90%);
+    color: #333;
+    transition: opacity .5s ease-out, visibility .5s ease-out;
     visibility: visible;
 }
 
@@ -27,10 +41,23 @@ body:after {
     z-index: 1;
     width: 100%;
     text-align: center;
-    color: #FFF;
+    font-size: 24px;
     top: 50%;
     line-height: 50px;
     margin-top: -25px;
+}
+
+
+/* clearfix */
+
+.cf:before,
+.cf:after {
+    content: " "; /* 1 */
+    display: table; /* 2 */
+}
+
+.cf:after {
+    clear: both;
 }
 
 button {
@@ -43,17 +70,129 @@ button {
 
 .btn {
     width: 100%;
-    background: rgb(4,82,156);
+    background: linear-gradient(#036DCF, #0466C2);
     outline: none;
     border: none;
     font-size: 2em;
+    font-family: "arvo";
+    font-weight: 400;
+    letter-spacing: .5px;
     color: #FFF;
     padding: 1em 1em;
     cursor: pointer;
     border-radius: 4px;
+    border: 2px solid rgb(4,82,156);
+    text-shadow: 0 1px 1px #034380;
+}
+
+.btn--small {
+    font-size: 1em;
+    width: auto;
+    padding: .5em;
+    min-width: 80px;
 }
 
 .btn:hover,
 .btn:active {
-    background-color: rgb(0,75,150);
+    background: #0466C2;
 }
+
+.btn:active {
+    background: linear-gradient(#0466C2, #036DCF);
+    text-shadow: 0 -1px 1px #034380;
+}
+
+/* basketball animation */
+
+@-webkit-keyframes bounce {
+  0% {
+    -webkit-transform: translateY(-50px);
+            transform: translateY(-50px);
+  }
+  50% {
+    height: 80px;
+    width: 80px;
+  }
+  100% {
+    -webkit-transform: translateY(0px) rotate(1deg);
+            transform: translateY(0px) rotate(1deg);
+    height: 70px;
+    width: 90px;
+  }
+}
+@keyframes bounce {
+  0% {
+    -webkit-transform: translateY(-50px);
+            transform: translateY(-50px);
+  }
+  50% {
+    height: 80px;
+    width: 80px;
+  }
+  100% {
+    -webkit-transform: translateY(0px) rotate(1deg);
+            transform: translateY(0px) rotate(1deg);
+    height: 70px;
+    width: 90px;
+  }
+}
+@-webkit-keyframes shadow {
+  100% {
+    -webkit-transform: rotateX(100deg) scale(0.9);
+            transform: rotateX(100deg) scale(0.9);
+    opacity: 1;
+  }
+}
+@keyframes shadow {
+  100% {
+    -webkit-transform: rotateX(100deg) scale(0.9);
+            transform: rotateX(100deg) scale(0.9);
+    opacity: 1;
+  }
+}
+.ball-container {
+  position: relative;
+  height: 0px;
+  width: 130px;
+  display: inline-block;
+  transform: translateY(10px);
+}
+
+.ball-container:after {
+  content: '';
+  position: absolute;
+  bottom: 0px;
+  left: 50%;
+  height: 1px;
+  width: 1px;
+  border-radius: 50%;
+  opacity: .8;
+  background: rgba(0, 0, 0, 0.3);
+  -webkit-transform: rotateX(100deg);
+          transform: rotateX(100deg);
+  box-shadow: 0 0 70px 20px rgba(0, 0, 0, 0.3);
+  -webkit-animation: shadow 0.35s infinite cubic-bezier(0.5, 0, 0.5, 1) alternate;
+          animation: shadow 0.35s infinite cubic-bezier(0.5, 0, 0.5, 1) alternate;
+  z-index: -1;
+}
+
+.ball {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  margin-left: -40px;
+  width: 80px;
+  height: 80px;
+  -webkit-animation: bounce 0.35s infinite cubic-bezier(0.5, 0, 0.5, 1) alternate;
+          animation: bounce 0.35s infinite cubic-bezier(0.5, 0, 0.5, 1) alternate;
+  -webkit-transform-origin: bottom;
+      -ms-transform-origin: bottom;
+          transform-origin: bottom;
+  z-index: 2;
+}
+
+.ball img {
+  height: 100%;
+  width: 100%;
+}
+
