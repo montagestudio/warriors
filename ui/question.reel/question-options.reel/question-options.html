@@ -44,6 +44,21 @@
                 "transition": {"<-": "!@owner.transitionStarted"},
                 "activeCard": {"<-": "@flow.contentController.content[currentIndex] == data"}
             }
+        },
+
+        "scene": {
+            "prototype": "mjs-volume/runtime/scene",
+            "properties": {
+                "path": "../../../assets/3d/Spald.json"
+            }
+        },
+        "sceneView": {
+            "prototype": "mjs-volume/ui/scene-view.reel",
+            "properties": {
+                "element": {"#": "sceneView"},
+                "scene": {"@": "scene"},
+                "allowsViewPointControl": false
+            }
         }
     }
     </script>
@@ -51,9 +66,12 @@
 <body>
     <div data-montage-id="owner" class="QuestionOptions">
         <div class="flow-container">
-        <div data-montage-id="flow" class="flow-Ribbon">
-            <div data-montage-id="option"></div>
-        </div>
+            <div data-montage-id="sceneView" class="sceneView">
+                <canvas data-montage-id="canvas"></canvas>
+            </div>
+            <div data-montage-id="flow" class="flow-Ribbon">
+                <div data-montage-id="option"></div>
+            </div>
         </div>
     </div>
 </body>
