@@ -130,6 +130,49 @@ exports.QuestionOptions = Component.specialize(/** @lends QuestionOptions# */ {
             // handle resize function this.setPaths
 
             window.addEventListener("resize", this, false);
+
+            var sceneView = this.templateObjects.sceneView;
+            var cameraController = sceneView.cameraController;
+
+            // Zoom the ball once the scene is ready to go
+            sceneView.addEventListener("firstFrameDidRender", function() {
+                cameraController.node = self.templateObjects.scene.rootNode;
+                cameraController.zoom({
+                    wheelDeltaY: 7000
+                });
+                sceneView.needsDraw = true;
+            });
+
+            var self = this;
+            this.templateObjects.flow.addPathChangeListener("scroll", function(value) {
+                if (!value) {
+                    return;
+                }
+
+                var angle = value * -20;
+
+                cameraController.node = self.templateObjects.scene.rootNode;
+
+                cameraController.beginTranslate({
+                    type: "translateStart",
+                    translateX: 0,
+                    translateY: 0
+                });
+
+                cameraController.translate({
+                    type: "translate",
+                    translateX: angle,
+                    translateY: 0
+                });
+
+                cameraController.endTranslate({
+                    type: "translateEnd",
+                    translateX: 0,
+                    translateY: 0
+                });
+
+                sceneView.needsDraw = true;
+            });
         }
     }
 });
