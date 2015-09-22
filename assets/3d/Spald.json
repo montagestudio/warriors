@@ -1,90 +1,37 @@
 {
     "accessors": {
         "accessor_21": {
-            "bufferView": "bufferView_56",
+            "bufferView": "bufferView_29",
             "byteOffset": 0,
             "byteStride": 0,
-            "count": 6,
-            "type": 5123
+            "componentType": 5123,
+            "count": 9792,
+            "type": "SCALAR"
         },
         "accessor_23": {
-            "bufferView": "bufferView_57",
+            "bufferView": "bufferView_30",
             "byteOffset": 0,
             "byteStride": 12,
-            "count": 4,
+            "componentType": 5126,
+            "count": 6704,
             "max": [
-                100,
-                100,
-                0
+                0.0825343,
+                0.0823955,
+                0.0821437
             ],
             "min": [
-                -100,
-                -100,
-                0
+                -0.0828038,
+                -0.0827312,
+                -0.0821437
             ],
-            "type": 35665
+            "type": "VEC3"
         },
         "accessor_25": {
-            "bufferView": "bufferView_57",
-            "byteOffset": 48,
+            "bufferView": "bufferView_30",
+            "byteOffset": 80448,
             "byteStride": 12,
-            "count": 4,
-            "max": [
-                0,
-                0,
-                1
-            ],
-            "min": [
-                0,
-                0,
-                1
-            ],
-            "type": 35665
-        },
-        "accessor_27": {
-            "bufferView": "bufferView_57",
-            "byteOffset": 96,
-            "byteStride": 8,
-            "count": 4,
-            "max": [
-                2.54868,
-                2.54868
-            ],
-            "min": [
-                -1.54868,
-                -1.54868
-            ],
-            "type": 35664
-        },
-        "accessor_48": {
-            "bufferView": "bufferView_56",
-            "byteOffset": 12,
-            "byteStride": 0,
-            "count": 9792,
-            "type": 5123
-        },
-        "accessor_50": {
-            "bufferView": "bufferView_57",
-            "byteOffset": 128,
-            "byteStride": 12,
-            "count": 2172,
-            "max": [
-                8.25343,
-                8.23955,
-                8.21437
-            ],
-            "min": [
-                -8.28038,
-                -8.27312,
-                -8.21437
-            ],
-            "type": 35665
-        },
-        "accessor_52": {
-            "bufferView": "bufferView_57",
-            "byteOffset": 26192,
-            "byteStride": 12,
-            "count": 2172,
+            "componentType": 5126,
+            "count": 6704,
             "max": [
                 0.999992,
                 0.999647,
@@ -95,13 +42,14 @@
                 -0.999933,
                 -1
             ],
-            "type": 35665
+            "type": "VEC3"
         },
-        "accessor_54": {
-            "bufferView": "bufferView_57",
-            "byteOffset": 52256,
+        "accessor_27": {
+            "bufferView": "bufferView_30",
+            "byteOffset": 160896,
             "byteStride": 8,
-            "count": 2172,
+            "componentType": 5126,
+            "count": 6704,
             "max": [
                 0.993872,
                 0.979706
@@ -110,78 +58,61 @@
                 0,
                 0.035873
             ],
-            "type": 35664
+            "type": "VEC2"
         }
     },
     "animations": {},
     "asset": {
-        "generator": "collada2gltf@63e932907e3f0c834c8668d04f03ddb6eabf78d1",
+        "generator": "collada2gltf@abb81d52ce290268fdb67b96f5bc5c620dee5bb5",
         "premultipliedAlpha": true,
         "profile": "WebGL 1.0.2",
-        "version": 0.6
+        "version": 0.8
     },
     "bufferViews": {
-        "bufferView_56": {
+        "bufferView_29": {
             "buffer": "Spald",
-            "byteLength": 19596,
+            "byteLength": 19584,
             "byteOffset": 0,
             "target": 34963
         },
-        "bufferView_57": {
+        "bufferView_30": {
             "buffer": "Spald",
-            "byteLength": 69632,
-            "byteOffset": 19596,
+            "byteLength": 214528,
+            "byteOffset": 19584,
             "target": 34962
         }
     },
     "buffers": {
         "Spald": {
-            "byteLength": 89228,
-            "path": "Spald.bin",
-            "type": "arraybuffer"
+            "byteLength": 234112,
+            "type": "arraybuffer",
+            "uri": "Spald.bin"
         }
     },
     "images": {
         "ID10": {
-            "path": "bas2diff.jpg"
+            "uri": "bas2diff.jpg"
         },
         "ID5": {
-            "path": "parquet_DIF.jpg"
+            "uri": "parquet_DIF.jpg"
         }
     },
     "materials": {
-        "ID4": {
-            "instanceTechnique": {
-                "technique": "technique0",
-                "values": {
-                    "diffuse": "texture_ID5",
-                    "filterColor": [
-                        1,
-                        1,
-                        1,
-                        1
-                    ],
-                    "shininess": 16.64,
-                    "specular": [
-                        0.05,
-                        0.05,
-                        0.05,
-                        1
-                    ],
-                    "transparency": 1
-                }
-            },
-            "name": "_24_-_Default"
-        },
         "ID9": {
             "instanceTechnique": {
                 "technique": "technique0",
                 "values": {
+                    "ambient": [
+                        0,
+                        0,
+                        0,
+                        1
+                    ],
                     "diffuse": "texture_ID10",
-                    "filterColor": [
-                        1,
-                        1,
-                        1,
+                    "emission": [
+                        0,
+                        0,
+                        0,
                         1
                     ],
                     "shininess": 16.64,
@@ -190,16 +121,15 @@
                         0.05,
                         0.05,
                         1
-                    ],
-                    "transparency": 1
+                    ]
                 }
             },
-            "name": "_01_-_Default"
+            "name": "_01___Default"
         }
     },
     "meshes": {
-        "ID16": {
-            "name": "ID16",
+        "ID31": {
+            "name": "ID31",
             "primitives": [
                 {
                     "attributes": {
@@ -208,21 +138,6 @@
                         "TEXCOORD_0": "accessor_27"
                     },
                     "indices": "accessor_21",
-                    "material": "ID4",
-                    "primitive": 4
-                }
-            ]
-        },
-        "ID31": {
-            "name": "ID31",
-            "primitives": [
-                {
-                    "attributes": {
-                        "NORMAL": "accessor_52",
-                        "POSITION": "accessor_50",
-                        "TEXCOORD_0": "accessor_54"
-                    },
-                    "indices": "accessor_48",
                     "material": "ID9",
                     "primitive": 4
                 }
@@ -234,48 +149,23 @@
             "children": [],
             "matrix": [
                 0.0497557,
-                1.56267e-10,
+                0,
                 3.48058,
                 0,
                 -3.48517,
-                2.23681e-12,
+                0,
                 0.0498213,
                 0,
                 0,
                 3.45775,
-                -1.55241e-10,
                 0,
-                -0.123078,
-                8.21427,
-                -0.0984083,
+                0,
+                -0.00123078,
+                0.0821427,
+                -0.00098408,
                 1
             ],
             "name": "Object01"
-        },
-        "ID15": {
-            "children": [],
-            "matrix": [
-                2.95234,
-                0,
-                0,
-                0,
-                0,
-                1.3255e-10,
-                -2.95234,
-                0,
-                0,
-                2.95234,
-                1.3255e-10,
-                0,
-                0.3663,
-                0,
-                -0.549451,
-                1
-            ],
-            "meshes": [
-                "ID16"
-            ],
-            "name": "Plane01"
         },
         "ID24": {
             "children": [],
@@ -292,9 +182,9 @@
                 0.213776,
                 0.70911,
                 0,
-                30.3305,
-                17.9155,
-                31.8663,
+                0.303305,
+                0.179155,
+                0.318663,
                 1
             ],
             "name": "Camera01"
@@ -307,24 +197,24 @@
                 0,
                 0,
                 0,
-                4.48966e-11,
+                0,
                 -1,
                 0,
                 0,
                 1,
-                4.48966e-11,
                 0,
-                0.0814788,
-                8.29143,
-                -0.0574864,
+                0,
+                0.00081479,
+                0.0829143,
+                -0.00057486,
                 1
             ],
-            "name": "Camera01.Target"
+            "name": "Camera01_Target"
         },
         "ID26": {
             "children": [],
             "matrix": [
-                0.729231,
+                0.729232,
                 0,
                 0.684267,
                 0,
@@ -334,11 +224,11 @@
                 0,
                 -0.550758,
                 0.593427,
-                0.586949,
+                0.58695,
                 0,
-                -121.56,
-                134.409,
-                129.111,
+                -1.2156,
+                1.34409,
+                1.29111,
                 1
             ],
             "name": "Spot01"
@@ -351,38 +241,38 @@
                 0,
                 0,
                 0,
-                4.48966e-11,
+                0,
                 -1,
                 0,
                 0,
                 1,
-                4.48966e-11,
                 0,
-                -0.319021,
-                3.77417,
-                -0.0979458,
+                0,
+                -0.00319021,
+                0.0377417,
+                -0.00097946,
                 1
             ],
-            "name": "Spot01.Target"
+            "name": "Spot01_Target"
         },
         "ID28": {
             "children": [],
             "matrix": [
-                4.48966e-11,
+                0,
                 0,
                 -1,
                 0,
-                -0.999909,
-                0.0134543,
-                -4.48926e-11,
+                -0.99991,
+                0.0134544,
                 0,
-                0.0134543,
-                0.999909,
-                6.04052e-13,
                 0,
-                2.44963,
-                69.3151,
-                3.02986e-06,
+                0.0134544,
+                0.99991,
+                0,
+                0,
+                0.0244963,
+                0.693151,
+                0,
                 1
             ],
             "name": "Area01"
@@ -396,37 +286,37 @@
                 0,
                 0,
                 1,
-                2.22044e-16,
                 0,
                 0,
-                -2.22044e-16,
+                0,
+                0,
                 1,
                 0,
-                1.56171,
-                3.3284,
-                1.45489e-07,
+                0.0156171,
+                0.033284,
+                0,
                 1
             ],
-            "name": "Area01.Target"
+            "name": "Area01_Target"
         },
         "ID30": {
             "children": [],
             "matrix": [
+                0,
+                0,
+                1,
+                0,
                 1,
                 0,
                 0,
                 0,
                 0,
-                4.48966e-11,
                 -1,
                 0,
                 0,
-                -1,
-                -4.48966e-11,
-                0,
-                -0.123078,
-                8.21426,
-                -0.0984083,
+                -0.00123078,
+                0.0821426,
+                -0.00098408,
                 1
             ],
             "meshes": [
@@ -481,7 +371,6 @@
         "defaultScene": {
             "nodes": [
                 "ID14",
-                "ID15",
                 "ID24",
                 "ID25",
                 "ID26",
@@ -495,29 +384,26 @@
     },
     "shaders": {
         "Spald0FS": {
-            "path": "Spald0FS.glsl",
-            "type": 35632
+            "type": 35632,
+            "uri": "Spald0FS.glsl"
         },
         "Spald0VS": {
-            "path": "Spald0VS.glsl",
-            "type": 35633
+            "type": 35633,
+            "uri": "Spald0VS.glsl"
         }
     },
     "skins": {},
     "techniques": {
         "technique0": {
             "parameters": {
+                "ambient": {
+                    "type": 35666
+                },
                 "diffuse": {
                     "type": 35678
                 },
-                "filterColor": {
-                    "type": 35666,
-                    "value": [
-                        1,
-                        1,
-                        1,
-                        1
-                    ]
+                "emission": {
+                    "type": 35666
                 },
                 "modelViewMatrix": {
                     "semantic": "MODELVIEW",
@@ -548,9 +434,6 @@
                 "texcoord0": {
                     "semantic": "TEXCOORD_0",
                     "type": 35664
-                },
-                "transparency": {
-                    "type": 5126
                 }
             },
             "pass": "defaultPass",
@@ -559,18 +442,16 @@
                     "details": {
                         "commonProfile": {
                             "extras": {
-                                "doubleSided": false
+                                "doubleSided": true
                             },
                             "lightingModel": "Blinn",
                             "parameters": [
                                 "diffuse",
-                                "filterColor",
+                                "emission",
                                 "modelViewMatrix",
                                 "normalMatrix",
                                 "projectionMatrix",
-                                "shininess",
-                                "specular",
-                                "transparency"
+                                "shininess"
                             ],
                             "texcoordBindings": {
                                 "diffuse": "TEXCOORD_0"
@@ -587,20 +468,17 @@
                         "program": "program_0",
                         "uniforms": {
                             "u_diffuse": "diffuse",
-                            "u_filterColor": "filterColor",
+                            "u_emission": "emission",
                             "u_modelViewMatrix": "modelViewMatrix",
                             "u_normalMatrix": "normalMatrix",
                             "u_projectionMatrix": "projectionMatrix",
-                            "u_shininess": "shininess",
-                            "u_specular": "specular",
-                            "u_transparency": "transparency"
+                            "u_shininess": "shininess"
                         }
                     },
                     "states": {
-                        "blendEnable": 0,
-                        "cullFaceEnable": 1,
-                        "depthMask": 1,
-                        "depthTestEnable": 1
+                        "enable": [
+                            2929
+                        ]
                     }
                 }
             }
