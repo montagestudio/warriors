@@ -53,7 +53,49 @@
                 }
             },
 
-            "playerHeightInFeet": {
+            "submitAnswer": {
+                "prototype": "montage/ui/button.reel",
+                "properties": {
+                    "element": {"#": "submitAnswer"}
+                }
+            }
+        }
+    </script>
+</head>
+<body>
+    <div data-montage-id="questionOption" class="questionOption">
+        <div class="cardOverflow">
+            <div class="playerInfoWrapper">
+                <div class="playerInfo">
+                    <div data-montage-id="playerNumber" class="playerNumber"></div>
+                    <div class="angledTextWrapper">
+                        <div data-montage-id="playerName" class="playerName"></div>
+                        <div data-montage-id="playerPosition" class="playerPosition"></div>
+                        <div data-montage-id="teamName" class="teamName">Golden State Warriors</div>
+                    </div>
+                    <div class="playerDetails">
+                        <div class="playerSpecs"></div>
+                    </div>
+                    <!-- <div class="playerDetails">
+                        <div class="playerSpecs">
+                            <div class="playerHeight">Height<p><span data-montage-id="playerHeightInFeet"></span><span data-montage-id="playerHeightInInches"></span></p></div>
+                            <div class="playerWeight">Weight<p data-montage-id="playerWeight"></p></div>
+                            <div class="playerBirth">Born<p data-montage-id="playerBirthdate"></p></div>
+                        </div>
+                        <div data-montage-id="playerSummary" class="playerSummary">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laudantium facilis earum cumque, doloremque pariatur quibusdam et recusandae saepe quia adipisci itaque explicabo animi obcaecati distinctio fuga. Velit possimus debitis, veniam.</div>
+                    </div> -->
+                </div>
+            </div>
+            <div data-montage-id="playerImage" class="playerImage"></div>
+        </div>
+        <div class="voting">
+            <button data-montage-id="submitAnswer" class="btn submitAnswer">Select Player</button>
+        </div>
+    </div>
+</body>
+</html>
+
+<!-- "playerHeightInFeet": {
                 "prototype": "montage/ui/text.reel",
                 "properties": {
                     "element": {"#": "playerHeightInFeet"}
@@ -101,45 +143,6 @@
               "bindings": {
                   "value": {"<-": "@owner.data.birthdate"}
               }
-            },
-
-            "submitAnswer": {
-                "prototype": "montage/ui/button.reel",
-                "properties": {
-                    "element": {"#": "submitAnswer"}
-                }
-            }
-        }
-    </script>
-</head>
-<body>
-    <div data-montage-id="questionOption" class="questionOption">
-        <div class="cardOverflow">
-            <div class="playerInfoWrapper">
-                <div class="playerInfo">
-                    <div data-montage-id="playerNumber" class="playerNumber"></div>
-                    <div class="angledTextWrapper">
-                        <div data-montage-id="playerName" class="playerName"></div>
-                        <div data-montage-id="playerPosition" class="playerPosition"></div>
-                        <div data-montage-id="teamName" class="teamName">Golden State Warriors</div>
-                    </div>
-                    <div class="playerDetails">
-                        <div class="playerSpecs">
-                            <div class="playerHeight">Height<p><span data-montage-id="playerHeightInFeet"></span><span data-montage-id="playerHeightInInches"></span></p></div>
-                            <div class="playerWeight">Weight<p data-montage-id="playerWeight"></p></div>
-                            <div class="playerBirth">Born<p data-montage-id="playerBirthdate"></p></div>
-                        </div>
-                        <div data-montage-id="playerSummary" class="playerSummary">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laudantium facilis earum cumque, doloremque pariatur quibusdam et recusandae saepe quia adipisci itaque explicabo animi obcaecati distinctio fuga. Velit possimus debitis, veniam.</div>
-                    </div>
-                </div>
-            </div>
-            <div data-montage-id="playerImage" class="playerImage"></div>
-        </div>
-        <div class="voting">
-            <button data-montage-id="submitAnswer" class="btn submitAnswer">Select Player</button>
-        </div>
-    </div>
-</body>
-</html>
+            }, -->
 
 
