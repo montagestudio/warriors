@@ -108,20 +108,20 @@ html {
 
 .Main .flashes {
     position: absolute;
-    top: 5%;
+    top: 30%;
     left: 0;
-    height: 60%;
+    height: 50%;
     width: 100%;
     text-align: center;
     color: #FFF;
-    -webkit-filter: blur(3px);
-            filter: blur(3px);
+    -webkit-filter: blur(5px);
+            filter: blur(5px);
 /*    background: blue;*/
 }
 
-@media (min-width: 700px)  { .flashes { -webkit-filter: blur(5px); filter: blur(5px); }}
-@media (min-width: 1000px) { .flashes { -webkit-filter: blur(8px); filter: blur(8px); }}
-@media (min-width: 1500px) { .flashes { -webkit-filter: blur(12px); filter: blur(12px); }}
+@media (min-width: 700px)  { .flashes { -webkit-filter: blur(7px); filter: blur(7px); }}
+@media (min-width: 1000px) { .flashes { -webkit-filter: blur(10px); filter: blur(10px); }}
+@media (min-width: 1500px) { .flashes { -webkit-filter: blur(15px); filter: blur(15px); }}
 
 @-webkit-keyframes flash-1 {
     0%   {opacity: 0;}
@@ -150,52 +150,52 @@ html {
 }
 
 .flash1 {
-    -webkit-transform: translate(10px,10px);
-            transform: translate(10px,10px);
+    -webkit-transform: translate(10px,10px) scale(.3);
+            transform: translate(10px,10px) scale(.3);
     -webkit-animation: flash-1 3s infinite both;
             animation: flash-1 3s infinite both;
 }
 
 .flash2 {
-    -webkit-transform: translate(100px,68px);
-            transform: translate(100px,68px);
+    -webkit-transform: translate(100px,68px) scale(.3);
+            transform: translate(100px,68px) scale(.3);
     -webkit-animation: flash-1 4s .5s infinite both;
             animation: flash-1 4s .5s infinite both;
 }
 
 .flash3 {
-    -webkit-transform: translate(45px,36px) scale(.8);
-            transform: translate(45px,36px) scale(.6);
+    -webkit-transform: translate(45px,36px) scale(.3);
+            transform: translate(45px,36px) scale(.3);
     -webkit-animation: flash-1 2.5s 1.25s infinite both;
             animation: flash-1 2.5s 1.25s infinite both;
 }
 .flash4 {
-    -webkit-transform: translate(165px,8px) scale(.6);
-            transform: translate(165px,8px) scale(.6);
+    -webkit-transform: translate(165px,8px) scale(.4);
+            transform: translate(165px,8px) scale(.4);
     -webkit-animation: flash-1 3.5s .25s infinite both;
             animation: flash-1 3.5s .25s infinite both;
 }
 .flash5 {
-    -webkit-transform: translate(120px,25px);
-            transform: translate(120px,25px);
+    -webkit-transform: translate(120px,25px) scale(.3);
+            transform: translate(120px,25px) scale(.3);
     -webkit-animation: flash-1 4.75s 1s infinite both;
             animation: flash-1 4.75s 1s infinite both;
 }
 .flash6 {
-    -webkit-transform: translate(25px,80px);
-            transform: translate(25px,80px);
+    -webkit-transform: translate(25px,80px) scale(.3);
+            transform: translate(25px,80px) scale(.3);
     -webkit-animation: flash-1 1.75s .75s infinite both;
             animation: flash-1 1.75s .75s infinite both;
 }
 .flash7 {
-    -webkit-transform: translate(90px,50px);
-            transform: translate(90px,50px);
+    -webkit-transform: translate(90px,50px) scale(.4);
+            transform: translate(90px,50px) scale(.4);
     -webkit-animation: flash-1 2.75s infinite both;
             animation: flash-1 2.75s infinite both;
 }
 .flash8 {
-    -webkit-transform: translate(160px,50px);
-            transform: translate(160px,50px);
+    -webkit-transform: translate(160px,50px) scale(.3);
+            transform: translate(160px,50px) scale(.3);
     -webkit-animation: flash-1 6s infinite both;
             animation: flash-1 6s infinite both;
 }

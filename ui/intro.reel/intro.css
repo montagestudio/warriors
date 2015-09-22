@@ -41,7 +41,7 @@
 /* setting up the animation */
 
 .intro > * {
-    animation: intro 1s .5s ease both;
+    /*animation: intro 1s .5s ease both;*/
 }
 
 .intro > :nth-child(2) { -webkit-animation-delay: 1.5s; animation-delay: 1.5s; }
