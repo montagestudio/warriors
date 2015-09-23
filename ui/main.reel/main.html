@@ -98,6 +98,12 @@
             "bindings": {
                 "classList.has('is-visible')": {"<-": "@owner.application.quizController.showTimerEndedModal"}
             }
+        },
+        "montageLogo": {
+            "prototype": "ui/montage-logo.reel",
+            "properties": {
+                "element": {"#": "montageLogo"}
+            }
         }
     }
     </script>
@@ -134,6 +140,7 @@
         <div data-montage-id="sceneView">
             <canvas data-montage-id="canvas"></canvas>
         </div>
+        <a href="http://www.montagestudio.com" data-montage-id="montageLogo"></a>
     </div>
 </body>
 </html>

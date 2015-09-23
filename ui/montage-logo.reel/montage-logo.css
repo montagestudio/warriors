@@ -1,0 +1,56 @@
+.MontageLogo {
+  position: fixed;
+  height: 50px;
+  left: 50px;
+  width: 0;
+  bottom: 33.33333px;
+  background: rgba(255, 255, 255, 0.2);
+  line-height: 50px;
+  color: white;
+  border-radius: 50px;
+  padding: 0 25px;
+  overflow: hidden;
+  -webkit-transition: all .15s ease-in-out;
+          transition: all .15s ease-in-out;
+  opacity: .5;
+}
+.MontageLogo svg {
+  box-sizing: border-box;
+  position: absolute;
+  right: 15px;
+  width: 26px;
+  height: 50px;
+  -webkit-transform: translateX(3px);
+      -ms-transform: translateX(3px);
+          transform: translateX(3px);
+  -webkit-transition: -webkit-transform .15s ease-in-out;
+          transition: transform .15s ease-in-out;
+}
+.MontageLogo:hover {
+  width: 86px;
+  opacity: 1;
+}
+.MontageLogo:hover:after {
+  -webkit-transform: translateX(0px);
+      -ms-transform: translateX(0px);
+          transform: translateX(0px);
+}
+.MontageLogo:hover svg {
+  -webkit-transform: translateX(0px);
+      -ms-transform: translateX(0px);
+          transform: translateX(0px);
+}
+.MontageLogo:after {
+  position: absolute;
+  content: attr(data-text);
+  font-family: gotham;
+  font-weight: 200;
+  /*font-size: .85em;*/
+  left: 15px;
+  color: rgba(255, 255, 255, 0.8);
+  -webkit-transform: translateX(-60px);
+      -ms-transform: translateX(-60px);
+          transform: translateX(-60px);
+  -webkit-transition: -webkit-transform .15s ease-in-out;
+          transition: transform .15s ease-in-out;
+}
