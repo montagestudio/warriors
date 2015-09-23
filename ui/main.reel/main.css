@@ -6,6 +6,12 @@ html {
     right: 0;
 }
 
+/* scene */
+
+.View {
+    display: none;
+}
+
 .Main {
     position: absolute;
     -webkit-transform-style: preserve-3d;
