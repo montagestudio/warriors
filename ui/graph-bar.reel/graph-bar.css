@@ -1,4 +1,6 @@
 .bar {
+    display: -webkit-flex;
+    display: -ms-flexbox;
     display: flex;
     box-sizing: border-box;
     position: relative;
@@ -18,22 +20,31 @@
     height: 34px;
     line-height: 34px;
     background: rgb(255,204,51);
-    align-self: center;
+    -webkit-align-self: center;
+        -ms-flex-item-align: center;
+            align-self: center;
 }
 
 /* animated bar */
 
+@-webkit-keyframes animate-bar {
+   0% { -webkit-transform: translateX(-100%); transform: translateX(-100%); }
+}
+
 @keyframes animate-bar {
-   0% { transform: translateX(-100%); }
+   0% { -webkit-transform: translateX(-100%); transform: translateX(-100%); }
 }
 
 .bar-result {
     height: 34px;
-    flex: 1;
+    -webkit-flex: 1;
+        -ms-flex: 1;
+            flex: 1;
     color: rgb(4,82,156);
     background: currentColor;
     z-index: -1;
-    animation: animate-bar 1.25s 1.75s ease-out;
+    -webkit-animation: animate-bar 1.25s 1.75s ease-out;
+            animation: animate-bar 1.25s 1.75s ease-out;
 }
 
 .bar-result:after,

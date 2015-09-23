@@ -155,7 +155,8 @@ button {
   height: 0px;
   width: 130px;
   display: inline-block;
-  transform: translateY(10px);
+  -webkit-transform: translateY(10px);
+          transform: translateY(10px);
 }
 
 .ball-container:after {
@@ -186,7 +187,6 @@ button {
   -webkit-animation: bounce 0.35s infinite cubic-bezier(0.5, 0, 0.5, 1) alternate;
           animation: bounce 0.35s infinite cubic-bezier(0.5, 0, 0.5, 1) alternate;
   -webkit-transform-origin: bottom;
-      -ms-transform-origin: bottom;
           transform-origin: bottom;
   z-index: 2;
 }

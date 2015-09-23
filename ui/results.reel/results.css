@@ -24,7 +24,7 @@
 
 .Results {
     margin: 0 auto;
-    min-width: 440px;
+    max-width: 440px;
     -webkit-animation: results-in .5s cubic-bezier(.44,1.14,.77,1.16) forwards;
             animation: results-in .5s cubic-bezier(.44,1.14,.77,1.16) forwards;
 }
@@ -84,29 +84,25 @@
     float: left;
     text-align: center;
     margin-right: 15px;
-    align-self: center;
+    -webkit-align-self: center;
+        -ms-flex-item-align: center;
+            align-self: center;
 }
-
-/*.data-unit:after {
-    position: absolute;
-    content: attr(data-unit);
-    margin-left: .15em;
-    top: .6em;
-    font-size: .3em;
-    font-family: 'helvetica neue', sans-serif;
-}*/
 
 /* total percent */
 
 .percentageCorrect {
-    flex: 1;
+    -webkit-flex: 1;
+        -ms-flex: 1;
+            flex: 1;
     position: relative;
     text-align: center;
     font-weight: 700;
     font-size: 9em;
     line-height: 1;
     margin-bottom: 15px;
-    transform: translateX(-10px);
+    -webkit-transform: translateX(-10px);
+            transform: translateX(-10px);
     color: rgb(4,82,156);
 }
 
@@ -157,7 +153,9 @@
 /* columns for flex */
 
 .result-data-container {
-    flex: 1;
+    -webkit-flex: 1;
+        -ms-flex: 1;
+            flex: 1;
     margin-right: 15px;
     text-align: center;
 }
