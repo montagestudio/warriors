@@ -160,6 +160,7 @@ exports.QuizController = Target.specialize(/** @lends QuizController# */ {
             this.answers = this.answerProvider.answers;
 
             // $Question - not sure where this goes now that the controllers are split
+
             // var totalWrong = this.quizProvider.getQuestionsCount() - this.statsProvider.getTotalCorrect();
             // var run = new Run(this._runId, totalWrong, this.timerProvider.currentTime, !!isFinished);
             // return self.statsProvider.loadRunStatistics()

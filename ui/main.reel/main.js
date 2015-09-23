@@ -8,6 +8,7 @@ var Component = require("montage/ui/component").Component,
     QuizController = require("core/quiz-controller").QuizController,
     AnswerProvider = require("core/answer-provider").AnswerProvider,
     StatsController = require("core/stats-controller").StatsController,
+    StatsProvider = require("core/stats-provider").StatsProvider,
     TimerProvider = require("core/timer-provider").TimerProvider,
     QuizProvider = require("core/quiz-provider").QuizProvider,
     BackendService = require("core/backend-service").BackendService,
@@ -27,17 +28,19 @@ exports.Main = Component.specialize( /** @lends module:"ui/main.reel".Main# */ {
             var answerProvider = new AnswerProvider();
             var timerProvider   = new TimerProvider();
             var quizProvider   = new QuizProvider();
+            var statsProvider   = new StatsProvider();
 
             backendService.init(configuration.backendUrl);
             answerProvider.init(backendService);
             quizProvider.init(configuration.quizId, backendService);
-
-
-            Application.statsController = new StatsController();
-            Application.statsController.init(quizProvider, configuration.quizId, answerProvider, timerProvider, backendService);
+            statsProvider.init(configuration.quizId, backendService);
 
             Application.quizController = new QuizController();
             Application.quizController.init(quizProvider, answerProvider, timerProvider);
+
+            // $Question - do we need to wait to init this?
+            Application.statsController = new StatsController();
+            Application.statsController.init(statsProvider, quizProvider.questions, answerProvider, timerProvider);
         }
     },
 

@@ -80,5 +80,11 @@ exports.TimerProvider = Target.specialize(/** @lends TimerProvider# */ {
                 this._hasExpired = true;
             }
         }
+    },
+
+    getElapsedTime: {
+        value: function () {
+            return this.quizTime - this.currentTime;
+        }
     }
 });

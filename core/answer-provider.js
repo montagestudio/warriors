@@ -47,6 +47,32 @@ exports.AnswerProvider = Montage.specialize(/** @lends AnswerProvider# */ {
         value: function(answer) {
             return this._backendService.post(['run', answer.runId, 'answer'].join('/'), answer);
         }
+    },
+
+    getTotalAnswers: {
+        value: function() {
+            return this.answers.length;
+        }
+    },
+
+    getTotalCorrect: {
+        value: function () {
+            if (this.answers.length > 0) {
+                return this.answers.filter(function(answer) { return answer.isCorrect; }).length;
+            } else {
+                return 0;
+            }
+        }
+    },
+
+    getTotalWrong: {
+        value: function () {
+            if (this.answers.length > 0) {
+                return this.answers.filter(function(answer) { return !answer.isCorrect; }).length;
+            } else {
+                return -1;
+            }
+        }
     }
 });
 
