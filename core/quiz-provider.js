@@ -41,7 +41,6 @@ exports.QuizProvider = Montage.specialize(/** @lends QuizProvider# */ {
                 .then(function (response) {
                     if (response.status === 200) {
                         self._quiz = Quiz.load(JSON.parse(response.body));
-                        // $question - is this where / how this should be done?
                         self.questions = self._quiz.questions;
                     }
                 });

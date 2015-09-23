@@ -14,6 +14,10 @@ exports.StatsController = Montage.specialize(/** @lends StatsController# */ {
         value: null
     },
 
+    _quizProvider: {
+        value: null
+    },
+
     _statsProvider: {
         value: null
     },
@@ -65,21 +69,39 @@ exports.StatsController = Montage.specialize(/** @lends StatsController# */ {
         }
     },
 
-    getPercentageCorrect: {
+    _getPercentageCorrect: {
         value: function () {
             return this._answerProvider.getTotalCorrect() / this._questions.length * 100;
         }
     },
 
-    getAveragePercentCorrect: {
+    _getAveragePercentageCorrect: {
         value: function () {
             return this._getAverageOfArray(this._statsProvider.quizPercentageCorrectArray);
         }
     },
 
-    getAverageElapsedTime: {
+    _getAverageElapsedTime: {
         value: function () {
-            return Math.round(this._getAverageOfArray(this._statsProvider.quizElapsedTimeArray)*100)/100;
+            return this._getAverageOfArray(this._statsProvider.quizElapsedTimeArray);
+        }
+    },
+
+    _convertToPercentage: {
+        value: function (a,b) {
+            return a / b * 100;
+        }
+    },
+
+    _getUserPercentageOfTotalTime: {
+        value: function () {
+            return this._convertToPercentage(this._timerProvider.quizTime,this._timerProvider.getElapsedTime());
+        }
+    },
+
+    _getAveragePercentageOfTotalTime: {
+        value: function () {
+            return this._convertToPercentage(this._timerProvider.quizTime, this._getAverageElapsedTime());
         }
     },
 
@@ -88,33 +110,30 @@ exports.StatsController = Montage.specialize(/** @lends StatsController# */ {
         }
     },
 
-    // $question - questions returns null here...what do we do?
-
     init: {
-        value: function(statsProvider, questions, answerProvider, timerProvider) {
+        value: function(statsProvider, quizProvider, answerProvider, timerProvider) {
             this._statsProvider = statsProvider;
             this._answerProvider = answerProvider;
             this._timerProvider = timerProvider;
-            this._questions = questions;
-            // this._quizId = quizId;
-            // this._backendService = backendService;
-            console.log(this._answerProvider);
+            this._quizProvider = quizProvider;
+            this._statsProvider.loadRunStatistics();
         }
     },
 
-    // $question - if this object is made public...then everything else is private?
-
     getStatistics: {
         value: function() {
+            this._questions = this._quizProvider.questions;
             this._statsProvider.loadRunStatistics();
 
             return {
-                percentageCorrect: this.getPercentageCorrect(),
+                percentageCorrect: this._getPercentageCorrect(),
                 totalCorrect: this._answerProvider.getTotalCorrect(),
                 elapsedTime: this._timerProvider.getElapsedTime(),
-                averagePercentCorrect: this.getAveragePercentCorrect(),
-                averageTimeElapsed: this.getAverageElapsedTime(),
-                totalQuestions: this._quizProvider.getQuestionsCount()
+                averagePercentageCorrect: this._getAveragePercentageCorrect(),
+                averageTimeElapsed: this._getAverageElapsedTime(),
+                totalQuestions: this._quizProvider.getQuestionsCount(),
+                userPercentageOfTotalTime: this._getUserPercentageOfTotalTime(),
+                averagePercentageOfTotalTime: this._getAveragePercentageOfTotalTime()
             };
         }
     }

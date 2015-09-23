@@ -38,9 +38,8 @@ exports.Main = Component.specialize( /** @lends module:"ui/main.reel".Main# */ {
             Application.quizController = new QuizController();
             Application.quizController.init(quizProvider, answerProvider, timerProvider);
 
-            // $Question - do we need to wait to init this?
             Application.statsController = new StatsController();
-            Application.statsController.init(statsProvider, quizProvider.questions, answerProvider, timerProvider);
+            Application.statsController.init(statsProvider, quizProvider, answerProvider, timerProvider);
         }
     },
 
@@ -77,7 +76,6 @@ exports.Main = Component.specialize( /** @lends module:"ui/main.reel".Main# */ {
             var self = this;
             Application.quizController.reset();
 
-            // $question - feels hacky
             setTimeout(function() {
                 Application.quizController.start()
                     .then(function() {

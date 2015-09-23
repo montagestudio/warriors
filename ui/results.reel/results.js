@@ -20,18 +20,6 @@ exports.Results = Component.specialize(/** @lends Results# */ {
         value: null
     },
 
-    // percentageCorrect: {
-    //     get: function () {
-    //         return this._percentageCorrect;
-    //     },
-    //     set: function (val) {
-    //         if (val !== this._percentageCorrect) {
-    //             this._percentageCorrect = val;
-    //             this.needsDraw = true;
-    //         }
-    //     }
-    // },
-
     answersCorrect: {
         value: null
     },
@@ -76,16 +64,8 @@ exports.Results = Component.specialize(/** @lends Results# */ {
             this.averagePercentageCorrect = Math.round(statistics.averagePercentageCorrect);
             this.averageTimeElapsed = Math.round(statistics.averageTimeElapsed);
             this.totalQuestions = statistics.totalQuestions;
-
-            // $question - should this math be done here? If so...probably should be in another function
-            this.userPercentageOfTotalTime = Math.round(this.elapsedTime / configuration.quizTime * 100);
-            this.averagePercentageOfTotalTime = Math.round(this.averageTimeElapsed / configuration.quizTime * 100);
-
-            // $question - I assume this isn't working because I don't know how to grab the data from the server
-            //
-            console.log("averagePercentageOfTotalTime: " + this.averagePercentageOfTotalTime);
-            console.log("averageTimeElapsed: " + this.averageTimeElapsed);
-            console.log("averagePercentageCorrect: " + statistics.averagePercentageCorrect);
+            this.userPercentageOfTotalTime = Math.round(statistics.userPercentageOfTotalTime);
+            this.averagePercentageOfTotalTime = Math.round(statistics.averagePercentageOfTotalTime);
         }
     }
 

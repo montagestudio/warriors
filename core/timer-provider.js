@@ -11,7 +11,7 @@ exports.TimerProvider = Target.specialize(/** @lends TimerProvider# */ {
 
     constructor: {
         value: function() {
-            this.tick = new Audio('../assets/tick.wav');
+            // this.tick = new Audio('../assets/tick.wav');
         }
     },
 

@@ -34,7 +34,6 @@ exports.StatsProvider = Montage.specialize(/** @lends StatsProvider# */ {
     loadRunStatistics: {
         value: function() {
             var self = this;
-            console.log(this._backendService);
             return this._backendService.get(['quiz', this._quizId, 'stats'].join('/'))
                 .then(function(response) {
                     if (response.status == 200) {

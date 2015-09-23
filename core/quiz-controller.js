@@ -55,19 +55,11 @@ exports.QuizController = Target.specialize(/** @lends QuizController# */ {
         value: null
     },
 
-    // $question - should this be a getter / setter? When should I do getters/setters?
-
     questions: {
         value: null
     },
 
     answers: {
-        value: null
-    },
-
-    // $question - not sure how to bind this value so that it is updated every second
-
-    currentTime: {
         value: null
     },
 
@@ -159,14 +151,9 @@ exports.QuizController = Target.specialize(/** @lends QuizController# */ {
             this.isFinished = true;
             this.answers = this.answerProvider.answers;
 
-            // $Question - not sure where this goes now that the controllers are split
-
-            // var totalWrong = this.quizProvider.getQuestionsCount() - this.statsProvider.getTotalCorrect();
-            // var run = new Run(this._runId, totalWrong, this.timerProvider.currentTime, !!isFinished);
-            // return self.statsProvider.loadRunStatistics()
-            //     .then(function() {
-            //         return self.quizProvider.endRun(run);
-            //     });
+            var totalWrong = this.quizProvider.getQuestionsCount() - this.answerProvider.getTotalCorrect();
+            var run = new Run(this._runId, this.answerProvider.getTotalCorrect(), totalWrong, this.timerProvider.currentTime, !!isFinished);
+            return this.quizProvider.endRun(run);
         }
     },
 
