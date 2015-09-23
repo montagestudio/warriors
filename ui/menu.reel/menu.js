@@ -18,13 +18,19 @@ exports.Menu = Component.specialize(/** @lends Menu# */ {
         value: false
     },
 
-    handleMenuToggleAction: {
+    toggleMenu: {
         value: function () {
             if(this.isMenuOpen) {
                 this.isMenuOpen = false;
             } else {
                 this.isMenuOpen = true;
             }
+        }
+    },
+
+    handleMenuToggleAction: {
+        value: function () {
+            this.toggleMenu();
         }
     }
 });

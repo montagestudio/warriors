@@ -11,7 +11,7 @@ var Montage = require("montage/core/core").Montage,
  */
 exports.QuizProvider = Montage.specialize(/** @lends QuizProvider# */ {
 
-    quiz: {
+    _quiz: {
         value: null
     },
 
@@ -20,6 +20,10 @@ exports.QuizProvider = Montage.specialize(/** @lends QuizProvider# */ {
     },
 
     _backendService: {
+        value: null
+    },
+
+    questions: {
         value: null
     },
 
@@ -36,7 +40,9 @@ exports.QuizProvider = Montage.specialize(/** @lends QuizProvider# */ {
             return this._backendService.get(['quiz', this._quizId].join('/'))
                 .then(function (response) {
                     if (response.status === 200) {
-                        self.quiz = Quiz.load(JSON.parse(response.body));
+                        self._quiz = Quiz.load(JSON.parse(response.body));
+                        // $question - is this where / how this should be done?
+                        self.questions = self._quiz.questions;
                     }
                 });
         }
@@ -61,8 +67,8 @@ exports.QuizProvider = Montage.specialize(/** @lends QuizProvider# */ {
 
     getTitle: {
         value: function() {
-            if (this.quiz) {
-                return this.quiz.title;
+            if (this._quiz) {
+                return this._quiz.title;
             }
             return null;
         }
@@ -70,8 +76,8 @@ exports.QuizProvider = Montage.specialize(/** @lends QuizProvider# */ {
 
     getQuestion: {
         value: function(index) {
-            if (this.quiz) {
-                return this.quiz.questions[index];
+            if (this._quiz) {
+                return this._quiz.questions[index];
             }
             return null;
         }
@@ -79,9 +85,8 @@ exports.QuizProvider = Montage.specialize(/** @lends QuizProvider# */ {
 
     getQuestionsCount: {
         value: function() {
-            if (this.quiz) {
-
-                return this.quiz.questions.length;
+            if (this._quiz) {
+                return this._quiz.questions.length;
             }
             return 0;
         }

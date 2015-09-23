@@ -69,7 +69,7 @@ exports.TimerProvider = Target.specialize(/** @lends TimerProvider# */ {
             var self = this;
 
             if(this._isRunning && this.currentTime > 0) {
-                self.tick.play();
+                // self.tick.play();
                 this._timeoutId = setTimeout(function(){
                     self.currentTime--;
                     self.increment();

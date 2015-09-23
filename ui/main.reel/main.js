@@ -7,7 +7,7 @@ var Component = require("montage/ui/component").Component,
     PressComposer = require("montage/composer/press-composer").PressComposer,
     QuizController = require("core/quiz-controller").QuizController,
     AnswerProvider = require("core/answer-provider").AnswerProvider,
-    StatsProvider = require("core/stats-provider").StatsProvider,
+    StatsController = require("core/stats-controller").StatsController,
     TimerProvider = require("core/timer-provider").TimerProvider,
     QuizProvider = require("core/quiz-provider").QuizProvider,
     BackendService = require("core/backend-service").BackendService,
@@ -25,17 +25,19 @@ exports.Main = Component.specialize( /** @lends module:"ui/main.reel".Main# */ {
         value: function () {
             var backendService = new BackendService();
             var answerProvider = new AnswerProvider();
-            var quizProvider   = new QuizProvider();
-            var statsProvider   = new StatsProvider();
             var timerProvider   = new TimerProvider();
+            var quizProvider   = new QuizProvider();
 
             backendService.init(configuration.backendUrl);
             answerProvider.init(backendService);
             quizProvider.init(configuration.quizId, backendService);
-            statsProvider.init(quizProvider, configuration.quizId, answerProvider, timerProvider, backendService);
+
+
+            Application.statsController = new StatsController();
+            Application.statsController.init(quizProvider, configuration.quizId, answerProvider, timerProvider, backendService);
 
             Application.quizController = new QuizController();
-            Application.quizController.init(quizProvider, answerProvider, statsProvider, timerProvider);
+            Application.quizController.init(quizProvider, answerProvider, timerProvider);
         }
     },
 
@@ -48,6 +50,12 @@ exports.Main = Component.specialize( /** @lends module:"ui/main.reel".Main# */ {
             if(value) {
                 this.currentView = 'results';
             }
+        }
+    },
+
+    handleReviewButtonAction: {
+        value: function () {
+            this.menu.toggleMenu();
         }
     },
 

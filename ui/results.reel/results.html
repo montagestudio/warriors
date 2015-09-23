@@ -69,8 +69,8 @@
                 "unit": "%"
             },
             "bindings": {
-                "value": {"<-": "@owner.elapsedTime"},
-                "percentage": {"<-": "@owner.elapsedTime"}
+                "value": {"<-": "@owner.averagePercentageCorrect"},
+                "percentage": {"<-": "@owner.averagePercentageCorrect"}
             }
         },
 
@@ -95,8 +95,8 @@
                 "unit": "s"
             },
             "bindings": {
-                "value": {"<-": "@owner.percentageCorrect"},
-                "percentage": {"<-": "@owner.userPercentageOfTotalTime"}
+                "value": {"<-": "@owner.averageTimeElapsed"},
+                "percentage": {"<-": "@owner.averagePercentageOfTotalTime"}
             }
         },
 
@@ -139,7 +139,6 @@
                         </div>
                         <button data-montage-id="reviewButton" class="btn btn--small reviewButton">review</button>
                     </div>
-
                 </div>
             </div>
             <div class="result-graphs">
@@ -149,10 +148,6 @@
                         <li data-montage-id="percentageCorrectBar"></li>
                         <li data-montage-id="averageCorrectBar"></li>
                     </ul>
-                    <!-- <div>
-                        <span data-montage-id="percentDifference" class="data-unit" data-unit="%"></span>
-                        <span data-montage-id="isHigher"></span>
-                    </div> -->
                 </div>
 
                 <div class="result-data-container">
@@ -163,11 +158,6 @@
                             <li data-montage-id="averageTimeBar"></li>
                         </ul>
                     </div>
-                    <!-- <div>
-                        <span data-montage-id="elapsedTime" class="data-unit" data-unit="s"></span>
-                        <span data-montage-id="timeDifference" class="data-unit" data-unit="s"></span>
-                        <span data-montage-id="isFaster"></span>
-                    </div> -->
                 </div>
             </div>
             <div>

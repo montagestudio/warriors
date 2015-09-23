@@ -2,6 +2,7 @@
  * @module ui/results.reel
  */
 var Component = require("montage/ui/component").Component,
+    configuration = require('core/configuration').configuration,
     Application = require("montage/core/application").application;
 
 /**
@@ -19,17 +20,17 @@ exports.Results = Component.specialize(/** @lends Results# */ {
         value: null
     },
 
-    percentageCorrect: {
-        get: function () {
-            return this._percentageCorrect;
-        },
-        set: function (val) {
-            if (val !== this._percentageCorrect) {
-                this._percentageCorrect = val;
-                this.needsDraw = true;
-            }
-        }
-    },
+    // percentageCorrect: {
+    //     get: function () {
+    //         return this._percentageCorrect;
+    //     },
+    //     set: function (val) {
+    //         if (val !== this._percentageCorrect) {
+    //             this._percentageCorrect = val;
+    //             this.needsDraw = true;
+    //         }
+    //     }
+    // },
 
     answersCorrect: {
         value: null
@@ -68,14 +69,23 @@ exports.Results = Component.specialize(/** @lends Results# */ {
 
     enterDocument: {
         value: function () {
-            var statistics = Application.quizController.getStatistics();
+            var statistics = Application.statsController.getStatistics();
             this.percentageCorrect = Math.round(statistics.percentageCorrect);
             this.answersCorrect = statistics.totalCorrect;
-            this.percentDifference = Math.abs(Math.round(statistics.percentageDifference));
             this.elapsedTime = statistics.elapsedTime;
-            this.userPercentageOfTotalTime = Math.round(statistics.elapsedTime / 60 * 100);
+            this.averagePercentageCorrect = Math.round(statistics.averagePercentageCorrect);
+            this.averageTimeElapsed = Math.round(statistics.averageTimeElapsed);
             this.totalQuestions = statistics.totalQuestions;
-            this.elapsedTimeDifference = Math.abs(Math.round(statistics.elapsedTimeDifference));
+
+            // $question - should this math be done here? If so...probably should be in another function
+            this.userPercentageOfTotalTime = Math.round(this.elapsedTime / configuration.quizTime * 100);
+            this.averagePercentageOfTotalTime = Math.round(this.averageTimeElapsed / configuration.quizTime * 100);
+
+            // $question - I assume this isn't working because I don't know how to grab the data from the server
+            //
+            console.log("averagePercentageOfTotalTime: " + this.averagePercentageOfTotalTime);
+            console.log("averageTimeElapsed: " + this.averageTimeElapsed);
+            console.log("averagePercentageCorrect: " + statistics.averagePercentageCorrect);
         }
     }
 

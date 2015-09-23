@@ -19,10 +19,6 @@ exports.QuizController = Target.specialize(/** @lends QuizController# */ {
         value: null
     },
 
-    statsProvider: {
-        value: null
-    },
-
     timerProvider: {
         value: null
     },
@@ -59,6 +55,22 @@ exports.QuizController = Target.specialize(/** @lends QuizController# */ {
         value: null
     },
 
+    // $question - should this be a getter / setter? When should I do getters/setters?
+
+    questions: {
+        value: null
+    },
+
+    answers: {
+        value: null
+    },
+
+    // $question - not sure how to bind this value so that it is updated every second
+
+    currentTime: {
+        value: null
+    },
+
     totalQuestions: {
         value: null
     },
@@ -72,11 +84,10 @@ exports.QuizController = Target.specialize(/** @lends QuizController# */ {
     },
 
     init: {
-        value: function(quizProvider, answerProvider, statsProvider, timerProvider) {
+        value: function(quizProvider, answerProvider, timerProvider) {
             this.quizProvider = quizProvider;
             this.quizProvider.loadData();
             this.answerProvider = answerProvider;
-            this.statsProvider = statsProvider;
             this.timerProvider = timerProvider;
         }
     },
@@ -134,6 +145,7 @@ exports.QuizController = Target.specialize(/** @lends QuizController# */ {
                     self.getNextQuestion();
                     self.totalQuestions = self.quizProvider.getQuestionsCount();
                     self.timerProvider.start(self._startTime);
+                    self.questions = self.quizProvider.questions;
                 }).catch(function(e) {
                     console.log(e);
                 });
@@ -145,32 +157,15 @@ exports.QuizController = Target.specialize(/** @lends QuizController# */ {
             var self = this;
             this.timerProvider.pause();
             this.isFinished = true;
-            var totalWrong = this.quizProvider.getQuestionsCount() - this.statsProvider.getTotalCorrect();
-            var run = new Run(this._runId, this.statsProvider.getTotalCorrect(), totalWrong, this.timerProvider.currentTime, !!isFinished);
-            return self.statsProvider.loadRunStatistics()
-                .then(function() {
-                    return self.quizProvider.endRun(run);
-                });
-        }
-    },
+            this.answers = this.answerProvider.answers;
 
-    getStatistics: {
-        value: function() {
-            var percentageCorrect = this.statsProvider.getPercentageCorrect();
-            var totalCorrect = this.statsProvider.getTotalCorrect();
-            var percentageDifference = this.statsProvider.getPercentageDifference();
-            var elapsedTime = this.statsProvider.getElapsedTime();
-            var elapsedTimeDifference = this.statsProvider.getElapsedTimeDifference();
-            var totalQuestions = this.totalQuestions;
-
-            return {
-                percentageCorrect: percentageCorrect,
-                totalCorrect: totalCorrect,
-                totalQuestions: totalQuestions,
-                percentageDifference: percentageDifference,
-                elapsedTime: elapsedTime,
-                elapsedTimeDifference: elapsedTimeDifference
-            };
+            // $Question - not sure where this goes now that the controllers are split
+            // var totalWrong = this.quizProvider.getQuestionsCount() - this.statsProvider.getTotalCorrect();
+            // var run = new Run(this._runId, totalWrong, this.timerProvider.currentTime, !!isFinished);
+            // return self.statsProvider.loadRunStatistics()
+            //     .then(function() {
+            //         return self.quizProvider.endRun(run);
+            //     });
         }
     },
 

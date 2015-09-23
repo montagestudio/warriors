@@ -136,12 +136,6 @@ exports.StatsProvider = Montage.specialize(/** @lends StatsProvider# */ {
         }
     },
 
-    // isPercentageHigherThanAverage: {
-    //     value: function () {
-    //         return this.getPercentageCorrect() > this._getAveragePercentCorrect();
-    //     }
-    // },
-
     getElapsedTime: {
         value: function () {
             return this.timerProvider.quizTime - this.timerProvider.currentTime;
@@ -158,13 +152,8 @@ exports.StatsProvider = Montage.specialize(/** @lends StatsProvider# */ {
         value: function () {
             return this.timerProvider.currentTime - this._getAverageElapsedTime();
         }
-    },
+    }
 
-    // isElapsedTimeHigherThanAverage: {
-    //     value: function () {
-    //         return this.getPercentageCorrect() > this._getAveragePercentCorrect();
-    //     }
-    // }
 });
 
 
