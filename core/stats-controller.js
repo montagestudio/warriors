@@ -89,7 +89,7 @@ exports.StatsController = Montage.specialize(/** @lends StatsController# */ {
 
     _convertToPercentage: {
         value: function (a,b) {
-            return a / b * 100;
+            return b / a * 100;
         }
     },
 

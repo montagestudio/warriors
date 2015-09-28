@@ -103,26 +103,35 @@ html {
 
 .header {
     box-sizing: border-box;
-    height: 70px;
-    line-height: 70px;
-    padding: 0 1em;
+    padding: 0 .5em;
     color: #FFF;
-    font-size: 2em;
+    font-size: 1.4em;
+    line-height: 2.5;
+    display: none;
+    text-align: center;
+    /*outline: 1px solid red;*/
 }
 
-/* flashes */
+.show-header .header {
+    display: block;
+}
+
+/*
+------------------------------------------------------
+Flashes
+------------------------------------------------------
+*/
 
 .Main .flashes {
     position: absolute;
-    top: 30%;
+    top: 35%;
     left: 0;
-    height: 50%;
+    height: 40%;
     width: 100%;
     text-align: center;
     color: #FFF;
     -webkit-filter: blur(5px);
             filter: blur(5px);
-/*    background: blue;*/
 }
 
 @media (min-width: 700px)  { .flashes { -webkit-filter: blur(7px); filter: blur(7px); }}
@@ -205,3 +214,28 @@ html {
     -webkit-animation: flash-1 6s infinite both;
             animation: flash-1 6s infinite both;
 }
+
+/* Media Queries */
+
+@media (min-height: 900px) {
+    .header {
+        font-size: 2.4em;
+    }
+}
+
+@media (min-height: 480px) {
+    .Main .flashes {
+        top: 35%;
+        height: 40%;
+    }
+}
+
+@media (min-width: 1200px) {
+    .Main .flashes {
+        /*background: green;*/
+        top: 30%;
+        height: 40%;
+    }
+}
+
+

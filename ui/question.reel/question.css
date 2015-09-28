@@ -19,6 +19,7 @@
 }
 
 .Question {
+    margin-top: 5em;
     -webkit-flex: 1;
         -ms-flex: 1;
             flex: 1;
@@ -28,14 +29,15 @@
     -webkit-flex-direction: column;
         -ms-flex-direction: column;
             flex-direction: column;
+
+    justify-content: space-around;
 }
 
 /* Question Title */
 
 .query {
     text-align: center;
-    margin: 2em 0 0;
-    flex: 1 0 100px;
+    height: 64px;
     display: -webkit-flex;
     display: -ms-flexbox;
     display: flex;
@@ -45,11 +47,11 @@
 
 .query > span {
     -ms-flex-item-align: center;
-        -webkit-align-self: center;
+            -webkit-align-self: center;
             align-self: center;
     display: inline-block;
     color: #FFF;
-    font-size: 3.5em;
+    font-size: 1.4em;
     max-width: 850px;
     line-height: 1.3;
     text-shadow:    -.5px .5px 0 rgb(4,82,156),
@@ -59,8 +61,6 @@
                     -2.5px 3px 0 rgb(4,82,156);
     padding: .25em .5em;
     margin: 0 auto;
-    /*background: rgba(0,0,0,.7);*/
-    /*box-shadow: 0 0 60px 40px rgba(0,0,0,.7);*/
 }
 
 .transition-in .query {
@@ -71,4 +71,37 @@
 .transition-out .query {
     -webkit-animation: transition-query-out .25s forwards cubic-bezier(.44,1.14,.77,1.1);
             animation: transition-query-out .25s forwards cubic-bezier(.44,1.14,.77,1.1);
+}
+
+@media (min-height: 600px) and (min-width: 400px) {
+    .Question {
+        justify-content: space-around;
+    }
+
+    .query {
+        height: 120px;
+    }
+
+    .query > span {
+        font-size: 2em;
+    }
+}
+
+@media (min-height: 767px) and (min-width: 600px) {
+    .query > span {
+        font-size: 3em;
+    }
+}
+
+@media (min-height: 900px) and (min-width: 800px)  {
+    .Question {
+        margin-top: 8em;
+    }
+    .query {
+        height: 120px;
+    }
+    .query > span {
+        /*font-size: 3.5em;*/
+
+    }
 }

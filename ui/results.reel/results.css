@@ -24,7 +24,8 @@
 
 .Results {
     margin: 0 auto;
-    max-width: 440px;
+    width: 100%;
+    text-align: center;
     -webkit-animation: results-in .5s cubic-bezier(.44,1.14,.77,1.16) forwards;
             animation: results-in .5s cubic-bezier(.44,1.14,.77,1.16) forwards;
 }
@@ -35,14 +36,14 @@
 }
 
 .results-container {
-    margin-bottom: 1em;
+    margin-bottom: .5em;
     padding: 15px;
     padding-top: 0;
 }
 
 .results-ranking {
     text-align: center;
-    font-size: 2.5em;
+    font-size: 2em;
     line-height: 2;
     color: #FFF;
     background: rgb(4,82,156);
@@ -51,29 +52,44 @@
 
 .result-main {
     text-align: center;
-    padding-bottom: 20px;
-    margin-bottom: 20px;
+    padding-bottom: 1em;
+    margin-bottom: 1em;
     border-bottom: 1px solid rgb(4,82,156);
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    justify-content: space-between;
+}
+
+.results-main > div {
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-flex-direction: column;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-justify-content: center;
+        -ms-flex-pack: center;
+            justify-content: center;
 }
 
 .result-title {
     margin-top: 0;
-    margin-bottom: 15px;
+    margin-bottom: .5em;
+    line-height: 1;
+    font-size: 1.4em;
     letter-spacing: .5px;
     text-align: center;
 }
 
 .result-details {
+    box-sizing: border-box;
     position: relative;
-    border: 10px solid rgb(4,82,156);
+    margin: 1em;
+    border: 5px solid rgb(4,82,156);
     background: #FFF;
     background-image: url('../../assets/image/floor-texture.jpg');
     background-size: 50%;
-}
-
-.data-title {
-    font-size: 1.5em;
-    margin-bottom: 10px;
 }
 
 .result-data > div {
@@ -84,8 +100,8 @@
     float: left;
     text-align: center;
     margin-right: 15px;
-    -webkit-align-self: center;
-        -ms-flex-item-align: center;
+    -ms-flex-item-align: center;
+        -webkit-align-self: center;
             align-self: center;
 }
 
@@ -98,9 +114,8 @@
     position: relative;
     text-align: center;
     font-weight: 700;
-    font-size: 9em;
+    font-size: 6em;
     line-height: 1;
-    margin-bottom: 15px;
     -webkit-transform: translateX(-10px);
             transform: translateX(-10px);
     color: rgb(4,82,156);
@@ -116,15 +131,19 @@
 /* answers correct */
 
 .answers-correct {
-    display: inline-block;
     margin-right: 10px;
-    font-size: 1.5em;
+    font-size: 1.4em;
+    margin-bottom: .5em;
     vertical-align: middle;
 }
 
 /* restart */
 
-.restartButton.btn { font-size: 16px; }
+.restartButton.btn {
+    display: inline-block;
+    font-size: 1.4em;
+    max-width: 140px;
+}
 
 /* Graphs */
 
@@ -134,8 +153,8 @@
     display: -ms-flexbox;
     display: flex;
     margin-right: -15px;
-    margin-bottom: 20px;
-    padding-bottom: 20px;
+    margin-bottom: 1em;
+    padding-bottom: 1em;
 }
 
 /* result graphs bottom border */
@@ -166,3 +185,60 @@
     list-style: none;
 }
 
+
+@media (min-width: 400px) {
+    .results {
+        max-width: 340px
+    }
+}
+
+@media (min-width: 767px) and (min-height: 750px) {
+    .results {
+        max-width: 480px;
+    }
+
+    .results-container {
+        padding: 20px;
+    }
+
+    .result-main {
+        display: block;
+        margin-bottom: 2em;
+        padding-bottom: 2em;
+    }
+
+    .result-title {
+        font-size: 1.8em;
+        margin-bottom: 1em;
+    }
+
+    .results-ranking {
+        font-size: 2.5em;
+        margin: -20px -20px 20px -20px;
+    }
+
+    .result-details {
+        border: 10px solid rgb(4,82,156);
+    }
+
+    .percentageCorrect {
+        font-size: 9em;
+    }
+
+    .answers-correct {
+        display: inline-block;
+    }
+
+    .result-graphs {
+        position: relative;
+        margin-right: -15px;
+        margin-bottom: 2em;
+        padding-bottom: 2em;
+
+    }
+
+    .restartButton.btn {
+        font-size: 1.8em;
+        max-width: 200px;
+    }
+}

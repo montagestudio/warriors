@@ -10,27 +10,25 @@
 
 .intro {
     margin: 0 auto;
-    max-width: 800px;
     text-align: center;
     color: #FFF;
     position: relative;
 }
 
 .intro div {
-    font-size: 3em;
+    font-size: 1.4em;
     line-height: 1.4;
-    margin-bottom: 1.25em;
+    margin-bottom: 1em;
     text-shadow: -1px 2px 1px black;
 }
 
 .intro button {
-    font-size: 1.4em;
-    max-width: 200px;
+    max-width: 180px;
 }
 
 .intro .logo {
-    width: 500px;
-    height: 225px;
+    width: 200px;
+    height: 120px;
     display: inline-block;
     background-position: center;
     background-size: contain;
@@ -53,4 +51,43 @@
     -webkit-transform: scale(0);
             transform: scale(0);
     opacity: 0;
+}
+
+@media (min-width: 430px) and (min-height: 600px) {
+    .intro {
+        max-width: 600px;
+    }
+
+    .intro div {
+        font-size: 2em;
+    }
+
+    .intro button {
+        max-width: 250px;
+    }
+
+    .intro .logo {
+        width: 350px;
+        height: 225px;
+    }
+}
+
+@media (min-width: 767px) and (min-height: 750px) {
+    .intro {
+        max-width: 800px;
+    }
+
+    .intro div {
+        font-size: 3em;
+        /*color: blue;*/
+    }
+
+    .intro .logo {
+        width: 450px;
+        height: 250px;
+    }
+
+    .intro button {
+        max-width: 250px;
+    }
 }

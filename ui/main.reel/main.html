@@ -16,7 +16,8 @@
                 "menu": {"@": "menu"}
             },
             "bindings": {
-                "isQuizFinished": {"<-": "@owner.application.quizController.isFinished"}
+                "isQuizFinished": {"<-": "@owner.application.quizController.isFinished"},
+                "classList.has('show-header')": {"<-": "@owner.currentView == 'quiz'"}
             },
             "listeners": [
                 {
@@ -38,10 +39,11 @@
             },
             "bindings": {
                 "answers": {"<-": "@owner.application.quizController.answers"},
-                "classList.has('is-visible')": {"<-": "@owner.isQuizFinished"},
+                "classList.has('is-visible')": {"<-": "@owner.application.quizController.isFinished"},
                 "questions": {"<-": "@owner.application.quizController.questions"}
             }
         },
+
         "pageSubstitution": {
             "prototype": "montage/ui/substitution.reel",
             "properties": {
@@ -110,9 +112,7 @@
 </head>
 <body>
     <div data-montage-id="main" class="Main">
-        <div class="header">
-            Warriors Quiz
-        </div>
+        <div class="header">Warriors Quiz</div>
         <div data-montage-id="menu"></div>
         <svg viewBox="0 0 100 60" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMinYMin meet" class="flashes">
             <g>

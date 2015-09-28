@@ -43,8 +43,8 @@
     color: rgb(4,82,156);
     background: currentColor;
     z-index: -1;
-    -webkit-animation: animate-bar 1.25s 1.75s ease-out;
-            animation: animate-bar 1.25s 1.75s ease-out;
+    -webkit-animation: animate-bar 1.5s ease-out;
+            animation: animate-bar 1.5s ease-out;
 }
 
 .bar-result:after,

@@ -10,6 +10,7 @@
     bottom: 0;
     background: rgba(255,0,0,1);
     z-index: 100;
+    padding: 1em;
     color: #FFF;
     display: -webkit-flex;
     display: -ms-flexbox;
@@ -32,13 +33,13 @@
 }
 
 .modal h1 {
-    -webkit-align-self: center;
-        -ms-flex-item-align: center;
+    -ms-flex-item-align: center;
+        -webkit-align-self: center;
             align-self: center;
     text-align: center;
     border: .1em solid #FFF;
     display: inline-block;
     font-size: 4em;
-    padding: 1em;
-    margin: 0;
+    line-height: 1;
+    padding: .5em .8em;
 }
