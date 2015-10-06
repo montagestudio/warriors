@@ -1,13 +1,6 @@
 module.exports = [
     {
         method: 'GET',
-        path: '/',
-        handler: function(request, reply) {
-            reply().code(204);
-        }
-    },
-    {
-        method: 'GET',
         path: '/status',
         handler: function(request, reply) {
             var query = request.pg.client.query({
