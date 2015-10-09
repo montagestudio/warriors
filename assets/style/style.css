@@ -25,7 +25,7 @@ body:after {
     left:   0;
     right:  0;
     background-color: #000;
-    background-image: radial-gradient(rgba(255,255,255,.9),rgba(0,0,0,.8) 90%);
+    background-image: radial-gradient(rgba(255,255,255,.1),rgba(0,0,0,1) 90%);
     color: #333;
     transition: opacity .5s ease-out, visibility .5s ease-out;
     visibility: visible;
@@ -120,101 +120,33 @@ button {
     }
 }
 
-/*
-------------------------------------------------------
-Loading Animation
-------------------------------------------------------
-*/
-
-@-webkit-keyframes bounce {
-  0% {
-    -webkit-transform: translateY(-50px);
-            transform: translateY(-50px);
-  }
-  50% {
-    height: 80px;
-    width: 80px;
-  }
-  100% {
-    -webkit-transform: translateY(0px) rotate(1deg);
-            transform: translateY(0px) rotate(1deg);
-    height: 70px;
-    width: 90px;
-  }
-}
-@keyframes bounce {
-  0% {
-    -webkit-transform: translateY(-50px);
-            transform: translateY(-50px);
-  }
-  50% {
-    height: 80px;
-    width: 80px;
-  }
-  100% {
-    -webkit-transform: translateY(0px) rotate(1deg);
-            transform: translateY(0px) rotate(1deg);
-    height: 70px;
-    width: 90px;
-  }
-}
-@-webkit-keyframes shadow {
-  100% {
-    -webkit-transform: rotateX(100deg) scale(0.9);
-            transform: rotateX(100deg) scale(0.9);
-    opacity: 1;
-  }
-}
-@keyframes shadow {
-  100% {
-    -webkit-transform: rotateX(100deg) scale(0.9);
-            transform: rotateX(100deg) scale(0.9);
-    opacity: 1;
-  }
-}
 .ball-container {
-  position: relative;
-  height: 0px;
-  width: 130px;
-  display: inline-block;
-  -webkit-transform: translateY(10px);
-          transform: translateY(10px);
+    margin: 0 auto;
+    width: 100px;
+    color: #FFF;
 }
 
-.ball-container:after {
-  content: '';
-  position: absolute;
-  bottom: 0px;
-  left: 50%;
-  height: 1px;
-  width: 1px;
-  border-radius: 50%;
-  opacity: .8;
-  background: rgba(0, 0, 0, 0.3);
-  -webkit-transform: rotateX(100deg);
-          transform: rotateX(100deg);
-  box-shadow: 0 0 70px 20px rgba(0, 0, 0, 0.3);
-  -webkit-animation: shadow 0.35s infinite cubic-bezier(0.5, 0, 0.5, 1) alternate;
-          animation: shadow 0.35s infinite cubic-bezier(0.5, 0, 0.5, 1) alternate;
-  z-index: -1;
+@keyframes pulse {
+    0%     { opacity: .1; }
+    20%    { opacity: .8; }
+    100%   { opacity: .1; }
 }
 
-.ball {
-  position: absolute;
-  bottom: 0;
-  left: 50%;
-  margin-left: -40px;
-  width: 80px;
-  height: 80px;
-  -webkit-animation: bounce 0.35s infinite cubic-bezier(0.5, 0, 0.5, 1) alternate;
-          animation: bounce 0.35s infinite cubic-bezier(0.5, 0, 0.5, 1) alternate;
-  -webkit-transform-origin: bottom;
-          transform-origin: bottom;
-  z-index: 2;
+.basketball path {
+    animation-duration: 1s;
+    animation-name: pulse;
+    animation-iteration-count: infinite;
+    color: rgb(255,204,51);
 }
 
-.ball img {
-  height: 100%;
-  width: 100%;
-}
+.bb-7 { animation-delay: -1s }
+.bb-6 { animation-delay: -.875s }
+.bb-5 { animation-delay: -.75s }
+.bb-4 { animation-delay: -.625s }
+.bb-3 { animation-delay: -.5s }
+.bb-2 { animation-delay: -.375s }
+.bb-1 { animation-delay: -.25s }
+.bb-0 { animation-delay: -.125s }
+
+
 
