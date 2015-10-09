@@ -72,7 +72,7 @@ button {
 
 .btn {
     width: 100%;
-    background: linear-gradient(#036DCF, #0466C2);
+    background: #036DCF linear-gradient(rgba(0,0,0,0), rgba(0,0,0,0));
     outline: none;
     border: none;
     font-size: 1.2em;
@@ -87,6 +87,12 @@ button {
     text-shadow: 0 1px 1px #034380;
 }
 
+.btn--secondary {
+    background: rgb(255,204,51);
+    border: 2px solid rgb(211, 159, 4);
+    text-shadow: 0 1px 1px rgba(0,0,0,.5);
+}
+
 .btn--small {
     font-size: 1em;
     width: auto;
@@ -96,7 +102,7 @@ button {
 
 .btn:hover,
 .btn:active {
-    background: #0466C2;
+    background-image: linear-gradient(rgba(0,0,0,.1), rgba(0,0,0,.1));
 }
 
 .btn:active {
@@ -107,6 +113,10 @@ button {
 @media (min-height: 800px) and (min-width: 767px) {
     .btn {
         font-size: 1.8em;
+    }
+
+    .btn--small {
+        font-size: 1em;
     }
 }
 

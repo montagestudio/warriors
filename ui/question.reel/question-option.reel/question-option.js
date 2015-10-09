@@ -32,33 +32,6 @@ var QuestionOption = exports.QuestionOption = Component.specialize( {
         }
     },
 
-    // handleClick: {
-    //     value: function (e) {
-
-    //         if (this.flowContent && this.data == this.flowContent[this.currentIndex] && e.target !== this.submitAnswer) {
-    //             if (this.classList.contains("show-details")) {
-    //                 this.hideDetails();
-    //             } else {
-    //                 this.showDetails();
-    //             }
-    //         }
-    //     }
-    // },
-
-    // showDetails: {
-    //     value: function () {
-    //         this.classList.add("show-details");
-    //         this.classList.remove("hide-details");
-    //     }
-    // },
-
-    // hideDetails: {
-    //     value: function () {
-    //         this.classList.add("hide-details");
-    //         this.classList.remove("show-details");
-    //     }
-    // },
-
     setCorrect: {
         value: function () {
             this.classList.add("is-correct");

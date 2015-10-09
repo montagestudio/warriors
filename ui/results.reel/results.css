@@ -41,6 +41,37 @@
     padding-top: 0;
 }
 
+.results-section {
+    margin-right: -10px;
+    position: relative;
+    padding-bottom: 2em;
+    margin-bottom: 2em;
+    /*border-bottom: 1px solid rgb(4,82,156);*/
+}
+
+.results-section:last-child {
+    margin-bottom: 0;
+    padding-bottom: 0;
+}
+
+.results-section:last-child:after {
+    display: none;
+}
+
+/* result graphs bottom border */
+
+.results-section:after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 15px;
+    height: 1px;
+    background: rgba(4,82,156,.5);
+}
+
+/* Main Results title */
+
 .results-ranking {
     text-align: center;
     font-size: 2em;
@@ -48,13 +79,11 @@
     color: #FFF;
     background: rgb(4,82,156);
     margin: 0 -15px 15px -15px;
+    letter-spacing: 1px;
 }
 
 .result-main {
     text-align: center;
-    padding-bottom: 1em;
-    margin-bottom: 1em;
-    border-bottom: 1px solid rgb(4,82,156);
     display: -webkit-flex;
     display: -ms-flexbox;
     display: flex;
@@ -86,10 +115,25 @@
     box-sizing: border-box;
     position: relative;
     margin: 1em;
-    border: 5px solid rgb(4,82,156);
-    background: #FFF;
+    /*border: 5px solid rgb(4,82,156);*/
+    background: rgba(255,255,255,.7);
+    /*background-image: url('../../assets/image/floor-texture.jpg');*/
+    /*background-size: 25%;*/
+    overflow: hidden;
+}
+
+.result-details:after {
+    content: "";
     background-image: url('../../assets/image/floor-texture.jpg');
+    /*opacity: .75;*/
+    transform: rotate(-45deg);
     background-size: 50%;
+    top:    -10%;
+    left:   -37%;
+    bottom: -10%;
+    right:  -37%;
+    position: absolute;
+    z-index: -1;
 }
 
 .result-data > div {
@@ -138,11 +182,16 @@
 }
 
 /* restart */
+.results-buttons {
+    display: flex;
+    justify-content: space-between;
+}
 
-.restartButton.btn {
+.results-buttons .btn {
     display: inline-block;
     font-size: 1.4em;
-    max-width: 140px;
+    width: 50%;
+    margin-right: 10px;
 }
 
 /* Graphs */
@@ -155,18 +204,6 @@
     margin-right: -15px;
     margin-bottom: 1em;
     padding-bottom: 1em;
-}
-
-/* result graphs bottom border */
-
-.result-graphs:after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 15px;
-    height: 1px;
-    background: rgb(4,82,156);
 }
 
 /* columns for flex */
@@ -183,6 +220,16 @@
     padding: 0;
     margin: 0;
     list-style: none;
+}
+
+.avgBar .bar-title {
+    background: #999;
+}
+
+/* Sharing */
+
+.results-sharing .result-title {
+    margin-right: 10px;
 }
 
 
@@ -227,6 +274,7 @@
 
     .answers-correct {
         display: inline-block;
+        margin-bottom: 0;
     }
 
     .result-graphs {

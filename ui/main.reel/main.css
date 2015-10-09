@@ -38,7 +38,7 @@ html {
     bottom: 0;
     background-size: cover;
     background-position: center bottom;
-    background-image: url(../../assets/image/court_bg.jpg);
+    background-image: url(../../assets/image/GSW-Home-Court.jpg);
     z-index: -3;
 }
 
@@ -107,13 +107,13 @@ html {
     color: #FFF;
     font-size: 1.4em;
     line-height: 2.5;
-    display: none;
+    visibility: hidden;
     text-align: center;
     /*outline: 1px solid red;*/
 }
 
 .show-header .header {
-    display: block;
+    visibility: visible;
 }
 
 /*

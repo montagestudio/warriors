@@ -63,6 +63,24 @@ exports.QuestionOptions = Component.specialize(/** @lends QuestionOptions# */ {
         }
     },
 
+    _data: {
+        value: null
+    },
+
+    data: {
+        get: function () {
+            return this._data;
+        },
+        set: function (value) {
+            this._data = value;
+            if (this.flowRibbon) {
+                this.flowRibbon.content = value;
+                this.flowRibbon.scroll = 2;
+                this.flowDidTranslateEnd();
+            }
+        }
+    },
+
     setPaths: {
         enumerable: false,
         value: function () {
@@ -145,7 +163,7 @@ exports.QuestionOptions = Component.specialize(/** @lends QuestionOptions# */ {
 
     handleNextQuestion: {
         value: function () {
-            this.flowRibbon.startScrollingIndexToOffset(0,0);
+            this.flowRibbon.startScrollingIndexToOffset(2,0);
         }
     },
 
