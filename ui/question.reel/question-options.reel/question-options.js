@@ -2,7 +2,8 @@
  * @module ui/question-options.reel
  */
 var Component = require("montage/ui/component").Component,
-teamData = require("../../../assets/data.json");
+    KeyComposer = require("montage/composer/key-composer").KeyComposer,
+    teamData = require("../../../assets/data.json");
 
 /**
  * @class QuestionOptions
@@ -128,8 +129,34 @@ exports.QuestionOptions = Component.specialize(/** @lends QuestionOptions# */ {
 
     enterDocument: {
         value: function (firstTime) {
+            var leftComposer,
+                rightComposer;
+
             if (firstTime) {
                 this.addEventListener("nextQuestion", this, false);
+                leftComposer = new KeyComposer();
+                leftComposer.keys = "left";
+                leftComposer.identifier = "left";
+                rightComposer = new KeyComposer();
+                rightComposer.keys = "right";
+                rightComposer.identifier = "right";
+                this.addComposerForElement(leftComposer, window);
+                this.addComposerForElement(rightComposer, window);
+                leftComposer.addEventListener("keyPress", this, false);
+                rightComposer.addEventListener("keyPress", this, false);
+            }
+        }
+    },
+
+    handleKeyPress: {
+        value: function (event) {
+            switch (event.identifier) {
+                case "left":
+                    this.flowRibbon.previousStride();
+                break;
+                case "right":
+                    this.flowRibbon.nextStride();
+                break;
             }
         }
     },
