@@ -21,7 +21,7 @@
     border: 2px solid rgba(4,82,156,1);
     font-family: 'ds-digitalbold', sans-serif;
     border-radius: 4px;
-    background: rgba(0,0,0,.7);
+    background: rgba(0,0,0,.6);
     -webkit-animation: timer-in .35s cubic-bezier(.44,1.14,.77,1.1) both;
             animation: timer-in .35s cubic-bezier(.44,1.14,.77,1.1) both;
 }
