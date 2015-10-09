@@ -17,12 +17,15 @@
     box-sizing: border-box;
     min-width: 50px;
     padding: 0 8px;
-    height: 34px;
-    line-height: 34px;
-    background: rgb(255,204,51);
+    height: 40px;
+    line-height: 40px;
+    /*color: #FFF;*/
+    /*background: rgb(255,204,51);*/
+    background: rgb(4,82,156);
     -webkit-align-self: center;
         -ms-flex-item-align: center;
             align-self: center;
+    border-right: 1px solid rgba(0,0,0,.2);
 }
 
 /* animated bar */
@@ -36,18 +39,20 @@
 }
 
 .bar-result {
-    height: 34px;
+    height: 40px;
     -webkit-flex: 1;
         -ms-flex: 1;
             flex: 1;
     color: rgb(4,82,156);
+    /*color: rgb(255,204,51);*/
     background: currentColor;
     z-index: -1;
+    -webkit-backface-visibility: hidden;
     -webkit-animation: animate-bar 1.5s ease-out;
             animation: animate-bar 1.5s ease-out;
 }
 
-.bar-result:after,
+/*.bar-result:after,*/
 .bar-result:before {
     content: '';
     position: absolute;
@@ -59,7 +64,13 @@
 }
 
 .bar-result:before { background: currentColor; }
-.bar-result:after  { background: rgba(0,0,0,.1); }
+/*.bar-result:after  { background: rgba(0,0,0,.1); }*/
+
+
+.bar:first-child .bar-title,
+.bar:first-child .bar-data {
+    color: #FFF;
+}
 
 .bar:last-child .bar-result { color: #999; }
 
@@ -67,15 +78,15 @@
 
 .bar-data {
     position: absolute;
-    line-height: 34px;
+    line-height: 40px;
     text-align: center;
     width: 40px;
     right: -40px;
-    color: #FFF;
+    color: #000;
     z-index: 1;
 }
 
-/* pushes data value unit next to value*/
+/* pushes data value unit next to value */
 
 .bar-data span:last-child {
     margin-left: -3px;

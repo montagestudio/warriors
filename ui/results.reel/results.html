@@ -127,9 +127,8 @@
 <body>
     <div data-montage-id="owner" class="Results">
         <div data-montage-id="results" class="results-container result-details">
-
             <h2 class="results-ranking">Results</h2>
-            <div class="result-main">
+            <div class="results-section result-main">
                 <div data-montage-id="percentageCorrect" class="percentageCorrect">80</div>
                 <div>
                     <div>
@@ -141,83 +140,34 @@
                     </div>
                 </div>
             </div>
-            <div class="result-graphs">
+            <div class="results-section result-graphs">
                 <div class="result-data-container">
-                    <h2 class="result-title">Score</h2>
+                    <h2 class="result-title">SCORE</h2>
                     <ul id="graph" class="graph">
                         <li data-montage-id="percentageCorrectBar"></li>
-                        <li data-montage-id="averageCorrectBar"></li>
+                        <li data-montage-id="averageCorrectBar" class="avgBar"></li>
                     </ul>
                 </div>
 
                 <div class="result-data-container">
-                    <h2 class="result-title">Time</h2>
+                    <h2 class="result-title">TIME</h2>
                     <div class="graph-container">
                         <ul id="graph" class="graph">
                             <li data-montage-id="elapsedTimeBar"></li>
-                            <li data-montage-id="averageTimeBar"></li>
+                            <li data-montage-id="averageTimeBar" class="avgBar"></li>
                         </ul>
                     </div>
                 </div>
             </div>
-            <div>
+            <div class="results-section results-buttons">
+                <button class="btn btn--secondary">Browse Players</button>
+                <button data-montage-id="restartQuiz"  class="btn">Try Again!</button>
+            </div>
+            <div class="results-section results-sharing">
                 <h2 class="result-title">Share your results</h2>
                 <div data-montage-id="sharing"></div>
             </div>
         </div>
-
-        <button data-montage-id="restartQuiz"  class="btn restartButton">Try Again!</button>
     </div>
 </body>
 </html>
-
-"percentDifference": {
-            "prototype": "montage/ui/text.reel",
-            "properties": {
-                "element": { "#": "percentDifference" }
-            },
-            "bindings": {
-                "value": { "<-": "@owner.percentDifference" },
-                "classList.has('higher')": { "<-": "@owner.percentDifference >= 0"}
-            }
-        },
-        "timeDifference": {
-            "prototype": "montage/ui/text.reel",
-            "properties": {
-                "element": { "#": "timeDifference" }
-            },
-            "bindings": {
-                "value": { "<-": "@owner.elapsedTimeDifference" },
-                "classList.has('higher')": { "<-": "@owner.percentDifference >= 0"}
-            }
-        },
-
-        "isHigher": {
-            "prototype": "montage/ui/text.reel",
-            "properties": {
-                "element": { "#": "isHigher" }
-            },
-            "bindings": {
-                "value": { "<-": "@owner.percentDifference > 0 ? 'higher':'lower'" }
-            }
-        },
-
-        "isFaster": {
-            "prototype": "montage/ui/text.reel",
-            "properties": {
-                "element": { "#": "isFaster" }
-            },
-            "bindings": {
-                "value": { "<-": "@owner.elapsedTimeDifference > 0 ? 'faster':'slower'" }
-            }
-        },
-
-        "elapsedTime": {
-            "prototype": "montage/ui/text.reel",
-            "properties": {
-                "element": { "#": "elapsedTime" }
-            },
-            "bindings": {
-                "value": { "<-": "@owner.elapsedTime" }
-            }
-        },
