@@ -106,8 +106,8 @@ exports.QuestionOptions = Component.specialize(/** @lends QuestionOptions# */ {
                             "nextHandlerPosition": [point[0] - tangent[0], 0, point[1] - tangent[1]],
                             "previousDensity": 1.1,
                             "nextDensity": 1.1,
-                            "rotateY": Math.PI/2 - angle,
-                            "opacity": 1 - Math.abs(i-4)*.2
+                            "rotateY": Math.PI/2 - angle
+                            // "opacity": 1 - Math.abs(i-4)*.2
                         }
                     );
                 }
