@@ -85,6 +85,7 @@ button {
     border-radius: 4px;
     border: 2px solid rgb(4,82,156);
     text-shadow: 0 1px 1px #034380;
+    cursor: pointer;
 }
 
 .btn--secondary {
