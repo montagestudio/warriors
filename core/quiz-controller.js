@@ -146,7 +146,6 @@ exports.QuizController = Target.specialize(/** @lends QuizController# */ {
 
     end: {
         value: function(isFinished) {
-            var self = this;
             this.timerProvider.pause();
             this.isFinished = true;
             this.answers = this.answerProvider.answers;

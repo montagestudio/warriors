@@ -1,5 +1,5 @@
 /**
- * @module question-provider
+ * @module quiz-provider
  */
 var Montage = require("montage/core/core").Montage,
     Quiz = require('model/quiz').Quiz,

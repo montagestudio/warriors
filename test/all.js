@@ -3,5 +3,6 @@ require("montage-testing").run(require,[
     "test/quiz-provider-spec",
     "test/stats-provider-spec",
     "test/timer-provider-spec",
-    "test/quiz-controller-spec"
+    "test/quiz-controller-spec",
+    "test/player-provider-spec"
 ]);

@@ -22,8 +22,8 @@ describe('test/quiz-provider-spec', function() {
             var quizMock = Quiz.load(mockData),
                 title,
                 quizProvider = new QuizProvider();
-            quizProvider.init(backendServiceMock);
-            quizProvider.quiz = quizMock;
+            quizProvider.init(42, backendServiceMock);
+            quizProvider._quiz = quizMock;
 
             title = quizProvider.getTitle();
 
@@ -39,7 +39,7 @@ describe('test/quiz-provider-spec', function() {
                     question,
                     quizProvider = new QuizProvider();
                 quizProvider.init(42, backendServiceMock);
-                quizProvider.quiz = quizMock;
+                quizProvider._quiz = quizMock;
 
                 question = quizProvider.getQuestion(0);
 
@@ -54,7 +54,7 @@ describe('test/quiz-provider-spec', function() {
                     question,
                     quizProvider = new QuizProvider();
                 quizProvider.init(42, backendServiceMock);
-                quizProvider.quiz = quizMock;
+                quizProvider._quiz = quizMock;
 
                 question = quizProvider.getQuestion(2);
 
@@ -137,7 +137,7 @@ describe('test/quiz-provider-spec', function() {
                 questionsCount,
                 quizProvider = new QuizProvider();
             quizProvider.init(42, backendServiceMock);
-            quizProvider.quiz = quizMock;
+            quizProvider._quiz = quizMock;
 
             questionsCount = quizProvider.getQuestionsCount();
 
