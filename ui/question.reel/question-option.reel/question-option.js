@@ -1,6 +1,6 @@
 var Component = require("montage/ui/component").Component;
 
-var QuestionOption = exports.QuestionOption = Component.specialize( {
+var QuestionOption = exports.QuestionOption = Component.specialize({
 
     // prepareForActivationEvents: {
     //     value: function () {
@@ -49,29 +49,33 @@ var QuestionOption = exports.QuestionOption = Component.specialize( {
     reset: {
         value: function () {
             var self = this;
-            setTimeout(function(){
+            setTimeout(function () {
                 self.dispatchEventNamed("questionTransition", true, true);
 
-                setTimeout(function(){
+                setTimeout(function () {
                     self.dispatchEventNamed("nextQuestion", true, true);
                     self.classList.remove("is-wrong");
                     self.classList.remove("is-correct");
                     self.classList.remove("answered");
-                },500);
+                    self._isAnwsered = false;
+                }, 500);
 
-            },1000);
+            }, 1000);
         }
     },
 
     handleSubmitAnswerAction: {
         value: function () {
-            if (this.application.quizController.answer(this.data)){
-                this.setCorrect();
-                this.reset();
+            if (!this._isAnwsered) {
+                if (this.application.quizController.answer(this.data)) {
+                    this.setCorrect();
+                    this.reset();
 
-            } else {
-                this.setWrong();
-                this.reset();
+                } else {
+                    this.setWrong();
+                    this.reset();
+                }
+                this._isAnwsered = true;
             }
 
         }
