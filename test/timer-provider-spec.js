@@ -81,7 +81,7 @@ describe('test/timer-provider-spec', function() {
                         setTimeout(function() {
                             timerProvider.pause();
                             paused = true;
-                        }, 2000);
+                        }, 2100);
                     });
 
                     waitsFor(function() {
@@ -92,7 +92,7 @@ describe('test/timer-provider-spec', function() {
                         timerProvider.resume();
                         setTimeout(function() {
                             done = true;
-                        }, 1000);
+                        }, 1100);
                     });
 
                     waitsFor(function() {
@@ -101,7 +101,7 @@ describe('test/timer-provider-spec', function() {
 
                     runs(function() {
                         expect(timerProvider.currentTime).toBeDefined();
-                        expect(timerProvider.currentTime).toEqual(88);
+                        expect(timerProvider.currentTime).toEqual(87);
                     });
                 });
             });
