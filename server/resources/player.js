@@ -11,11 +11,12 @@ function playerSorter(playerA, playerB) {
 module.exports = [
     {
         method: 'GET',
-        path: '/player',
+        path: '/player/{id}',
         handler: function(request, reply) {
             var query = request.pg.client.query({
-                text: "SELECT json_array_elements(json_array_elements(document->'questions')->'options') AS player FROM quiz",
-                name: 'list players'
+                text: "SELECT json_array_elements(json_array_elements(document->'questions')->'options') AS player FROM quiz WHERE id = $1",
+                name: 'list players by id',
+                values: [request.params.id]
             });
             var playersInResult = [];
             query.on('row', function(row, result) {
@@ -25,7 +26,11 @@ module.exports = [
                 }
             });
             query.on('end', function(result) {
-                reply(result.rows.sort(playerSorter));
+                if (result.rowCount > 0) {
+                    reply(result.rows.sort(playerSorter));
+                } else {
+                    reply().code(404);
+                }
             });
             query.on('error', function(error) {
                 handlerDbError(error, request, reply);
