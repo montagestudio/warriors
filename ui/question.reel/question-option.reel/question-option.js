@@ -2,11 +2,11 @@ var Component = require("montage/ui/component").Component;
 
 var QuestionOption = exports.QuestionOption = Component.specialize({
 
-    // prepareForActivationEvents: {
-    //     value: function () {
-    //         this.element.addEventListener('click', this, false);
-    //     }
-    // },
+    prepareForActivationEvents: {
+        value: function () {
+            this.element.addEventListener('click', this, false);
+        }
+    },
 
     _data: {
         value: null
@@ -64,10 +64,18 @@ var QuestionOption = exports.QuestionOption = Component.specialize({
         }
     },
 
-    handleSubmitAnswerAction: {
-        value: function () {
-            if (!this._isAnwsered) {
-                if (this.application.quizController.answer(this.data)) {
+    handleClick: {
+        value: function (e) {
+
+            // check to see if clicked object matches object at currentIndex and isn't a click of the selectItem button
+            // check popcorn for selected / active state when in middle
+            // selected state as used in popcorn doesn't work because as soon as you click it is "selected"
+
+            // set flag in bindings to check
+            // check scope in FRB for binding
+
+            if (this.data == this.flowContent[this.currentIndex] && e.target !== this.selectItem) {
+                if (this.application.quizController.answer(this.data)){
                     this.setCorrect();
                     this.reset();
 
@@ -75,10 +83,9 @@ var QuestionOption = exports.QuestionOption = Component.specialize({
                     this.setWrong();
                     this.reset();
                 }
-                this._isAnwsered = true;
             }
-
         }
     }
+
 });
 
