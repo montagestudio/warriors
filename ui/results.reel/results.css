@@ -128,10 +128,10 @@
     /*opacity: .75;*/
     transform: rotate(-45deg);
     background-size: 50%;
-    top:    -10%;
-    left:   -37%;
-    bottom: -10%;
-    right:  -37%;
+    top:    -15%;
+    left:   -60%;
+    bottom: -15%;
+    right:  -60%;
     position: absolute;
     z-index: -1;
 }
@@ -189,7 +189,7 @@
 
 .results-buttons .btn {
     display: inline-block;
-    font-size: 1.4em;
+    font-size: 1.1em;
     width: 50%;
     margin-right: 10px;
 }
@@ -202,8 +202,8 @@
     display: -ms-flexbox;
     display: flex;
     margin-right: -15px;
-    margin-bottom: 1em;
-    padding-bottom: 1em;
+    /*margin-bottom: 1em;
+    padding-bottom: 1em;*/
 }
 
 /* columns for flex */
@@ -232,10 +232,18 @@
     margin-right: 10px;
 }
 
+.results-sharing .Sharing {
+    margin-top: -40px;
+}
+
 
 @media (min-width: 400px) {
     .results {
         max-width: 340px
+    }
+
+    .results-buttons .btn {
+        /*font-size: 1.1em;*/
     }
 }
 
@@ -285,8 +293,11 @@
 
     }
 
-    .restartButton.btn {
-        font-size: 1.8em;
-        max-width: 200px;
+    .results-buttons .btn {
+        font-size: 1.4em;
+    }
+
+    .results-sharing .Sharing {
+        margin-top: -56px;
     }
 }

@@ -1,16 +1,17 @@
 .questionOption {
+    position: relative;
     box-sizing: border-box;
     width:  375px;
     height: 600px;
     margin-left: -192px;
-    margin-top: -340px;
+    margin-top: -300px;
     background-repeat: no-repeat;
     background-position: center center;
     -webkit-transform: translate3d(0, 0, 0);
             transform: translate3d(0, 0, 0);
     -webkit-transform-style: preserve-3d;
             transform-style: preserve-3d;
-    border: 8px solid rgba(4,82,156,1);
+    /*border: 8px solid rgba(4,82,156,1);*/
 }
 
 .questionOption * {
@@ -20,6 +21,43 @@
     -moz-user-select: none;
     -ms-user-select: none;
     user-select: none;
+}
+
+.questionOption:before,
+.questionOption:after {
+    content: '';
+    position: absolute;
+    width:  8px;
+    height: 8px;
+    /*background: rgb(4,82,156);*/
+    background: rgb(256,204,51);
+    z-index: -10;
+    transition: -webkit-transform .35s linear;
+    transition: transform .35s linear;
+    -webkit-transform: scaleX(0) scaleY(0);
+            transform: scaleX(0) scaleY(0);
+    pointer-events: none;
+}
+
+.questionOption:before {
+    -webkit-transform-origin: top left;
+            transform-origin: top left;
+    top:  -8px;
+    left: -8px;
+}
+
+.questionOption:after {
+    bottom: -8px;
+    right:  -8px;
+    -webkit-transform-origin: bottom right;
+            transform-origin: bottom right;
+}
+
+.is-selected.questionOption:before,
+.is-selected.questionOption:after,
+.answered.questionOption:before,
+.answered.questionOption:after  {
+            transform: scaleX(48.9) scaleY(77);
 }
 
 /* panel shadow */
@@ -49,7 +87,7 @@
     background: #000;
     -webkit-transform-style: preserve-3d;
             transform-style: preserve-3d;
-    -webkit-transform: translate3d(0, 0, 0);
+    -webkit-transform: translate3d(0, 0, 1px);
     /*-webkit-backface-visibility: hidden;*/
     -webkit-perspective: 1000;
 }
@@ -232,6 +270,7 @@
 }*/
 
 .selectButton {
+    display: none;
     text-align: center;
     position: absolute;
     bottom: -90px;
@@ -246,10 +285,10 @@
     opacity: 0;
     transition-properties: transform opacity;
     transition-duration: .3s;
-    transitin-timing-function: cubic-bezier(0.48, 0.22, 0.26, 1.43);
+    transition-timing-function: cubic-bezier(0.48, 0.22, 0.26, 1.43);
 }
 
-.selectButton button {
+/*.selectButton button {
     min-height: 50px;
     font-size: 2em;
 }
@@ -259,7 +298,7 @@
     opacity: 1;
     -webkit-transform: rotateX(0deg) scale(1) translateZ(0);
             transform: rotateX(0deg) scale(1) translateZ(0);
-}
+}*/
 
 /* is-correct / is-incorrect */
 

@@ -15,6 +15,7 @@ body {
     font-size: 13px;
     line-height: 18px;
     color: #222;
+    margin: 0;
 }
 
 body:after {
@@ -43,8 +44,9 @@ body:after {
     text-align: center;
     font-size: 24px;
     top: 50%;
-    line-height: 50px;
-    margin-top: -25px;
+    line-height: 40px;
+    height: 150px;
+    margin-top: -75px;
 }
 
 
