@@ -1,8 +1,8 @@
 /**
-    @module "ui/main.reel"
-    @requires montage
-    @requires montage/ui/component
-*/
+ @module "ui/main.reel"
+ @requires montage
+ @requires montage/ui/component
+ */
 var Component = require("montage/ui/component").Component,
     PressComposer = require("montage/composer/press-composer").PressComposer,
     QuizController = require("core/quiz-controller").QuizController,
@@ -16,19 +16,19 @@ var Component = require("montage/ui/component").Component,
     configuration = require('core/configuration').configuration;
 
 /**
-    Description TODO
-    @class module:"ui/main.reel".Main
-    @extends module:ui/component.Component
-*/
-exports.Main = Component.specialize( /** @lends module:"ui/main.reel".Main# */ {
+ Description TODO
+ @class module:"ui/main.reel".Main
+ @extends module:ui/component.Component
+ */
+exports.Main = Component.specialize(/** @lends module:"ui/main.reel".Main# */ {
 
     constructor: {
         value: function () {
             var backendService = new BackendService();
             var answerProvider = new AnswerProvider();
-            var timerProvider   = new TimerProvider();
-            var quizProvider   = new QuizProvider();
-            var statsProvider   = new StatsProvider();
+            var timerProvider = new TimerProvider();
+            var quizProvider = new QuizProvider();
+            var statsProvider = new StatsProvider();
 
             backendService.init(configuration.backendUrl);
             answerProvider.init(backendService);
@@ -49,7 +49,7 @@ exports.Main = Component.specialize( /** @lends module:"ui/main.reel".Main# */ {
 
     isQuizFinished: {
         set: function (value) {
-            if(value) {
+            if (value) {
                 this.currentView = 'results';
             }
         }
@@ -64,24 +64,35 @@ exports.Main = Component.specialize( /** @lends module:"ui/main.reel".Main# */ {
     handleStartQuizAction: {
         value: function () {
             var self = this;
-            Application.quizController.start(configuration.quizTime)
-                .then(function() {
-                    self.currentView = "quiz";
-                });
+            // When running this in WeChat, the action seems always be trigger 2 twice. Add juge in related places to
+            // prevent duplicate events dispatch.
+            if (!this._startQuizAction) {
+                this._startQuizAction = true;
+                Application.quizController.start(configuration.quizTime)
+                    .then(function () {
+                        self.currentView = "quiz";
+                        self._startQuizAction = false;
+                    });
+            }
+
         }
     },
 
     handleRestartQuizAction: {
         value: function () {
             var self = this;
-            Application.quizController.reset();
+            if (!this._isRestarting) {
+                this._isRestarting = true;
+                Application.quizController.reset();
+                setTimeout(function () {
+                    Application.quizController.start()
+                        .then(function () {
+                            self.currentView = "quiz";
+                            self._isRestarting = false;
+                        });
+                }, 500);
+            }
 
-            setTimeout(function() {
-                Application.quizController.start()
-                    .then(function() {
-                        self.currentView = "quiz";
-                    });
-            }, 500);
         }
     }
 
