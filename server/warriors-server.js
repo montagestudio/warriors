@@ -54,8 +54,14 @@ function startServer(nconf) {
     });
 
     server.ext('onRequest', function (request, reply) {
-        request.debug = request.headers['user-agent'] === 'Hapi, I am your father';
-        return reply.continue();
+        if (request.headers['$wssc'] === 'http') {
+            return reply()
+                .redirect('https://' + request.headers.host + request.url.path)
+                .code(301);
+        } else {
+            request.debug = request.headers['user-agent'] === 'Hapi, I am your father';
+            return reply.continue();
+        }
     });
 
     server.register([
