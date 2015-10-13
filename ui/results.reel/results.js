@@ -44,6 +44,8 @@ exports.Results = Component.specialize(/** @lends Results# */ {
         value: null
     },
 
+    // $fix - should be reworked to no use timeouts and have a global variable
+
     handleRestartQuizAction: {
         value: function () {
             var self = this;
@@ -51,7 +53,20 @@ exports.Results = Component.specialize(/** @lends Results# */ {
 
             setTimeout(function() {
                 self.classList.remove('transition-results-out');
-            }, 1000)
+            }, 2000)
+        }
+    },
+
+    // $fix - should be reworked to no use timeouts and have a global variable
+
+    handleBrowsePlayersAction: {
+        value: function () {
+            var self = this;
+            this.classList.add('transition-results-out');
+
+            setTimeout(function() {
+                self.classList.remove('transition-results-out');
+            }, 2000)
         }
     },
 

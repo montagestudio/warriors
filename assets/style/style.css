@@ -18,49 +18,54 @@ body {
     margin: 0;
 }
 
-body:after {
-    content: '';
+body:before {
+    content: "";
     position: absolute;
     top:    0;
-    bottom: 0;
     left:   0;
     right:  0;
-    background-color: #000;
-    background-image: radial-gradient(rgba(255,255,255,.1),rgba(0,0,0,1) 90%);
-    color: #333;
-    transition: opacity .5s ease-out, visibility .5s ease-out;
-    visibility: visible;
+    bottom: 0;
+    background-size: cover;
+    background-position: center bottom;
+    background-image: url(../../assets/image/GSW-Home-Court_curry.jpg);
+    z-index: -3;
 }
 
-.montage-app-loaded body:after {
+/* background matte */
+
+body:after {
+    content: "";
+    position: absolute;
+    top:    0;
+    left:   0;
+    right:  0;
+    bottom: 0;
+    background-image: radial-gradient(rgba(0,0,0,.5) 20%, rgba(0,0,0,1) 80%);
+    z-index: -2;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: 100% 140%;
+}
+
+/*.montage-app-loaded body:after {
     opacity: 0;
     visibility: hidden;
-}
+}*/
 
-.loading {
-    position: absolute;
-    z-index: 1;
-    width: 100%;
-    text-align: center;
-    font-size: 24px;
-    top: 50%;
-    line-height: 40px;
-    height: 150px;
-    margin-top: -75px;
-}
+
 
 
 /* clearfix */
 
-.cf:before,
+/*.cf:before,
 .cf:after {
-    content: " "; /* 1 */
-    display: table; /* 2 */
-}
+    content: " ";
+    display: table;
+}*/
 
-.cf:after {
+/*.cf:after {
     clear: both;
-}
+}*/
 
 /* BUTTONS */
 
@@ -72,8 +77,12 @@ button {
     cursor: pointer;
 }
 
+button:focus {
+    outline: none;
+}
+
 .btn {
-    width: 100%;
+    display: block;
     background: #036DCF linear-gradient(rgba(0,0,0,0), rgba(0,0,0,0));
     outline: none;
     border: none;
@@ -88,6 +97,11 @@ button {
     border: 2px solid rgb(4,82,156);
     text-shadow: 0 1px 1px #034380;
     cursor: pointer;
+}
+
+.btn--inline {
+    display: inline-block;
+    min-width: 200px;
 }
 
 .btn--secondary {
@@ -109,8 +123,7 @@ button {
 }
 
 .btn:active {
-    background: linear-gradient(#0466C2, #036DCF);
-    text-shadow: 0 -1px 1px #034380;
+    text-shadow: none;
 }
 
 @media (min-height: 800px) and (min-width: 767px) {
@@ -123,9 +136,25 @@ button {
     }
 }
 
+/* Loading Spinner */
+
+.loading {
+    position: absolute;
+    z-index: 1;
+    width: 100%;
+    bottom: 0;
+    text-align: center;
+    font-size: 18px;
+    /*top: 50%;*/
+    line-height: 40px;
+    height: 110px;
+    /*outline: 1px solid red;*/
+    margin-bottom: -45px;
+}
+
 .ball-container {
     margin: 0 auto;
-    width: 100px;
+    width: 70px;
     color: #FFF;
 }
 
@@ -151,5 +180,268 @@ button {
 .bb-1 { animation-delay: -.25s }
 .bb-0 { animation-delay: -.125s }
 
+/* Intro Shared Code */
 
+.header {
+    box-sizing: border-box;
+    padding: 0 .5em;
+    color: #FFF;
+    font-size: 1.4em;
+    line-height: 2.5;
+    visibility: hidden;
+    text-align: center;
+}
+
+.show-header .header {
+    visibility: visible;
+}
+
+@media (min-height: 900px) {
+    .header {
+        font-size: 2.4em;
+    }
+}
+
+.Main {
+    position: absolute;
+    -webkit-transform-style: preserve-3d;
+            transform-style: preserve-3d;
+    top:    0;
+    left:   0;
+    bottom: 0;
+    right:  0;
+    overflow: hidden;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
+}
+
+.content {
+    position: relative;
+    -webkit-flex: 1;
+        -ms-flex: 1;
+            flex: 1;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-flex-direction: column;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-justify-content: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+}
+
+@-webkit-keyframes intro {
+    from    {opacity: 0; -webkit-transform: translateY(100px); transform: translateY(100px);}
+    to      {opacity: 1; -webkit-transform: translateY(0); transform: translateY(0);}
+}
+
+@keyframes intro {
+    from    {opacity: 0; -webkit-transform: translateY(100px); transform: translateY(100px);}
+    to      {opacity: 1; -webkit-transform: translateY(0); transform: translateY(0);}
+}
+
+.intro {
+    margin: 0 auto;
+    text-align: center;
+    color: #FFF;
+    position: relative;
+}
+
+.intro .intro-text {
+    font-size: 1.4em;
+    line-height: 1.4;
+    margin-bottom: 1em;
+    text-shadow: -1px 2px 1px black;
+}
+
+.intro button {
+    max-width: 180px;
+}
+
+.intro .logo {
+    width: 200px;
+    height: 120px;
+    display: inline-block;
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-image: url(../../assets/image/championship_logo.png);
+}
+
+/* setting up the animation */
+
+.intro > * {
+    /*animation: intro 1s .5s ease both;*/
+}
+
+.intro > :nth-child(2) { -webkit-animation-delay: 1.5s; animation-delay: 1.5s; }
+.intro > :nth-child(3) { -webkit-animation-delay: 2.5s; animation-delay: 2.5s; }
+.intro > :nth-child(4) { -webkit-animation-delay: 3.5s; animation-delay: 3.5s; }
+
+.intro.transition-out {
+    transition: all .5s ease-in;
+    -webkit-transform: scale(0);
+            transform: scale(0);
+    opacity: 0;
+}
+
+@media (min-width: 430px) and (min-height: 600px) {
+    .intro {
+        max-width: 600px;
+    }
+
+    .intro .intro-text {
+        font-size: 2em;
+    }
+
+    .intro button {
+        max-width: 250px;
+    }
+
+    .intro .logo {
+        width: 350px;
+        height: 225px;
+    }
+}
+
+@media (min-width: 767px) and (min-height: 750px) {
+    .intro {
+        max-width: 800px;
+    }
+
+    .intro .intro-text {
+        font-size: 3em;
+        /*color: blue;*/
+    }
+
+    .intro .logo {
+        width: 450px;
+        height: 250px;
+    }
+
+    .intro button {
+        max-width: 250px;
+    }
+}
+
+/*
+------------------------------------------------------
+Flashes
+------------------------------------------------------
+*/
+
+.Main .flashes {
+    position: absolute;
+    top: 35%;
+    left: 0;
+    height: 40%;
+    width: 100%;
+    text-align: center;
+    color: #FFF;
+    -webkit-filter: blur(5px);
+            filter: blur(5px);
+}
+
+@media (min-width: 700px)  { .flashes { -webkit-filter: blur(7px); filter: blur(7px); }}
+@media (min-width: 1000px) { .flashes { -webkit-filter: blur(10px); filter: blur(10px); }}
+@media (min-width: 1500px) { .flashes { -webkit-filter: blur(15px); filter: blur(15px); }}
+
+@-webkit-keyframes flash-1 {
+    0%   {opacity: 0;}
+    15%  {opacity: 0;}
+    16%  {opacity: 1;}
+    20%  {opacity: 0;}
+    65%  {opacity: 0;}
+    66%  {opacity: 1;}
+    70%  {opacity: 0;}
+    95%  {opacity: 0;}
+    96%  {opacity: 1;}
+    100% {opacity: 0;}
+}
+
+@keyframes flash-1 {
+    0%   {opacity: 0;}
+    15%  {opacity: 0;}
+    16%  {opacity: 1;}
+    20%  {opacity: 0;}
+    65%  {opacity: 0;}
+    66%  {opacity: 1;}
+    70%  {opacity: 0;}
+    95%  {opacity: 0;}
+    96%  {opacity: 1;}
+    100% {opacity: 0;}
+}
+
+.flash1 {
+    -webkit-transform: translate(10px,10px) scale(.3);
+            transform: translate(10px,10px) scale(.3);
+    -webkit-animation: flash-1 3s infinite both;
+            animation: flash-1 3s infinite both;
+}
+
+.flash2 {
+    -webkit-transform: translate(100px,68px) scale(.3);
+            transform: translate(100px,68px) scale(.3);
+    -webkit-animation: flash-1 4s .5s infinite both;
+            animation: flash-1 4s .5s infinite both;
+}
+
+.flash3 {
+    -webkit-transform: translate(45px,36px) scale(.3);
+            transform: translate(45px,36px) scale(.3);
+    -webkit-animation: flash-1 2.5s 1.25s infinite both;
+            animation: flash-1 2.5s 1.25s infinite both;
+}
+.flash4 {
+    -webkit-transform: translate(165px,8px) scale(.4);
+            transform: translate(165px,8px) scale(.4);
+    -webkit-animation: flash-1 3.5s .25s infinite both;
+            animation: flash-1 3.5s .25s infinite both;
+}
+.flash5 {
+    -webkit-transform: translate(120px,25px) scale(.3);
+            transform: translate(120px,25px) scale(.3);
+    -webkit-animation: flash-1 4.75s 1s infinite both;
+            animation: flash-1 4.75s 1s infinite both;
+}
+.flash6 {
+    -webkit-transform: translate(25px,80px) scale(.3);
+            transform: translate(25px,80px) scale(.3);
+    -webkit-animation: flash-1 1.75s .75s infinite both;
+            animation: flash-1 1.75s .75s infinite both;
+}
+.flash7 {
+    -webkit-transform: translate(90px,50px) scale(.4);
+            transform: translate(90px,50px) scale(.4);
+    -webkit-animation: flash-1 2.75s infinite both;
+            animation: flash-1 2.75s infinite both;
+}
+.flash8 {
+    -webkit-transform: translate(160px,50px) scale(.3);
+            transform: translate(160px,50px) scale(.3);
+    -webkit-animation: flash-1 6s infinite both;
+            animation: flash-1 6s infinite both;
+}
+
+/* Media Queries */
+
+@media (min-height: 480px) {
+    .Main .flashes {
+        top: 35%;
+        height: 40%;
+    }
+}
+
+@media (min-width: 1200px) {
+    .Main .flashes {
+        /*background: green;*/
+        top: 30%;
+        height: 40%;
+    }
+}
 

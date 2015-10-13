@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <link rel="stylesheet" type="text/css" href="player-card.css">
+    <script type="text/montage-serialization">
+        {
+            "owner": {
+                "properties": {
+                    "element": {"#": "owner"},
+                    "playerImage": {"#": "playerImage"}
+                },
+                "bindings": {
+                    "classList.has('is-selected')" : { "<-" : "@owner.activeCard && @owner.transition"},
+                    "classList.has('show-details')" : { "<-" : "@owner.showDetails"}
+                },
+                "listeners": [
+                    {
+                        "type": "action",
+                        "listener": {"@": "owner"},
+                        "capture": false
+                    }
+                ]
+            },
+
+            "playerName": {
+                "prototype": "montage/ui/text.reel",
+                "properties": {
+                    "element": {"#": "playerName"}
+                },
+                "bindings": {
+                  "value": {"<-": "@owner.data.name"}
+                }
+            },
+
+            "playerNumber": {
+                "prototype": "montage/ui/text.reel",
+                "properties": {
+                    "element": {"#": "playerNumber"}
+                },
+                "bindings": {
+                    "value": {"<-": "@owner.data.number"}
+                }
+            },
+
+            "playerPosition": {
+                "prototype": "montage/ui/text.reel",
+                "properties": {
+                    "element": {"#": "playerPosition"}
+                },
+                "bindings": {
+                    "value": {"<-": "@owner.data.position"}
+                }
+            },
+
+            "playerHeightInFeet": {
+                "prototype": "montage/ui/text.reel",
+                "properties": {
+                    "element": {"#": "playerHeightInFeet"}
+                },
+                "bindings": {
+                    "value": {"<-": "@owner.data.heightInFeet"}
+                }
+            },
+
+            "playerHeightInInches": {
+                "prototype": "montage/ui/text.reel",
+                "properties": {
+                    "element": {"#": "playerHeightInInches"}
+                },
+                "bindings": {
+                    "value": {"<-": "@owner.data.heightInInches"}
+                }
+            },
+
+            "playerWeight": {
+                "prototype": "montage/ui/text.reel",
+                "properties": {
+                    "element": {"#": "playerWeight"}
+                },
+                "bindings": {
+                    "value": {"<-": "@owner.data.weight"}
+                }
+            },
+
+            "playerSummary": {
+                "prototype": "montage/ui/text.reel",
+                "properties": {
+                    "element": {"#": "playerSummary"}
+                },
+                "bindings": {
+                    "value": {"<-": "@owner.data.summary"}
+                }
+            },
+
+            "playerBirthdate": {
+              "prototype": "montage/ui/text.reel",
+              "properties": {
+                  "element": {"#": "playerBirthdate"}
+              },
+              "bindings": {
+                  "value": {"<-": "@owner.data.birthdate"}
+              }
+            }
+        }
+    </script>
+</head>
+<body>
+    <div data-montage-id="owner" class="playerCard">
+        <div class="cardOverflow">
+            <div class="playerInfoWrapper">
+                <div class="playerInfo">
+                    <div data-montage-id="playerNumber" class="playerNumber"></div>
+                    <div class="angledTextWrapper">
+                        <div data-montage-id="playerName" class="playerName"></div>
+                        <div data-montage-id="playerPosition" class="playerPosition"></div>
+                        <div data-montage-id="teamName" class="teamName">Golden State Warriors</div>
+                    </div>
+                    <div class="playerDetails">
+                        <div class="playerSpecs">
+                            <div class="playerHeight">Height
+                                <p>
+                                    <span data-montage-id="playerHeightInFeet"></span>
+                                    <span data-montage-id="playerHeightInInches"></span>
+                                </p>
+                            </div>
+                            <div class="playerWeight">Weight<p data-montage-id="playerWeight"></p></div>
+                            <div class="playerBirth">Born<p data-montage-id="playerBirthdate"></p></div>
+                        </div>
+                        <div class="player-summary">
+                            <img src="http://placehold.it/135x160" class="player-avatar" alt="">
+                            <div data-montage-id="playerSummary" class="player-blurb"></div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            <div data-montage-id="playerImage" class="playerImage"></div>
+        </div>
+    </div>
+</body>
+</html>

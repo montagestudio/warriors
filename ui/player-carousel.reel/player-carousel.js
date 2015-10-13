@@ -1,21 +1,14 @@
 /**
- * @module ui/question-options.reel
+ * @module ui/player-carousel.reel
  */
 var Component = require("montage/ui/component").Component,
-    KeyComposer = require("montage/composer/key-composer").KeyComposer,
-    teamData = require("../../../assets/data.json");
+    KeyComposer = require("montage/composer/key-composer").KeyComposer;
 
 /**
- * @class QuestionOptions
+ * @class PlayerCarousel
  * @extends Component
  */
-exports.QuestionOptions = Component.specialize(/** @lends QuestionOptions# */ {
-    constructor: {
-        value: function QuestionOptions() {
-            this.super();
-        }
-    },
-
+exports.PlayerCarousel = Component.specialize(/** @lends PlayerCarousel# */ {
     currentIndex: {
         value: 0
     },
@@ -76,6 +69,7 @@ exports.QuestionOptions = Component.specialize(/** @lends QuestionOptions# */ {
             if (this.flowRibbon) {
                 this.flowRibbon.content = value;
                 this.flowRibbon.scroll = 2;
+                // this.flowRibbon.scroll = Math.floor(this._data.length / 2);
                 this.flowDidTranslateEnd();
             }
         }
@@ -99,7 +93,7 @@ exports.QuestionOptions = Component.specialize(/** @lends QuestionOptions# */ {
                     this.flowRibbon.cameraPosition = [0, 0, 2100];
                     this.flowRibbon.cameraTargetPoint = [0, 0, 0];
                     this.flowRibbon.cameraFov = 50;
-                    for (i = -1; i <= 9; i++) {
+                    for (i = -1; i <= 10; i++) {
                         angle = Math.PI - i * Math.PI / 8;
                         point = this.scaleVector(this.pointInCircleAt(angle), halfPageWidth);
                         tangent = this.scaleVector(this.tangentInCircleAt(angle), halfPageWidth * bezierHandlerLength);
@@ -120,7 +114,7 @@ exports.QuestionOptions = Component.specialize(/** @lends QuestionOptions# */ {
                     this.flowRibbon.cameraPosition = [0, 0, 2200];
                     this.flowRibbon.cameraTargetPoint = [0, 0, 0];
                     this.flowRibbon.cameraFov = 50;
-                    for (i = -1; i <= 9; i++) {
+                    for (i = -1; i <= 10; i++) {
                         angle = Math.PI - i * Math.PI / 8;
                         point = this.scaleVector(this.pointInCircleAt(angle), halfPageWidth);
                         tangent = this.scaleVector(this.tangentInCircleAt(angle), halfPageWidth * bezierHandlerLength);
@@ -141,7 +135,7 @@ exports.QuestionOptions = Component.specialize(/** @lends QuestionOptions# */ {
                     this.flowRibbon.cameraPosition = [0, 0, 2350];
                     this.flowRibbon.cameraTargetPoint = [0, 0, 0];
                     this.flowRibbon.cameraFov = 50;
-                    for (i = -1; i <= 9; i++) {
+                    for (i = -1; i <= 10; i++) {
                         angle = Math.PI - i * Math.PI / 8;
                         point = this.scaleVector(this.pointInCircleAt(angle), halfPageWidth);
                         tangent = this.scaleVector(this.tangentInCircleAt(angle), halfPageWidth * bezierHandlerLength);
@@ -176,19 +170,26 @@ exports.QuestionOptions = Component.specialize(/** @lends QuestionOptions# */ {
 
     enterDocument: {
         value: function (firstTime) {
+
             var leftComposer,
-                rightComposer;
+                rightComposer,
+                enterComposer;
 
             if (firstTime) {
-                this.addEventListener("nextQuestion", this, false);
+                // this.addEventListener("nextQuestion", this, false);
+                enterComposer = new KeyComposer();
+                enterComposer.keys = "enter";
+                enterComposer.identifier = "enter";
                 leftComposer = new KeyComposer();
                 leftComposer.keys = "left";
                 leftComposer.identifier = "left";
                 rightComposer = new KeyComposer();
                 rightComposer.keys = "right";
                 rightComposer.identifier = "right";
+                this.addComposerForElement(enterComposer, window);
                 this.addComposerForElement(leftComposer, window);
                 this.addComposerForElement(rightComposer, window);
+                enterComposer.addEventListener("keyPress", this, false);
                 leftComposer.addEventListener("keyPress", this, false);
                 rightComposer.addEventListener("keyPress", this, false);
             }
@@ -197,20 +198,28 @@ exports.QuestionOptions = Component.specialize(/** @lends QuestionOptions# */ {
 
     handleKeyPress: {
         value: function (event) {
+            var flowIterations,
+                iteration,
+                i = 0;
+
             switch (event.identifier) {
                 case "left":
                     this.flowRibbon.previousStride();
+                break;
+                case "enter":
+                  // $fix - need to put in option model and question-controller
+                    flowIterations = this.flowRibbon._repetition.iterations;
+                    while (i < flowIterations.length && flowIterations[i].object !== this.flowRibbon.content[this.currentIndex]) {
+                        i++;
+                    };
+                    if (i < flowIterations.length) {
+                        flowIterations[i].firstElement.children[0].component.handleAction();
+                    }
                 break;
                 case "right":
                     this.flowRibbon.nextStride();
                 break;
             }
-        }
-    },
-
-    handleNextQuestion: {
-        value: function () {
-            this.flowRibbon.startScrollingIndexToOffset(2,0);
         }
     },
 

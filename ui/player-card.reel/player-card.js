@@ -1,15 +1,25 @@
-var Component = require("montage/ui/component").Component;
+/**
+ * @module ui/player-card.reel
+ */
+var Button = require("montage/ui/button.reel").Button;
 
-var QuestionOption = exports.QuestionOption = Component.specialize({
+/**
+ * @class PlayerCard
+ * @extends Button
+ */
 
-    prepareForActivationEvents: {
-        value: function () {
-            this.element.addEventListener('click', this, false);
-        }
+var PlayerCard = exports.PlayerCard = Button.specialize( /** @lends PlayerCard# */ {
+
+    hasTemplate: {
+        value: true
     },
 
     _data: {
         value: null
+    },
+
+    showDetails: {
+        value: false
     },
 
     data: {
@@ -26,6 +36,7 @@ var QuestionOption = exports.QuestionOption = Component.specialize({
 
     draw: {
         value: function () {
+            this.super();
             if (this.data) {
                 this.playerImage.style.backgroundImage = "url(" + this.data.image + ")";
             }
@@ -64,28 +75,37 @@ var QuestionOption = exports.QuestionOption = Component.specialize({
         }
     },
 
-    handleClick: {
-        value: function (e) {
+    handleAction: {
+        value: function () {
+            var i = 0;
+            while (i < this.flow.content.length && this.flow.content[i] !== this.data) {
+                i++;
+            }
+            if (i < this.flow.content.length) {
+                if (i=== Math.round(this.flow.scroll)) {
+                    if (this.mode == "browse"){
+                        if (this.showDetails) {
+                            this.showDetails = false;
+                        } else {
+                            this.showDetails = true;
+                        }
+                    } else {
+                        if (this.application.quizController.answer(this.data)){
+                            this.setCorrect();
+                            this.reset();
 
-            // check to see if clicked object matches object at currentIndex and isn't a click of the selectItem button
-            // check popcorn for selected / active state when in middle
-            // selected state as used in popcorn doesn't work because as soon as you click it is "selected"
-
-            // set flag in bindings to check
-            // check scope in FRB for binding
-
-            if (this.data == this.flowContent[this.currentIndex] && e.target !== this.selectItem) {
-                if (this.application.quizController.answer(this.data)){
-                    this.setCorrect();
-                    this.reset();
+                        } else {
+                            this.setWrong();
+                            this.reset();
+                        }
+                    }
 
                 } else {
-                    this.setWrong();
-                    this.reset();
+                   this.flow.startScrollingIndexToOffset(i,0);
                 }
+
             }
         }
     }
 
 });
-

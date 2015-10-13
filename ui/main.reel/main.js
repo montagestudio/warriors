@@ -44,6 +44,7 @@ exports.Main = Component.specialize(/** @lends module:"ui/main.reel".Main# */ {
     },
 
     currentView: {
+        // value: 'browse'
         value: 'intro'
     },
 
@@ -78,6 +79,8 @@ exports.Main = Component.specialize(/** @lends module:"ui/main.reel".Main# */ {
         }
     },
 
+    // $fix - should be reworked to not use timeout
+
     handleRestartQuizAction: {
         value: function () {
             var self = this;
@@ -92,7 +95,26 @@ exports.Main = Component.specialize(/** @lends module:"ui/main.reel".Main# */ {
                         });
                 }, 500);
             }
+        }
+    },
 
+    // $fix - should be reworked to not use timeout
+
+    handleBrowsePlayersAction: {
+        value: function () {
+            var self = this;
+            setTimeout(function () {
+                self.currentView = "browse";
+            }, 500);
+        }
+    },
+
+    handleViewResultsAction: {
+        value: function () {
+            var self = this;
+            setTimeout(function () {
+                self.currentView = "results";
+            }, 500);
         }
     }
 

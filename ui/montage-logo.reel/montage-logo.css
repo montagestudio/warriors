@@ -12,8 +12,9 @@
     overflow: hidden;
     -webkit-transition: all .15s ease-in-out;
             transition: all .15s ease-in-out;
-    opacity: .5;
+    opacity: 0.5;
 }
+
 .MontageLogo svg {
     box-sizing: border-box;
     position: absolute;

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <link rel="stylesheet" type="text/css" href="browse-players.css">
+    <script type="text/montage-serialization">
+    {
+        "owner": {
+            "properties": {
+                "element": {"#": "owner"}
+            },
+            "bindings": {
+                "classList.has('transition')": {"<-": "@owner.hasEntered"}
+            },
+            "listeners": [
+                {
+                    "type": "action",
+                    "listener": {"@": "owner"},
+                    "capture": false
+                }
+            ]
+        },
+
+        "carousel": {
+            "prototype": "ui/player-carousel.reel",
+            "properties": {
+                "element": {"#": "carousel"},
+                "mode": "browse"
+            },
+            "bindings": {
+                "data": {"<-": "@owner.players"}
+            }
+        },
+
+        "restartQuiz": {
+            "prototype": "montage/ui/button.reel",
+            "properties": {
+                "element": { "#": "restartQuizButton" }
+            }
+        },
+
+        "viewResults": {
+            "prototype": "montage/ui/button.reel",
+            "properties": {
+                "element": { "#": "viewResultsButton" }
+            }
+        }
+    }
+    </script>
+</head>
+<body>
+    <div data-montage-id="owner" class="BrowsePlayers">
+        <div class="query">
+            <span>Click the selected player to view more info</span>
+        </div>
+        <div data-montage-id="carousel"></div>
+        <div class="buttonGroup">
+            <button data-montage-id="viewResultsButton" class="btn btn--secondary btn--inline">Quiz Results</button>
+            <button data-montage-id="restartQuizButton" class="btn btn--inline">Restart Quiz</button>
+        </div>
+    </div>
+</body>
+</html>

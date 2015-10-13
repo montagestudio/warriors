@@ -21,10 +21,11 @@
             }
         },
 
-        "questionOptions": {
-            "prototype": "./question-options.reel",
+        "carousel": {
+            "prototype": "../player-carousel.reel",
             "properties": {
-                "element": {"#": "questionOptions"}
+                "element": {"#": "carousel"},
+                "mode": "question"
             },
             "bindings": {
                 "data": { "<-": "@owner.question.options"}
@@ -38,7 +39,7 @@
         <div class="query">
             <span data-montage-id="query"></span>
         </div>
-        <div data-montage-id="questionOptions" class="questionOptions"></div>
+        <div data-montage-id="carousel"></div>
     </div>
 </body>
 </html>

@@ -63,6 +63,12 @@
                 "question": {"<-": "@owner.application.quizController.currentQuestion"}
             }
         },
+        "browsePlayers": {
+            "prototype": "ui/browse-players.reel",
+            "properties": {
+                "element": {"#": "browsePlayers"}
+            }
+        },
         "results": {
             "prototype": "ui/results.reel",
             "properties": {
@@ -128,6 +134,9 @@
         </svg>
         <div data-montage-id="pageSubstitution" class="content">
             <div data-arg="intro" data-montage-id="intro"></div>
+            <div data-arg="browse" class="view">
+                <div data-montage-id="browsePlayers"></div>
+            </div>
             <div data-arg="quiz" class="view">
                 <div data-montage-id="timer"></div>
                 <div data-montage-id="question"></div>

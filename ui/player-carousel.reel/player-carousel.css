@@ -30,7 +30,7 @@
     100% {-webkit-transform: scale(.1);transform: scale(.1)}
 }
 
-.QuestionOptions {
+.PlayerCarousel {
     -webkit-flex: 1;
         -ms-flex: 1;
             flex: 1;
