@@ -16,7 +16,10 @@ body {
     line-height: 18px;
     color: #222;
     margin: 0;
+    background: #000;
 }
+
+/* background image */
 
 body:before {
     content: "";
@@ -28,10 +31,17 @@ body:before {
     background-size: cover;
     background-position: center center;
     background-image: url(../../assets/image/GSW-Home-Court_curry.jpg);
+    background-repeat: no-repeat;
+    animation: openGradient 2s forwards;
     z-index: -3;
 }
 
 /* background matte */
+
+@keyframes openGradient {
+    0%   { opacity: 0; }
+    100% { opacity: 1; }
+}
 
 body:after {
     content: "";
@@ -44,28 +54,7 @@ body:after {
     z-index: -2;
     background-repeat: no-repeat;
     background-position: center center;
-    /*background-size: 100% 140%;*/
 }
-
-/*.montage-app-loaded body:after {
-    opacity: 0;
-    visibility: hidden;
-}*/
-
-
-
-
-/* clearfix */
-
-/*.cf:before,
-.cf:after {
-    content: " ";
-    display: table;
-}*/
-
-/*.cf:after {
-    clear: both;
-}*/
 
 /* BUTTONS */
 
@@ -141,21 +130,31 @@ button:focus {
 .loading {
     position: absolute;
     z-index: 1;
-    width: 100%;
     bottom: 0;
     text-align: center;
     font-size: 18px;
-    /*top: 50%;*/
+    left: 50%;
+    transform: translateX(-50%);
     line-height: 40px;
-    height: 110px;
-    /*outline: 1px solid red;*/
-    margin-bottom: -45px;
+    height: 40px;
 }
 
 .ball-container {
     margin: 0 auto;
-    width: 70px;
+    width: 150px;
     color: #FFF;
+}
+
+.ball-container svg {
+    display: inline-block;
+    width: 40px;
+    vertical-align: middle;
+}
+
+.ball-container span {
+    display: inline-block;
+    vertical-align: middle;
+    margin-right: 10px;
 }
 
 @keyframes pulse {
@@ -236,13 +235,13 @@ button:focus {
 }
 
 @-webkit-keyframes intro {
-    from    {opacity: 0; -webkit-transform: translateY(100px); transform: translateY(100px);}
-    to      {opacity: 1; -webkit-transform: translateY(0); transform: translateY(0);}
+    from    {opacity: 0; -webkit-transform: scale(.8); transform: scale(.8);}
+    to      {opacity: 1; -webkit-transform: scale(1); transform: scale(1);}
 }
 
 @keyframes intro {
-    from    {opacity: 0; -webkit-transform: translateY(100px); transform: translateY(100px);}
-    to      {opacity: 1; -webkit-transform: translateY(0); transform: translateY(0);}
+    from    {opacity: 0; -webkit-transform: scale(.8); transform: scale(.8);}
+    to      {opacity: 1; -webkit-transform: scale(1); transform: scale(1);}
 }
 
 .intro {
@@ -271,16 +270,17 @@ button:focus {
     background-size: contain;
     background-repeat: no-repeat;
     background-image: url(../../assets/image/championship_logo.png);
+    margin-bottom: 2em;
 }
 
 /* setting up the animation */
 
-.intro > * {
-    /*animation: intro 1s .5s ease both;*/
+.loader .intro > .intro-text {
+    animation: intro 1s ease both;
 }
 
-.intro > :nth-child(2) { -webkit-animation-delay: 1.5s; animation-delay: 1.5s; }
-.intro > :nth-child(3) { -webkit-animation-delay: 2.5s; animation-delay: 2.5s; }
+/*.intro > .intro-text:nth-child(2) { -webkit-animation-delay: 1.5s; animation-delay: 1.5s; }*/
+.intro > .intro-text:nth-child(3) { -webkit-animation-delay: .25s; animation-delay: .25s; }
 .intro > :nth-child(4) { -webkit-animation-delay: 3.5s; animation-delay: 3.5s; }
 
 .intro.transition-out {

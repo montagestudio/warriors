@@ -6,6 +6,7 @@
             "options": [
                 {
                     "image": "assets/image/posters/11.jpg",
+                    "thumbnail": "assets/image/posters/thumbnail/11.jpg",
                     "name": "Brandon Rush",
                     "number": 4,
                     "position": "Guard / Forward",
@@ -13,10 +14,11 @@
                     "heightInInches": "6",
                     "weight": "220",
                     "birthdate": "7/7/85",
-                    "summary": "this is the space where a fun fact would go for each player"
+                    "summary": "Basketball runs in the family, as both of Brandon's brothers, JaRon and Kareem played professional basketball."
                 },
                 {
                     "image": "assets/image/posters/0.jpg",
+                    "thumbnail": "assets/image/posters/thumbnail/0.jpg",
                     "name": "Leandro Barbosa",
                     "number": 19,
                     "position": "Guard",
@@ -24,10 +26,11 @@
                     "heightInInches": "4",
                     "weight": "194",
                     "birthdate": "11/28/82",
-                    "summary": "this is the space where a fun fact would go for each player"
+                    "summary": "Leandro Barbosa had his first season with the Warriors in 2015, and averaged a respectable 7.1 PPG from a reserve position."
                 },
                 {
                     "image": "assets/image/posters/1.jpg",
+                    "thumbnail": "assets/image/posters/thumbnail/1.jpg",
                     "name": "Harrison Barnes",
                     "number": 40,
                     "position": "Forward",
@@ -35,10 +38,11 @@
                     "heightInInches": "8",
                     "weight": "225",
                     "birthdate": "5/30/92",
-                    "summary": "this is the space where a fun fact would go for each player"
+                    "summary": "Harrison had career highs in 3PT%, FG%, and PPG (10.1) in 2015."
                 },
                 {
                     "image": "assets/image/posters/3.jpg",
+                    "thumbnail": "assets/image/posters/thumbnail/3.jpg",
                     "name": "Stephen Curry",
                     "number": 30,
                     "position": "Guard",
@@ -46,10 +50,11 @@
                     "heightInInches": "3",
                     "weight": "190",
                     "birthdate": "3/14/88",
-                    "summary": "this is the space where a fun fact would go for each player"
+                    "summary": "Stephen Curry had a phenomenal year in 2015, leading the league in 3pt shots and FT% and winning the MVP award."
                 },
                 {
                     "image": "assets/image/posters/2.jpg",
+                    "thumbnail": "assets/image/posters/thumbnail/2.jpg",
                     "name": "Andrew Bogut",
                     "number": 12,
                     "position": "Center",
@@ -57,7 +62,7 @@
                     "heightInInches": "0",
                     "weight": "260",
                     "birthdate": "11/28/84",
-                    "summary": "this is the space where a fun fact would go for each player"
+                    "summary": "Andrew is one of the top rebounders for the Warriors, and stands 7 feet tall."
                 }
             ],
             "answer": 3
@@ -67,6 +72,7 @@
             "options": [
                 {
                     "image": "assets/image/posters/3.jpg",
+                    "thumbnail": "assets/image/posters/thumbnail/3.jpg",
                     "name": "Stephen Curry",
                     "number": 30,
                     "position": "Guard",
@@ -74,10 +80,11 @@
                     "heightInInches": "3",
                     "weight": "190",
                     "birthdate": "3/14/88",
-                    "summary": "this is the space where a fun fact would go for each player"
+                    "summary": "Stephen Curry had a phenomenal year in 2015, leading the league in 3pt shots and FT% and winning the MVP award."
                 },
                 {
                     "image": "assets/image/posters/4.jpg",
+                    "thumbnail": "assets/image/posters/thumbnail/4.jpg",
                     "name": "Festus Ezeli",
                     "number": 31,
                     "position": "Center",
@@ -85,10 +92,11 @@
                     "heightInInches": "11",
                     "weight": "265",
                     "birthdate": "10/21/89",
-                    "summary": "this is the space where a fun fact would go for each player"
+                    "summary": "After missing the entire season in 2013/2014, Festus came back to help the Warriors off the bench in 2015."
                 },
                 {
                     "image": "assets/image/posters/5.jpg",
+                    "thumbnail": "assets/image/posters/thumbnail/5.jpg",
                     "name": "Draymond Green",
                     "number": 23,
                     "position": "Forward",
@@ -96,10 +104,11 @@
                     "heightInInches": "7",
                     "weight": "230",
                     "birthdate": "3/4/90",
-                    "summary": "this is the space where a fun fact would go for each player"
+                    "summary": "Draymond had career highs in PPG(13.7) and RPG(8.2) in 2015."
                 },
                 {
                     "image": "assets/image/posters/12.jpg",
+                    "thumbnail": "assets/image/posters/thumbnail/12.jpg",
                     "name": "Marreese Speights",
                     "number": 5,
                     "position": "Center / Forward",
@@ -107,10 +116,11 @@
                     "heightInInches": "10",
                     "weight": "255",
                     "birthdate": "8/4/87",
-                    "summary": "this is the space where a fun fact would go for each player"
+                    "summary": "Marreese had career highs in PPG (10.4) and FT% (.843) in 2015."
                 },
                 {
                     "image": "assets/image/posters/7.jpg",
+                    "thumbnail": "assets/image/posters/thumbnail/7.jpg",
                     "name": "Andre Iguodala",
                     "number": 9,
                     "position": "Guard / Forward",
@@ -118,7 +128,7 @@
                     "heightInInches": "6",
                     "weight": "215",
                     "birthdate": "1/28/84",
-                    "summary": "this is the space where a fun fact would go for each player"
+                    "summary": "Andre had a motivational performance in the 2015 NBA finals and won the Most Valuable Player award."
                 }
             ],
             "answer": 4
@@ -128,6 +138,7 @@
             "options": [
                 {
                     "image": "assets/image/posters/10.jpg",
+                    "thumbnail": "assets/image/posters/thumbnail/10.jpg",
                     "name": "James Michael McAdoo",
                     "number": 20,
                     "position": "Forward",
@@ -135,10 +146,11 @@
                     "heightInInches": "9",
                     "weight": "230",
                     "birthdate": "1/4/93",
-                    "summary": "this is the space where a fun fact would go for each player"
+                    "summary": "A Rookie for the Warriors this year, James also won the D-League Championship with Santa Cruz in 2015."
                 },
                 {
                     "image": "assets/image/posters/5.jpg",
+                    "thumbnail": "assets/image/posters/thumbnail/5.jpg",
                     "name": "Draymond Green",
                     "number": 23,
                     "position": "Forward",
@@ -146,10 +158,11 @@
                     "heightInInches": "7",
                     "weight": "230",
                     "birthdate": "3/4/90",
-                    "summary": "this is the space where a fun fact would go for each player"
+                    "summary": "Draymond had career highs in PPG(13.7) and RPG(8.2) in 2015."
                 },
                 {
                     "image": "assets/image/posters/12.jpg",
+                    "thumbnail": "assets/image/posters/thumbnail/12.jpg",
                     "name": "Marreese Speights",
                     "number": 5,
                     "position": "Center / Forward",
@@ -157,10 +170,11 @@
                     "heightInInches": "10",
                     "weight": "255",
                     "birthdate": "8/4/87",
-                    "summary": "this is the space where a fun fact would go for each player"
+                    "summary": "Marreese had career highs in PPG (10.4) and FT% (.843) in 2015."
                 },
                 {
                     "image": "assets/image/posters/7.jpg",
+                    "thumbnail": "assets/image/posters/thumbnail/7.jpg",
                     "name": "Andre Iguodala",
                     "number": 9,
                     "position": "Guard / Forward",
@@ -168,10 +182,11 @@
                     "heightInInches": "6",
                     "weight": "215",
                     "birthdate": "1/28/84",
-                    "summary": "this is the space where a fun fact would go for each player"
+                    "summary": "Andre had a motivational performance in the 2015 NBA finals and won the Most Valuable Player award."
                 },
                 {
                     "image": "assets/image/posters/8.jpg",
+                    "thumbnail": "assets/image/posters/thumbnail/8.jpg",
                     "name": "David Lee",
                     "number": 10,
                     "position": "Forward / Center",
@@ -179,7 +194,7 @@
                     "heightInInches": "9",
                     "weight": "245",
                     "birthdate": "4/29/83",
-                    "summary": "this is the space where a fun fact would go for each player"
+                    "summary": "A two time NBA All Star, David has also had appearances on Celebrity Apprentice and the Electric Company."
                 }
             ],
             "answer": 1
@@ -189,6 +204,7 @@
             "options": [
                 {
                     "image": "assets/image/posters/9.jpg",
+                    "thumbnail": "assets/image/posters/thumbnail/9.jpg",
                     "name": "Shaun Livingston",
                     "number": 34,
                     "position": "Guard",
@@ -196,10 +212,11 @@
                     "heightInInches": "7",
                     "weight": "192",
                     "birthdate": "9/11/85",
-                    "summary": "this is the space where a fun fact would go for each player"
+                    "summary": "Shaun is a 10 year NBA veteran with 8 different teams, 2015 being his first with the Warriors."
                 },
                 {
                     "image": "assets/image/posters/6.jpg",
+                    "thumbnail": "assets/image/posters/thumbnail/6.jpg",
                     "name": "Justin Holiday",
                     "number": 7,
                     "position": "Guard",
@@ -207,10 +224,11 @@
                     "heightInInches": "3",
                     "weight": "195",
                     "birthdate": "4/15/80",
-                    "summary": "this is the space where a fun fact would go for each player"
+                    "summary": "Justin signed with the Atlanta Hawks for the 2015-2016 Season."
                 },
                 {
                     "image": "assets/image/posters/7.jpg",
+                    "thumbnail": "assets/image/posters/thumbnail/7.jpg",
                     "name": "Andre Iguodala",
                     "number": 9,
                     "position": "Guard / Forward",
@@ -218,10 +236,11 @@
                     "heightInInches": "6",
                     "weight": "215",
                     "birthdate": "1/28/84",
-                    "summary": "this is the space where a fun fact would go for each player"
+                    "summary": "Andre had a motivational performance in the 2015 NBA finals and won the Most Valuable Player award."
                 },
                 {
                     "image": "assets/image/posters/3.jpg",
+                    "thumbnail": "assets/image/posters/thumbnail/3.jpg",
                     "name": "Stephen Curry",
                     "number": 30,
                     "position": "Guard",
@@ -229,10 +248,11 @@
                     "heightInInches": "3",
                     "weight": "190",
                     "birthdate": "3/14/88",
-                    "summary": "this is the space where a fun fact would go for each player"
+                    "summary": "Stephen Curry had a phenomenal year in 2015, leading the league in 3pt shots and FT% and winning the MVP award."
                 },
                 {
                     "image": "assets/image/posters/13.jpg",
+                    "thumbnail": "assets/image/posters/thumbnail/13.jpg",
                     "name": "Klay Thompson",
                     "number": 11,
                     "position": "Guard",
@@ -240,7 +260,7 @@
                     "heightInInches": "7",
                     "weight": "215",
                     "birthdate": "2/8/90",
-                    "summary": "this is the space where a fun fact would go for each player"
+                    "summary": "Klay had career highs in almost every category in 2015, and made the All-Star team for the first time."
                 }
             ],
             "answer": 3
@@ -250,6 +270,7 @@
             "options": [
                 {
                     "image": "assets/image/posters/8.jpg",
+                    "thumbnail": "assets/image/posters/thumbnail/8.jpg",
                     "name": "David Lee",
                     "number": 10,
                     "position": "Forward / Center",
@@ -257,10 +278,11 @@
                     "heightInInches": "9",
                     "weight": "245",
                     "birthdate": "4/29/83",
-                    "summary": "this is the space where a fun fact would go for each player"
+                    "summary": "A two time NBA All Star, David has also had appearances on Celebrity Apprentice and the Electric Company."
                 },
                 {
                     "image": "assets/image/posters/3.jpg",
+                    "thumbnail": "assets/image/posters/thumbnail/3.jpg",
                     "name": "Stephen Curry",
                     "number": 30,
                     "position": "Guard",
@@ -268,10 +290,11 @@
                     "heightInInches": "3",
                     "weight": "190",
                     "birthdate": "3/14/88",
-                    "summary": "this is the space where a fun fact would go for each player"
+                    "summary": "Stephen Curry had a phenomenal year in 2015, leading the league in 3pt shots and FT% and winning the MVP award."
                 },
                 {
                     "image": "assets/image/posters/4.jpg",
+                    "thumbnail": "assets/image/posters/thumbnail/4.jpg",
                     "name": "Festus Ezeli",
                     "number": 31,
                     "position": "Center",
@@ -279,10 +302,11 @@
                     "heightInInches": "11",
                     "weight": "265",
                     "birthdate": "10/21/89",
-                    "summary": "this is the space where a fun fact would go for each player"
+                    "summary": "After missing the entire season in 2013/2014, Festus came back to help the Warriors off the bench in 2015."
                 },
                 {
                     "image": "assets/image/posters/10.jpg",
+                    "thumbnail": "assets/image/posters/thumbnail/10.jpg",
                     "name": "James Michael McAdoo",
                     "number": 20,
                     "position": "Forward",
@@ -290,10 +314,11 @@
                     "heightInInches": "9",
                     "weight": "230",
                     "birthdate": "1/4/93",
-                    "summary": "this is the space where a fun fact would go for each player"
+                    "summary": "A Rookie for the Warriors this year, James also won the D-League Championship with Santa Cruz in 2015."
                 },
                 {
                     "image": "assets/image/posters/7.jpg",
+                    "thumbnail": "assets/image/posters/thumbnail/7.jpg",
                     "name": "Andre Iguodala",
                     "number": 9,
                     "position": "Guard / Forward",
@@ -301,7 +326,7 @@
                     "heightInInches": "6",
                     "weight": "215",
                     "birthdate": "1/28/84",
-                    "summary": "this is the space where a fun fact would go for each player"
+                    "summary": "Andre had a motivational performance in the 2015 NBA finals and won the Most Valuable Player award."
                 }
             ],
             "answer": 0
@@ -311,6 +336,7 @@
             "options": [
                 {
                     "image": "assets/image/posters/11.jpg",
+                    "thumbnail": "assets/image/posters/thumbnail/11.jpg",
                     "name": "Brandon Rush",
                     "number": 4,
                     "position": "Guard / Forward",
@@ -318,10 +344,11 @@
                     "heightInInches": "6",
                     "weight": "220",
                     "birthdate": "7/7/85",
-                    "summary": "this is the space where a fun fact would go for each player"
+                    "summary": "Basketball runs in the family, as both of Brandon's brothers, JaRon and Kareem played professional basketball."
                 },
                 {
                     "image": "assets/image/posters/9.jpg",
+                    "thumbnail": "assets/image/posters/thumbnail/9.jpg",
                     "name": "Shaun Livingston",
                     "number": 34,
                     "position": "Guard",
@@ -329,20 +356,22 @@
                     "heightInInches": "7",
                     "weight": "192",
                     "birthdate": "9/11/85",
-                    "summary": "this is the space where a fun fact would go for each player"
+                    "summary": "Shaun is a 10 year NBA veteran with 8 different teams, 2015 being his first with the Warriors."
                 },
                 {
                     "image": "assets/image/posters/0.jpg",
+                    "thumbnail": "assets/image/posters/thumbnail/0.jpg",
                     "name": "Leandro Barbosa",
                     "number": 19, "position":
                     "Guard", "heightInFeet": "6",
                     "heightInInches": "4",
                     "weight": "194",
                     "birthdate": "11/28/82",
-                    "summary": "this is the space where a fun fact would go for each player"
+                    "summary": "Leandro Barbosa had his first season with the Warriors in 2015, and averaged a respectable 7.1 PPG from a reserve position."
                 },
                 {
                     "image": "assets/image/posters/13.jpg",
+                    "thumbnail": "assets/image/posters/thumbnail/13.jpg",
                     "name": "Klay Thompson",
                     "number": 11,
                     "position": "Guard",
@@ -350,10 +379,11 @@
                     "heightInInches": "7",
                     "weight": "215",
                     "birthdate": "2/8/90",
-                    "summary": "this is the space where a fun fact would go for each player"
+                    "summary": "Klay had career highs in almost every category in 2015, and made the All-Star team for the first time."
                 },
                 {
                     "image": "assets/image/posters/7.jpg",
+                    "thumbnail": "assets/image/posters/thumbnail/7.jpg",
                     "name": "Andre Iguodala",
                     "number": 9,
                     "position": "Guard / Forward",
@@ -361,7 +391,7 @@
                     "heightInInches": "6",
                     "weight": "215",
                     "birthdate": "1/28/84",
-                    "summary": "this is the space where a fun fact would go for each player"
+                    "summary": "Andre had a motivational performance in the 2015 NBA finals and won the Most Valuable Player award."
                 }
             ],
             "answer": 3
@@ -371,6 +401,7 @@
             "options": [
                 {
                     "image": "assets/image/posters/3.jpg",
+                    "thumbnail": "assets/image/posters/thumbnail/3.jpg",
                     "name": "Stephen Curry",
                     "number": 30,
                     "position": "Guard",
@@ -378,10 +409,11 @@
                     "heightInInches": "3",
                     "weight": "190",
                     "birthdate": "3/14/88",
-                    "summary": "this is the space where a fun fact would go for each player"
+                    "summary": "Stephen Curry had a phenomenal year in 2015, leading the league in 3pt shots and FT% and winning the MVP award."
                 },
                 {
                     "image": "assets/image/posters/5.jpg",
+                    "thumbnail": "assets/image/posters/thumbnail/5.jpg",
                     "name": "Draymond Green",
                     "number": 23,
                     "position": "Forward",
@@ -389,10 +421,11 @@
                     "heightInInches": "7",
                     "weight": "230",
                     "birthdate": "3/4/90",
-                    "summary": "this is the space where a fun fact would go for each player"
+                    "summary": "Draymond had career highs in PPG(13.7) and RPG(8.2) in 2015."
                 },
                 {
                     "image": "assets/image/posters/7.jpg",
+                    "thumbnail": "assets/image/posters/thumbnail/7.jpg",
                     "name": "Andre Iguodala",
                     "number": 9,
                     "position": "Guard / Forward",
@@ -400,10 +433,11 @@
                     "heightInInches": "6",
                     "weight": "215",
                     "birthdate": "1/28/84",
-                    "summary": "this is the space where a fun fact would go for each player"
+                    "summary": "Andre had a motivational performance in the 2015 NBA finals and won the Most Valuable Player award."
                 },
                 {
                     "image": "assets/image/posters/8.jpg",
+                    "thumbnail": "assets/image/posters/thumbnail/8.jpg",
                     "name": "David Lee",
                     "number": 10,
                     "position": "Forward / Center",
@@ -411,10 +445,11 @@
                     "heightInInches": "9",
                     "weight": "245",
                     "birthdate": "4/29/83",
-                    "summary": "this is the space where a fun fact would go for each player"
+                    "summary": "A two time NBA All Star, David has also had appearances on Celebrity Apprentice and the Electric Company."
                 },
                 {
                     "image": "assets/image/posters/1.jpg",
+                    "thumbnail": "assets/image/posters/thumbnail/1.jpg",
                     "name": "Harrison Barnes",
                     "number": 40,
                     "position": "Forward",
@@ -422,7 +457,7 @@
                     "heightInInches": "8",
                     "weight": "225",
                     "birthdate": "5/30/92",
-                    "summary": "this is the space where a fun fact would go for each player"
+                    "summary": "Harrison had career highs in 3PT%, FG%, and PPG (10.1) in 2015."
                 }
             ],
             "answer": 4
@@ -432,16 +467,18 @@
             "options": [
                 {
                     "image": "assets/image/posters/0.jpg",
+                    "thumbnail": "assets/image/posters/thumbnail/0.jpg",
                     "name": "Leandro Barbosa",
                     "number": 19, "position":
                     "Guard", "heightInFeet": "6",
                     "heightInInches": "4",
                     "weight": "194",
                     "birthdate": "11/28/82",
-                    "summary": "this is the space where a fun fact would go for each player"
+                    "summary": "Leandro Barbosa had his first season with the Warriors in 2015, and averaged a respectable 7.1 PPG from a reserve position."
                 },
                 {
                     "image": "assets/image/posters/11.jpg",
+                    "thumbnail": "assets/image/posters/thumbnail/11.jpg",
                     "name": "Brandon Rush",
                     "number": 4,
                     "position": "Guard / Forward",
@@ -449,10 +486,11 @@
                     "heightInInches": "6",
                     "weight": "220",
                     "birthdate": "7/7/85",
-                    "summary": "this is the space where a fun fact would go for each player"
+                    "summary": "Basketball runs in the family, as both of Brandon's brothers, JaRon and Kareem played professional basketball."
                 },
                 {
                     "image": "assets/image/posters/4.jpg",
+                    "thumbnail": "assets/image/posters/thumbnail/4.jpg",
                     "name": "Festus Ezeli",
                     "number": 31,
                     "position": "Center",
@@ -460,10 +498,11 @@
                     "heightInInches": "11",
                     "weight": "265",
                     "birthdate": "10/21/89",
-                    "summary": "this is the space where a fun fact would go for each player"
+                    "summary": "After missing the entire season in 2013/2014, Festus came back to help the Warriors off the bench in 2015."
                 },
                 {
                     "image": "assets/image/posters/6.jpg",
+                    "thumbnail": "assets/image/posters/thumbnail/6.jpg",
                     "name": "Justin Holiday",
                     "number": 7,
                     "position": "Guard",
@@ -471,10 +510,11 @@
                     "heightInInches": "3",
                     "weight": "195",
                     "birthdate": "4/15/80",
-                    "summary": "this is the space where a fun fact would go for each player"
+                    "summary": "Justin signed with the Atlanta Hawks for the 2015-2016 Season"
                 },
                 {
                     "image": "assets/image/posters/8.jpg",
+                    "thumbnail": "assets/image/posters/thumbnail/8.jpg",
                     "name": "David Lee",
                     "number": 10,
                     "position": "Forward / Center",
@@ -482,7 +522,7 @@
                     "heightInInches": "9",
                     "weight": "245",
                     "birthdate": "4/29/83",
-                    "summary": "this is the space where a fun fact would go for each player"
+                    "summary": "A two time NBA All Star, David has also had appearances on Celebrity Apprentice and the Electric Company."
                 }
             ],
             "answer": 4
@@ -492,6 +532,7 @@
             "options": [
                 {
                     "image": "assets/image/posters/12.jpg",
+                    "thumbnail": "assets/image/posters/thumbnail/12.jpg",
                     "name": "Marreese Speights",
                     "number": 5,
                     "position": "Center / Forward",
@@ -499,10 +540,11 @@
                     "heightInInches": "10",
                     "weight": "255",
                     "birthdate": "8/4/87",
-                    "summary": "this is the space where a fun fact would go for each player"
+                    "summary": "Marreese had career highs in PPG (10.4) and FT% (.843) in 2015."
                 },
                 {
                     "image": "assets/image/posters/4.jpg",
+                    "thumbnail": "assets/image/posters/thumbnail/4.jpg",
                     "name": "Festus Ezeli",
                     "number": 31,
                     "position": "Center",
@@ -510,10 +552,11 @@
                     "heightInInches": "11",
                     "weight": "265",
                     "birthdate": "10/21/89",
-                    "summary": "this is the space where a fun fact would go for each player"
+                    "summary": "After missing the entire season in 2013/2014, Festus came back to help the Warriors off the bench in 2015."
                 },
                 {
                     "image": "assets/image/posters/2.jpg",
+                    "thumbnail": "assets/image/posters/thumbnail/2.jpg",
                     "name": "Andrew Bogut",
                     "number": 12,
                     "position": "Center",
@@ -521,10 +564,11 @@
                     "heightInInches": "0",
                     "weight": "260",
                     "birthdate": "11/28/84",
-                    "summary": "this is the space where a fun fact would go for each player"
+                    "summary": "Andrew is one of the top rebounders for the Warriors, and stands 7 feet tall."
                 },
                 {
                     "image": "assets/image/posters/11.jpg",
+                    "thumbnail": "assets/image/posters/thumbnail/11.jpg",
                     "name": "Brandon Rush",
                     "number": 4,
                     "position": "Guard / Forward",
@@ -532,10 +576,11 @@
                     "heightInInches": "6",
                     "weight": "220",
                     "birthdate": "7/7/85",
-                    "summary": "this is the space where a fun fact would go for each player"
+                    "summary": "Basketball runs in the family, as both of Brandon's brothers, JaRon and Kareem played professional basketball."
                 },
                 {
                     "image": "assets/image/posters/8.jpg",
+                    "thumbnail": "assets/image/posters/thumbnail/8.jpg",
                     "name": "David Lee",
                     "number": 10,
                     "position": "Forward / Center",
@@ -543,7 +588,7 @@
                     "heightInInches": "9",
                     "weight": "245",
                     "birthdate": "4/29/83",
-                    "summary": "this is the space where a fun fact would go for each player"
+                    "summary": "A two time NBA All Star, David has also had appearances on Celebrity Apprentice and the Electric Company."
                 }
             ],
             "answer": 2
@@ -553,6 +598,7 @@
             "options": [
                 {
                     "image": "assets/image/posters/12.jpg",
+                    "thumbnail": "assets/image/posters/thumbnail/12.jpg",
                     "name": "Marreese Speights",
                     "number": 5,
                     "position": "Center / Forward",
@@ -560,10 +606,11 @@
                     "heightInInches": "10",
                     "weight": "255",
                     "birthdate": "8/4/87",
-                    "summary": "this is the space where a fun fact would go for each player"
+                    "summary": "Marreese had career highs in PPG (10.4) and FT% (.843) in 2015."
                 },
                 {
                     "image": "assets/image/posters/1.jpg",
+                    "thumbnail": "assets/image/posters/thumbnail/1.jpg",
                     "name": "Harrison Barnes",
                     "number": 40,
                     "position": "Forward",
@@ -571,10 +618,11 @@
                     "heightInInches": "8",
                     "weight": "225",
                     "birthdate": "5/30/92",
-                    "summary": "this is the space where a fun fact would go for each player"
+                    "summary": "Harrison had career highs in 3PT%, FG%, and PPG (10.1) in 2015."
                 },
                 {
                     "image": "assets/image/posters/13.jpg",
+                    "thumbnail": "assets/image/posters/thumbnail/13.jpg",
                     "name": "Klay Thompson",
                     "number": 11,
                     "position": "Guard",
@@ -582,10 +630,11 @@
                     "heightInInches": "7",
                     "weight": "215",
                     "birthdate": "2/8/90",
-                    "summary": "this is the space where a fun fact would go for each player"
+                    "summary": "Klay had career highs in almost every category in 2015, and made the All-Star team for the first time."
                 },
                 {
                     "image": "assets/image/posters/6.jpg",
+                    "thumbnail": "assets/image/posters/thumbnail/6.jpg",
                     "name": "Justin Holiday",
                     "number": 7,
                     "position": "Guard",
@@ -593,10 +642,11 @@
                     "heightInInches": "3",
                     "weight": "195",
                     "birthdate": "4/15/80",
-                    "summary": "this is the space where a fun fact would go for each player"
+                    "summary": "Justin signed with the Atlanta Hawks for the 2015-2016 Season"
                 },
                 {
                     "image": "assets/image/posters/10.jpg",
+                    "thumbnail": "assets/image/posters/thumbnail/10.jpg",
                     "name": "James Michael McAdoo",
                     "number": 20,
                     "position": "Forward",
@@ -604,7 +654,7 @@
                     "heightInInches": "9",
                     "weight": "230",
                     "birthdate": "1/4/93",
-                    "summary": "this is the space where a fun fact would go for each player"
+                    "summary": "A Rookie for the Warriors this year, James also won the D-League Championship with Santa Cruz in 2015."
                 }
             ],
             "answer": 0

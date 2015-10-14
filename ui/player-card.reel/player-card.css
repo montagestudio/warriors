@@ -36,9 +36,11 @@
     height: 8px;
     background: rgb(256,204,51);
     z-index: -1;
-    transform: scaleX(0) scaleY(0);
+    -webkit-transform: scaleX(0) scaleY(0);
+            transform: scaleX(0) scaleY(0);
     pointer-events: none;
     opacity: 0;
+    transition: opacity .25s linear, -webkit-transform 0s .25s linear;
     transition: opacity .25s linear, transform 0s .25s linear;
 }
 
@@ -61,8 +63,10 @@
 .answered.playerCard:before,
 .answered.playerCard:after  {
     opacity: 1;
+    transition: opacity 0s linear, -webkit-transform .25s linear;
     transition: opacity 0s linear, transform .25s linear;
-    transform: scaleX(48.9) scaleY(77);
+    -webkit-transform: scaleX(48.9) scaleY(77);
+            transform: scaleX(48.9) scaleY(77);
     background-color: rgb(256,204,51);
 }
 
@@ -133,15 +137,18 @@
     transition: -webkit-filter .25s ease-in-out,
                         filter .25s ease-in-out,
                 -webkit-transform .25s linear,
-                        transform .25s linear;
-    transform-origin: 50% 25%;
+                        -webkit-transform .25s linear;
+    -webkit-transform-origin: 50% 25%;
+            transform-origin: 50% 25%;
 }
 
 /* zoom playerImage when is-selected */
 
 .is-selected .playerImage {
+    transition: -webkit-transform 15s linear;
     transition: transform 15s linear;
-    transform: translate3d(0,0,0) translateY(-50%) scale(1.3);
+    -webkit-transform: translate3d(0,0,0) translateY(-50%) scale(1.3);
+            transform: translate3d(0,0,0) translateY(-50%) scale(1.3);
 }
 
 .show-details .playerImage {
@@ -150,8 +157,10 @@
 }
 
 .is-selected.show-details .playerImage {
+    transition: -webkit-transform .25s linear;
     transition: transform .25s linear;
-    transform: translate3d(0,0,0) translateY(-50%) scale(1);
+    -webkit-transform: translate3d(0,0,0) translateY(-50%) scale(1);
+            transform: translate3d(0,0,0) translateY(-50%) scale(1);
 }
 
 .angledTextWrapper {
@@ -213,9 +222,15 @@
 
 .playerDetails {
     position: absolute;
+    display: -webkit-flex;
+    display: -ms-flexbox;
     display: flex;
-    flex-direction: column;
-    justify-content: center;
+    -webkit-flex-direction: column;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-justify-content: center;
+        -ms-flex-pack: center;
+            justify-content: center;
     color: #FFF;
     text-align: center;
     width: 100%;
@@ -272,6 +287,8 @@
 
 .player-summary {
     box-sizing: border-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
     display: flex;
     margin: 0 10px;
     /*padding: 20px;*/

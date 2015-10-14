@@ -4,6 +4,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=0, minimal-ui">
     <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
     <title>Golden State Warriors</title>
 
     <link rel="stylesheet" href="assets/style/style.css" />
@@ -17,9 +18,17 @@
         }
     }
     </script>
+    <script>
+        window.scrollTo(0, 1);
+        window.scrollTo(0, 200);
+        setTimeout(function() {
+            window.scrollTo(0, 1);
+        }, 100);
+
+    </script>
 </head>
 <body>
-    <div data-montage-id="main" class="Main">
+    <div data-montage-id="main" class="Main loader">
         <div class="header">Warriors Quiz</div>
         <div class="content">
             <div class="intro">
@@ -29,6 +38,7 @@
                 <button class="btn btn--inline" style="visibility:hidden">Start Quiz</button>
                 <div class="loading">
                     <div class="ball-container">
+                        <span>Loading</span>
                         <svg class="basketball" viewBox="0 0 866 866" xmlns="http://www.w3.org/2000/svg">
                             <path class="bb-0" d="M142.327 112.062C214.1 47.017 307.79 5.714 411 .55V410.5H280.346c-8.144-184.333-121.358-284.64-138.02-298.438z" fill="currentColor"/>
                             <path class="bb-1" d="M111.104 143.388C46.716 214.908 5.822 307.995.574 410.5h235.893c-7.19-145.817-109.942-251.965-125.363-267.112z" fill="currentColor"/>
@@ -39,7 +49,7 @@
                             <path class="bb-6" d="M754.82 143.302C819.145 214.716 860.042 307.652 865.4 410H628.418c8.043-149.258 115.93-256.613 126.4-266.698z" fill="currentColor"/>
                             <path class="bb-7" d="M723.687 112.075C651.91 47.022 558.217 5.715 455 .55V410h129.53c8.944-188.743 128.016-288.947 139.157-297.925z" fill="currentColor"/>
                         </svg>
-                        <span>Loading</span>
+
                     </div>
                 </div>
             </div>
