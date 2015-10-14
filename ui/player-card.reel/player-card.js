@@ -22,6 +22,14 @@ var PlayerCard = exports.PlayerCard = Button.specialize( /** @lends PlayerCard# 
         value: false
     },
 
+    // remove class when card isn't selected card
+
+    removeShowDetails: {
+        set: function () {
+            this.classList.remove("show-details");
+        }
+    },
+
     data: {
         get: function () {
             return this._data;
