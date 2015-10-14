@@ -8,6 +8,9 @@
   "bundle": [
     "ui/main.reel"
   ],
+  "scripts": {
+    "start": "vagrant up"
+  },
   "shared": 4,
   "devDependencies": {
     "montage-testing": "^0.4.3"
