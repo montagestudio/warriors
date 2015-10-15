@@ -27,6 +27,7 @@ var PlayerCard = exports.PlayerCard = Button.specialize( /** @lends PlayerCard# 
     removeShowDetails: {
         set: function () {
             this.classList.remove("show-details");
+            this.showDetails = false;
         }
     },
 

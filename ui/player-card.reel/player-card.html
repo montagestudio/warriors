@@ -94,6 +94,18 @@
                 }
             },
 
+            "playerThumbnail": {
+                "prototype": "ui/image.reel",
+                "properties": {
+                    "element": {"#": "playerThumbnail"},
+                    "height": 140,
+                    "width": 100
+                },
+                "bindings": {
+                    "src": {"<-": "'../../' + @owner.data.thumbnail"}
+                }
+            },
+
             "playerBirthdate": {
               "prototype": "montage/ui/text.reel",
               "properties": {
@@ -129,7 +141,7 @@
                             <div class="playerBirth">Born<p data-montage-id="playerBirthdate"></p></div>
                         </div>
                         <div class="player-summary">
-                            <img src="http://placehold.it/135x160" class="player-avatar" alt="">
+                            <img data-montage-id="playerThumbnail" height="140px" width="100px" class="player-thumbnail"></img>
                             <div data-montage-id="playerSummary" class="player-blurb"></div>
                         </div>
 
