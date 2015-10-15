@@ -1,5 +1,5 @@
 .BrowsePlayers {
-    margin-top: 5em;
+    /*margin-top: 5em;*/
     -webkit-flex: 1;
         -ms-flex: 1;
             flex: 1;
@@ -36,7 +36,7 @@
 
 /* $fix - duplicated code from question.css */
 
-@media (min-height: 600px) and (min-width: 400px) {
+/*@media (min-height: 600px) and (min-width: 400px) {
     .BrowsePlayers {
         justify-content: space-around;
     }
@@ -52,4 +52,4 @@
     .BrowsePlayers {
         margin-top: 8em;
     }
-}
+}*/

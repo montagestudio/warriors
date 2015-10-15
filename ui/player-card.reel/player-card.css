@@ -1,5 +1,6 @@
 .playerCard {
     position: relative;
+    z-index: 1;
     box-sizing: border-box;
     width:  375px;
     height: 600px;
@@ -9,15 +10,13 @@
     background-position: center center;
     -webkit-transform: translate3d(0, 0, 0);
             transform: translate3d(0, 0, 0);
-    -webkit-transform-style: preserve-3d;
-            transform-style: preserve-3d;
 }
 
 .playerCard:focus {
     outline: none;
 }
 
-.playerCard * {
+.playerCard {
     -webkit-user-select: none;
     cursor: pointer;
     -webkit-user-select: none;
@@ -36,9 +35,8 @@
     height: 8px;
     background: rgb(256,204,51);
     z-index: -10;
-    -webkit-transform: scaleX(0) scaleY(0);
-            transform: scaleX(0) scaleY(0);
-    pointer-events: none;
+    -webkit-transform: scaleX(0) scaleY(0) ;
+            transform: scaleX(0) scaleY(0) ;
     opacity: 0;
     transition: opacity .25s linear, -webkit-transform 0s .25s linear;
     transition: opacity .25s linear, transform 0s .25s linear;
@@ -97,7 +95,6 @@
     background: #000;
     -webkit-transform-style: preserve-3d;
             transform-style: preserve-3d;
-    -webkit-transform: translate3d(0, 0, 1px);
 }
 
 .playerInfoWrapper {
@@ -123,11 +120,7 @@
 
 .playerImage {
     display: block;
-    position: absolute;
-    top: 50%;
-    -webkit-transform: translateY(-50%);
-            transform: translateY(-50%) translate3d(0,0,0);
-    -webkit-backface-visibility: hidden;
+    position: relative;
     width:  100%;
     height: 100%;
     background-size: cover;
@@ -138,17 +131,16 @@
                         filter .25s ease-in-out,
                 -webkit-transform .25s linear,
                         -webkit-transform .25s linear;
-    -webkit-transform-origin: 50% 25%;
-            transform-origin: 50% 25%;
+    transform-origin: 50% 25%;
 }
 
 /* zoom playerImage when is-selected */
 
-.is-selected .playerImage {
+.transition-in .is-selected .playerImage {
     transition: -webkit-transform 15s linear;
     transition: transform 15s linear;
-    -webkit-transform: translate3d(0,0,0) translateY(-50%) scale(1.3);
-            transform: translate3d(0,0,0) translateY(-50%) scale(1.3);
+    -webkit-transform: scale(1.3);
+            transform: scale(1.3);
 }
 
 /*.show-details .playerImage {
@@ -161,8 +153,8 @@
                         filter .25s ease-in-out,
                 -webkit-transform .25s linear,
                         -webkit-transform .25s linear;
-    -webkit-transform: translate3d(0,0,0) translateY(-50%) scale(1);
-            transform: translate3d(0,0,0) translateY(-50%) scale(1);
+    -webkit-transform: scale(1);
+            transform: scale(1);
 }
 
 .angledTextWrapper {
@@ -223,6 +215,7 @@
 }
 
 .playerDetails {
+
     position: absolute;
     display: -webkit-flex;
     display: -ms-flexbox;
@@ -237,7 +230,6 @@
     text-align: center;
     width: 100%;
     min-height: 320px;
-    /*outline: 1px solid red;*/
 }
 
 /* background behind team name */
@@ -249,8 +241,6 @@
     left: 0;
     width: 100%;
     top: -27px;
-
-    /*bottom: -127px;*/
     height: 480px;
     background: rgba(4,82,156,.95);
     -webkit-transform: skew(-10deg) rotate(-10deg);
@@ -340,16 +330,16 @@
 /* is-correct / is-incorrect */
 
 .playerInfoWrapper:before,
-.playerInfoWrapper:before {
+.playerInfoWrapper:after {
     position: absolute;
     content: '';
     font-size: 0em;
     height: 5em;
     width:  5em;
+    margin-top:  -2.5em;
+    margin-left: -2.5em;
     top: 50%;
     left: 50%;
-    -webkit-transform: translate(-50%,-50%);
-            transform: translate(-50%,-50%);
     border-radius: 50%;
     z-index: 2;
     transition: all .3s linear;
@@ -389,14 +379,16 @@
 .cardOverflow:before {
     content: '';
     border-radius: 50%;
-    -webkit-transform: translate(-50%, -50%) scale(0);
-            transform: translate(-50%, -50%) scale(0);
-    box-shadow: 0 0 2px 2px rgba(0,0,0,.15)
+    -webkit-transform: scale(0);
+            transform: scale(0);
+    margin-top: -1em;
+    margin-left: -1em;
+    /*box-shadow: 0 0 2px 2px rgba(0,0,0,.15)*/
 }
 
 .answered .cardOverflow:before {
-    -webkit-transform: translate(-50%, -50%) scale(1);
-            transform: translate(-50%, -50%) scale(1);
+    -webkit-transform: scale(1);
+            transform: scale(1);
 }
 
 /* correct / wrong bg settings */
@@ -415,28 +407,32 @@
     font-family: sans-serif;
     -webkit-transform-origin: 50% 50%;
             transform-origin: 50% 50%;
-    -webkit-transform: translate(-50%,-50%) scale(0);
-            transform: translate(-50%,-50%) scale(0);
-    width: 80px;
-    height: 125px;
+    -webkit-transform: scale(0);
+            transform: scale(0);
 }
 
 .is-wrong .cardOverflow:after {
     content: url(../../../assets/image/cross.svg);
     width: 60px;
     height: 145px;
+    margin-top: -73px;
+    margin-left: -30px;
 }
 
 .is-correct .cardOverflow:after {
     content: url(../../../assets/image/checkmark.svg);
+    width: 80px;
+    height: 125px;
+    margin-top: -63px;
+    margin-left: -40px;
 }
 
 .answered.is-wrong .cardOverflow:after {
-    -webkit-transform: translate(-50%,-50%) scale(1);
-            transform: translate(-50%,-50%) scale(1);
+    -webkit-transform: scale(1);
+            transform: scale(1);
 }
 
 .answered.is-correct .cardOverflow:after {
-    -webkit-transform: translate(-50%,-50%) scale(1);
-            transform: translate(-50%,-50%) scale(1);
+    -webkit-transform: scale(1);
+            transform: scale(1);
 }
