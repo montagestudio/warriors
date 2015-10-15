@@ -1,13 +1,5 @@
 .BrowsePlayers {
-    opacity: 0;
-    transition: opacity .5s;
-}
-
-.transition.BrowsePlayers {
-    opacity: 1;
-}
-
-.BrowsePlayers {
+    margin-top: 5em;
     -webkit-flex: 1;
         -ms-flex: 1;
             flex: 1;
@@ -28,6 +20,36 @@
     justify-content: center;
 }
 
-.buttonGroup .btn {
+.BrowsePlayers .buttonGroup .btn {
     margin: 5px 10px;
+    transform: translateY(100px);
+    transition: transform .25s ease-in-out;
+}
+
+.BrowsePlayers .buttonGroup .btn:nth-child(2) {
+    transition-delay: .1s;
+}
+
+.transition-in.BrowsePlayers .buttonGroup .btn {
+    transform: translateY(0px);
+}
+
+/* $fix - duplicated code from question.css */
+
+@media (min-height: 600px) and (min-width: 400px) {
+    .BrowsePlayers {
+        justify-content: space-around;
+    }
+}
+
+@media (min-height: 767px) and (min-width: 600px) {
+    .query > span {
+        font-size: 3em;
+    }
+}
+
+@media (min-height: 900px) and (min-width: 800px)  {
+    .BrowsePlayers {
+        margin-top: 8em;
+    }
 }

@@ -45,19 +45,27 @@ exports.BrowsePlayers = Component.specialize(/** @lends BrowsePlayers# */ {
         }
     },
 
-    hasEntered: {
+    // sets transition
+
+    isActive: {
         value: null
     },
 
     handleViewResultsAction: {
         value: function () {
-            this.hasEntered = false;
+            this.isActive = false;
+        }
+    },
+
+    handleRestartQuizAction: {
+        value: function () {
+            this.isActive = false;
         }
     },
 
     enterDocument: {
         value: function(isFirstTime) {
-            this.hasEntered = true;
+            this.isActive = true;
             // working on firing transitionend events
             this.addEventListener("transitionend", console.log('transition ended'), false);
         }

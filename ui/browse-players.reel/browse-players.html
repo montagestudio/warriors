@@ -10,7 +10,8 @@
                 "element": {"#": "owner"}
             },
             "bindings": {
-                "classList.has('transition')": {"<-": "@owner.hasEntered"}
+                "classList.has('transition-in')": {"<-": "@owner.isActive"},
+                "classList.has('transition-out')": {"<-": "!@owner.isActive"}
             },
             "listeners": [
                 {
@@ -51,7 +52,7 @@
 <body>
     <div data-montage-id="owner" class="BrowsePlayers">
         <div class="query">
-            <span>Click the selected player to view more info</span>
+            <span>Click the selected player<br>to view more info</span>
         </div>
         <div data-montage-id="carousel"></div>
         <div class="buttonGroup">

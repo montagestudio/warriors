@@ -17,7 +17,7 @@
             },
             "bindings": {
                 "isQuizFinished": {"<-": "@owner.application.quizController.isFinished"},
-                "classList.has('show-header')": {"<-": "@owner.currentView == 'quiz'"}
+                "classList.has('show-header')": {"<-": "@owner.currentView != 'intro'"}
             },
             "listeners": [
                 {
