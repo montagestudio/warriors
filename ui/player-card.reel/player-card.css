@@ -35,8 +35,8 @@
     height: 8px;
     background: rgb(256,204,51);
     z-index: -10;
-    -webkit-transform: scaleX(0) scaleY(0) ;
-            transform: scaleX(0) scaleY(0) ;
+    -webkit-transform: scale3d(0,0,1);
+            transform: scale3d(0,0,1);
     opacity: 0;
     transition: opacity .25s linear, -webkit-transform 0s .25s linear;
     transition: opacity .25s linear, transform 0s .25s linear;
@@ -63,8 +63,8 @@
     opacity: 1;
     transition: opacity 0s linear, -webkit-transform .25s linear;
     transition: opacity 0s linear, transform .25s linear;
-    -webkit-transform: scaleX(48.9) scaleY(77);
-            transform: scaleX(48.9) scaleY(77);
+    -webkit-transform: scale3d(48.9,77,1);
+            transform: scale3d(48.9,77,1);
     background-color: rgb(256,204,51);
 }
 
@@ -101,8 +101,8 @@
     position: absolute;
     width: 100%;
     height: 100%;
-    -webkit-transform: translateY(-100%);
-            transform: translateY(-100%);
+    -webkit-transform: translate3d(0,-100%,0);
+            transform: translate3d(0,-100%,0);
 }
 
 .playerInfo {
@@ -112,8 +112,8 @@
     width: 100%;
     /* subpixel fix */
     bottom: 0;
-    -webkit-transform: translateY(100%);
-            transform: translateY(100%);
+    -webkit-transform: translate3d(0,100%,0);
+            transform: translate3d(0,100%,0);
     z-index: 1;
 
 }
@@ -139,8 +139,8 @@
 .transition-in .is-selected .playerImage {
     transition: -webkit-transform 15s linear;
     transition: transform 15s linear;
-    -webkit-transform: scale(1.3);
-            transform: scale(1.3);
+    -webkit-transform: scale3d(1.3,1.3,1);
+            transform: scale3d(1.3,1.3,1);
 }
 
 /*.show-details .playerImage {
@@ -153,13 +153,13 @@
                         filter .25s ease-in-out,
                 -webkit-transform .25s linear,
                         -webkit-transform .25s linear;
-    -webkit-transform: scale(1);
-            transform: scale(1);
+    -webkit-transform: scale3d(1,1,1);
+            transform: scale3d(1,1,1);
 }
 
 .angledTextWrapper {
-    -webkit-transform: skew(-10deg) rotate(-10deg);
-            transform: skew(-10deg) rotate(-10deg);
+    -webkit-transform: skew(-10deg) rotate3d(0,0,1,-10deg);
+            transform: skew(-10deg) rotate3d(0,0,1,-10deg);
     -webkit-transform-origin: bottom left;
             transform-origin: bottom left;
     background: rgba(255,204,51,.95);
@@ -208,8 +208,8 @@
     left: 50%;
     width:  80px;
     height: 80px;
-    -webkit-transform: translate(-50%,-50%);
-    transform: translate(-50%,-50%);
+    margin-top:  -40px;
+    margin-left: -40px;
     background: rgba(4,82,156, .75);
     border-radius: 50%;
 }
@@ -243,8 +243,8 @@
     top: -27px;
     height: 480px;
     background: rgba(4,82,156,.95);
-    -webkit-transform: skew(-10deg) rotate(-10deg);
-            transform: skew(-10deg) rotate(-10deg);
+    -webkit-transform: skew(-10deg) rotate3d(0,0,1,-10deg);
+            transform: skew(-10deg) rotate3d(0,0,1,-10deg);
     -webkit-transform-origin: bottom left;
             transform-origin: bottom left;
 }
@@ -290,6 +290,8 @@
 }
 
 .player-blurb {
+    font-size: 16px;
+    line-height: 1.4;
     padding: .5em;
     text-align: left;
 }
@@ -312,18 +314,18 @@
 .playerInfo {
     transition: -webkit-transform .3s ease-in-out;
     transition: transform .3s ease-in-out;
-    -webkit-transform: translateY(0);
-            transform: translateY(0);
+    -webkit-transform: translate3d(0,0,0);
+            transform: translate3d(0,0,0);
 }
 
 .show-details .playerInfoWrapper {
-    -webkit-transform: translateY(-100%);
-            transform: translateY(-100%);
+    -webkit-transform: translate3d(0,-100%,0);
+            transform: translate3d(0,-100%,0);
 }
 
 .show-details .playerInfo {
-    -webkit-transform: translateY(100%);
-            transform: translateY(100%);
+    -webkit-transform: translate3d(0,100%,0);
+            transform: translate3d(0,100%,0);
 }
 
 
