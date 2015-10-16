@@ -26,6 +26,18 @@
                     "files": {
                         "messages.json": null
                     }
+                },
+                "zh-tw": {
+                    "directory": true,
+                    "files": {
+                        "messages.json": null
+                    }
+                },
+                "zh-TW": {
+                    "directory": true,
+                    "files": {
+                        "messages.json": null
+                    }
                 }
             }
         }

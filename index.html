@@ -5,7 +5,7 @@
     <meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=0, minimal-ui">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black">
-    <title>Golden State Warriors</title>
+    <title data-montage-id="title">Golden State Warriors Quiz</title>
     <link href="//fonts.googleapis.com/css?family=Arvo:400,700,400italic,700italic" rel="stylesheet" type="text/css">
     <link rel="stylesheet" href="assets/style/style.css" />
 
@@ -24,7 +24,16 @@
             "properties": {
                 "delegate": {"@": "applicationDelegate"}
             }
-        }
+        },
+        "title": {
+                "prototype": "montage/ui/text.reel",
+                "properties": {
+                    "element": {"#": "title"}
+                },
+                "localizations": {
+                    "value": {"key": "Golden State Warriors Quiz"}
+                }
+            }
     }
     </script>
 
@@ -68,5 +77,6 @@
             </g>
         </svg>
     </div>
+    <img src="assets/image/GSW-Home-Court.jpg" style="opacity: 0; width: 0; height: 0" >
 </body>
 </html>
