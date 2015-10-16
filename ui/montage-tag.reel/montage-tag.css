@@ -20,6 +20,6 @@
     display: block;
 }
 
-.montageTag:hover { -webkit-transform: scale(1); transform: scale(1); }
+.montageTag:hover { -webkit-transform: scale(1); transform: scale(1); cursor: pointer; }
 
 .montageTag:hover img:first-child { display: none; }
