@@ -1,0 +1,33 @@
+{
+    "files": {
+        "locale": {
+            "directory": true,
+            "files": {
+                "en": {
+                    "directory": true,
+                    "files": {
+                        "messages.json": null
+                    }
+                },
+                "fr": {
+                    "directory": true,
+                    "files": {
+                        "messages.json": null
+                    }
+                },
+                "zh-cn": {
+                    "directory": true,
+                    "files": {
+                        "messages.json": null
+                    }
+                },
+                "zh-CN": {
+                    "directory": true,
+                    "files": {
+                        "messages.json": null
+                    }
+                }
+            }
+        }
+    }
+}

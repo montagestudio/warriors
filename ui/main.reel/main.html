@@ -111,13 +111,22 @@
             "properties": {
                 "element": {"#": "montageLogo"}
             }
+        },
+        "warriorsTitle": {
+            "prototype": "montage/ui/text.reel",
+            "properties": {
+                "element": {"#": "warriorsTitle"}
+            },
+            "localizations": {
+                "value": {"key": "Warriors Quiz"}
+            }
         }
     }
     </script>
 </head>
 <body>
     <div data-montage-id="main" class="Main">
-        <div class="header">Warriors Quiz</div>
+        <div data-montage-id="warriorsTitle" class="header"></div>
         <div data-montage-id="menu"></div>
         <svg viewBox="0 0 100 60" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMinYMin meet" class="flashes">
             <g>

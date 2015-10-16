@@ -22,6 +22,27 @@
             "prototype": "montage/ui/button.reel",
             "properties": {
                 "element": { "#": "startQuiz" }
+            },
+            "localizations": {
+                "label": {"key": "Start Quiz"}
+            }
+        },
+        "quizTimeDescription": {
+            "prototype": "montage/ui/text.reel",
+            "properties": {
+                "element": {"#": "quizTimeDescription"}
+            },
+            "localizations": {
+                "value": {"key": "You have 1 minute to find out!"}
+            }
+        },
+        "quizTitle": {
+            "prototype": "montage/ui/text.reel",
+            "properties": {
+                "element": {"#": "quizTitle"}
+            },
+            "localizations": {
+                "value": {"key": "How well do you know the 2015 NBA Champions?"}
             }
         }
     }
@@ -30,9 +51,9 @@
 <body>
     <div data-montage-id="owner" class="Intro intro">
         <div class="logo"></div>
-        <div class="intro-text">How well do you know the 2015&nbsp;NBA&nbsp;Champions?</div>
-        <div class="intro-text">You have 1 minute to find out!</div>
-        <button data-montage-id="startQuiz" class="btn btn--inline">Start Quiz</button>
+        <div class="intro-text" data-montage-id="quizTitle"></div>
+        <div class="intro-text" data-montage-id="quizTimeDescription"></div>
+        <button data-montage-id="startQuiz" class="btn btn--inline"></button>
     </div>
 </body>
 </html>

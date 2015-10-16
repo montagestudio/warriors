@@ -9,13 +9,23 @@
             "properties": {
                 "element": {"#": "owner"}
             }
+        },
+
+        "timeUp": {
+            "prototype": "montage/ui/text.reel",
+            "properties": {
+                "element": {"#": "timeUp"}
+            },
+            "localizations": {
+                "value": {"key": "TIME'S UP!"}
+            }
         }
     }
     </script>
 </head>
 <body>
     <div data-montage-id="owner" class="TimerEndedModal modal">
-        <h1>TIME'S UP!</h1>
+        <h1 data-montage-id="timeUp"></h1>
     </div>
 </body>
 </html>

@@ -52,12 +52,14 @@
             "prototype": "ui/graph-bar.reel",
             "properties": {
                 "element": { "#": "percentageCorrectBar" },
-                "title": "You",
                 "unit": "%"
             },
             "bindings": {
                 "value": {"<-": "@owner.percentageCorrect"},
                 "percentage": {"<-": "@owner.percentageCorrect"}
+            },
+            "localizations": {
+                "title": {"key": "You"}
             }
         },
 
@@ -65,12 +67,14 @@
             "prototype": "ui/graph-bar.reel",
             "properties": {
                 "element": { "#": "averageCorrectBar" },
-                "title": "Avg",
                 "unit": "%"
             },
             "bindings": {
                 "value": {"<-": "@owner.averagePercentageCorrect"},
                 "percentage": {"<-": "@owner.averagePercentageCorrect"}
+            },
+            "localizations": {
+                "title": {"key": "Avg"}
             }
         },
 
@@ -78,12 +82,14 @@
             "prototype": "ui/graph-bar.reel",
             "properties": {
                 "element": { "#": "elapsedTimeBar" },
-                "title": "You",
                 "unit": "s"
             },
             "bindings": {
                 "value": {"<-": "@owner.elapsedTime"},
                 "percentage": {"<-": "@owner.userPercentageOfTotalTime"}
+            },
+            "localizations": {
+                "title": {"key": "You"}
             }
         },
 
@@ -91,12 +97,14 @@
             "prototype": "ui/graph-bar.reel",
             "properties": {
                 "element": { "#": "averageTimeBar" },
-                "title": "Avg",
                 "unit": "s"
             },
             "bindings": {
                 "value": {"<-": "@owner.averageTimeElapsed"},
                 "percentage": {"<-": "@owner.averagePercentageOfTotalTime"}
+            },
+            "localizations": {
+                "title": {"key": "Avg"}
             }
         },
 
@@ -104,13 +112,9 @@
             "prototype": "montage/ui/button.reel",
             "properties": {
                 "element": { "#": "reviewButton" }
-            }
-        },
-
-        "restartQuiz": {
-            "prototype": "montage/ui/button.reel",
-            "properties": {
-                "element": { "#": "restartQuiz" }
+            },
+            "localizations": {
+                "label": {"key": "review"}
             }
         },
 
@@ -118,6 +122,29 @@
             "prototype": "montage/ui/button.reel",
             "properties": {
                 "element": { "#": "browsePlayers" }
+            },
+            "localizations": {
+                "label": {"key": "Browser Players"}
+            }
+        },
+
+        "restartQuiz": {
+            "prototype": "montage/ui/button.reel",
+            "properties": {
+                "element": { "#": "restartQuiz" }
+            },
+            "localizations": {
+                "label": {"key": "Try Again!"}
+            }
+        },
+
+        "browsePlayers": {
+            "prototype": "montage/ui/button.reel",
+            "properties": {
+                "element": { "#": "browsePlayers" }
+            },
+            "localizations": {
+                "label": {"key": "Browse Players"}
             }
         },
 
@@ -125,6 +152,56 @@
             "prototype": "ui/sharing.reel",
             "properties": {
                 "element": { "#": "sharing" }
+            }
+        },
+
+        "resultTitle": {
+            "prototype": "montage/ui/text.reel",
+            "properties": {
+                "element": {"#": "resultTitle"}
+            },
+            "localizations": {
+                "value": {"key": "Results"}
+            }
+        },
+
+        "correctLabel": {
+            "prototype": "montage/ui/text.reel",
+            "properties": {
+                "element": {"#": "correctLabel"}
+            },
+            "localizations": {
+                "value": {"key": "correct"}
+            }
+        },
+
+        "scoreLabel": {
+            "prototype": "montage/ui/text.reel",
+            "properties": {
+                "element": {"#": "scoreLabel"}
+            },
+            "localizations": {
+                "value": {"key": "SCORE"}
+            }
+        },
+
+        "timeLabel": {
+            "prototype": "montage/ui/text.reel",
+            "properties": {
+                "element": {"#": "timeLabel"}
+            },
+            "localizations": {
+                "value": {"key": "TIME"}
+            }
+        },
+
+        "shareResultLabel": {
+            "prototype": "montage/ui/text.reel",
+            "properties": {
+                "element": {"#": "shareResultLabel"}
+            },
+            "localizations": {
+                "value": {"key": "Share your results"}
             }
         }
 
@@ -134,20 +211,20 @@
 <body>
     <div data-montage-id="owner" class="Results">
         <div data-montage-id="results" class="results-container result-details">
-            <h2 class="results-ranking">Results</h2>
+            <h2 data-montage-id="resultTitle" class="results-ranking"></h2>
             <div class="results-section result-main">
                 <div data-montage-id="percentageCorrect" class="percentageCorrect">80</div>
                 <div class="results-review">
                     <div class="answers-correct">
                         <span data-montage-id="answersCorrect"></span>/<span data-montage-id="totalQuestions"></span>
-                        correct
+                        <span data-montage-id="correctLabel"></span>
                     </div>
                     <button data-montage-id="reviewButton" class="btn btn--small btn--inline reviewButton">review</button>
                 </div>
             </div>
             <div class="results-section result-graphs">
                 <div class="result-data-container">
-                    <h2 class="result-title">SCORE</h2>
+                    <h2 data-montage-id="scoreLabel" class="result-title"></h2>
                     <ul id="graph" class="graph">
                         <li data-montage-id="percentageCorrectBar"></li>
                         <li data-montage-id="averageCorrectBar" class="avgBar"></li>
@@ -155,9 +232,9 @@
                 </div>
 
                 <div class="result-data-container">
-                    <h2 class="result-title">TIME</h2>
+                    <h2 data-montage-id="timeLabel" class="result-title"></h2>
                     <div class="graph-container">
-                        <ul id="graph" class="graph">
+                        <ul class="graph">
                             <li data-montage-id="elapsedTimeBar"></li>
                             <li data-montage-id="averageTimeBar" class="avgBar"></li>
                         </ul>
@@ -165,11 +242,11 @@
                 </div>
             </div>
             <div class="results-section results-buttons">
-                <button data-montage-id="browsePlayers" class="btn btn--secondary">Browse Players</button>
-                <button data-montage-id="restartQuiz"  class="btn">Try Again!</button>
+                <button data-montage-id="browsePlayers" class="btn btn--secondary"></button>
+                <button data-montage-id="restartQuiz"  class="btn"></button>
             </div>
             <div class="results-section results-sharing">
-                <h2 class="result-title">Share your results</h2>
+                <h2 data-montage-id="shareResultLabel" class="result-title"></h2>
                 <div data-montage-id="sharing"></div>
             </div>
         </div>

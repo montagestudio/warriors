@@ -1,18 +1,19 @@
 {
-  "name": "warriors",
-  "version": "0.0.0",
-  "dependencies": {
-    "montage": "0.15.2",
-    "mjs-volume": "git+https://github.com/montagestudio/mjs-volume.git"
-  },
-  "bundle": [
-    "ui/main.reel"
-  ],
-  "scripts": {
-    "start": "vagrant up"
-  },
-  "shared": 4,
-  "devDependencies": {
-    "montage-testing": "^0.4.3"
-  }
+    "name": "warriors",
+    "version": "0.0.0",
+    "dependencies": {
+        "montage": "0.15.2",
+        "mjs-volume": "git+https://github.com/montagestudio/mjs-volume.git"
+    },
+    "bundle": [
+        "ui/main.reel"
+    ],
+    "scripts": {
+        "start": "vagrant up"
+    },
+    "shared": 4,
+    "devDependencies": {
+        "montage-testing": "^0.4.3"
+    },
+    "manifest": true
 }

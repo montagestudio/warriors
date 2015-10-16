@@ -1,7 +1,8 @@
 /**
  * @module ui/question.reel
  */
-var Component = require("montage/ui/component").Component;
+var Component = require("montage/ui/component").Component,
+    defaultLocalizer = require("montage/core/localizer").defaultLocalizer;
 
 /**
  * @class Question
@@ -14,13 +15,47 @@ exports.Question = Component.specialize(/** @lends Question# */ {
         }
     },
 
+    question: {
+        set: function (value) {
+            this._question = value;
+        },
+        get: function () {
+            if (this._question && !this._localizeID) {
+                var self = this;
+                this._localizeID = defaultLocalizer.localize(this._question.title).then(function (message) {
+                    self._question.title = message();
+                    self._localizeID = null;
+                }).done();
+            }
+
+            return this._question;
+        }
+    },
+
+    questionTitle: {
+        set: function (value) {
+            this._questionTitle = value;
+        },
+        get: function () {
+            if (!this._questionTitle && !this._localizeID) {
+                var self = this;
+                this._localizeID = defaultLocalizer.localize("programmatically").then(function (message) {
+                    self.questionTitle = message();
+                    self._localizeID = null;
+                }).done();
+            }
+
+            return this._localizeID;
+        }
+    },
+
     _data: {
         value: null
     },
 
     data: {
-        set: function(value) {
-            if(value !== this._data) {
+        set: function (value) {
+            if (value !== this._data) {
                 this._data = value;
                 this.needsDraw = true;
             }
@@ -49,7 +84,7 @@ exports.Question = Component.specialize(/** @lends Question# */ {
                 this.classList.add("transition-in");
                 this.classList.remove("transition-out");
             } else {
-                setTimeout(function(){
+                setTimeout(function () {
                     self.classList.add("transition-in");
                     self.classList.remove("transition-out");
                 }, 1000);

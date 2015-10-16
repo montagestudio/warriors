@@ -37,6 +37,9 @@
             "prototype": "montage/ui/button.reel",
             "properties": {
                 "element": { "#": "restartQuizButton" }
+            },
+            "localizations": {
+                "label": {"key": "Restart Quiz"}
             }
         },
 
@@ -44,6 +47,19 @@
             "prototype": "montage/ui/button.reel",
             "properties": {
                 "element": { "#": "viewResultsButton" }
+            },
+            "localizations": {
+                "label": {"key": "Quiz Results"}
+            }
+        },
+
+        "clickPlayerLabel": {
+            "prototype": "montage/ui/text.reel",
+            "properties": {
+                "element": {"#": "clickPlayerLabel"}
+            },
+            "localizations": {
+                "value": {"key": "Click the selected player to view more info"}
             }
         }
     }
@@ -52,12 +68,12 @@
 <body>
     <div data-montage-id="owner" class="BrowsePlayers">
         <div class="query">
-            <span>Click the selected player<br>to view more info</span>
+            <span data-montage-id="clickPlayerLabel"></span>
         </div>
         <div data-montage-id="carousel"></div>
         <div class="buttonGroup">
-            <button data-montage-id="viewResultsButton" class="btn btn--secondary btn--inline">Quiz Results</button>
-            <button data-montage-id="restartQuizButton" class="btn btn--inline">Restart Quiz</button>
+            <button data-montage-id="viewResultsButton" class="btn btn--secondary btn--inline"></button>
+            <button data-montage-id="restartQuizButton" class="btn btn--inline"></button>
         </div>
     </div>
 </body>

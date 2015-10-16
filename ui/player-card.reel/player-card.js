@@ -8,7 +8,7 @@ var Button = require("montage/ui/button.reel").Button;
  * @extends Button
  */
 
-var PlayerCard = exports.PlayerCard = Button.specialize( /** @lends PlayerCard# */ {
+var PlayerCard = exports.PlayerCard = Button.specialize(/** @lends PlayerCard# */ {
 
     hasTemplate: {
         value: true
@@ -77,7 +77,7 @@ var PlayerCard = exports.PlayerCard = Button.specialize( /** @lends PlayerCard# 
                     self.classList.remove("is-wrong");
                     self.classList.remove("is-correct");
                     self.classList.remove("answered");
-                    self._isAnwsered = false;
+                    self._isAnwsering = false;
                 }, 500);
 
             }, 1000);
@@ -91,26 +91,30 @@ var PlayerCard = exports.PlayerCard = Button.specialize( /** @lends PlayerCard# 
                 i++;
             }
             if (i < this.flow.content.length) {
-                if (i=== Math.round(this.flow.scroll)) {
-                    if (this.mode == "browse"){
+                if (i === Math.round(this.flow.scroll)) {
+                    if (this.mode == "browse") {
                         if (this.showDetails) {
                             this.showDetails = false;
                         } else {
                             this.showDetails = true;
                         }
                     } else {
-                        if (this.application.quizController.answer(this.data)){
-                            this.setCorrect();
-                            this.reset();
+                        if (!this._isAnwsering) {
+                            this._isAnwsering = true;
+                            if (this.application.quizController.answer(this.data)) {
+                                this.setCorrect();
+                                this.reset();
 
-                        } else {
-                            this.setWrong();
-                            this.reset();
+                            } else {
+                                this.setWrong();
+                                this.reset();
+                            }
                         }
+
                     }
 
                 } else {
-                   this.flow.startScrollingIndexToOffset(i,0);
+                    this.flow.startScrollingIndexToOffset(i, 0);
                 }
 
             }
