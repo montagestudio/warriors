@@ -87,7 +87,9 @@
     display: -webkit-flex;
     display: -ms-flexbox;
     display: flex;
-    justify-content: space-between;
+    -webkit-justify-content: space-between;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
 }
 
 .results-main > div {
@@ -126,7 +128,8 @@
     content: "";
     background-image: url('../../assets/image/floor-texture.jpg');
     /*opacity: .75;*/
-    transform: rotate(-45deg);
+    -webkit-transform: rotate(-45deg);
+            transform: rotate(-45deg);
     background-size: 50%;
     top:    -15%;
     left:   -60%;
@@ -145,7 +148,7 @@
     text-align: center;
     margin-right: 15px;
     -ms-flex-item-align: center;
-        -webkit-align-self: center;
+            -webkit-align-self: center;
             align-self: center;
 }
 
@@ -172,6 +175,12 @@
     font-size: .3em;
 }
 
+.results-review {
+    -webkit-flex: 1;
+        -ms-flex: 1;
+            flex: 1;
+}
+
 /* answers correct */
 
 .answers-correct {
@@ -183,8 +192,12 @@
 
 /* restart */
 .results-buttons {
+    display: -webkit-flex;
+    display: -ms-flexbox;
     display: flex;
-    justify-content: space-between;
+    -webkit-justify-content: space-between;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
 }
 
 .results-buttons .btn {
@@ -241,19 +254,30 @@
     .results {
         max-width: 340px
     }
+}
 
-    .results-buttons .btn {
-        /*font-size: 1.1em;*/
+@media (min-height: 500px) and (orientation: portrait) {
+    .results {
+        max-width: 460px;
+    }
+
+    .result-details {
+        border: 6px solid rgb(4,82,156);
     }
 }
 
 @media (min-width: 767px) and (min-height: 750px) {
+
     .results {
-        max-width: 480px;
+        max-width: 460px;
     }
 
     .results-container {
         padding: 20px;
+    }
+
+    .result-details {
+        border: 8px solid rgb(4,82,156);
     }
 
     .result-main {
@@ -270,10 +294,6 @@
     .results-ranking {
         font-size: 2.5em;
         margin: -20px -20px 20px -20px;
-    }
-
-    .result-details {
-        border: 10px solid rgb(4,82,156);
     }
 
     .percentageCorrect {

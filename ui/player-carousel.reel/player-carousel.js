@@ -132,7 +132,7 @@ exports.PlayerCarousel = Component.specialize(/** @lends PlayerCarousel# */ {
                     }
                 } else {
                     halfPageWidth = 1200;
-                    this.flowRibbon.cameraPosition = [0, 0, 2350];
+                    this.flowRibbon.cameraPosition = [0, 0, 2300];
                     this.flowRibbon.cameraTargetPoint = [0, 0, 0];
                     this.flowRibbon.cameraFov = 50;
                     for (i = -1; i <= 10; i++) {

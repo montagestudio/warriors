@@ -1,0 +1,25 @@
+.montageTag {
+    position: fixed;
+    height: 100px;
+    width:  100px;
+    left:   10px;
+    top: 10px;
+    color: white;
+    overflow: hidden;
+    -webkit-transform: scale(.5);
+            transform: scale(.5);
+    transform-origin: 0% 0%;
+    transition: -webkit-transform .25s cubic-bezier(.44,1.14,.77,1.16);
+    transition: transform .25s cubic-bezier(.44,1.14,.77,1.16);
+    opacity: 0.5;
+}
+
+.montageTag img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.montageTag:hover { -webkit-transform: scale(1); transform: scale(1); }
+
+.montageTag:hover img:first-child { display: none; }

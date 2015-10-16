@@ -27,45 +27,9 @@
     transition: opacity .15s linear;
 }
 
-.playerCard.is-selected:before {
-    opacity: 1;
-}
+.playerCard.is-selected:before { opacity: 1; }
 
-.playerCard:focus {
-    outline: none;
-}
-
-
-/*.is-selected.playerCard:before,
-.is-selected.playerCard:after,
-.answered.playerCard:before,
-.answered.playerCard:after  {
-    opacity: 1;
-    transition: opacity 0s linear, -webkit-transform .25s linear;
-    transition: opacity 0s linear, transform .25s linear;
-    -webkit-transform: scale3d(48.9,77,1);
-            transform: scale3d(48.9,77,1);
-    background-color: rgb(256,204,51);
-}*/
-
-/* panel shadow */
-
-/*.playerCard:before {
-    content: "";
-    position: absolute;
-    width: 0;
-    height: 0;
-    -webkit-transform: translate3d(172px, 372px, -200px) rotateX(2deg);
-            transform: translate3d(172px, 372px, -200px) rotateX(2deg);
-    -webkit-backface-visibility: hidden;
-            backface-visibility: hidden;
-    border-radius: 1px;
-    box-shadow: 0 -100px 20px 160px rgba(0,0,0,.5),
-                0 50px 20px 160px rgba(0,0,0,.5);
-    z-index: 2;
-}*/
-
-/* controls the overflow */
+.playerCard:focus { outline: none; }
 
 .playerInfoWrapper {
     position: absolute;
@@ -104,24 +68,6 @@
     transition: -webkit-transform .3s ease-in-out;
     transition: transform .3s ease-in-out;
 }
-
-/* zoom playerImage when is-selected */
-
-/*.transition-in .is-selected .playerImage {
-    transition: -webkit-transform 15s linear;
-    transition: transform 15s linear;
-    -webkit-transform: scale3d(1.3,1.3,1);
-            transform: scale3d(1.3,1.3,1);
-}*/
-
-/*.is-selected.show-details .playerImage {
-    transition: -webkit-filter .25s ease-in-out,
-                        filter .25s ease-in-out,
-                -webkit-transform .25s linear,
-                        -webkit-transform .25s linear;
-    -webkit-transform: scale3d(1,1,1);
-            transform: scale3d(1,1,1);
-}*/
 
 .angledTextWrapper {
     -webkit-transform: skew(-10deg) rotate(-10deg);
@@ -165,21 +111,6 @@
     border-radius: 50%;
 }
 
-/* playerNumber BG */
-
-/*.playerNumber:after {
-    content: '';
-    position: absolute;
-    top:  50%;
-    left: 50%;
-    width:  80px;
-    height: 80px;
-    margin-top:  -40px;
-    margin-left: -40px;
-    background: rgba(4,82,156, .75);
-    border-radius: 50%;
-}*/
-
 .playerDetails {
     position: absolute;
     display: -webkit-flex;
@@ -197,24 +128,6 @@
     min-height: 500px;
     background: rgba(4,82,156,.95);
 }
-
-/* background behind team name */
-
-/*.playerDetails:after {
-    content: '';
-    position: absolute;
-    left: 0;
-    width: 100%;
-    top: -27px;
-    height: 480px;
-    background: rgba(4,82,156,.95);
-    -webkit-transform: skew(-10deg) rotate3d(0,0,1,-10deg);
-            transform: skew(-10deg) rotate3d(0,0,1,-10deg);
-    -webkit-transform-origin: bottom left;
-            transform-origin: bottom left;
-}*/
-
-
 
 .playerSpecs {
     display: -webkit-flex;
@@ -273,12 +186,9 @@
     content: 'lbs';
 }
 
-
-
 /* is-correct / is-incorrect */
 
-.playerInfoWrapper:before,
-.playerInfoWrapper:after {
+.playerInfoWrapper:before {
     position: absolute;
     content: '';
     font-size: 0em;
@@ -290,6 +200,7 @@
     left: 50%;
     border-radius: 50%;
     transition: all .3s linear;
+    z-index: 1;
 }
 
 .is-correct .playerInfoWrapper:before,
@@ -307,13 +218,14 @@
 
 .playerCard:after {
     position: absolute;
+    box-sizing: border-box;
     left: 50%;
-    top: 50%;
+    top:  50%;
     height: 40px;
     width: 40px;
-    padding: 20px;
-    margin-left: -40px;
-    margin-top: -40px;
+    padding: 40px;
+    margin-left: -75px;
+    margin-top: -75px;
     transition: -webkit-transform .2s cubic-bezier(.44,1.14,.77,1.16);
     transition: transform .2s cubic-bezier(.44,1.14,.77,1.16);
 }
@@ -354,22 +266,12 @@
 
 .playerCard.is-wrong:after {
     content: url(../../assets/image/cross.svg);
-    width: 40px;
-    height: 40px;
+    width:  150px;
+    height: 150px;
 }
 
 .playerCard.is-correct:after {
     content: url(../../assets/image/checkmark.svg);
-    width: 40px;
-    height: 40px;
+    width:  150px;
+    height: 150px;
 }
-
-/*.answered.is-wrong .cardOverflow:after {
-    -webkit-transform: scale(1);
-            transform: scale(1);
-}*/
-
-/*.answered.is-correct .cardOverflow:after {
-    -webkit-transform: scale(1);
-            transform: scale(1);
-}*/

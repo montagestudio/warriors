@@ -19,23 +19,23 @@
     padding: 0 8px;
     height: 40px;
     line-height: 40px;
-    /*color: #FFF;*/
-    /*background: rgb(255,204,51);*/
-    background: rgb(4,82,156);
+    background: rgb(255,204,51);
     -webkit-align-self: center;
         -ms-flex-item-align: center;
             align-self: center;
-    border-right: 1px solid rgba(0,0,0,.2);
+    border-right: 1px solid rgba(255,255,255,.3);
 }
 
 /* animated bar */
 
 @-webkit-keyframes animate-bar {
-   0% { -webkit-transform: translateX(-100%); transform: translateX(-100%); }
+   0%   { -webkit-transform: translateX(-100%); transform: translateX(-100%); }
+   100% {}
 }
 
 @keyframes animate-bar {
-   0% { -webkit-transform: translateX(-100%); transform: translateX(-100%); }
+   0%   { -webkit-transform: translateX(-100%); transform: translateX(-100%); }
+   100% {}
 }
 
 .bar-result {
@@ -43,8 +43,7 @@
     -webkit-flex: 1;
         -ms-flex: 1;
             flex: 1;
-    color: rgb(4,82,156);
-    /*color: rgb(255,204,51);*/
+    color: rgb(255,204,51);
     background: currentColor;
     z-index: -1;
     -webkit-backface-visibility: hidden;
@@ -52,7 +51,6 @@
             animation: animate-bar 1.5s ease-out;
 }
 
-/*.bar-result:after,*/
 .bar-result:before {
     content: '';
     position: absolute;
@@ -64,12 +62,11 @@
 }
 
 .bar-result:before { background: currentColor; }
-/*.bar-result:after  { background: rgba(0,0,0,.1); }*/
 
 
 .bar:first-child .bar-title,
 .bar:first-child .bar-data {
-    color: #FFF;
+    /*color: #FFF;*/
 }
 
 .bar:last-child .bar-result { color: #999; }

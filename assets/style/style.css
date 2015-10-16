@@ -42,7 +42,7 @@ body:after {
     bottom: 0;
     background-size: cover;
     background-position: center center;
-    background-image: url(../../assets/image/GSW-Home-Court_curry.jpg);
+    background-image: url(../../assets/image/GSW-Home-Court.jpg);
     background-repeat: no-repeat;
     -webkit-animation: fadeIn 2s both;
             animation: fadeIn 2s both;
@@ -57,7 +57,6 @@ body:before {
     right:  0;
     bottom: 0;
     background-image: radial-gradient(rgba(0,0,0,.5) 20%, rgba(0,0,0,1) 80%);
-    /*z-index: -2;*/
     background-repeat: no-repeat;
     background-position: center center;
 }
@@ -89,6 +88,7 @@ button:focus {
     padding: .7em;
     cursor: pointer;
     border-radius: 4px;
+    /*border: 2px solid rgb(255,204,51);*/
     border: 2px solid rgb(4,82,156);
     text-shadow: 0 1px 1px #034380;
     cursor: pointer;
@@ -265,6 +265,7 @@ button:focus {
     text-align: center;
     color: #FFF;
     position: relative;
+    margin-top: -40px;
 }
 
 .intro .intro-text {
@@ -307,6 +308,26 @@ button:focus {
     opacity: 0;
 }
 
+@media (min-height: 620px) and (orientation: portrait) {
+    .intro {
+        max-width: 340px;
+    }
+
+    .intro .intro-text {
+        font-size: 1.8em;
+    }
+}
+
+@media (min-height: 410px) and (orientation: landscape) {
+    .intro {
+        max-width: 400px;
+    }
+
+    .intro .intro-text {
+        font-size: 1.8em;
+    }
+}
+
 @media (min-width: 430px) and (min-height: 600px) {
     .intro {
         max-width: 600px;
@@ -327,13 +348,9 @@ button:focus {
 }
 
 @media (min-width: 767px) and (min-height: 750px) {
-    .intro {
-        max-width: 800px;
-    }
 
     .intro .intro-text {
         font-size: 3em;
-        /*color: blue;*/
     }
 
     .intro .logo {

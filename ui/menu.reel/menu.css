@@ -36,8 +36,8 @@
 }
 
 .Menu.is-open {
-    -webkit-transform: translateX(0%);
-            transform: translateX(0%);
+    -webkit-transform: translateX(-10%);
+            transform: translateX(-10%);
     transition: all .4s cubic-bezier(.46,.62,.53,1.33);
 }
 
@@ -86,7 +86,12 @@
     opacity: 0;
 }
 
-.is-open .menuToggle { -webkit-transform: translateX(39px) rotate(360deg); transform: translateX(39px) rotate(360deg); }
+.is-open .menuToggle {
+    -webkit-transform: translateX(80px) rotate(360deg);
+            transform: translateX(80px) rotate(360deg);
+}
+
+
 
 .is-open .menuToggle:active { box-shadow: none; }
 
@@ -98,7 +103,6 @@
 .Menu h1 {
     text-align: center;
     padding: 1em;
-    /*margin-bottom: 2em;*/
 }
 
 /* Menu Items*/
@@ -109,4 +113,18 @@
     flex: 1;
     overflow: scroll;
 }
+
+@media (min-width: 800px) {
+    .is-open .menuToggle {
+        -webkit-transform: translateX(39px) rotate(360deg);
+                transform: translateX(39px) rotate(360deg);
+    }
+
+    .Menu.is-open {
+        -webkit-transform: translateX(0%);
+                transform: translateX(0%);
+    }
+}
+
+
 

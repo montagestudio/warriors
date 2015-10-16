@@ -73,7 +73,38 @@
             animation: transition-query-out .25s forwards cubic-bezier(.44,1.14,.77,1.1);
 }
 
-@media (min-height: 600px) and (min-width: 400px) {
+@media (min-height: 600px) and (min-width: 400px) and (orientation: portrait) {
+    .Question {
+        margin-top: 8em;
+        justify-content: space-around;
+    }
+
+    .query {
+        height: 120px;
+    }
+
+    .query > span {
+        font-size: 2.4em;
+        max-width: 490px;
+    }
+}
+
+@media (min-height: 410px) and (min-width: 400px) and (orientation: landscape) {
+    .Question {
+        justify-content: space-around;
+    }
+
+    .query {
+        height: 60px;
+    }
+
+    .query > span {
+        font-size: 1.8em;
+        max-width: 340px;
+    }
+}
+
+@media (min-height: 500px) and (min-width: 400px) and (orientation: landscape) {
     .Question {
         justify-content: space-around;
     }
@@ -83,11 +114,12 @@
     }
 
     .query > span {
-        font-size: 2em;
+        font-size: 2.4em;
+        max-width: 490px;
     }
 }
 
-@media (min-height: 767px) and (min-width: 600px) {
+@media (min-height: 767px) and (min-width: 600px)  {
     .query > span {
         font-size: 3em;
     }
@@ -95,13 +127,13 @@
 
 @media (min-height: 900px) and (min-width: 800px)  {
     .Question {
-        margin-top: 8em;
+        margin-top: 9em;
     }
     .query {
         height: 120px;
     }
     .query > span {
-        /*font-size: 3.5em;*/
-
+        font-size: 3.5em;
+        max-width: 720px;
     }
 }
