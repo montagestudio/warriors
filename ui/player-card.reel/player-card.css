@@ -88,25 +88,21 @@
     transition: transform .3s ease-in-out;
 }
 
-.show-details .playerInfo {
-    -webkit-transform: translate(0, -153px);
-    transform: translate(0, -153px);
+.show-details .playerInfo,
+.show-details .playerInfo2 {
+    -webkit-transform: translate(0, -274px);
+    transform: translate(0, -274px);
 }
 
 .playerInfo2 {
     position: absolute;
-    top: 540px;
+    top: 492px;
     left: 0;
     right: 0;
     -webkit-transform: translate(0, 0);
     transform: translate(0, 0);
     transition: -webkit-transform .3s ease-in-out;
     transition: transform .3s ease-in-out;
-}
-
-.show-details .playerInfo2 {
-    -webkit-transform: translate(0, -153px);
-    transform: translate(0, -153px);
 }
 
 /* zoom playerImage when is-selected */
@@ -132,7 +128,7 @@
             transform: skew(-10deg) rotate(-10deg);
     -webkit-transform-origin: bottom left;
             transform-origin: bottom left;
-    background: rgba(255,204,51,.95);
+    background: rgb(255,204,51);
     padding: 13px;
     padding-right: 20px;
     margin-top: 40px;
@@ -165,11 +161,13 @@
     height: 80px;
     line-height: 80px;
     text-align: center;
+    background: rgba(4,82,156, .75);
+    border-radius: 50%;
 }
 
 /* playerNumber BG */
 
-.playerNumber:after {
+/*.playerNumber:after {
     content: '';
     position: absolute;
     top:  50%;
@@ -180,10 +178,9 @@
     margin-left: -40px;
     background: rgba(4,82,156, .75);
     border-radius: 50%;
-}
+}*/
 
 .playerDetails {
-
     position: absolute;
     display: -webkit-flex;
     display: -ms-flexbox;
@@ -197,12 +194,13 @@
     color: #FFF;
     text-align: center;
     width: 100%;
-    min-height: 320px;
+    min-height: 500px;
+    background: rgba(4,82,156,.95);
 }
 
 /* background behind team name */
 
-.playerDetails:after {
+/*.playerDetails:after {
     content: '';
     position: absolute;
     left: 0;
@@ -210,11 +208,11 @@
     top: -27px;
     height: 480px;
     background: rgba(4,82,156,.95);
-    /*-webkit-transform: skew(-10deg) rotate3d(0,0,1,-10deg);
+    -webkit-transform: skew(-10deg) rotate3d(0,0,1,-10deg);
             transform: skew(-10deg) rotate3d(0,0,1,-10deg);
     -webkit-transform-origin: bottom left;
-            transform-origin: bottom left;*/
-}
+            transform-origin: bottom left;
+}*/
 
 
 
