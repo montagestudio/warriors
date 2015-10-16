@@ -93,7 +93,6 @@ FLOW
 /* basketball */
 
 .flow-Ribbon > div:before {
-    display: none;
     content: "";
     position: absolute;
     background-image: url(../../assets/image/basketball2d-edit.png);
