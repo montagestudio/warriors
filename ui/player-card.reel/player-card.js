@@ -43,11 +43,17 @@ var PlayerCard = exports.PlayerCard = Button.specialize(/** @lends PlayerCard# *
         }
     },
 
+    _image: {
+        value: null
+    },
+
     draw: {
         value: function () {
-            this.super();
-            if (this.data) {
-                this.playerImage.style.backgroundImage = "url(" + this.data.image + ")";
+            if (this._data) {
+                if (this._image !== this.data.image) {
+                    this._image = this._data.image;
+                    this._element.style.backgroundImage = "url(" + this._image + ")";
+                }
             }
         }
     },

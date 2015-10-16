@@ -1,22 +1,11 @@
 .playerCard {
-    position: relative;
-    z-index: 1;
+    position: absolute;
     box-sizing: border-box;
-    width:  375px;
+    width:  374px;
     height: 600px;
-    margin-left: -192px;
+    margin-left: -187px;
     margin-top: -300px;
     background-repeat: no-repeat;
-    background-position: center center;
-    -webkit-transform: translate3d(0, 0, 0);
-            transform: translate3d(0, 0, 0);
-}
-
-.playerCard:focus {
-    outline: none;
-}
-
-.playerCard {
     -webkit-user-select: none;
     cursor: pointer;
     -webkit-user-select: none;
@@ -25,38 +14,29 @@
     user-select: none;
 }
 
-/* animated border on active index */
-
-.playerCard:before,
-.playerCard:after {
-    content: '';
-    position: absolute;
-    width:  8px;
-    height: 8px;
-    background: rgb(256,204,51);
-    z-index: -10;
-    -webkit-transform: scale3d(0,0,1);
-            transform: scale3d(0,0,1);
-    opacity: 0;
-    transition: opacity .25s linear, -webkit-transform 0s .25s linear;
-    transition: opacity .25s linear, transform 0s .25s linear;
-}
-
 .playerCard:before {
-    -webkit-transform-origin: top left;
-            transform-origin: top left;
-    top:  -8px;
+    content: "";
+    border: 8px solid rgb(256,204,51);
+    opacity: 0;
+    position: absolute;
+    top: -8px;
     left: -8px;
-}
-
-.playerCard:after {
+    right: -8px;
     bottom: -8px;
-    right:  -8px;
-    -webkit-transform-origin: bottom right;
-            transform-origin: bottom right;
+    -webkit-transition: opacity .15s linear;
+    transition: opacity .15s linear;
 }
 
-.is-selected.playerCard:before,
+.playerCard.is-selected:before {
+    opacity: 1;
+}
+
+.playerCard:focus {
+    outline: none;
+}
+
+
+/*.is-selected.playerCard:before,
 .is-selected.playerCard:after,
 .answered.playerCard:before,
 .answered.playerCard:after  {
@@ -66,7 +46,7 @@
     -webkit-transform: scale3d(48.9,77,1);
             transform: scale3d(48.9,77,1);
     background-color: rgb(256,204,51);
-}
+}*/
 
 /* panel shadow */
 
@@ -87,79 +67,69 @@
 
 /* controls the overflow */
 
-.cardOverflow {
-    position: absolute;
-    width:  100%;
-    height: 100%;
-    overflow: hidden;
-    background: #000;
-    -webkit-transform-style: preserve-3d;
-            transform-style: preserve-3d;
-}
-
 .playerInfoWrapper {
     position: absolute;
-    width: 100%;
-    height: 100%;
-    -webkit-transform: translate3d(0,-100%,0);
-            transform: translate3d(0,-100%,0);
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    overflow: hidden;
 }
 
 .playerInfo {
     box-sizing: border-box;
     position: absolute;
-    z-index: 1;
-    width: 100%;
-    /* subpixel fix */
     bottom: 0;
-    -webkit-transform: translate3d(0,100%,0);
-            transform: translate3d(0,100%,0);
-    z-index: 1;
-
+    left: 0;
+    right: 0;
+    -webkit-transform: translate(0, 0);
+    transform: translate(0, 0);
+    transition: -webkit-transform .3s ease-in-out;
+    transition: transform .3s ease-in-out;
 }
 
-.playerImage {
-    display: block;
-    position: relative;
-    width:  100%;
-    height: 100%;
-    background-size: cover;
-    background-position: 50% 50%;
-    background-repeat: no-repeat;
-    z-index: -2;
-    transition: -webkit-filter .25s ease-in-out,
-                        filter .25s ease-in-out,
-                -webkit-transform .25s linear,
-                        -webkit-transform .25s linear;
-    transform-origin: 50% 25%;
+.show-details .playerInfo {
+    -webkit-transform: translate(0, -153px);
+    transform: translate(0, -153px);
+}
+
+.playerInfo2 {
+    position: absolute;
+    top: 540px;
+    left: 0;
+    right: 0;
+    -webkit-transform: translate(0, 0);
+    transform: translate(0, 0);
+    transition: -webkit-transform .3s ease-in-out;
+    transition: transform .3s ease-in-out;
+}
+
+.show-details .playerInfo2 {
+    -webkit-transform: translate(0, -153px);
+    transform: translate(0, -153px);
 }
 
 /* zoom playerImage when is-selected */
 
-.transition-in .is-selected .playerImage {
+/*.transition-in .is-selected .playerImage {
     transition: -webkit-transform 15s linear;
     transition: transform 15s linear;
     -webkit-transform: scale3d(1.3,1.3,1);
             transform: scale3d(1.3,1.3,1);
-}
-
-/*.show-details .playerImage {
-    -webkit-filter: grayscale(1);
-            filter: grayscale(1);
 }*/
 
-.is-selected.show-details .playerImage {
+/*.is-selected.show-details .playerImage {
     transition: -webkit-filter .25s ease-in-out,
                         filter .25s ease-in-out,
                 -webkit-transform .25s linear,
                         -webkit-transform .25s linear;
     -webkit-transform: scale3d(1,1,1);
             transform: scale3d(1,1,1);
-}
+}*/
 
 .angledTextWrapper {
-    -webkit-transform: skew(-10deg) rotate3d(0,0,1,-10deg);
-            transform: skew(-10deg) rotate3d(0,0,1,-10deg);
+    -webkit-transform: skew(-10deg) rotate(-10deg);
+            transform: skew(-10deg) rotate(-10deg);
     -webkit-transform-origin: bottom left;
             transform-origin: bottom left;
     background: rgba(255,204,51,.95);
@@ -185,7 +155,6 @@
 }
 
 .playerNumber {
-    z-index: 1;
     position: relative;
     margin: 15px;
     margin-bottom: -15px;
@@ -203,7 +172,6 @@
 .playerNumber:after {
     content: '';
     position: absolute;
-    z-index: -1;
     top:  50%;
     left: 50%;
     width:  80px;
@@ -237,16 +205,15 @@
 .playerDetails:after {
     content: '';
     position: absolute;
-    z-index: -1;
     left: 0;
     width: 100%;
     top: -27px;
     height: 480px;
     background: rgba(4,82,156,.95);
-    -webkit-transform: skew(-10deg) rotate3d(0,0,1,-10deg);
+    /*-webkit-transform: skew(-10deg) rotate3d(0,0,1,-10deg);
             transform: skew(-10deg) rotate3d(0,0,1,-10deg);
     -webkit-transform-origin: bottom left;
-            transform-origin: bottom left;
+            transform-origin: bottom left;*/
 }
 
 
@@ -308,30 +275,11 @@
     content: 'lbs';
 }
 
-/* show-detail transition */
-
-.playerInfoWrapper,
-.playerInfo {
-    transition: -webkit-transform .3s ease-in-out;
-    transition: transform .3s ease-in-out;
-    -webkit-transform: translate3d(0,0,0);
-            transform: translate3d(0,0,0);
-}
-
-.show-details .playerInfoWrapper {
-    -webkit-transform: translate3d(0,-100%,0);
-            transform: translate3d(0,-100%,0);
-}
-
-.show-details .playerInfo {
-    -webkit-transform: translate3d(0,100%,0);
-            transform: translate3d(0,100%,0);
-}
 
 
 /* is-correct / is-incorrect */
 
-.playerInfoWrapper:before,
+/*.playerInfoWrapper:before,
 .playerInfoWrapper:after {
     position: absolute;
     content: '';
@@ -343,24 +291,23 @@
     top: 50%;
     left: 50%;
     border-radius: 50%;
-    z-index: 2;
     transition: all .3s linear;
 }
 
 .is-correct .playerInfoWrapper:before,
 .is-wrong .playerInfoWrapper:before {
     font-size: 12em;
-}
+}*/
 
 .is-correct .playerInfoWrapper:before {
-    background: radial-gradient(rgba(0,211,0,0), rgba(0,211,0,.85) 80%);
+    /*background: radial-gradient(rgba(0,211,0,0), rgba(0,211,0,.85) 80%);*/
 }
 
 .is-wrong .playerInfoWrapper:before {
-    background: radial-gradient(rgba(239,0,26,0), rgba(239,0,26,.85) 80%);
+    /*background: radial-gradient(rgba(239,0,26,0), rgba(239,0,26,.85) 80%);*/
 }
 
-.cardOverflow:before,
+/*.cardOverflow:before,
 .cardOverflow:after {
     position: absolute;
     left: 50%;
@@ -374,33 +321,33 @@
     transition: transform .2s cubic-bezier(.44,1.14,.77,1.16);
     z-index: 10;
 
-}
+}*/
 
 /* circle bg */
 
-.cardOverflow:before {
+/*.cardOverflow:before {
     content: '';
     border-radius: 50%;
     -webkit-transform: scale(0);
             transform: scale(0);
     margin-top: -1em;
     margin-left: -1em;
-    /*box-shadow: 0 0 2px 2px rgba(0,0,0,.15)*/
-}
+    box-shadow: 0 0 2px 2px rgba(0,0,0,.15)
+}*/
 
-.answered .cardOverflow:before {
+/*.answered .cardOverflow:before {
     -webkit-transform: scale(1);
             transform: scale(1);
-}
+}*/
 
 /* correct / wrong bg settings */
 
-.is-correct .cardOverflow:before    { background: rgb(0,211,0); }
-.is-wrong .cardOverflow:before      { background: rgb(239,0,26); }
+/*.is-correct .cardOverflow:before    { background: rgb(0,211,0); }
+.is-wrong .cardOverflow:before      { background: rgb(239,0,26); }*/
 
 /* correct / wrong symbol settings */
 
-.cardOverflow:after {
+/*.cardOverflow:after {
     content: '';
     position: absolute;
     display: block;
@@ -411,10 +358,10 @@
             transform-origin: 50% 50%;
     -webkit-transform: scale(0);
             transform: scale(0);
-}
+}*/
 
-.is-wrong .cardOverflow:after {
-    content: url(../../../assets/image/cross.svg);
+/*.is-wrong .cardOverflow:after {
+    content: url(../../assets/image/cross.svg);
     width: 60px;
     height: 145px;
     margin-top: -73px;
@@ -422,19 +369,19 @@
 }
 
 .is-correct .cardOverflow:after {
-    content: url(../../../assets/image/checkmark.svg);
+    content: url(../../assets/image/checkmark.svg);
     width: 80px;
     height: 125px;
     margin-top: -63px;
     margin-left: -40px;
-}
+}*/
 
-.answered.is-wrong .cardOverflow:after {
+/*.answered.is-wrong .cardOverflow:after {
     -webkit-transform: scale(1);
             transform: scale(1);
-}
+}*/
 
-.answered.is-correct .cardOverflow:after {
+/*.answered.is-correct .cardOverflow:after {
     -webkit-transform: scale(1);
             transform: scale(1);
-}
+}*/
