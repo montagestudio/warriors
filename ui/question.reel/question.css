@@ -115,7 +115,7 @@
 
     .query > span {
         font-size: 2.4em;
-        max-width: 490px;
+        max-width: 620px;
     }
 }
 
@@ -135,5 +135,15 @@
     .query > span {
         font-size: 3.5em;
         max-width: 720px;
+    }
+}
+
+@media (min-height: 1200px) {
+    .Question {
+        margin-top: 11em;
+    }
+
+    .query {
+        height: 150px;
     }
 }
