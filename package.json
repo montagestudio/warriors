@@ -10,7 +10,8 @@
         "ui/main.reel"
     ],
     "scripts": {
-        "start": "vagrant up"
+        "start": "vagrant up",
+        "deploy": "vagrant ssh -c 'sudo docker rm $(docker kill warriors-server)'; vagrant provision"
     },
     "shared": 4,
     "devDependencies": {
