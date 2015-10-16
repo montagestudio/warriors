@@ -20,12 +20,11 @@
 }
 
 .BrowsePlayers .buttonGroup .btn {
-    max-width: 50px;
+    max-width: 220px;
     min-width: auto;
     margin: 5px 10px;
     transform: translateY(100px);
     transition: transform .25s ease-in-out;
-    outline: 1px solid blue;
 }
 
 .BrowsePlayers .buttonGroup .btn:nth-child(2) {
