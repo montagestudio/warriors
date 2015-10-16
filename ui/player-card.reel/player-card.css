@@ -277,7 +277,7 @@
 
 /* is-correct / is-incorrect */
 
-/*.playerInfoWrapper:before,
+.playerInfoWrapper:before,
 .playerInfoWrapper:after {
     position: absolute;
     content: '';
@@ -295,57 +295,51 @@
 .is-correct .playerInfoWrapper:before,
 .is-wrong .playerInfoWrapper:before {
     font-size: 12em;
-}*/
+}
 
 .is-correct .playerInfoWrapper:before {
-    /*background: radial-gradient(rgba(0,211,0,0), rgba(0,211,0,.85) 80%);*/
+    background: radial-gradient(rgba(0,211,0,0), rgba(0,211,0,.85) 80%);
 }
 
 .is-wrong .playerInfoWrapper:before {
-    /*background: radial-gradient(rgba(239,0,26,0), rgba(239,0,26,.85) 80%);*/
+    background: radial-gradient(rgba(239,0,26,0), rgba(239,0,26,.85) 80%);
 }
 
-/*.cardOverflow:before,
-.cardOverflow:after {
+.playerCard:after {
     position: absolute;
     left: 50%;
     top: 50%;
-    height: 2em;
-    width:  2em;
-    line-height: 2em;
-    font-size:   6em;
-    font-weight: 700;
+    height: 40px;
+    width: 40px;
+    padding: 20px;
+    margin-left: -40px;
+    margin-top: -40px;
     transition: -webkit-transform .2s cubic-bezier(.44,1.14,.77,1.16);
     transition: transform .2s cubic-bezier(.44,1.14,.77,1.16);
-    z-index: 10;
-
-}*/
+}
 
 /* circle bg */
 
-/*.cardOverflow:before {
+.playerCard:after {
     content: '';
     border-radius: 50%;
     -webkit-transform: scale(0);
             transform: scale(0);
-    margin-top: -1em;
-    margin-left: -1em;
-    box-shadow: 0 0 2px 2px rgba(0,0,0,.15)
-}*/
+}
 
-/*.answered .cardOverflow:before {
+.playerCard.answered:after {
     -webkit-transform: scale(1);
             transform: scale(1);
-}*/
+}
 
 /* correct / wrong bg settings */
 
-/*.is-correct .cardOverflow:before    { background: rgb(0,211,0); }
-.is-wrong .cardOverflow:before      { background: rgb(239,0,26); }*/
+.playerCard.is-correct:after    { background: rgb(0,211,0); }
+.playerCard.is-wrong:after      { background: rgb(239,0,26); }
 
 /* correct / wrong symbol settings */
 
-/*.cardOverflow:after {
+.playerCard:after {
     content: '';
     position: absolute;
     display: block;
@@ -356,23 +350,19 @@
             transform-origin: 50% 50%;
     -webkit-transform: scale(0);
             transform: scale(0);
-}*/
-
-/*.is-wrong .cardOverflow:after {
-    content: url(../../assets/image/cross.svg);
-    width: 60px;
-    height: 145px;
-    margin-top: -73px;
-    margin-left: -30px;
 }
 
-.is-correct .cardOverflow:after {
+.playerCard.is-wrong:after {
+    content: url(../../assets/image/cross.svg);
+    width: 40px;
+    height: 40px;
+}
+
+.playerCard.is-correct:after {
     content: url(../../assets/image/checkmark.svg);
-    width: 80px;
-    height: 125px;
-    margin-top: -63px;
-    margin-left: -40px;
-}*/
+    width: 40px;
+    height: 40px;
+}
 
 /*.answered.is-wrong .cardOverflow:after {
     -webkit-transform: scale(1);
