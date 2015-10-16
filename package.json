@@ -3,6 +3,7 @@
     "version": "0.0.0",
     "dependencies": {
         "montage": "0.15.2",
+        "montage-social": "git+https://github.com/montagestudio/montage-social.git",
         "mjs-volume": "git+https://github.com/montagestudio/mjs-volume.git"
     },
     "bundle": [
