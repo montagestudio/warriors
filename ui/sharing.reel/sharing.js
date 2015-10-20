@@ -15,7 +15,7 @@ exports.Sharing = Component.specialize(/** @lends Sharing# */ {
     },
     handleClick: {
         value: function (event) {
-            var dataObj = {'articleTitle':"How well do you know the 2015 NBA Champions?","image":window.location.href+"assets/image/CoverImage.png"};
+            var dataObj = {'articleTitle':"How well do you know the 2015 NBA Champions?","image":window.location.href+"assets/image/CoverImage.png","href":window.location.href};
             var shareEvent = new CustomEvent('shareOnFB',{ 'detail': dataObj });
             dispatchEvent(shareEvent);
         }
