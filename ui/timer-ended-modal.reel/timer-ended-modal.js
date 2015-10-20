@@ -8,9 +8,4 @@ var Component = require("montage/ui/component").Component;
  * @extends Component
  */
 exports.TimerEndedModal = Component.specialize(/** @lends TimerEndedModal# */ {
-    constructor: {
-        value: function TimerEndedModal() {
-            this.super();
-        }
-    }
 });

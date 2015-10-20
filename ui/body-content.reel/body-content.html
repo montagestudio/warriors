@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <link rel="stylesheet" type="text/css" href="body-content.css">
+    <script type="text/montage-serialization">
+    {
+        "owner": {
+            "properties": {
+                "element": {"#": "owner"},
+                "substitution": {"@": "substitution"}
+            }
+        },
+        "intro": {
+            "prototype": "ui/intro.reel",
+            "properties": {
+                "element": {"#": "intro"}
+            }
+        },
+        "timer": {
+            "prototype": "ui/timer.reel",
+            "properties": {
+                "element": {"#": "timer"}
+            },
+            "bindings": {
+                "currentTime": {"<-": "application.quizController.timerProvider.currentTime"},
+                "questionIndex": {"<-": "application.quizController.currentQuestionIndex"},
+                "totalQuestions": {"<-": "application.quizController.totalQuestions"}
+            }
+        },
+        "timerEndedModal": {
+            "prototype": "ui/timer-ended-modal.reel",
+            "properties": {
+                "element": {"#": "timerEndedModal"}
+            }
+        },
+        "substitution": {
+            "prototype": "montage/ui/substitution.reel",
+            "properties": {
+                "element": {"#": "substitution"},
+                "shouldLoadComponentTree": true,
+                "switchValue": "intro"
+            }
+        },
+        "question": {
+            "prototype": "ui/question.reel",
+            "properties": {
+                "element": {"#": "question"}
+            },
+            "bindings": {
+                "question": {"<-": "application.quizController.currentQuestion"}
+            }
+        },
+        "browsePlayers": {
+            "prototype": "ui/browse-players.reel",
+            "properties": {
+                "element": {"#": "browsePlayers"}
+            }
+        },
+        "results": {
+            "prototype": "ui/results.reel",
+            "properties": {
+                "element": {"#": "results"}
+            }
+        }
+    }
+    </script>
+</head>
+<body>
+    <div data-montage-id="owner" class="BodyContent">
+        <div data-montage-id="substitution" class="content">
+            <div data-arg="intro" data-montage-id="intro"></div>
+            <div data-arg="browse" data-montage-id="browsePlayers" class="view"></div>
+            <!-- make into quiz component -->
+            <div data-arg="quiz" class="view">
+                <div data-montage-id="timer"></div>
+                <div data-montage-id="question"></div>
+            </div>
+            <div data-arg="results" class="view" data-montage-id="results"></div>
+            <div data-arg="timerEnded" data-montage-id="timerEndedModal"></div>
+        </div>
+    </div>
+</body>
+</html>

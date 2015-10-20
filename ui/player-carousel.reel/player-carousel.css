@@ -1,41 +1,45 @@
 @-webkit-keyframes transition-options-in {
-    0% {-webkit-transform: rotateY(-180deg);transform: rotateY(-180deg); opacity: 0;}
-    100% {-webkit-transform: rotateY(0);transform: rotateY(0); opacity: 1;}
+    0%      {-webkit-transform: rotateY(-180deg); transform: rotateY(-180deg); opacity: 0;}
+    100%    {-webkit-transform: rotateY(0); transform: rotateY(0); opacity: 1;}
 }
 
 @keyframes transition-options-in {
-    0% {-webkit-transform: rotateY(-180deg);transform: rotateY(-180deg); opacity: 0;}
-    100% {-webkit-transform: rotateY(0);transform: rotateY(0); opacity: 1;}
+    0%      {-webkit-transform: rotateY(-180deg); transform: rotateY(-180deg); opacity: 0;}
+    100%    {-webkit-transform: rotateY(0); transform: rotateY(0); opacity: 1;}
 }
 
 @-webkit-keyframes transition-options-out {
-    0% {-webkit-transform: rotateY(0);transform: rotateY(0); opacity: 1;}
-    100% {-webkit-transform: rotateY(180deg);transform: rotateY(180deg); opacity: 0;}
+    0%      {-webkit-transform: rotateY(0); transform: rotateY(0); opacity: 1;}
+    100%    {-webkit-transform: rotateY(180deg); transform: rotateY(180deg); opacity: 0;}
 }
 
 @keyframes transition-options-out {
-    0% {-webkit-transform: rotateY(0);transform: rotateY(0); opacity: 1;}
-    100% {-webkit-transform: rotateY(180deg);transform: rotateY(180deg); opacity: 0;}
+    0%      {-webkit-transform: rotateY(0); transform: rotateY(0); opacity: 1;}
+    100%    {-webkit-transform: rotateY(180deg); transform: rotateY(180deg); opacity: 0;}
 }
 
 @-webkit-keyframes transition-camera-in {
-    0% {-webkit-transform: scale3d(.01, .01, 1);transform: scale3d(.01, .01, 1)}
-    100% {-webkit-transform: scale3d(1, 1, 1);transform: scale3d(1, 1, 1)}
+    0%      {-webkit-transform: scale3d(.1, .1, 1); transform: scale3d(.1, .1, 1); opacity: 0;}
+    30%     {opacity: 1;}
+    100%    {-webkit-transform: scale3d(1, 1, 1); transform: scale3d(1, 1, 1)}
 }
 
 @keyframes transition-camera-in {
-    0% {-webkit-transform: scale3d(.01, .01, 1);transform: scale3d(.01, .01, 1)}
-    100% {-webkit-transform: scale3d(1, 1, 1);transform: scale3d(1, 1, 1)}
+    0%      {-webkit-transform: scale3d(.1, .1, 1); transform: scale3d(.1, .1, 1); opacity: 0;}
+    30%     {opacity: 1;}
+    100%    {-webkit-transform: scale3d(1, 1, 1); transform: scale3d(1, 1, 1);}
 }
 
 @-webkit-keyframes transition-camera-out {
-    0% {-webkit-transform: scale3d(1, 1, 1);transform: scale3d(1, 1, 1)}
-    100% {-webkit-transform: scale3d(.01, .01, 1);transform: scale3d(.01, .01, 1)}
+    0%      {-webkit-transform: scale3d(1, 1, 1); transform: scale3d(1, 1, 1)}
+    70%     {opacity: 1;}
+    100%    {-webkit-transform: scale3d(.1, .1, 1); transform: scale3d(.1, .1, 1); opacity: 0;}
 }
 
 @keyframes transition-camera-out {
-    0% {-webkit-transform: scale3d(1, 1, 1);transform: scale3d(1, 1, 1)}
-    100% {-webkit-transform: scale3d(.01, .01, 1);transform: scale3d(.01, .01, 1)}
+    0%      {-webkit-transform: scale3d(1, 1, 1); transform: scale3d(1, 1, 1)}
+    70%     {opacity: 1;}
+    100%    {-webkit-transform: scale3d(.1, .1, 1); transform: scale3d(.1, .1, 1); opacity: 0;}
 }
 
 .PlayerCarousel {

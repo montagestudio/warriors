@@ -44,14 +44,13 @@ exports.Main = Component.specialize(/** @lends module:"ui/main.reel".Main# */ {
     },
 
     currentView: {
-        // value: 'browse'
         value: 'intro'
     },
 
     isQuizFinished: {
         set: function (value) {
-            if (value) {
-                this.currentView = 'results';
+            if (value && !this.timerEnded) {
+                this.bodyContent.switchToView('results');
             }
         }
     },
@@ -65,15 +64,14 @@ exports.Main = Component.specialize(/** @lends module:"ui/main.reel".Main# */ {
     handleStartQuizAction: {
         value: function () {
             var self = this;
-            // When running this in WeChat, the action seems always be trigger 2 twice. Add juge in related places to
-            // prevent duplicate events dispatch.
+            // // When running this in WeChat, the action seems always be trigger 2 twice. Add juge in related places to
+            // // prevent duplicate events dispatch.
             if (!this._startQuizAction) {
                 this._startQuizAction = true;
-                Application.quizController.start(configuration.quizTime)
-                    .then(function () {
-                        self.currentView = "quiz";
-                        self._startQuizAction = false;
-                    });
+                this.bodyContent.switchToView('quiz', function() {
+                    Application.quizController.start(configuration.quizTime);
+                    self._startQuizAction = false;
+                })
             }
 
         }
@@ -87,13 +85,29 @@ exports.Main = Component.specialize(/** @lends module:"ui/main.reel".Main# */ {
             if (!this._isRestarting) {
                 this._isRestarting = true;
                 Application.quizController.reset();
-                setTimeout(function () {
-                    Application.quizController.start()
-                        .then(function () {
-                            self.currentView = "quiz";
-                            self._isRestarting = false;
-                        });
-                }, 500);
+                this.bodyContent.switchToView('quiz', function() {
+                    Application.quizController.start(configuration.quizTime);
+                    self._isRestarting = false;
+                })
+            }
+        }
+    },
+
+    _timerEnded: {
+        value: false
+    },
+
+    timerEnded: {
+        get: function () {
+            return this._timerEnded;
+        },
+        set: function (value) {
+            var self = this;
+            this._timerEnded = value;
+            if (value) {
+                this.bodyContent.switchToView('timerEnded', function() {
+                    self.bodyContent.switchToView('results');
+                });
             }
         }
     },
@@ -102,19 +116,13 @@ exports.Main = Component.specialize(/** @lends module:"ui/main.reel".Main# */ {
 
     handleBrowsePlayersAction: {
         value: function () {
-            var self = this;
-            setTimeout(function () {
-                self.currentView = "browse";
-            }, 500);
+            this.bodyContent.switchToView('browse');
         }
     },
 
     handleViewResultsAction: {
         value: function () {
-            var self = this;
-            setTimeout(function () {
-                self.currentView = "results";
-            }, 500);
+            this.bodyContent.switchToView('results');
         }
     }
 

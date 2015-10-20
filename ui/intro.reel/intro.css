@@ -1,3 +1,18 @@
+@-webkit-keyframes intro-out {
+    0%   {opacity: 1;}
+    100% {opacity: 0; -webkit-transform: scale(0); transform: scale(0);}
+}
+
+@keyframes intro-out {
+    0%   {opacity: 1;}
+    100% {opacity: 0; -webkit-transform: scale(0); transform: scale(0);}
+}
+
 .intro .btn {
     border-color: rgb(255,204,51);
+}
+
+.intro-out .intro {
+    -webkit-animation: intro-out .5s forwards;
+            animation: intro-out .5s forwards;
 }

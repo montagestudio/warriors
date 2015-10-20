@@ -77,6 +77,7 @@ exports.Question = Component.specialize(/** @lends Question# */ {
 
     handleNextQuestion: {
         value: function () {
+            console.log("handle next question");
             var self = this;
             var question = this.application.quizController.getNextQuestion();
             if (question) {

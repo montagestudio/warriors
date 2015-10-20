@@ -2,37 +2,39 @@
 
 @-webkit-keyframes results-in {
     0% {-webkit-transform: translateY(-180%);transform: translateY(-180%);}
-    100% {}
+    100% {-webkit-transform: translateY(0%);transform: translateY(0%);}
 }
 
 @keyframes results-in {
     0% {-webkit-transform: translateY(-180%);transform: translateY(-180%);}
-    100% {}
+    100% {-webkit-transform: translateY(0%);transform: translateY(0%);}
 }
 
 @-webkit-keyframes results-out {
-    0% {}
+    0% {-webkit-transform: translateY(0%);transform: translateY(0%);}
     100% {-webkit-transform: translateY(-180%);transform: translateY(-180%);}
 }
 
 @keyframes results-out {
-    0% {}
+    0% {-webkit-transform: translateY(0%);transform: translateY(0%);}
     100% {-webkit-transform: translateY(-180%);transform: translateY(-180%);}
 }
 
 /* ---------- */
 
-.Results {
+.results {
     margin: 0 auto;
     width: 100%;
     text-align: center;
-    -webkit-animation: results-in .5s cubic-bezier(.44,1.14,.77,1.16) forwards;
-            animation: results-in .5s cubic-bezier(.44,1.14,.77,1.16) forwards;
+    -webkit-animation: results-in .5s cubic-bezier(.44,1.14,.6,1.16) forwards;
+            animation: results-in .5s cubic-bezier(.44,1.14,.6,1.16) forwards;
 }
 
-.transition-results-out.Results {
-    -webkit-animation: results-out .5s cubic-bezier(.44,1.14,.77,1.16) forwards;
-            animation: results-out .5s cubic-bezier(.44,1.14,.77,1.16) forwards;
+
+/* animation out */
+.results-out .results {
+    -webkit-animation: results-out .5s cubic-bezier(.41,-0.51,.98,.87) forwards;
+            animation: results-out .5s cubic-bezier(.41,-0.51,.98,.87) forwards;
 }
 
 .results-container {
@@ -46,7 +48,6 @@
     position: relative;
     padding-bottom: 2em;
     margin-bottom: 2em;
-    /*border-bottom: 1px solid rgb(4,82,156);*/
 }
 
 .results-section:last-child {
@@ -65,7 +66,7 @@
     position: absolute;
     bottom: 0;
     left: 0;
-    right: 15px;
+    right: 0;
     height: 1px;
     background: rgba(4,82,156,.5);
 }
@@ -117,17 +118,13 @@
     box-sizing: border-box;
     position: relative;
     margin: 1em;
-    /*border: 5px solid rgb(4,82,156);*/
     background: rgba(255,255,255,.7);
-    /*background-image: url('../../assets/image/floor-texture.jpg');*/
-    /*background-size: 25%;*/
     overflow: hidden;
 }
 
 .result-details:after {
     content: "";
     background-image: url('../../assets/image/floor-texture.jpg');
-    /*opacity: .75;*/
     -webkit-transform: rotate(-45deg);
             transform: rotate(-45deg);
     background-size: 50%;
@@ -179,6 +176,10 @@
     -webkit-flex: 1;
         -ms-flex: 1;
             flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
 /* answers correct */
@@ -215,8 +216,6 @@
     display: -ms-flexbox;
     display: flex;
     margin-right: -15px;
-    /*margin-bottom: 1em;
-    padding-bottom: 1em;*/
 }
 
 /* columns for flex */
@@ -284,6 +283,10 @@
         display: block;
         margin-bottom: 2em;
         padding-bottom: 2em;
+    }
+
+    .results-review {
+        display: block;
     }
 
     .result-title {

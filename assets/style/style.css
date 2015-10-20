@@ -235,7 +235,7 @@ button:focus {
 }
 
 .content {
-    position: relative;
+    /*position: relative;*/
     -webkit-flex: 1;
         -ms-flex: 1;
             flex: 1;
@@ -297,16 +297,8 @@ button:focus {
             animation: intro 1s ease both;
 }
 
-/*.intro > .intro-text:nth-child(2) { -webkit-animation-delay: 1.5s; animation-delay: 1.5s; }*/
 .intro > .intro-text:nth-child(3) { -webkit-animation-delay: .25s; animation-delay: .25s; }
 .intro > :nth-child(4) { -webkit-animation-delay: 3.5s; animation-delay: 3.5s; }
-
-.intro.transition-out {
-    transition: all .5s ease-in;
-    -webkit-transform: scale(0);
-            transform: scale(0);
-    opacity: 0;
-}
 
 @media (min-height: 620px) and (orientation: portrait) {
     .intro {

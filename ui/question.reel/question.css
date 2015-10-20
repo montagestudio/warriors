@@ -1,21 +1,21 @@
 @-webkit-keyframes transition-query-in {
-    0% {-webkit-transform: scale(0);transform: scale(0); opacity: 0;}
-    100% {}
+    0%   {-webkit-transform: scale(0);transform: scale(0); opacity: 0;}
+    100% {-webkit-transform: scale(1);transform: scale(1); opacity: 1;}
 }
 
 @keyframes transition-query-in {
-    0% {-webkit-transform: scale(0);transform: scale(0); opacity: 0;}
-    100% {}
+    0%   {-webkit-transform: scale(0);transform: scale(0); opacity: 0;}
+    100% {-webkit-transform: scale(1);transform: scale(1); opacity: 1;}
 }
 
 @-webkit-keyframes transition-query-out {
-    0% {}
-    100% {-webkit-transform: scale(0);transform: scale(0); opacity: 0;}
+    0%      {-webkit-transform: scale(1);transform: scale(1); opacity: 1;}
+    100%    {-webkit-transform: scale(0);transform: scale(0); opacity: 0;}
 }
 
 @keyframes transition-query-out {
-    0% {}
-    100% {-webkit-transform: scale(0);transform: scale(0); opacity: 0;}
+    0%      {-webkit-transform: scale(1);transform: scale(1); opacity: 1;}
+    100%    {-webkit-transform: scale(0);transform: scale(0); opacity: 0;}
 }
 
 .Question {
@@ -29,8 +29,14 @@
     -webkit-flex-direction: column;
         -ms-flex-direction: column;
             flex-direction: column;
+    -webkit-justify-content: space-around;
+        -ms-flex-pack: distribute;
+            justify-content: space-around;
+}
 
-    justify-content: space-around;
+.quiz-out .Question {
+    -webkit-animation: transition-query-out .5s forwards;
+            animation: transition-query-out .5s forwards;
 }
 
 /* Question Title */
@@ -76,7 +82,9 @@
 @media (min-height: 600px) and (min-width: 400px) and (orientation: portrait) {
     .Question {
         margin-top: 8em;
-        justify-content: space-around;
+        -webkit-justify-content: space-around;
+            -ms-flex-pack: distribute;
+                justify-content: space-around;
     }
 
     .query {
@@ -91,7 +99,9 @@
 
 @media (min-height: 410px) and (min-width: 400px) and (orientation: landscape) {
     .Question {
-        justify-content: space-around;
+        -webkit-justify-content: space-around;
+            -ms-flex-pack: distribute;
+                justify-content: space-around;
     }
 
     .query {
@@ -106,7 +116,9 @@
 
 @media (min-height: 500px) and (min-width: 400px) and (orientation: landscape) {
     .Question {
-        justify-content: space-around;
+        -webkit-justify-content: space-around;
+            -ms-flex-pack: distribute;
+                justify-content: space-around;
     }
 
     .query {

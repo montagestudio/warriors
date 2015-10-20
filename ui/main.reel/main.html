@@ -12,11 +12,13 @@
         "owner": {
             "properties": {
                 "element": {"#": "main"},
-                "menu": {"@": "menu"}
+                "menu": {"@": "menu"},
+                "bodyContent": {"@": "bodyContent"}
             },
             "bindings": {
-                "isQuizFinished": {"<-": "@owner.application.quizController.isFinished"},
-                "classList.has('show-header')": {"<-": "@owner.currentView != 'intro'"}
+                "isQuizFinished": {"<-": "application.quizController.isFinished"},
+                "classList.has('show-header')": {"<-": "@owner.currentView != 'intro'"},
+                "timerEnded": {"<-": "application.quizController.timerEnded"}
             },
             "listeners": [
                 {
@@ -25,53 +27,15 @@
                 }
             ]
         },
-        "intro": {
-            "prototype": "ui/intro.reel",
-            "properties": {
-                "element": {"#": "intro"}
-            }
-        },
         "menu": {
             "prototype": "ui/menu.reel",
             "properties": {
                 "element": {"#": "menu"}
             },
             "bindings": {
-                "answers": {"<-": "@owner.application.quizController.answers"},
-                "classList.has('is-visible')": {"<-": "@owner.application.quizController.isFinished"},
-                "questions": {"<-": "@owner.application.quizController.questions"}
-            }
-        },
-
-        "pageSubstitution": {
-            "prototype": "montage/ui/substitution.reel",
-            "properties": {
-                "element": {"#": "pageSubstitution"},
-                "shouldLoadComponentTree": true
-            },
-            "bindings": {
-                "switchValue": {"<-": "@owner.currentView"}
-            }
-        },
-        "question": {
-            "prototype": "ui/question.reel",
-            "properties": {
-                "element": {"#": "question"}
-            },
-            "bindings": {
-                "question": {"<-": "@owner.application.quizController.currentQuestion"}
-            }
-        },
-        "browsePlayers": {
-            "prototype": "ui/browse-players.reel",
-            "properties": {
-                "element": {"#": "browsePlayers"}
-            }
-        },
-        "results": {
-            "prototype": "ui/results.reel",
-            "properties": {
-                "element": {"#": "results"}
+                "answers": {"<-": "application.quizController.answers"},
+                "classList.has('is-visible')": {"<-": "application.quizController.isFinished"},
+                "questions": {"<-": "application.quizController.questions"}
             }
         },
         "scene": {
@@ -84,26 +48,6 @@
             "prototype": "mjs-volume/ui/scene-view.reel",
             "properties": {
                 "element": {"#": "sceneView"}
-            }
-        },
-        "timer": {
-            "prototype": "ui/timer.reel",
-            "properties": {
-                "element": {"#": "timer"}
-            },
-            "bindings": {
-                "currentTime": {"<-": "@owner.application.quizController.timerProvider.currentTime"},
-                "questionIndex": {"<-": "@owner.application.quizController.currentQuestionIndex"},
-                "totalQuestions": {"<-": "@owner.application.quizController.totalQuestions"}
-            }
-        },
-        "timerEndedModal": {
-            "prototype": "ui/timer-ended-modal.reel",
-            "properties": {
-                "element": {"#": "timerEndedModal"}
-            },
-            "bindings": {
-                "classList.has('is-visible')": {"<-": "@owner.application.quizController.showTimerEndedModal"}
             }
         },
         "montageLogo": {
@@ -120,6 +64,15 @@
             "localizations": {
                 "value": {"key": "Warriors Quiz"}
             }
+        },
+        "bodyContent": {
+            "prototype": "ui/body-content.reel",
+            "properties": {
+                "element": {"#": "bodyContent"}
+            },
+            "bindings": {
+                "currentView": {"<-": "@owner.currentView"}
+            }
         }
     }
     </script>
@@ -128,25 +81,11 @@
     <div data-montage-id="main" class="Main">
         <div data-montage-id="warriorsTitle" class="header"></div>
         <div data-montage-id="menu"></div>
-        <div data-montage-id="pageSubstitution" class="content">
-            <div data-arg="intro" data-montage-id="intro"></div>
-            <div data-arg="browse" class="view">
-                <div data-montage-id="browsePlayers"></div>
-            </div>
-            <div data-arg="quiz" class="view">
-                <div data-montage-id="timer"></div>
-                <div data-montage-id="question"></div>
-            </div>
-            <div data-arg="results" class="view">
-                <div data-montage-id="results" class="results"></div>
-            </div>
-        </div>
-        <div data-montage-id="timerEndedModal"></div>
+        <div data-montage-id="bodyContent"></div>
         <div data-montage-id="sceneView">
             <canvas data-montage-id="canvas"></canvas>
         </div>
-        <a href="http://www.montagestudio.com" data-montage-id="montageLogo"></a>
-        <img src="../../assets/image/GSW-Home-Court.jpg" style="opacity: 0; width: 0; height: 0" >
+        <a data-montage-id="montageLogo"></a>
     </div>
 </body>
 </html>

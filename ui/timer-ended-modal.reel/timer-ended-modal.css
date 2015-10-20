@@ -1,5 +1,11 @@
-.TimerEndedModal {
+@-webkit-keyframes timer-out {
+    0%      {opacity: 1; -webkit-transform: scale(1); transform: scale(1);}
+    100%    {opacity: 0; -webkit-transform: scale(.8); transform: scale(.8);}
+}
 
+@keyframes timer-out {
+    0%      {opacity: 1; -webkit-transform: scale(1); transform: scale(1);}
+    100%    {opacity: 0; -webkit-transform: scale(.8); transform: scale(.8);}
 }
 
 .modal {
@@ -18,23 +24,16 @@
     -webkit-justify-content: center;
         -ms-flex-pack: center;
             justify-content: center;
-    -webkit-transform: scale(.8);
-            transform: scale(.8);
-    opacity: 0;
-    visibility: hidden;
-    transition: all .5s;
 }
 
-.modal.is-visible {
-    -webkit-transform: scale(1);
-            transform: scale(1);
-    opacity: 1;
-    visibility: visible;
+.timer-out .modal {
+    -webkit-animation: timer-out .25s 2s forwards;
+            animation: timer-out .25s 2s forwards;
 }
 
 .modal h1 {
     -ms-flex-item-align: center;
-        -webkit-align-self: center;
+            -webkit-align-self: center;
             align-self: center;
     text-align: center;
     border: .1em solid #FFF;

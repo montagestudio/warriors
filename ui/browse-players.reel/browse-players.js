@@ -66,8 +66,6 @@ exports.BrowsePlayers = Component.specialize(/** @lends BrowsePlayers# */ {
     enterDocument: {
         value: function(isFirstTime) {
             this.isActive = true;
-            // working on firing transitionend events
-            this.addEventListener("transitionend", console.log('transition ended'), false);
         }
     }
 

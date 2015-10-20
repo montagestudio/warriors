@@ -14,8 +14,14 @@ exports.GraphBar = Component.specialize(/** @lends GraphBar# */ {
         }
     },
 
-    enterDocument: {
+    handleAnimationend: {
         value: function () {
+            console.log('testing handle animation end');
+        }
+    },
+
+    enterDocument: {
+        value: function (isFirstTime) {
             if (!this.cssTransform) {// check for transform support
                 if("webkitTransform" in this._element.style) {
                     this.cssTransform = "webkitTransform";
