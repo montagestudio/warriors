@@ -115,6 +115,7 @@ button:focus {
 .btn:hover,
 .btn:active {
     background-image: linear-gradient(rgba(0,0,0,.1), rgba(0,0,0,.1));
+    border-color: rgb(255,204,51);
 }
 
 .btn:active {
