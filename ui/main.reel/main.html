@@ -72,6 +72,9 @@
             "prototype": "ui/results.reel",
             "properties": {
                 "element": {"#": "results"}
+            },
+            "bindings": {
+                "currentView": {"<-": "@owner.currentView"}
             }
         },
         "scene": {
@@ -126,7 +129,11 @@
 </head>
 <body>
     <div data-montage-id="main" class="Main">
-        <div data-montage-id="warriorsTitle" class="header"></div>
+        <div class="header">
+            <img src="../../assets/image/warriors_quiz.png" alt="warriors quiz title image">
+            <h1 data-montage-id="warriorsTitle"></h1>
+        </div>
+
         <div data-montage-id="menu"></div>
         <div data-montage-id="pageSubstitution" class="content">
             <div data-arg="intro" data-montage-id="intro"></div>

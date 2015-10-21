@@ -63,7 +63,7 @@ FLOW
 
 .flow-container {
     position: relative;
-    max-height: 860px;
+    /*max-height: 860px;*/
     -webkit-flex: 1;
         -ms-flex: 1;
             flex: 1;

@@ -12,7 +12,7 @@
     box-sizing: border-box;
     position: absolute;
     left: 50%;
-    margin-left: -63px;
+    margin-left: -70px;
     margin-top: 0px;
     display: inline-block;
     width: 140px;
@@ -84,12 +84,11 @@
     }
 }
 
-
-
 @media (min-height: 900px) and (min-width: 767px) {
     .Timer {
         width: 170px;
         margin-left: -80px;
+        margin-top: 10px;
     }
 
     .questionNumber {
@@ -121,6 +120,12 @@
                 -webkit-align-self: center;
                 align-self: center;
         padding: 0;
+    }
+}
+
+@media (min-height: 1200px) {
+    .Timer {
+        margin-top: 20px;
     }
 }
 

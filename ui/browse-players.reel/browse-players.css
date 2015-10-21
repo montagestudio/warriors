@@ -28,7 +28,7 @@
 
 .BrowsePlayers .buttonGroup .btn {
     max-width: 220px;
-    min-width: auto;
+    /*min-width: auto;*/
     margin: 5px 10px;
     -webkit-transform: translateY(140px);
             transform: translateY(140px);
@@ -50,7 +50,7 @@
 }
 
 @media (min-height: 800px) {
-    .BrowserPlayers .buttonGRoup {
+    .BrowsePlayers .buttonGroup {
         margin: 20px auto 40px;
     }
 }

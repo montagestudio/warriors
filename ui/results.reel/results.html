@@ -9,6 +9,9 @@
             "properties": {
                 "element": {"#": "owner"}
             },
+            "bindings": {
+                "classList.has('animate-results')": {"<-": "@owner.currentView == 'results'"}
+            },
             "listeners": [
                 {
                     "type": "action",
@@ -210,7 +213,7 @@
 </head>
 <body>
     <div data-montage-id="owner" class="Results">
-        <div data-montage-id="results" class="results-container result-details">
+        <div class="results-container result-details">
             <h2 data-montage-id="resultTitle" class="results-ranking"></h2>
             <div class="results-section result-main">
                 <div data-montage-id="percentageCorrect" class="percentageCorrect">80</div>

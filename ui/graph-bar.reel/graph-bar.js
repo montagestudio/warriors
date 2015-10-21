@@ -33,7 +33,10 @@ exports.GraphBar = Component.specialize(/** @lends GraphBar# */ {
     draw: {
         value: function () {
             if (this.value !== null) {
-                this.barElement.style[this.cssTransform] = "translateX(" + (this.percentage - 100)  + "%)";
+                var self = this;
+                setTimeout(function(){
+                    self.barElement.style[self.cssTransform] = "translateX(" + (self.percentage - 100)  + "%)";
+                }, 1000);
             }
         }
     },

@@ -29,30 +29,6 @@
     border-right: 1px solid rgba(255,255,255,.3);
 }
 
-/* animated bar */
-
-@-webkit-keyframes animate-bar {
-   0%   { -webkit-transform: translateX(-100%); transform: translateX(-100%); }
-   100% {}
-}
-
-@keyframes animate-bar {
-   0%   { -webkit-transform: translateX(-100%); transform: translateX(-100%); }
-   100% {}
-}
-
-/* animated bar */
-
-/*@-webkit-keyframes animate-bar-out {
-   0%   {}
-   100% { -webkit-transform: translateX(-100%); transform: translateX(-100%); }
-}
-
-@keyframes animate-bar-out {
-   0%   {}
-   100% { -webkit-transform: translateX(-100%); transform: translateX(-100%); }
-}*/
-
 .bar-result {
     height: 40px;
     -webkit-flex: 1;
@@ -61,8 +37,10 @@
     color: rgb(255,204,51);
     background: currentColor;
     z-index: -1;
-    -webkit-animation: animate-bar 2s ease-out;
-            animation: animate-bar 2s ease-out;
+    transition: transform 2s ease-out;
+    -webkit-transform: translateX(-100%);
+            transform: translateX(-100%);
+    -webkit-backface-visibility: hidden;
 }
 
 .bar-result:before {

@@ -44,9 +44,8 @@
 .results-section {
     margin-right: -10px;
     position: relative;
-    padding-bottom: 2em;
-    margin-bottom: 2em;
-    /*border-bottom: 1px solid rgb(4,82,156);*/
+    padding-bottom: 1em;
+    margin-bottom: 1em;
 }
 
 .results-section:last-child {
@@ -65,7 +64,7 @@
     position: absolute;
     bottom: 0;
     left: 0;
-    right: 0;
+    right: 10px;
     height: 1px;
     background: rgba(4,82,156,.5);
 }
@@ -108,7 +107,7 @@
     margin-top: 0;
     margin-bottom: .5em;
     line-height: 1;
-    font-size: 1.4em;
+    font-size: 1.2em;
     letter-spacing: .5px;
     text-align: center;
 }
@@ -127,10 +126,10 @@
     -webkit-transform: rotate(-45deg);
             transform: rotate(-45deg);
     background-size: 50%;
-    top:    -15%;
-    left:   -60%;
-    bottom: -15%;
-    right:  -60%;
+    top:    -25%;
+    left:   -80%;
+    bottom: -25%;
+    right:  -80%;
     position: absolute;
     z-index: -1;
 }
@@ -157,7 +156,7 @@
     position: relative;
     text-align: center;
     font-weight: 700;
-    font-size: 6em;
+    font-size: 5em;
     line-height: 1;
     -webkit-transform: translateX(-10px);
             transform: translateX(-10px);
@@ -210,7 +209,7 @@
 
 .results-buttons .btn {
     display: inline-block;
-    font-size: 1.1em;
+    /*font-size: 1.1em;*/
     width: 50%;
     margin-right: 10px;
 }
@@ -222,9 +221,6 @@
     display: -webkit-flex;
     display: -ms-flexbox;
     display: flex;
-    margin-right: -15px;
-    /*margin-bottom: 1em;
-    padding-bottom: 1em;*/
 }
 
 /* columns for flex */
@@ -233,7 +229,7 @@
     -webkit-flex: 1;
         -ms-flex: 1;
             flex: 1;
-    margin-right: 15px;
+    margin-right: 10px;
     text-align: center;
 }
 
@@ -251,10 +247,12 @@
 
 .results-sharing .result-title {
     margin-right: 10px;
+    margin-top: 20px;
 }
 
 .results-sharing .Sharing {
     margin-top: -40px;
+    padding-top: 5px;
 }
 
 
@@ -262,11 +260,12 @@
     .results {
         max-width: 340px
     }
+
 }
 
 @media (min-height: 500px) and (orientation: portrait) {
     .results {
-        max-width: 460px;
+        max-width: 400px;
     }
 
     .result-details {
@@ -277,7 +276,12 @@
 @media (min-width: 767px) and (min-height: 750px) {
 
     .results {
-        max-width: 460px;
+        max-width: 500px;
+    }
+
+    .results-section {
+        margin-bottom: 2em;
+        padding-bottom: 2em;
     }
 
     .results-container {
@@ -294,8 +298,6 @@
 
     .result-main {
         display: block;
-        margin-bottom: 2em;
-        padding-bottom: 2em;
     }
 
     .result-title {
@@ -320,16 +322,14 @@
     .result-graphs {
         position: relative;
         margin-right: -15px;
-        margin-bottom: 2em;
-        padding-bottom: 2em;
 
     }
 
     .results-buttons .btn {
-        font-size: 1.4em;
+        /*font-size: 1.4em;*/
     }
 
     .results-sharing .Sharing {
-        margin-top: -56px;
+        margin-top: -60px;
     }
 }

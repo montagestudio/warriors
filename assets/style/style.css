@@ -80,12 +80,11 @@ button:focus {
     background: #036DCF linear-gradient(rgba(0,0,0,0), rgba(0,0,0,0));
     outline: none;
     border: none;
-    font-size: 1.2em;
+    font-size: 1em;
     font-family: "arvo";
     font-weight: 400;
-    letter-spacing: .5px;
     color: #FFF;
-    padding: .7em;
+    padding: .5em;
     cursor: pointer;
     border-radius: 4px;
     border: 2px solid rgb(4,82,156);
@@ -123,7 +122,8 @@ button:focus {
 
 @media (min-height: 800px) and (min-width: 767px) {
     .btn {
-        font-size: 1.8em;
+        font-size: 1.6em;
+        padding: .75em 1em;
     }
 
     .btn--small {
@@ -136,7 +136,7 @@ button:focus {
 .loading {
     position: absolute;
     z-index: 1;
-    bottom: 10px;
+    bottom: 5px;
     text-align: center;
     font-size: 18px;
     left: 50%;
@@ -201,10 +201,21 @@ button:focus {
     box-sizing: border-box;
     padding: 0 .5em;
     color: #FFF;
-    font-size: 1.4em;
-    line-height: 2.5;
     visibility: hidden;
     text-align: center;
+}
+
+.header h1 {
+    display: none;
+}
+
+/* warriors quiz image */
+
+.header img {
+    padding: 20px;
+    width: 50%;
+    max-width: 600px;
+    min-width: 180px;
 }
 
 .show-header .header {
@@ -265,17 +276,25 @@ button:focus {
     text-align: center;
     color: #FFF;
     position: relative;
-    margin-top: -40px;
+    margin-top: -99px;
+    padding: 0 10px;
+}
+
+/* hold text and button for flex */
+
+.intro-container {
+    position: relative;
 }
 
 .intro .intro-text {
     font-size: 1.4em;
     line-height: 1.4;
-    margin-bottom: 1em;
+    margin-bottom: .5em;
     text-shadow: -1px 2px 1px black;
 }
 
 .intro button {
+    margin-top: 1em;
     max-width: 180px;
 }
 
@@ -287,7 +306,7 @@ button:focus {
     background-size: contain;
     background-repeat: no-repeat;
     background-image: url(../../assets/image/championship_logo.png);
-    margin-bottom: 2em;
+    margin-bottom: 1em;
 }
 
 /* setting up the animation */
@@ -305,6 +324,36 @@ button:focus {
     -webkit-transform: scale(0);
             transform: scale(0);
     opacity: 0;
+}
+
+@media (max-height: 350px) and (orientation: landscape) {
+    .intro {
+        display: flex;
+    }
+
+    .intro .logo {
+        flex: 1 0 160px;
+        margin: 0 1em;
+    }
+
+    .intro .intro-text {
+        margin-bottom: 1em;
+    }
+
+    .loading {
+        left: 50%;
+        bottom: -10px;
+    }
+}
+
+@media (max-height: 500px) and (orientation: portrait) {
+    .intro .logo {
+        margin-bottom: 2em;
+    }
+
+    .intro .intro-text {
+        margin-bottom: 1em;
+    }
 }
 
 @media (min-height: 620px) and (orientation: portrait) {
@@ -334,6 +383,7 @@ button:focus {
 
     .intro .intro-text {
         font-size: 2em;
+        margin-bottom: 1em;
     }
 
     .intro button {
@@ -343,6 +393,7 @@ button:focus {
     .intro .logo {
         width: 350px;
         height: 225px;
+        margin-bottom: 3em;
     }
 }
 
