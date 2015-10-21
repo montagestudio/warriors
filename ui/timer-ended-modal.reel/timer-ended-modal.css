@@ -34,7 +34,7 @@
 
 .modal h1 {
     -ms-flex-item-align: center;
-        -webkit-align-self: center;
+            -webkit-align-self: center;
             align-self: center;
     text-align: center;
     border: .1em solid #FFF;

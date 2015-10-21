@@ -8,10 +8,15 @@
     overflow: hidden;
     -webkit-transform: scale(.5);
             transform: scale(.5);
-    transform-origin: 0% 0%;
+    -webkit-transform-origin: 0% 0%;
+            transform-origin: 0% 0%;
     transition: -webkit-transform .25s cubic-bezier(.44,1.14,.77,1.16);
     transition: transform .25s cubic-bezier(.44,1.14,.77,1.16);
     opacity: 0.5;
+    -webkit-user-select: none;
+       -moz-user-select: none;
+        -ms-user-select: none;
+            user-select: none;
 }
 
 .montageTag img {

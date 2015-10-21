@@ -30,7 +30,9 @@
         -ms-flex-direction: column;
             flex-direction: column;
 
-    justify-content: space-around;
+    -webkit-justify-content: space-around;
+        -ms-flex-pack: distribute;
+            justify-content: space-around;
 }
 
 /* Question Title */
@@ -76,7 +78,9 @@
 @media (min-height: 600px) and (min-width: 400px) and (orientation: portrait) {
     .Question {
         margin-top: 8em;
-        justify-content: space-around;
+        -webkit-justify-content: space-around;
+            -ms-flex-pack: distribute;
+                justify-content: space-around;
     }
 
     .query {
@@ -91,7 +95,9 @@
 
 @media (min-height: 410px) and (min-width: 400px) and (orientation: landscape) {
     .Question {
-        justify-content: space-around;
+        -webkit-justify-content: space-around;
+            -ms-flex-pack: distribute;
+                justify-content: space-around;
     }
 
     .query {
@@ -106,7 +112,9 @@
 
 @media (min-height: 500px) and (min-width: 400px) and (orientation: landscape) {
     .Question {
-        justify-content: space-around;
+        -webkit-justify-content: space-around;
+            -ms-flex-pack: distribute;
+                justify-content: space-around;
     }
 
     .query {
