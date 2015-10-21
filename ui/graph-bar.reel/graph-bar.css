@@ -8,7 +8,8 @@
     overflow: hidden;
     padding-right: 40px;
     /* pixel render fix*/
-    transform: translate3d(0,0,1px);
+    -webkit-transform: translate3d(0,0,1px);
+            transform: translate3d(0,0,1px);
 }
 
 .bar + .bar {
@@ -22,8 +23,8 @@
     height: 40px;
     line-height: 40px;
     background: rgb(255,204,51);
-    -webkit-align-self: center;
-        -ms-flex-item-align: center;
+    -ms-flex-item-align: center;
+        -webkit-align-self: center;
             align-self: center;
     border-right: 1px solid rgba(255,255,255,.3);
 }
@@ -77,7 +78,11 @@
 
 .bar-result:before { background: currentColor; }
 
-.bar:last-child .bar-result { color: #999; }
+/*averages */
+.bar:last-child .bar-result        { color: #999; }
+.bar:last-child .bar-result:before { background: #999; }
+
+
 
 /* bar numeric value*/
 
