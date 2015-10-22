@@ -23,7 +23,8 @@
                 "cameraTargetPoint": [0, 0, 0],
                 "boundingBoxSize": [800, 800, 0],
                 "linearScrollingVector": [-200, 0, 0],
-                "delegate": {"@": "owner"}
+                "delegate": {"@": "owner"},
+                "slotContent": {"#": "basketball"}
             },
             "bindings": {
                 "content": {"<-": "@owner.data"}
@@ -51,6 +52,7 @@
 <body>
     <div data-montage-id="owner" class="PlayerCarousel">
         <div class="flow-container">
+            <img data-montage-id="basketball" src="./basketball2d-edit.png" class="basketball">
             <div data-montage-id="flow" class="flow-Ribbon">
                 <div data-montage-id="playerCard"></div>
             </div>
