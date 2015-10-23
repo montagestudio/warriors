@@ -93,6 +93,21 @@ exports.StatsController = Montage.specialize(/** @lends StatsController# */ {
         }
     },
 
+    _comapareElapsedTime: {
+        value: function (a,b) {
+            // console.log("a: " + a);
+            // console.log("b: " + b);
+            if (a > b) {
+                // console.log(true);
+                return 100;
+            } else {
+                // console.log(false);
+                // console.log(100 - (a / b * 100));
+                return a / b * 100;
+            }
+        }
+    },
+
     _getUserPercentageOfTotalTime: {
         value: function () {
             return this._convertToPercentage(this._timerProvider.quizTime,this._timerProvider.getElapsedTime());
@@ -102,11 +117,6 @@ exports.StatsController = Montage.specialize(/** @lends StatsController# */ {
     _getAveragePercentageOfTotalTime: {
         value: function () {
             return this._convertToPercentage(this._timerProvider.quizTime, this._getAverageElapsedTime());
-        }
-    },
-
-    constructor: {
-        value: function() {
         }
     },
 
@@ -132,8 +142,10 @@ exports.StatsController = Montage.specialize(/** @lends StatsController# */ {
                 averagePercentageCorrect: this._getAveragePercentageCorrect(),
                 averageTimeElapsed: this._getAverageElapsedTime(),
                 totalQuestions: this._quizProvider.getQuestionsCount(),
-                userPercentageOfTotalTime: this._getUserPercentageOfTotalTime(),
-                averagePercentageOfTotalTime: this._getAveragePercentageOfTotalTime()
+                userPercentageOfTotalTime: this._comapareElapsedTime(this._timerProvider.getElapsedTime(), this._getAverageElapsedTime()),
+                // averagePercentageOfTotalTime: this._getAveragePercentageOfTotalTime(),
+                // userPercentageOfTotalTime: this._getUserPercentageOfTotalTime(),
+                averagePercentageOfTotalTime: this._comapareElapsedTime(this._getAverageElapsedTime(), this._timerProvider.getElapsedTime())
             };
         }
     }
