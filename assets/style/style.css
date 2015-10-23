@@ -10,13 +10,6 @@
     font-style: normal;
 }
 
-/* preload hack */
-
-.Main:before {
-    content: url(../../ui/player-carousel.reel/basketball2d-edit.png) url(../../assets/image/cross.svg) url(../../assets/image/checkmark.svg);
-    display:none;
-}
-
 body {
     font-family: "arvo", "Helvetica Neue", Helvetica, Arial, sans-serif;
     font-size: 13px;
