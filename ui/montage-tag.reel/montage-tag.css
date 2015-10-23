@@ -7,7 +7,6 @@
     color: white;
     overflow: hidden;
     opacity: 0.5;
-    outline: none;
     -webkit-transform: scale(.5);
             transform: scale(.5);
     -webkit-transform-origin: 0% 0%;
@@ -16,16 +15,17 @@
        -moz-user-select: none;
         -ms-user-select: none;
             user-select: none;
-    transition: -webkit-transform .2s ease-in-out;
-    transition: transform .2s ease-in-out;
+    transition: all .2s ease-in-out;
     background-image: url(../../assets/image/montage-tag_still.gif);
     background-size: 100px 100px;
     background-repeat: no-repeat;
     padding: 0;
+    outline: none;
 }
 
 .montageTag:hover,
 .montageTag.expanded {
+    opacity: 1;
     -webkit-transform: scale(1);
             transform: scale(1);
 }
@@ -34,7 +34,6 @@
     width:  100px;
     height: 100px;
     position: absolute;
-    pointer-events: none;
     opacity: 0;
     transition: opacity .2s ease-in-out;
     background-image: url(../../assets/image/montage-tag.gif);
@@ -44,6 +43,5 @@
 
 .montageTag:hover .clickableLink,
 .montageTag.expanded .clickableLink {
-    pointer-events: auto;
     opacity: 1;
 }
