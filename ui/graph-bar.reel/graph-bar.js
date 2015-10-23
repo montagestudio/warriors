@@ -40,4 +40,10 @@ exports.GraphBar = Component.specialize(/** @lends GraphBar# */ {
             }
         }
     },
+
+    exitDocument: {
+        value: function () {
+            this.barElement.style[this.cssTransform] = "translateX(" + -100 + "%)";
+        }
+    }
 });
