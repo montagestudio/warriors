@@ -1,15 +1,24 @@
 /**
  * @module ui/montage-tag.reel
  */
-var Component = require("montage/ui/component").Component;
+
+var Button = require("montage/ui/button.reel").Button;
 
 /**
  * @class MontageTag
  * @extends Component
  */
-exports.MontageTag = Component.specialize(/** @lends MontageTag# */ {
-    constructor: {
-        value: function MontageTag() {
+
+var MontageTag = exports.MontageTag = Button.specialize(/** @lends MontageTag# */ {
+
+    hasTemplate: {
+        value: true
+    },
+
+    handleAction: {
+        value: function () {
+            console.log('action');
+            this.classList.add("expanded");
         }
     }
 });

@@ -6,25 +6,44 @@
     top: 10px;
     color: white;
     overflow: hidden;
+    opacity: 0.5;
+    outline: none;
     -webkit-transform: scale(.5);
             transform: scale(.5);
     -webkit-transform-origin: 0% 0%;
             transform-origin: 0% 0%;
-    transition: -webkit-transform .25s cubic-bezier(.44,1.14,.77,1.16);
-    transition: transform .25s cubic-bezier(.44,1.14,.77,1.16);
-    opacity: 0.5;
     -webkit-user-select: none;
        -moz-user-select: none;
         -ms-user-select: none;
             user-select: none;
+    transition: -webkit-transform .2s ease-in-out;
+    transition: transform .2s ease-in-out;
+    background-image: url(../../assets/image/montage-tag_still.gif);
+    background-size: 100px 100px;
+    background-repeat: no-repeat;
+    padding: 0;
 }
 
-.montageTag img {
-    width: 100%;
-    height: auto;
-    display: block;
+.montageTag:hover,
+.montageTag.expanded {
+    -webkit-transform: scale(1);
+            transform: scale(1);
 }
 
-.montageTag:hover { -webkit-transform: scale(1); transform: scale(1); cursor: pointer; }
+.montageTag .clickableLink {
+    width:  100px;
+    height: 100px;
+    position: absolute;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity .2s ease-in-out;
+    background-image: url(../../assets/image/montage-tag.gif);
+    background-size: 100px 100px;
+    background-repeat: no-repeat;
+}
 
-.montageTag:hover img:first-child { display: none; }
+.montageTag:hover .clickableLink,
+.montageTag.expanded .clickableLink {
+    pointer-events: auto;
+    opacity: 1;
+}
