@@ -13,7 +13,7 @@
 /* preload hack */
 
 .Main:before {
-    content: url(../../ui/player-carousel.reel/basketball2d-edit);
+    content: url(../../ui/player-carousel.reel/basketball2d-edit.png) url(../../assets/image/cross.svg) url(../../assets/image/checkmark.svg);
     display:none;
 }
 
