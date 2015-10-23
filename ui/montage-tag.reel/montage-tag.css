@@ -21,6 +21,8 @@
     background-repeat: no-repeat;
     padding: 0;
     outline: none;
+    cursor: pointer;
+
 }
 
 .montageTag:hover,
