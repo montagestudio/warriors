@@ -95,14 +95,9 @@ exports.StatsController = Montage.specialize(/** @lends StatsController# */ {
 
     _comapareElapsedTime: {
         value: function (a,b) {
-            // console.log("a: " + a);
-            // console.log("b: " + b);
             if (a > b) {
-                // console.log(true);
                 return 100;
             } else {
-                // console.log(false);
-                // console.log(100 - (a / b * 100));
                 return a / b * 100;
             }
         }
@@ -140,12 +135,14 @@ exports.StatsController = Montage.specialize(/** @lends StatsController# */ {
                 totalCorrect: this._answerProvider.getTotalCorrect(),
                 elapsedTime: this._timerProvider.getElapsedTime(),
                 averagePercentageCorrect: this._getAveragePercentageCorrect(),
-                averageTimeElapsed: this._getAverageElapsedTime(),
+                averageTimeElapsed: this._getAverageElapsedTime() * .75,
                 totalQuestions: this._quizProvider.getQuestionsCount(),
-                userPercentageOfTotalTime: this._comapareElapsedTime(this._timerProvider.getElapsedTime(), this._getAverageElapsedTime()),
+                userPercentageOfTotalTime: this._comapareElapsedTime(this._timerProvider.getElapsedTime(), this._getAverageElapsedTime() * .75),
                 // averagePercentageOfTotalTime: this._getAveragePercentageOfTotalTime(),
                 // userPercentageOfTotalTime: this._getUserPercentageOfTotalTime(),
-                averagePercentageOfTotalTime: this._comapareElapsedTime(this._getAverageElapsedTime(), this._timerProvider.getElapsedTime())
+
+                // $fix - remove static number, for demo purposes since database needs to be reset
+                averagePercentageOfTotalTime: this._comapareElapsedTime(this._getAverageElapsedTime() * .75, this._timerProvider.getElapsedTime())
             };
         }
     }
