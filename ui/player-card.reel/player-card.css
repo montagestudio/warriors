@@ -32,8 +32,6 @@
     bottom: 0;
     left: 0;
     right: 0;
-/*    -webkit-transform: translate(0, 0);
-    transform: translate(0, 0);*/
     transition: bottom .3s ease-in-out;
     transition: bottom .3s ease-in-out;
 }
@@ -44,8 +42,6 @@
 
 .show-details .playerInfo2 {
     top: 218px;
-    /*-webkit-transform: translate3d(0, -274px,0);
-    transform: translate3d(0, -274px,0);*/
 }
 
 .playerInfo2 {
@@ -53,8 +49,6 @@
     top: 492px;
     left: 0;
     right: 0;
-/*    -webkit-transform: translate(0, 0);
-    transform: translate(0, 0);*/
     transition: top .3s ease-in-out;
     transition: top .3s ease-in-out;
 }
@@ -117,6 +111,11 @@
     width: 100%;
     min-height: 500px;
     background: rgba(4,82,156,.95);
+}
+
+.quiz-view .playerSpecs,
+.quiz-view .player-summary {
+    display: none;
 }
 
 .playerSpecs {
