@@ -26,13 +26,13 @@
     margin: 0 auto;
     width: 100%;
     text-align: center;
-    -webkit-animation: results-in .5s cubic-bezier(.44,1.14,.77,1.16) forwards;
-            animation: results-in .5s cubic-bezier(.44,1.14,.77,1.16) forwards;
+    -webkit-animation: results-in .5s ease-out forwards;
+            animation: results-in .5s ease-out forwards;
 }
 
 .transition-results-out.Results {
-    -webkit-animation: results-out .5s cubic-bezier(.44,1.14,.77,1.16) forwards;
-            animation: results-out .5s cubic-bezier(.44,1.14,.77,1.16) forwards;
+    -webkit-animation: results-out .5s ease-in forwards;
+            animation: results-out .5s ease-in forwards;
 }
 
 .results-container {
