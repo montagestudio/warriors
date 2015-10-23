@@ -8,15 +8,23 @@
         "owner": {
             "properties": {
                 "element": {"#": "owner"}
-            }
+            },
+            "listeners": [
+                {
+                    "type": "action",
+                    "listener": {"@": "owner"},
+                    "capture": false
+                }
+            ]
         }
+
     }
     </script>
 </head>
 <body>
-    <a href="http://www.montagestudio.com" data-montage-id="owner" target="_blank" class="montageTag">
-        <img src="../../assets/image/montage-tag_still.gif" alt="">
-        <img src="../../assets/image/montage-tag.gif" alt="">
-    </a>
+    <div data-montage-id="owner" class="montageTag">
+        <a href="http://www.montagestudio.com" target="_blank" class="clickableLink">
+        </a>
+    </div>
 </body>
 </html>
