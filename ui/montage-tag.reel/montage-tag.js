@@ -11,6 +11,23 @@ var Button = require("montage/ui/button.reel").Button;
 
 var MontageTag = exports.MontageTag = Button.specialize(/** @lends MontageTag# */ {
 
+    enterDocument: {
+        value: function (isFirstTime) {
+            this.super(isFirstTime);
+            if (isFirstTime) {
+                this._element.addEventListener("touchstart", this, false);
+                this.classList.add("isMouse");
+            }
+        }
+    },
+
+    handleTouchstart: {
+        value: function (event) {
+            this.super(event);
+            this.classList.remove("isMouse");
+        }
+    },
+
     hasTemplate: {
         value: true
     },
@@ -29,7 +46,7 @@ var MontageTag = exports.MontageTag = Button.specialize(/** @lends MontageTag# *
             this._collapseTimeout = setTimeout(function () {
                 self.classList.remove("expanded");
             }, 5000);
-            if (linkOpacity > 0) {
+            if (linkOpacity > .1) {
                 window.open("http://www.montagestudio.com", '_blank');
             }
         }

@@ -25,7 +25,7 @@
 
 }
 
-.montageTag:hover,
+.montageTag.isMouse:hover,
 .montageTag.expanded {
     opacity: 1;
     -webkit-transform: scale(1);
@@ -41,9 +41,10 @@
     background-image: url(../../assets/image/montage-tag.gif);
     background-size: 100px 100px;
     background-repeat: no-repeat;
+    pointer-events: none;
 }
 
-.montageTag:hover .clickableLink,
+.montageTag.isMouse:hover .clickableLink,
 .montageTag.expanded .clickableLink {
     opacity: 1;
 }
