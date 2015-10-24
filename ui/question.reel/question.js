@@ -70,15 +70,19 @@ exports.Question = Component.specialize(/** @lends Question# */ {
             if (firstTime) {
                 this.addEventListener("questionTransition", this, false);
                 this.addEventListener("nextQuestion", this, false);
-            }
-        }
-    },
 
-    didDraw: {
-        value: function () {
+            }
             this.classList.add("transition-in");
         }
     },
+
+    // removed to try and fix transition
+
+    // didDraw: {
+    //     value: function () {
+    //         this.classList.add("transition-in");
+    //     }
+    // },
 
     handleNextQuestion: {
         value: function () {
@@ -93,7 +97,6 @@ exports.Question = Component.specialize(/** @lends Question# */ {
                     self.classList.add("transition-in");
                     self.classList.remove("transition-out");
                 }, 1000);
-
             }
 
         }
@@ -101,6 +104,7 @@ exports.Question = Component.specialize(/** @lends Question# */ {
 
     handleQuestionTransition: {
         value: function () {
+            console.log("nextQuestion");
             this.classList.add("transition-out");
             this.classList.remove("transition-in");
         }
