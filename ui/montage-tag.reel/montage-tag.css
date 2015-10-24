@@ -1,5 +1,5 @@
 .montageTag {
-    position: fixed;
+    position: absolute;
     height: 100px;
     width:  100px;
     left:   10px;
