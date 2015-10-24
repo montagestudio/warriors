@@ -57,7 +57,6 @@ exports.Question = Component.specialize(/** @lends Question# */ {
         set: function (value) {
             if (value !== this._data) {
                 this._data = value;
-                this.needsDraw = true;
             }
         },
 
@@ -72,6 +71,12 @@ exports.Question = Component.specialize(/** @lends Question# */ {
                 this.addEventListener("questionTransition", this, false);
                 this.addEventListener("nextQuestion", this, false);
             }
+        }
+    },
+
+    didDraw: {
+        value: function () {
+            this.classList.add("transition-in");
         }
     },
 

@@ -21,23 +21,23 @@
 @-webkit-keyframes transition-camera-in {
     0%      {-webkit-transform: scale3d(.1, .1, 1); transform: scale3d(.1, .1, 1); opacity: 0;}
     30%     {opacity: 1;}
-    100%    {-webkit-transform: scale3d(1, 1, 1); transform: scale3d(1, 1, 1)}
+    100%    {-webkit-transform: scale3d(1, 1, 1); transform: scale3d(1, 1, 1); opacity: 1;}
 }
 
 @keyframes transition-camera-in {
     0%      {-webkit-transform: scale3d(.1, .1, 1); transform: scale3d(.1, .1, 1); opacity: 0;}
     30%     {opacity: 1;}
-    100%    {-webkit-transform: scale3d(1, 1, 1); transform: scale3d(1, 1, 1);}
+    100%    {-webkit-transform: scale3d(1, 1, 1); transform: scale3d(1, 1, 1); opacity: 1;}
 }
 
 @-webkit-keyframes transition-camera-out {
-    0%      {-webkit-transform: scale3d(1, 1, 1); transform: scale3d(1, 1, 1)}
+    0%      {-webkit-transform: scale3d(1, 1, 1); transform: scale3d(1, 1, 1);o pacity: 1;}
     70%     {opacity: 1;}
     100%    {-webkit-transform: scale3d(.1, .1, 1); transform: scale3d(.1, .1, 1); opacity: 0;}
 }
 
 @keyframes transition-camera-out {
-    0%      {-webkit-transform: scale3d(1, 1, 1); transform: scale3d(1, 1, 1)}
+    0%      {-webkit-transform: scale3d(1, 1, 1); transform: scale3d(1, 1, 1); opacity: 1;}
     70%     {opacity: 1;}
     100%    {-webkit-transform: scale3d(.1, .1, 1); transform: scale3d(.1, .1, 1); opacity: 0;}
 }
@@ -73,6 +73,10 @@ FLOW
 }
 
 /* next question transition */
+
+.montage-Flow {
+    opacity: 0;
+}
 
 .transition-in .montage-Flow {
     -webkit-animation: transition-camera-in .5s forwards ease-in-out;
