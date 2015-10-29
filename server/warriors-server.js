@@ -54,7 +54,9 @@ function startServer(nconf) {
     });
 
     server.ext('onRequest', function (request, reply) {
-        if (request.headers['$wssc'] === 'http' && request.headers['x-force-http'] != 'unsafe') {
+        var forceHttps = nconf.get('FORCE_HTTPS');
+        request.isHttp = request.headers['$wssc'] === 'http';
+        if (request.isHttp && forceHttps && request.headers['x-livin-on-the-edge'] != 'yeah') {
             return reply()
                 .redirect('https://' + request.headers.host + request.url.path)
                 .code(301);
@@ -64,9 +66,24 @@ function startServer(nconf) {
         }
     });
 
+    server.ext('onPreHandler', function(request, reply) {
+        if (request.isHttp && request.plugins.scooter.family === 'Mobile Safari') {
+            request.noKeepAlive = true;
+        }
+        return reply.continue();
+    });
+
+    server.ext('onPreResponse', function(request, reply) {
+        if (request.noKeepAlive) {
+            request.response.header('Connection', 'close');
+        }
+        return reply(null, request.response);
+    });
+
     server.register([
         require('inert'),
         require('vision'),
+        require('scooter'),
         {
             register: require('hapi-swaggered'),
             options: {
@@ -92,9 +109,9 @@ function startServer(nconf) {
             }
         }
     ],
-        {
-            select: 'api'
-        },
+    {
+        select: 'api'
+    },
     function(err) {
         if (err) {
             throw err;
