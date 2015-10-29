@@ -54,7 +54,7 @@ function startServer(nconf) {
     });
 
     server.ext('onRequest', function (request, reply) {
-        if (request.headers['$wssc'] === 'http') {
+        if (request.headers['$wssc'] === 'http' && request.headers['x-force-http'] != 'unsafe') {
             return reply()
                 .redirect('https://' + request.headers.host + request.url.path)
                 .code(301);
