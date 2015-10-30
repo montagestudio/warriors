@@ -74,10 +74,10 @@ function startServer(nconf) {
     });
 
     server.ext('onPreResponse', function(request, reply) {
-        if (request.noKeepAlive) {
+        if (request.response && request.noKeepAlive && typeof request.response.header === 'function') {
             request.response.header('Connection', 'close');
         }
-        return reply(null, request.response);
+        return reply.continue();
     });
 
     server.register([
