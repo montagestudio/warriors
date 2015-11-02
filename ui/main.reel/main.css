@@ -8,10 +8,6 @@ html {
 
 /* scene */
 
-.View {
-    display: none;
-}
-
 .view {
     -webkit-flex: 1;
         -ms-flex: 1;
