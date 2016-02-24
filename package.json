@@ -2,7 +2,7 @@
     "name": "warriors",
     "version": "0.0.0",
     "dependencies": {
-        "montage": "montagejs/montage#0.15.3",
+        "montage": "montagejs/montage#master",
         "montage-social": "git+https://github.com/montagestudio/montage-social.git",
         "mjs-volume": "git+https://github.com/montagestudio/mjs-volume.git"
     },
