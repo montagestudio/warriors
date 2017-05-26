@@ -24,7 +24,7 @@
                 "boundingBoxSize": [800, 800, 0],
                 "linearScrollingVector": [-200, 0, 0],
                 "delegate": {"@": "owner"},
-                "slotContent": {"#": "basketball"}
+                "slotContent": {"@": "basketball"}
             },
             "bindings": {
                 "content": {"<-": "@owner.data"},
@@ -48,6 +48,16 @@
                 "flow": {"<-": "@flow"},
                 "mode": {"<-": "@owner.mode"}
             }
+        },
+
+        "basketball": {
+            "prototype": "ui/basketball.reel",
+            "properties": {
+                "element": {"#": "basketball"}
+            },
+            "bindings": {
+                "scroll": {"<-": "@flow.scroll"}
+            }
         }
     }
     </script>
@@ -55,7 +65,7 @@
 <body>
     <div data-montage-id="owner" class="PlayerCarousel">
         <div class="flow-container">
-            <img data-montage-id="basketball" src="./basketball2d-edit.png" class="basketball">
+            <div data-montage-id="basketball" class="basketball"></div>
             <div data-montage-id="flow" class="flow-Ribbon">
                 <div data-montage-id="playerCard"></div>
             </div>

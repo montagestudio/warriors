@@ -1,0 +1,571 @@
+{
+    "accessors": {
+        "accessor_31": {
+            "bufferView": "bufferView_43",
+            "byteOffset": 0,
+            "byteStride": 0,
+            "componentType": 5123,
+            "count": 9912,
+            "type": "SCALAR"
+        },
+        "accessor_33": {
+            "bufferView": "bufferView_44",
+            "byteOffset": 0,
+            "byteStride": 12,
+            "componentType": 5126,
+            "count": 9912,
+            "max": [
+                0.0827124,
+                0.0822975,
+                0.0819595
+            ],
+            "min": [
+                -0.0827124,
+                -0.0823421,
+                -0.0819595
+            ],
+            "type": "VEC3"
+        },
+        "accessor_35": {
+            "bufferView": "bufferView_44",
+            "byteOffset": 118944,
+            "byteStride": 12,
+            "componentType": 5126,
+            "count": 9912,
+            "max": [
+                0.999907,
+                1,
+                1
+            ],
+            "min": [
+                -0.999907,
+                -1,
+                -1
+            ],
+            "type": "VEC3"
+        },
+        "accessor_37": {
+            "bufferView": "bufferView_44",
+            "byteOffset": 237888,
+            "byteStride": 8,
+            "componentType": 5126,
+            "count": 9912,
+            "max": [
+                0.995773,
+                0.992874
+            ],
+            "min": [
+                0.0023261,
+                0.186667
+            ],
+            "type": "VEC2"
+        },
+        "accessor_39": {
+            "bufferView": "bufferView_44",
+            "byteOffset": 317184,
+            "byteStride": 12,
+            "componentType": 5126,
+            "count": 9912,
+            "max": [
+                1,
+                0.999993,
+                0.998207
+            ],
+            "min": [
+                -1,
+                -0.999907,
+                -0.998207
+            ],
+            "type": "VEC3"
+        },
+        "accessor_41": {
+            "bufferView": "bufferView_44",
+            "byteOffset": 436128,
+            "byteStride": 12,
+            "componentType": 5126,
+            "count": 9912,
+            "max": [
+                0.999899,
+                0.999734,
+                1
+            ],
+            "min": [
+                -0.999899,
+                -0.999735,
+                -0.999627
+            ],
+            "type": "VEC3"
+        }
+    },
+    "animations": {},
+    "asset": {
+        "generator": "collada2gltf@df4892809111a8c6dbff4fab6c386a24745d344e",
+        "premultipliedAlpha": true,
+        "profile": "WebGL 1.0.2",
+        "version": 0.8
+    },
+    "bufferViews": {
+        "bufferView_43": {
+            "buffer": "ball",
+            "byteLength": 19824,
+            "byteOffset": 0,
+            "target": 34963
+        },
+        "bufferView_44": {
+            "buffer": "ball",
+            "byteLength": 555072,
+            "byteOffset": 19824,
+            "target": 34962
+        }
+    },
+    "buffers": {
+        "ball": {
+            "byteLength": 574896,
+            "type": "arraybuffer",
+            "uri": "ball.bin"
+        }
+    },
+    "images": {
+        "dif": {
+            "uri": "ball_diffuse.png"
+        },
+        "norm": {
+            "uri": "ball_normal.png"
+        },
+        "spec": {
+            "uri": "ball_specular.png"
+        }
+    },
+    "lights": {
+        "ambientLightShape1": {
+            "ambient": {
+                "color": [
+                    0.127825,
+                    0.0588693,
+                    0.0228428
+                ]
+            },
+            "type": "ambient"
+        },
+        "directionalLightShape1": {
+            "directional": {
+                "color": [
+                    0.263157,
+                    0.263157,
+                    0.263157
+                ]
+            },
+            "type": "directional"
+        },
+        "pointLight1Shape": {
+            "point": {
+                "color": [
+                    1,
+                    1,
+                    1
+                ],
+                "constantAttenuation": 1,
+                "linearAttenuation": 0,
+                "quadraticAttenuation": 0
+            },
+            "type": "point"
+        }
+    },
+    "materials": {
+        "basketBall_ncl1_1-fx": {
+            "instanceTechnique": {
+                "technique": "technique1",
+                "values": {
+                    "ambient": [
+                        0.2,
+                        0.2,
+                        0.2,
+                        1
+                    ],
+                    "bump": "texture_norm",
+                    "diffuse": "texture_dif",
+                    "emission": [
+                        0,
+                        0,
+                        0,
+                        1
+                    ],
+                    "shininess": 2.5,
+                    "specular": "texture_spec"
+                }
+            },
+            "name": "basketBall_ncl1_1"
+        }
+    },
+    "meshes": {
+        "basketBallShape": {
+            "name": "basketBallShape",
+            "primitives": [
+                {
+                    "attributes": {
+                        "NORMAL": "accessor_35",
+                        "POSITION": "accessor_33",
+                        "TEXBINORMAL": "accessor_41",
+                        "TEXCOORD_0": "accessor_37",
+                        "TEXTANGENT": "accessor_39"
+                    },
+                    "indices": "accessor_31",
+                    "material": "basketBall_ncl1_1-fx",
+                    "primitive": 4
+                }
+            ]
+        }
+    },
+    "nodes": {
+        "ambientLight1": {
+            "children": [],
+            "light": "ambientLightShape1",
+            "matrix": [
+                1,
+                0,
+                0,
+                0,
+                0,
+                1,
+                0,
+                0,
+                0,
+                0,
+                1,
+                0,
+                0,
+                0,
+                0.679667,
+                1
+            ],
+            "name": "ambientLight1"
+        },
+        "basketBall": {
+            "children": [],
+            "matrix": [
+                0,
+                0.939693,
+                -0.34202,
+                0,
+                -1,
+                0,
+                0,
+                0,
+                0,
+                0.34202,
+                0.939693,
+                0,
+                0,
+                0,
+                0,
+                1
+            ],
+            "meshes": [
+                "basketBallShape"
+            ],
+            "name": "basketBall"
+        },
+        "directionalLight1": {
+            "children": [],
+            "light": "directionalLightShape1",
+            "matrix": [
+                0.865657,
+                0.161611,
+                -0.473835,
+                0,
+                0,
+                0.946464,
+                0.32281,
+                0,
+                0.500637,
+                -0.279443,
+                0.819313,
+                0,
+                0.0930168,
+                -0.0901437,
+                0.273665,
+                1
+            ],
+            "name": "directionalLight1"
+        },
+        "pointLight1": {
+            "children": [],
+            "light": "pointLight1Shape",
+            "matrix": [
+                1,
+                0,
+                0,
+                0,
+                0,
+                1,
+                0,
+                0,
+                0,
+                0,
+                1,
+                0,
+                -0.595523,
+                1.38082,
+                0,
+                1
+            ],
+            "name": "pointLight1"
+        }
+    },
+    "programs": {
+        "program_0": {
+            "attributes": [
+                "a_normal",
+                "a_position",
+                "a_texbinormal",
+                "a_texcoord0",
+                "a_textangent"
+            ],
+            "fragmentShader": "ball0FS",
+            "vertexShader": "ball0VS"
+        }
+    },
+    "samplers": {
+        "sampler_0": {
+            "magFilter": 9729,
+            "minFilter": 9729,
+            "wrapS": 10497,
+            "wrapT": 10497
+        }
+    },
+    "scene": "defaultScene",
+    "scenes": {
+        "defaultScene": {
+            "nodes": [
+                "basketBall",
+                "pointLight1",
+                "ambientLight1",
+                "directionalLight1"
+            ]
+        }
+    },
+    "shaders": {
+        "ball0FS": {
+            "type": 35632,
+            "uri": "ball0FS.glsl"
+        },
+        "ball0VS": {
+            "type": 35633,
+            "uri": "ball0VS.glsl"
+        }
+    },
+    "skins": {},
+    "techniques": {
+        "technique1": {
+            "parameters": {
+                "ambient": {
+                    "type": 35666
+                },
+                "bump": {
+                    "type": 35678
+                },
+                "diffuse": {
+                    "type": 35678
+                },
+                "emission": {
+                    "type": 35666
+                },
+                "light0Color": {
+                    "type": 35665,
+                    "value": [
+                        1,
+                        1,
+                        1
+                    ]
+                },
+                "light0ConstantAttenuation": {
+                    "type": 5126,
+                    "value": 1
+                },
+                "light0LinearAttenuation": {
+                    "type": 5126,
+                    "value": 0
+                },
+                "light0QuadraticAttenuation": {
+                    "type": 5126,
+                    "value": 0
+                },
+                "light0Transform": {
+                    "semantic": "MODELVIEW",
+                    "source": "pointLight1",
+                    "type": 35676
+                },
+                "light1Color": {
+                    "type": 35665,
+                    "value": [
+                        0.127825,
+                        0.0588693,
+                        0.0228428
+                    ]
+                },
+                "light2Color": {
+                    "type": 35665,
+                    "value": [
+                        0.263157,
+                        0.263157,
+                        0.263157
+                    ]
+                },
+                "light2Transform": {
+                    "semantic": "MODELVIEW",
+                    "source": "directionalLight1",
+                    "type": 35676
+                },
+                "modelViewMatrix": {
+                    "semantic": "MODELVIEW",
+                    "type": 35676
+                },
+                "normal": {
+                    "semantic": "NORMAL",
+                    "type": 35665
+                },
+                "normalMatrix": {
+                    "semantic": "MODELVIEWINVERSETRANSPOSE",
+                    "type": 35675
+                },
+                "position": {
+                    "semantic": "POSITION",
+                    "type": 35665
+                },
+                "projectionMatrix": {
+                    "semantic": "PROJECTION",
+                    "type": 35676
+                },
+                "shininess": {
+                    "type": 5126
+                },
+                "specular": {
+                    "type": 35678
+                },
+                "texbinormal": {
+                    "semantic": "TEXBINORMAL",
+                    "type": 35665
+                },
+                "texcoord0": {
+                    "semantic": "TEXCOORD_0",
+                    "type": 35664
+                },
+                "textangent": {
+                    "semantic": "TEXTANGENT",
+                    "type": 35665
+                }
+            },
+            "pass": "defaultPass",
+            "passes": {
+                "defaultPass": {
+                    "details": {
+                        "commonProfile": {
+                            "extras": {
+                                "doubleSided": true
+                            },
+                            "lightingModel": "Phong",
+                            "parameters": [
+                                "ambient",
+                                "bump",
+                                "diffuse",
+                                "emission",
+                                "light0Color",
+                                "light0ConstantAttenuation",
+                                "light0LinearAttenuation",
+                                "light0QuadraticAttenuation",
+                                "light0Transform",
+                                "light1Color",
+                                "light2Color",
+                                "light2Transform",
+                                "modelViewMatrix",
+                                "normalMatrix",
+                                "projectionMatrix",
+                                "shininess",
+                                "specular"
+                            ],
+                            "texcoordBindings": {
+                                "bump": "TEXCOORD_0",
+                                "diffuse": "TEXCOORD_0",
+                                "specular": "TEXCOORD_0"
+                            }
+                        },
+                        "type": "COLLADA-1.4.1/commonProfile"
+                    },
+                    "instanceProgram": {
+                        "attributes": {
+                            "a_normal": "normal",
+                            "a_position": "position",
+                            "a_texbinormal": "texbinormal",
+                            "a_texcoord0": "texcoord0",
+                            "a_textangent": "textangent"
+                        },
+                        "program": "program_0",
+                        "uniforms": {
+                            "u_ambient": "ambient",
+                            "u_bump": "bump",
+                            "u_diffuse": "diffuse",
+                            "u_emission": "emission",
+                            "u_light0Color": "light0Color",
+                            "u_light0ConstantAttenuation": "light0ConstantAttenuation",
+                            "u_light0LinearAttenuation": "light0LinearAttenuation",
+                            "u_light0QuadraticAttenuation": "light0QuadraticAttenuation",
+                            "u_light0Transform": "light0Transform",
+                            "u_light1Color": "light1Color",
+                            "u_light2Color": "light2Color",
+                            "u_light2Transform": "light2Transform",
+                            "u_modelViewMatrix": "modelViewMatrix",
+                            "u_normalMatrix": "normalMatrix",
+                            "u_projectionMatrix": "projectionMatrix",
+                            "u_shininess": "shininess",
+                            "u_specular": "specular"
+                        }
+                    },
+                    "states": {
+                        "enable": [
+                            2929,
+                            3042
+                        ],
+                        "functions": {
+                            "blendEquationSeparate": [
+                                32774,
+                                32774
+                            ],
+                            "blendFuncSeparate": [
+                                1,
+                                771,
+                                1,
+                                771
+                            ]
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "textures": {
+        "texture_dif": {
+            "format": 6408,
+            "internalFormat": 6408,
+            "sampler": "sampler_0",
+            "source": "dif",
+            "target": 3553,
+            "type": 5121
+        },
+        "texture_norm": {
+            "format": 6408,
+            "internalFormat": 6408,
+            "sampler": "sampler_0",
+            "source": "norm",
+            "target": 3553,
+            "type": 5121
+        },
+        "texture_spec": {
+            "format": 6408,
+            "internalFormat": 6408,
+            "sampler": "sampler_0",
+            "source": "spec",
+            "target": 3553,
+            "type": 5121
+        }
+    }
+}

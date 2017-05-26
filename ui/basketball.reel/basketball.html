@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <link rel="stylesheet" type="text/css" href="basketball.css">
+    <script type="text/montage-serialization">
+    {
+        "owner": {
+            "properties": {
+                "element": {"#": "owner"},
+
+                "scene": {"@": "scene"},
+                "sceneView": {"@": "sceneView"},
+                "basketballNode": {"@": "basketballNode"}
+            }
+        },
+
+        "scene": {
+            "prototype": "mjs-volume/runtime/scene",
+            "properties": {
+                "path": "/assets/3d/ball.gltf"
+            }
+        },
+
+        "sceneView": {
+            "prototype": "mjs-volume/ui/scene-view.reel",
+            "properties": {
+                "element": {"#": "sceneView"},
+                "scene": {"@": "scene"},
+                "allowsViewpointControl": false
+            }
+        },
+
+        "basketballNode": {
+            "prototype": "mjs-volume/runtime/node",
+            "properties": {
+                "scene": {"@": "scene"},
+                "id": "basketBall"
+            }
+        }
+    }
+    </script>
+</head>
+<body>
+    <div data-montage-id="owner" class="Basketball">
+        <div data-montage-id="sceneView" class="sceneView">
+            <canvas data-montage-id="canvas"></canvas>
+        </div>
+    </div>
+</body>
+</html>
